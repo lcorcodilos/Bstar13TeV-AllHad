@@ -1,0 +1,11 @@
+eosrm /store/user/lcorcodi/bstar_nano/bstarTrees17_WjetsHT400_1-11.root
+eosrm /store/user/lcorcodi/bstar_nano/bstarTrees17_WjetsHT400_2-11.root
+eosrm /store/user/lcorcodi/bstar_nano/bstarTrees17_WjetsHT400_3-11.root
+eosrm /store/user/lcorcodi/bstar_nano/bstarTrees17_WjetsHT400_4-11.root
+eosrm /store/user/lcorcodi/bstar_nano/bstarTrees17_WjetsHT400_5-11.root
+eosrm /store/user/lcorcodi/bstar_nano/bstarTrees17_WjetsHT400_6-11.root
+eosrm /store/user/lcorcodi/bstar_nano/bstarTrees17_WjetsHT400_7-11.root
+eosrm /store/user/lcorcodi/bstar_nano/bstarTrees17_WjetsHT400_8-11.root
+eosrm /store/user/lcorcodi/bstar_nano/bstarTrees17_WjetsHT400_9-11.root
+eosrm /store/user/lcorcodi/bstar_nano/bstarTrees17_WjetsHT400_10-11.root
+eosrm /store/user/lcorcodi/bstar_nano/bstarTrees17_WjetsHT400_11-11.root

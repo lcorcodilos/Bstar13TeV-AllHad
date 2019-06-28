@@ -1,0 +1,16 @@
+eosrm /store/user/lcorcodi/bstar_nano/bstarTrees18_WjetsHT600_1-16.root
+eosrm /store/user/lcorcodi/bstar_nano/bstarTrees18_WjetsHT600_2-16.root
+eosrm /store/user/lcorcodi/bstar_nano/bstarTrees18_WjetsHT600_3-16.root
+eosrm /store/user/lcorcodi/bstar_nano/bstarTrees18_WjetsHT600_4-16.root
+eosrm /store/user/lcorcodi/bstar_nano/bstarTrees18_WjetsHT600_5-16.root
+eosrm /store/user/lcorcodi/bstar_nano/bstarTrees18_WjetsHT600_6-16.root
+eosrm /store/user/lcorcodi/bstar_nano/bstarTrees18_WjetsHT600_7-16.root
+eosrm /store/user/lcorcodi/bstar_nano/bstarTrees18_WjetsHT600_8-16.root
+eosrm /store/user/lcorcodi/bstar_nano/bstarTrees18_WjetsHT600_9-16.root
+eosrm /store/user/lcorcodi/bstar_nano/bstarTrees18_WjetsHT600_10-16.root
+eosrm /store/user/lcorcodi/bstar_nano/bstarTrees18_WjetsHT600_11-16.root
+eosrm /store/user/lcorcodi/bstar_nano/bstarTrees18_WjetsHT600_12-16.root
+eosrm /store/user/lcorcodi/bstar_nano/bstarTrees18_WjetsHT600_13-16.root
+eosrm /store/user/lcorcodi/bstar_nano/bstarTrees18_WjetsHT600_14-16.root
+eosrm /store/user/lcorcodi/bstar_nano/bstarTrees18_WjetsHT600_15-16.root
+eosrm /store/user/lcorcodi/bstar_nano/bstarTrees18_WjetsHT600_16-16.root

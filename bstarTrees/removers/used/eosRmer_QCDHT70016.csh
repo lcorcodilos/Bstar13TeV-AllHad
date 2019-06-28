@@ -1,0 +1,14 @@
+eosrm /store/user/lcorcodi/bstar_nano/bstarTrees16_QCDHT700_1-14.root
+eosrm /store/user/lcorcodi/bstar_nano/bstarTrees16_QCDHT700_2-14.root
+eosrm /store/user/lcorcodi/bstar_nano/bstarTrees16_QCDHT700_3-14.root
+eosrm /store/user/lcorcodi/bstar_nano/bstarTrees16_QCDHT700_4-14.root
+eosrm /store/user/lcorcodi/bstar_nano/bstarTrees16_QCDHT700_5-14.root
+eosrm /store/user/lcorcodi/bstar_nano/bstarTrees16_QCDHT700_6-14.root
+eosrm /store/user/lcorcodi/bstar_nano/bstarTrees16_QCDHT700_7-14.root
+eosrm /store/user/lcorcodi/bstar_nano/bstarTrees16_QCDHT700_8-14.root
+eosrm /store/user/lcorcodi/bstar_nano/bstarTrees16_QCDHT700_9-14.root
+eosrm /store/user/lcorcodi/bstar_nano/bstarTrees16_QCDHT700_10-14.root
+eosrm /store/user/lcorcodi/bstar_nano/bstarTrees16_QCDHT700_11-14.root
+eosrm /store/user/lcorcodi/bstar_nano/bstarTrees16_QCDHT700_12-14.root
+eosrm /store/user/lcorcodi/bstar_nano/bstarTrees16_QCDHT700_13-14.root
+eosrm /store/user/lcorcodi/bstar_nano/bstarTrees16_QCDHT700_14-14.root

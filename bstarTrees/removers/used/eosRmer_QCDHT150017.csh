@@ -1,0 +1,10 @@
+eosrm /store/user/lcorcodi/bstar_nano/bstarTrees17_QCDHT1500_1-10.root
+eosrm /store/user/lcorcodi/bstar_nano/bstarTrees17_QCDHT1500_2-10.root
+eosrm /store/user/lcorcodi/bstar_nano/bstarTrees17_QCDHT1500_3-10.root
+eosrm /store/user/lcorcodi/bstar_nano/bstarTrees17_QCDHT1500_4-10.root
+eosrm /store/user/lcorcodi/bstar_nano/bstarTrees17_QCDHT1500_5-10.root
+eosrm /store/user/lcorcodi/bstar_nano/bstarTrees17_QCDHT1500_6-10.root
+eosrm /store/user/lcorcodi/bstar_nano/bstarTrees17_QCDHT1500_7-10.root
+eosrm /store/user/lcorcodi/bstar_nano/bstarTrees17_QCDHT1500_8-10.root
+eosrm /store/user/lcorcodi/bstar_nano/bstarTrees17_QCDHT1500_9-10.root
+eosrm /store/user/lcorcodi/bstar_nano/bstarTrees17_QCDHT1500_10-10.root
