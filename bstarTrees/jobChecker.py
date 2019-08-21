@@ -7,22 +7,25 @@ if '--write' in files:
 
 jobsToReRun = []
 log = []
+outfiles = []
 for f in files:
     if f == '--write':
         continue
     thisF = open(f,'r')
-    hasError = False
+    stdoutFile = open(f.replace('notneeded/','').replace('.stderr','.stdout'),'r')
+
+    hasError = False 
     for line in thisF:
         if 'error' in line.lower():
             if 'SetBranchStatus' not in line:
                 hasError = True
                 print f+': '+line
                 log.append(f+': '+line)
-
+    
     if hasError:
-        stdoutFile = open(f.replace('notneeded/','').replace('.stderr','.stdout'),'r')
         for l in stdoutFile:
             if 'bstarTreeMaker.py ' in l:
+                outfiles.append(f.replace('notneeded/','').replace('.stderr','.stdout'))
                 jobsToReRun.append(l.replace('bstarTreeMaker.py ',''))
                 break 
 
@@ -34,4 +37,6 @@ with open('jobsToReRun.txt', 'w') as f:
 
 with open('jobsToReRun.log', 'w') as f:
     for job in log:
-        f.write("%s" % job)     
+        f.write("%s" % job)
+
+for o in outfiles: print o

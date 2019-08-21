@@ -26,11 +26,11 @@ for f in files:
                 jobsToReRun.append(l.replace('make_preselection.py ',''))
                 break 
 
-with open('jobsToReRun.txt', 'w') as f:
-    for job in jobsToReRun:
-        print job
-        if writeout:
-            f.write("%s" % job)
+rerun_file = open('jobsToReRun.txt', 'w')
+for job in jobsToReRun:
+    print job
+    if writeout:
+        rerun_file.write("%s" % job)
 
 with open('jobsToReRun.log', 'w') as f:
     for job in log:

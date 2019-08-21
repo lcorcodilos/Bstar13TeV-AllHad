@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-import os, sys, math, subprocess, fnmatch
+import os, sys, math, subprocess, fnmatch, tempfile
 from optparse import OptionParser
 
 from PhysicsTools.NanoAODTools.postprocessing.framework.postprocessor import * 
@@ -7,7 +7,7 @@ from PhysicsTools.NanoAODTools.postprocessing.framework.postprocessor import *
 #this takes care of converting the input files from CRAB
 #from PhysicsTools.NanoAODTools.postprocessing.framework.crabhelper import inputFiles,runsAndLumis
 
-from PhysicsTools.NanoAODTools.postprocessing.modules.jme.jetmetUncertainties import *
+from PhysicsTools.NanoAODTools.postprocessing.modules.jme.jetmetUncertaintiesFactorized import *
 from PhysicsTools.NanoAODTools.postprocessing.modules.jme.jetRecalib import *
 from PhysicsTools.NanoAODTools.postprocessing.modules.common.puWeightProducer import *
 # import add_DAK8
@@ -18,14 +18,14 @@ parser.add_option('-s', '--set', metavar='FILE', type='string', action='store',
                 default   =   '',
                 dest      =   'set',
                 help      =   'Set name')
-parser.add_option('-j', '--jobs', metavar='FILE', type='string', action='store',
+parser.add_option('-j', '--job', metavar='FILE', type='string', action='store',
                 default   =   '',
-                dest      =   'jobs',
-                help      =   'Number of jobs')
-parser.add_option('-n', '--num', metavar='FILE', type='string', action='store',
-                default   =   '',
-                dest      =   'num',
+                dest      =   'job',
                 help      =   'Job number')
+parser.add_option('-n', '--njobs', metavar='FILE', type='string', action='store',
+                default   =   '',
+                dest      =   'njobs',
+                help      =   'Number of jobs')
 parser.add_option('-y', '--year', metavar='FILE', type='string', action='store',
                 default   =   '',
                 dest      =   'year',
@@ -39,7 +39,6 @@ if setname == None:
     print 'Setname not given to PostProcessor. Quitting'
     quit()
 
-jetcoll = "FatJet"
 # Setup modules to use
 if 'data' in setname:
     mymodules = []
@@ -72,7 +71,7 @@ if 'data' in setname:
             mymodules.append(jetRecalib2018AAK8Puppi())
         elif options.set == 'dataB':
             mymodules.append(jetRecalib2018BAK8Puppi())
-        elif options.set == 'dataC':
+        elif 'dataC' in options.set:
             mymodules.append(jetRecalib2018CAK8Puppi())
         elif options.set == 'dataD':
             mymodules.append(jetRecalib2018DAK8Puppi())
@@ -86,21 +85,21 @@ if 'data' in setname:
 
 else:
     if options.year == '16':
-        mymodules = [jetmetUncertainties2016AK8Puppi(),puAutoWeight_2016()]
+        mymodules = [jetmetUncertaintiesFactorized2016AK8Puppi(),puAutoWeight_2016()]
             
     elif options.year == '17':
-        mymodules = [jetmetUncertainties2017AK8Puppi(),puAutoWeight_2017()]
+        mymodules = [jetmetUncertaintiesFactorized2017AK8Puppi(),puAutoWeight_2017()]
 
     elif options.year == '18':
-        mymodules = [jetmetUncertainties2018AK8Puppi(),puAutoWeight_2018()]
+        mymodules = [jetmetUncertaintiesFactorized2018AK8Puppi(),puAutoWeight_2018()]
 
     else:
         print options.year+' not supported yet. Quitting...'
         quit()
 
 # Setup possible job splitting 
-ijob = int(options.num)
-njobs = int(options.jobs)
+ijob = int(options.job)
+njobs = int(options.njobs)
 
 # Open list of all files for this set
 list_of_files = open('NanoAOD'+options.year+'_lists/'+setname+'_loc.txt','r').readlines()
@@ -121,21 +120,31 @@ else:
 
 print 'Splitting into '+str(njobs)+ ' jobs - Indices ['+ str(split_start)+':'+str(split_end)+']'
 
-# Only grab the files in the split
+# Only grab the files in the spliti
+tempfolder = tempfile.mkdtemp()
 for l in list_of_files[split_start:split_end]:
     n = l.rstrip('\n')
     #if options.year == '17':
-    if not (options.year == '16' and 'signal' in options.set):
-        n = 'root://cms-xrd-global.cern.ch/'+n 
-    new_list.append(n)
+    #if not (options.year == '16' and 'signal' in options.set):
+    #    n = 'root://cms-xrd-global.cern.ch/'+n 
+    #if options.year == '18' and options.set == 'dataB' and ijob == 85:
+    #    n = 'rawNano_dataB_18_85-93.root'
+    file_name = n.split('/')[-1]
+    if '/store/user' not in n:
+        full_path = 'root://cms-xrd-global.cern.ch/'+n
+    else:
+        full_path = n
+    print 'xrdcp '+full_path+' '+tempfolder+'/'+file_name
+    subprocess.call('xrdcp '+full_path+' '+tempfolder+'/'+file_name,shell=True)
+    new_list.append(tempfolder+'/'+file_name)
 
 output_dir = setname+'-'+options.year+'_'+str(ijob)+'-'+str(njobs)
 hadded_file = "bstarTrees"+options.year+"_"+setname+'_'+str(ijob)+'-'+str(njobs)+'.root'
-
+cutstring = "(FatJet_pt[0]>400)&&(FatJet_pt[1]>400)&&(FatJet_eta[0]<2.5)&&(FatJet_eta[1]<2.5)"
 # Postprocessor
 if (split_end - split_start) > 1:
     p=PostProcessor(output_dir+'/',new_list,
-                "("+jetcoll+"_pt[0]>350)&&("+jetcoll+"_pt[1]>350)&&("+jetcoll+"_eta[0]<2.5)&&("+jetcoll+"_eta[1]<2.5)",
+                cutstring,
                 branchsel='keep_and_drop'+options.year+'.txt',
                 outputbranchsel='keep_and_drop'+options.year+'.txt',
                 modules=mymodules,
@@ -143,7 +152,7 @@ if (split_end - split_start) > 1:
 # Need to skip haddnano step if there's only one file processed
 else:
     p=PostProcessor(output_dir+'/',new_list,
-                "("+jetcoll+"_pt[0]>350)&&("+jetcoll+"_pt[1]>350)&&("+jetcoll+"_eta[0]<2.5)&&("+jetcoll+"_eta[1]<2.5)",
+                cutstring,
                 branchsel='keep_and_drop'+options.year+'.txt',
                 outputbranchsel='keep_and_drop'+options.year+'.txt',
                 modules=mymodules,

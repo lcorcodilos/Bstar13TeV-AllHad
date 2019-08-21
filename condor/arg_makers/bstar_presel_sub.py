@@ -1,116 +1,65 @@
-import subprocess
+import subprocess, sys, glob, os
+from optparse import OptionParser
 
-commands = []
+parser = OptionParser()
+parser.add_option('-r', '--regions', metavar='FILE', type='string', action='store',
+                default   =   'default,sideband,ttbar',
+                dest      =   'regions',
+                help      =   'Regions to consider (comma separated list). Default is signal region ("default")')
+parser.add_option('-y', '--years', metavar='FILE', type='string', action='store',
+                default   =   '16,17,18',
+                dest      =   'years',
+                help      =   'Years to consider (comma separated list). Default is 16,17,18.')
+parser.add_option('-t', '--taggers', metavar='FILE', type='string', action='store',
+                default   =   'loose,medium',
+                dest      =   'taggers',
+                help      =   'Tau32 opperating points to consider (comma separated list). Default is loose,medium')
+parser.add_option('-i', '--ignoreset', metavar='FILE', type='string', action='store',
+                default   =   '',
+                dest      =   'ignoreset',
+                help      =   'Setnames from *_loc.txt files to IGNORE (comma separated list). Default is empty.')
+parser.add_option('-n', '--name', metavar='FILE', type='string', action='store',
+                default   =   '',
+                dest      =   'name',
+                help      =   'A custom name for this argument list (bstar_presel_<name>_args.txt)')
 
-base_string = '-s TEMPSET -r TEMPREG -t TEMPTAU32 -j NJOB -n IJOB -y TEMPYEAR'# -j -r -a -b
+(options, args) = parser.parse_args()
 
-for year in ['16','17','18']:
-    for tau32 in ['loose','medium']:
-        for reg in ['ttbar','default','sideband']:
-            year_string = base_string.replace("TEMPYEAR",year).replace('TEMPREG',reg).replace('TEMPTAU32',tau32)
-            # QCD
-            if year == '16':
-                qcd_dict = {'QCDHT700':1,'QCDHT1000':5,'QCDHT1500':1,'QCDHT2000':1,'QCDHT700ext':1,'QCDHT1000ext':5,'QCDHT1500ext':1,'QCDHT2000ext':1}
-            elif year == '17' or year == '18':
-                qcd_dict = {'QCDHT700':1,'QCDHT1000':1,'QCDHT1500':1,'QCDHT2000':1}
-            for qcd in qcd_dict.keys():
-                qcd_string = year_string.replace('TEMPSET',qcd).replace('NJOB',str(qcd_dict[qcd]))
-                for i in range(1,qcd_dict[qcd]+1):
-                    qcd_job_string = qcd_string.replace('IJOB',str(i))
-                    commands.append(qcd_job_string)
-                    commands.append(qcd_job_string+' -q')
+# Options to customize run
+regions = options.regions.split(',')
+years = options.years.split(',')
+taggers = options.taggers.split(',')
+ignore = options.ignoreset.split(',')
+name_string = '_'+options.name if options.name != '' else ''
 
-            # TTbar
-            ttbar_jobs = 1
-            ttbar_string = year_string.replace('TEMPSET','ttbar').replace("NJOB",str(ttbar_jobs))
-            for i in range(1,ttbar_jobs+1):
-                commands.append(ttbar_string.replace('IJOB',str(i)))
-                commands.append(ttbar_string.replace('IJOB',str(i))+ '-q')
-            for k in [' up',' down']:
-                for j in [' -J', ' -R', ' -a', ' -b']:
-                    for i in range(1,ttbar_jobs+1):
-                        ttbar_job_string = ttbar_string.replace('IJOB',str(i))
-                        ttbar_job_string+=j+k
-                        commands.append(ttbar_job_string)
-                        commands.append(ttbar_job_string+ ' -q')
+# Initialize output file
+outfile = open('../args/bstar_presel'+name_string+'_args.txt','w')
 
-            # TTbar semilep
-            if year != '16':
-                ttbar_jobs = 1
-                ttbar_string = year_string.replace('TEMPSET','ttbar_semilep').replace("NJOB",str(ttbar_jobs))
-                for i in range(1,ttbar_jobs+1):
-                    commands.append(ttbar_string.replace('IJOB',str(i)))
-                    commands.append(ttbar_string.replace('IJOB',str(i))+' -q')
-                for k in [' up',' down']:
-                    for j in [' -J', ' -R', ' -a', ' -b']:
-                        for i in range(1,ttbar_jobs+1):
-                            ttbar_job_string = ttbar_string.replace('IJOB',str(i))
-                            ttbar_job_string+=j+k
-                            commands.append(ttbar_job_string)
-                            commands.append(ttbar_job_string+ ' -q')
+base_string = '-s TEMPSET -r TEMPREG -j IJOB -n NJOB -y TEMPYEAR -t TEMPTAGGER -q'
 
-            # W+jets
-            if year == '16':
-                wjet_dict = {'WjetsHT600':1}
-            elif year == '17' or year == '18':
-                wjet_dict = {'WjetsHT400':1,'WjetsHT600':1,'WjetsHT800':1}
-            for wjet in wjet_dict.keys():
-                wjet_string = year_string.replace('TEMPSET',wjet).replace('NJOB',str(wjet_dict[wjet]))
-                for i in range(1,wjet_dict[wjet]+1):
-                    wjet_job_string = wjet_string.replace('IJOB',str(i))
-                    commands.append(wjet_job_string)
-                    commands.append(wjet_job_string+' -q')
+for year in years:
+    for reg in regions:
+        for tagger in taggers:
+            job_base_string = base_string.replace("TEMPYEAR",year).replace('TEMPREG',reg).replace('TEMPTAGGER',tagger)
 
-            # ST
-            st_dict = {'singletop_s':1,'singletop_t':1,'singletop_tB':1,'singletop_tW':1,'singletop_tWB':1}
-            for st in st_dict.keys():
-                if year == '17' and (st == 'singletop_s'):
-                    continue
-                st_string = year_string.replace('TEMPSET',st).replace('NJOB',str(st_dict[st]))
-                for i in range(1,st_dict[st]+1):
-                    commands.append(st_string.replace('IJOB',str(i)))
-                    commands.append(st_string.replace('IJOB',str(i))+' -q')
-                
-                for k in [' up',' down']:
-                    for j in [' -J', ' -R', ' -a', ' -b']:
-                        for i in range(1,st_dict[st]+1):
-                            st_job_string = st_string.replace('IJOB',str(i))
-                            st_job_string+=j+k
-                            commands.append(st_job_string)
-                            commands.append(st_job_string+' -q')
+            for loc_file in glob.glob('../../bstarTrees/NanoAOD'+year+'_lists/*_loc.txt'):
+                setname = loc_file.split('/')[-1].split('_loc')[0]
 
-            # Signal
-            if year == '16' or year == '17':
-                for hand in ['LH','RH']:
-                    for mass in range(1200,3200,200):
-                        # Skip this one sample (damn you central production!)
-                        if year == '17' and mass == 2800 and hand == 'LH': continue
-                        sig_name = 'signal'+hand+str(mass)
-                        commands.append(year_string.replace('TEMPSET',sig_name).replace('NJOB','1').replace('IJOB','1'))
-                        commands.append(year_string.replace('TEMPSET',sig_name).replace('NJOB','1').replace('IJOB','1')+' -q')
-                        for k in [' up',' down']:
+                if (setname not in ignore) and not ('-q' in base_string and 'data' in setname):
+                    # Get njobs by counting how many GB in each file (1 job if file size < 1 GB)
+                    bitsize = os.path.getsize('/eos/uscms/store/user/lcorcodi/bstar_nano/rootfiles/'+setname+'_bstar'+year+'.root')
+                    if bitsize/float(10**9) < 1:  set_njobs = 1
+                    else: set_njobs = int(round(bitsize/float(10**9)))
+
+                    njob_string = job_base_string.replace('TEMPSET',setname).replace('NJOB',str(set_njobs))               
+                    for i in range(1,set_njobs+1):
+                        job_string = njob_string.replace('IJOB',str(i))
+                        outfile.write(job_string+'\n')
+
+                        if 'data' not in setname and 'QCD' not in setname:
                             for j in [' -J', ' -R', ' -a', ' -b']:
-                                signal_string = year_string.replace('TEMPSET',sig_name).replace('NJOB','1').replace('IJOB','1')
-                                signal_string+=j+k
-                                commands.append(signal_string)
-                                commands.append(signal_string+' -q')
-
-            # Data
-            # if year == '16':
-            #     data_dict = {'dataB':1,'dataB2':100,'dataC':25,'dataD':50,'dataE':50,'dataF':50,'dataG':50,'dataH':50,'dataH2':1}
-            # elif year == '17':
-            #     data_dict = {'dataA':50,'dataB':50,'dataC':50,'dataD':50,'dataE':50,'dataF':50}
-
-            # for data in data_dict.keys():
-
-            data_string = year_string.replace('TEMPSET','data').replace('NJOB','20')
-            for i in range(1,21):
-                data_job_string = data_string.replace('IJOB',str(i))
-                commands.append(data_job_string)
-
-outfile = open('../args/bstar_presel_args.txt','w')
-
-for s in commands:
-    outfile.write(s+'\n')
+                                for v in [' up',' down']:
+                                    jec_job_string = job_string + j + v
+                                    outfile.write(jec_job_string+'\n')
 
 outfile.close()

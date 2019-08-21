@@ -11,25 +11,18 @@
 ##                               ##
 ###################################################################
 
-import os
-import glob
-import math
-from math import sqrt,exp
 import ROOT
 from ROOT import *
 
 from PhysicsTools.NanoAODTools.postprocessing.framework.datamodel import Collection,Object,Event
 from PhysicsTools.NanoAODTools.postprocessing.framework.treeReaderArrayTools import InputTree
 from PhysicsTools.NanoAODTools.postprocessing.tools import *
-from PhysicsTools.NanoAODTools.postprocessing.modules.jme.JetSysColl import JetSysColl, JetSysObj
 from PhysicsTools.NanoAODTools.postprocessing.framework.preskimming import preSkim
 
 import Bstar_Functions_local  
-from Bstar_Functions_local import *
+from Bstar_Functions_local import LoadConstants,LoadCuts,Load_jetNano,Hemispherize
 
-import sys
 from optparse import OptionParser
-from array import *
 
 parser = OptionParser()
 
@@ -70,30 +63,29 @@ print ""
 
 # Prep for deepcsv b-tag if deepak8 is off
 # From https://twiki.cern.ch/twiki/bin/view/CMS/BTagCalibration
-if options.deepak8 == 'off':
-    gSystem.Load('libCondFormatsBTauObjects') 
-    gSystem.Load('libCondToolsBTau') 
-    if options.year == '16':
-        calib = BTagCalibration('DeepCSV', 'DeepCSV_2016LegacySF_V1.csv')
-    elif options.year == '17':
-        calib = BTagCalibration('DeepCSV', 'subjet_DeepCSV_94XSF_V4_B_F.csv')
-    elif options.year == '18':
-        calib = BTagCalibration('DeepCSV', 'DeepCSV_102XSF_V1.csv')
-    v_sys = getattr(ROOT, 'vector<string>')()
-    v_sys.push_back('up')
-    v_sys.push_back('down')
+gSystem.Load('libCondFormatsBTauObjects') 
+gSystem.Load('libCondToolsBTau') 
+if options.year == '16':
+    calib = BTagCalibration('DeepCSV', 'SFs/DeepCSV_2016LegacySF_V1.csv')
+elif options.year == '17':
+    calib = BTagCalibration('DeepCSV', 'SFs/subjet_DeepCSV_94XSF_V4_B_F.csv')
+elif options.year == '18':
+    calib = BTagCalibration('DeepCSV', 'SFs/DeepCSV_102XSF_V1.csv')
+v_sys = getattr(ROOT, 'vector<string>')()
+v_sys.push_back('up')
+v_sys.push_back('down')
 
-    reader = BTagCalibrationReader(
-        0,              # 0 is for loose op, 1: medium, 2: tight, 3: discr. reshaping
-        "central",      # central systematic type
-        v_sys,          # vector of other sys. types
-    )   
+reader = BTagCalibrationReader(
+    0,              # 0 is for loose op, 1: medium, 2: tight, 3: discr. reshaping
+    "central",      # central systematic type
+    v_sys,          # vector of other sys. types
+)   
 
-    reader.load(
-        calib, 
-        0,          # 0 is for b flavour, 1: FLAV_C, 2: FLAV_UDSG 
-        "incl"      # measurement type
-    ) 
+reader.load(
+    calib, 
+    0,          # 0 is for b flavour, 1: FLAV_C, 2: FLAV_UDSG 
+    "incl"      # measurement type
+) 
 
 ######################################
 # Setup grid production if necessary #
@@ -157,9 +149,9 @@ else:
 # Make new file for storage #
 #############################
 if jobs != 1:
-    f = TFile( "TWTrigger"+options.set+options.year+tnameOR+"_pre_"+options.pretname+"_job"+options.num+"of"+options.jobs+".root", "recreate" )
+    f = TFile.Open( "TWTrigger"+options.set+options.year+tnameOR+"_pre_"+options.pretname+"_job"+options.num+"of"+options.jobs+".root", "recreate" )
 else:
-    f = TFile( "trigger_studies/TWTrigger"+options.set+options.year+tnameOR+"_pre_"+options.pretname+".root", "recreate" )
+    f = TFile.Open( "trigger_studies/TWTrigger"+options.set+options.year+tnameOR+"_pre_"+options.pretname+".root", "recreate" )
 
 ###################
 # Book histograms #
@@ -249,8 +241,10 @@ event_time_sum = 0
 for entry in range(lowBinEdge,highBinEdge):
 
     count   =   count + 1
-    sys.stdout.write("%i / %i ... \r" % (count,(highBinEdge-lowBinEdge)))
-    sys.stdout.flush()
+    # sys.stdout.write("%i / %i ... \r" % (count,(highBinEdge-lowBinEdge)))
+    # sys.stdout.flush()
+    if count % 10000 == 0 :
+            print  '--------- Processing Event ' + str(count) +'   -- percent complete ' + str(100*count/(highBinEdge-lowBinEdge)) + '% -- '
     event = Event(inTree, entry)
 
     # Grab bits for event
@@ -272,8 +266,7 @@ for entry in range(lowBinEdge,highBinEdge):
     # -- collections are for types of objects where there could be multiple values
     #    for a single event
     ak8JetsColl = Collection(event, jetcoll)
-    if options.deepak8 == 'off':
-        subJetsColl = Collection(event, 'SubJet')
+    subJetsColl = Collection(event, 'SubJet')
 
     # Now jetID which (in binary #s) is stored with bit1 as loose, bit2 as tight, and filters (after grabbing jet collections)
     try:
@@ -287,7 +280,13 @@ for entry in range(lowBinEdge,highBinEdge):
 
     # Now filters/flags
     # flagColl = Collection(event,'Flag')
-    filters = [inTree.readBranch(f) for f in LoadFilters()]
+    filters = [inTree.readBranch('Flag_goodVertices'),
+                   inTree.readBranch('Flag_HBHENoiseFilter'),
+                   inTree.readBranch('Flag_HBHENoiseIsoFilter'),
+                   inTree.readBranch('Flag_globalTightHalo2016Filter'),
+                   inTree.readBranch('Flag_EcalDeadCellTriggerPrimitiveFilter'),
+                   inTree.readBranch('Flag_eeBadScFilter'),
+                   inTree.readBranch('Flag_ecalBadCalibFilter')]
 
     filterFails = 0
     for thisFilter in filters:

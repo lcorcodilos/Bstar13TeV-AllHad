@@ -32,12 +32,11 @@ parser.add_option('-y', '--y', metavar='F', type='string', action='store',
                   dest      =   'year',
                   help      =   '16, 17')
 parser.add_option('-d', '--disc', metavar='F', type='string', action='store',
-                  default   =   'ttags',
+                  default   =   '',
                   dest      =   'disc',
                   help      =   'empty, untrig, or ttags')
-
 parser.add_option('-t', '--tname', metavar='F', type='string', action='store',
-                  default   =   'HLT_PFHT800,HLT_PFHT900,HLT_PFJet450', #For 2017 use 'HLT_PFHT780'
+                  default   =   'HLT_PFHT800,HLT_PFHT900,HLT_PFJet450', #For 2017 use ''
                   dest      =   'tname',
                   help      =   'trigger name')
 parser.add_option('-p', '--pret', metavar='F', type='string', action='store',
@@ -101,6 +100,9 @@ for h in range(0,len(posts)):
     TR = HT.Clone()
     TR.Divide(TR,HTpre,1.0,1.0,'B')
 
+    for x in range(1,TR.GetNbinsX()+1):
+        TR.SetBinError(x,0.5*(1-TR.GetBinContent(x)))
+
     leg.AddEntry(TR , tnameOR.replace('OR',' OR '), 'p')
 
     # Tline = TLine(600.0, 0.5, 820.0, 1.01)
@@ -116,8 +118,9 @@ for h in range(0,len(posts)):
     TR.SetStats(0)
     TR.SetTitle(titles[h])
     TR.SetMarkerStyle(8)
+    TR.SetMarkerSize(0.5)
 
-    TR.Draw("p")
+    TR.Draw("pe")
 
     gPad.SetLeftMargin(.15)
     gPad.SetBottomMargin(.17) 

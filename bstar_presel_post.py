@@ -22,33 +22,35 @@ for f in candidate_files:
         done_files.append(f)
         
 # Get a dictionary with all processes that need to be hadded
-proc_dict = {}
+commands = []
 for f in candidate_files:
     if (f not in done_files) and ('_job1of' in f):
 
-        proc = f.split('_')[1]
-        dak8_string = f.split('_')[3]
+        #proc = f.split('_')[1]
+        #dak8_string = f.split('_')[2]
 
-        if len(f.split('_')) > 5:   # has mod
-            mod_string = '_'+f.split('_')[4]
-            reg_string = f.split('_')[5].split('.')[0]
-        else:   # doesn't have mod
-            mod_string = ''
-            reg_string = f.split('_')[4].split('.')[0]
+        #if len(f.split('_')) > 4:   # has mod
+        #    mod_string = '_'+f.split('_')[3]+f.split('_')[4]
+        #    reg_string = f.split('_')[5].split('.')[0]
+        #else:   # doesn't have mod
+        #    mod_string = ''
+        #    reg_string = f.split('_')[4].split('.')[0]
         
         
-        key_name = reg_string+'_'+proc+'_'+dak8_string+mod_string
-        proc_dict[key_name] = {
-                                'haddname':f.replace('_'+f.split('_')[2],''),
-                                'files_to_add':f.replace('_job1of','_job*of')
-                            }
+        #key_name = reg_string+'_'+proc+'_'+dak8_string+mod_string
+        #proc_dict[key_name] = {
+        #                        'haddname':f.replace('_'+f.split('_')[2],''),
+        #                        'files_to_add':f.replace('_job1of','_job*of')
+        #                    }
+        jobstringToReplace = ''
+        for i in f.split('_'):
+            if 'job1of' in i:
+                jobstringToReplace = i
+        haddname = f.replace('_'+jobstringToReplace,'')
+        filesToHadd = f.replace('_job1of','_job*of')
+        commands.append('rm rootfiles/'+haddname)
+        commands.append('hadd rootfiles/'+haddname+' '+filesToHadd)
+        commands.append('rm '+filesToHadd)
 
-pp.pprint(proc_dict)
-
-for f in proc_dict.keys():
-    print 'Executing: rm rootfiles/'+proc_dict[f]['haddname']
-    subprocess.call(['rm rootfiles/'+proc_dict[f]['haddname']],shell=True)
-    print 'Executing: hadd rootfiles/'+proc_dict[f]['haddname']+' '+proc_dict[f]['files_to_add']
-    subprocess.call(['hadd rootfiles/'+proc_dict[f]['haddname']+' '+proc_dict[f]['files_to_add']], shell=True)
-    print 'Executing: rm '+proc_dict[f]['files_to_add']
-    subprocess.call(['rm '+proc_dict[f]['files_to_add']],shell=True)
+for c in commands:
+    subprocess.call([c],shell=True)

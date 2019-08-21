@@ -23,14 +23,14 @@ class GenParticleTree:
 
     def AddParticle(self, mygenpart):
         self.staged_node = mygenpart
-        # From old Update() which doesn't work
         # First check if current heads don't have new parents and remove them from heads if they do
         heads_to_delete = []
         for i, head in enumerate(self.heads):
             if head.motherIdx == self.staged_node.idx:
                 heads_to_delete.append(i)
-        for h in heads_to_delete:
-            del self.heads[h]
+
+        for ih in sorted(heads_to_delete, reverse=True): # need to delete indices in reverse order so as not to shift indices after a deletion
+            del self.heads[ih]
 
         # Next identify staged node has no parent (heads)
         # If no parent, no other info we can get from this particle
@@ -106,12 +106,11 @@ class GenParticleTree:
     #     print chains
 
 
-    def PrintTree(self,ievent,options=[]):  # final option is list of other attributes of GenParticleObj to draw
+    def PrintTree(self,ievent,options=[],name='test',jet=None):  # final option is list of other attributes of GenParticleObj to draw
         from graphviz import Digraph
         dot = Digraph(comment='Particle tree for event '+str(ievent))
         for n in self.nodes:
             this_node_name = 'idx_'+str(n.idx)
-            lowest_top = top
             this_node_label = n.name
             # Build larger label if requested
             for o in options:
@@ -124,11 +123,14 @@ class GenParticleTree:
                 else:
                     this_node_label += '\n%s=%s'%(o,getattr(n,o))
 
+            if jet != None:
+                this_node_label += '\n%s=%.2f'%('\Delta R with jet',n.vect.DeltaR(jet))
+
             dot.node(this_node_name, this_node_label)
             for ichild in n.childIndex:
                 dot.edge(this_node_name, 'idx_'+str(self.nodes[ichild].idx))
         
-        dot.render('particle_trees/test.gv',view=True)
+        dot.render('particle_trees/'+name+'_'+str(ievent)+'.gv',view=True)
 
 
 class GenParticleObj:

@@ -30,8 +30,6 @@ if njobs > 100:
         list_of_files = ''
         # Copy all files in the segment locally
         for i in range(lower_wall, upper_wall):
-            if setname == 'ttbar' and (i == 9 or i == 107):
-                continue
             list_of_files+= ' '+eosdir+'bstarTrees'+year+'_'+setname+'_'+str(i)+'-'+sjobs+'.root'
             eosrmer.write('eosrm '+eosdir.replace('root://cmseos.fnal.gov/','')+'bstarTrees'+year+'_'+setname+'_'+str(i)+'-'+sjobs+'.root\n')
 

@@ -5,29 +5,32 @@ import glob
 
 # Just grabbing the basic centrally produced nanoAOD so this will be different from the 2016 version
 input_subs = {
-    "ttbar":"/TT_TuneCUETP8M2T4_13TeV-powheg-pythia8/RunIISummer16NanoAODv4-PUMoriond17_Nano14Dec2018_102X_mcRun2_asymptotic_v6-v1/NANOAODSIM",
-    "singletop_tW":"/ST_tW_top_5f_inclusiveDecays_13TeV-powheg-pythia8_TuneCUETP8M2T4/RunIISummer16NanoAODv4-PUMoriond17_Nano14Dec2018_102X_mcRun2_asymptotic_v6-v1/NANOAODSIM",
-    "singletop_tWB":"/ST_tW_antitop_5f_inclusiveDecays_13TeV-powheg-pythia8_TuneCUETP8M2T4/RunIISummer16NanoAODv4-PUMoriond17_Nano14Dec2018_102X_mcRun2_asymptotic_v6-v1/NANOAODSIM",
-    "singletop_t":"/ST_t-channel_top_4f_inclusiveDecays_13TeV-powhegV2-madspin-pythia8_TuneCUETP8M1/RunIISummer16NanoAODv4-PUMoriond17_Nano14Dec2018_102X_mcRun2_asymptotic_v6-v1/NANOAODSIM",
-    "singletop_tB":"/ST_t-channel_antitop_4f_inclusiveDecays_13TeV-powhegV2-madspin-pythia8_TuneCUETP8M1/RunIISummer16NanoAODv4-PUMoriond17_Nano14Dec2018_102X_mcRun2_asymptotic_v6-v1/NANOAODSIM",
-    "singletop_s":"/ST_s-channel_4f_InclusiveDecays_13TeV-amcatnlo-pythia8/RunIISummer16NanoAODv4-PUMoriond17_Nano14Dec2018_102X_mcRun2_asymptotic_v6-v1/NANOAODSIM",
-    "QCDHT700":"/QCD_HT700to1000_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/RunIISummer16NanoAODv4-PUMoriond17_Nano14Dec2018_102X_mcRun2_asymptotic_v6-v1/NANOAODSIM",
-    "QCDHT700ext":"/QCD_HT700to1000_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/RunIISummer16NanoAODv4-PUMoriond17_Nano14Dec2018_102X_mcRun2_asymptotic_v6_ext1-v1/NANOAODSIM",
-    "QCDHT2000":"/QCD_HT2000toInf_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/RunIISummer16NanoAODv4-PUMoriond17_Nano14Dec2018_102X_mcRun2_asymptotic_v6-v1/NANOAODSIM",
-    "QCDHT2000ext":"/QCD_HT2000toInf_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/RunIISummer16NanoAODv4-PUMoriond17_Nano14Dec2018_102X_mcRun2_asymptotic_v6_ext1-v1/NANOAODSIM",
-    "QCDHT1500":"/QCD_HT1500to2000_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/RunIISummer16NanoAODv4-PUMoriond17_Nano14Dec2018_102X_mcRun2_asymptotic_v6-v1/NANOAODSIM",
-    "QCDHT1500ext":"/QCD_HT1500to2000_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/RunIISummer16NanoAODv4-PUMoriond17_Nano14Dec2018_102X_mcRun2_asymptotic_v6_ext1-v1/NANOAODSIM",
-    "QCDHT1000":"/QCD_HT1000to1500_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/RunIISummer16NanoAODv4-PUMoriond17_Nano14Dec2018_102X_mcRun2_asymptotic_v6-v1/NANOAODSIM",
-    "QCDHT1000ext":"/QCD_HT1000to1500_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/RunIISummer16NanoAODv4-PUMoriond17_Nano14Dec2018_102X_mcRun2_asymptotic_v6_ext1-v1/NANOAODSIM",
-    "WjetsHT600":"/WJetsToQQ_HT-600ToInf_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/RunIISummer16NanoAODv4-PUMoriond17_Nano14Dec2018_102X_mcRun2_asymptotic_v6-v1/NANOAODSIM",
-    "dataB":"/JetHT/Run2016B_ver1-Nano14Dec2018_ver1-v1/NANOAOD",
-    "dataB2":"/JetHT/Run2016B_ver2-Nano14Dec2018_ver2-v1/NANOAOD",
-    "dataC":"/JetHT/Run2016C-Nano14Dec2018-v1/NANOAOD",
-    "dataD":"/JetHT/Run2016D-Nano14Dec2018-v1/NANOAOD",
-    "dataE":"/JetHT/Run2016E-Nano14Dec2018-v1/NANOAOD",
-    "dataF":"/JetHT/Run2016F-Nano14Dec2018-v1/NANOAOD",
-    "dataG":"/JetHT/Run2016G-Nano14Dec2018-v1/NANOAOD",
-    "dataH":"/JetHT/Run2016H-Nano14Dec2018-v1/NANOAOD",
+    "ttbar":"/TT_TuneCUETP8M2T4_13TeV-powheg-pythia8/RunIISummer16NanoAODv5-PUMoriond17_Nano1June2019_102X_mcRun2_asymptotic_v7-v1/NANOAODSIM",
+    "QCDHT700":"/QCD_HT700to1000_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/RunIISummer16NanoAODv5-PUMoriond17_Nano1June2019_102X_mcRun2_asymptotic_v7-v1/NANOAODSIM",
+    "QCDHT700ext":"/QCD_HT700to1000_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/RunIISummer16NanoAODv5-PUMoriond17_Nano1June2019_102X_mcRun2_asymptotic_v7_ext1-v1/NANOAODSIM",
+    "QCDHT2000":"/QCD_HT2000toInf_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/RunIISummer16NanoAODv5-PUMoriond17_Nano1June2019_102X_mcRun2_asymptotic_v7-v1/NANOAODSIM",
+    "QCDHT2000ext":"/QCD_HT2000toInf_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/RunIISummer16NanoAODv5-PUMoriond17_Nano1June2019_102X_mcRun2_asymptotic_v7_ext1-v1/NANOAODSIM",
+    "QCDHT1500":"/QCD_HT1500to2000_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/RunIISummer16NanoAODv5-PUMoriond17_Nano1June2019_102X_mcRun2_asymptotic_v7-v1/NANOAODSIM",
+    "QCDHT1500ext":"/QCD_HT1500to2000_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/RunIISummer16NanoAODv5-PUMoriond17_Nano1June2019_102X_mcRun2_asymptotic_v7_ext1-v1/NANOAODSIM",
+    "QCDHT1000":"/QCD_HT1000to1500_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/RunIISummer16NanoAODv5-PUMoriond17_Nano1June2019_102X_mcRun2_asymptotic_v7-v1/NANOAODSIM",
+    "QCDHT1000ext":"/QCD_HT1000to1500_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/RunIISummer16NanoAODv5-PUMoriond17_Nano1June2019_102X_mcRun2_asymptotic_v7_ext1-v1/NANOAODSIM",
+    "dataB2":"/JetHT/Run2016B_ver2-Nano1June2019_ver2-v2/NANOAOD",
+    "dataC":"/JetHT/Run2016C-Nano1June2019-v1/NANOAOD",
+    "dataD":"/JetHT/Run2016D-Nano1June2019-v1/NANOAOD",
+    "dataE":"/JetHT/Run2016E-Nano1June2019-v1/NANOAOD",
+    "dataF":"/JetHT/Run2016F-Nano1June2019-v1/NANOAOD",
+    "dataG":"/JetHT/Run2016G-Nano1June2019-v1/NANOAOD",
+    "dataH":"/JetHT/Run2016H-Nano1June2019-v1/NANOAOD",
+    "WjetsHT600":"/WJetsToQQ_HT-600ToInf_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/RunIISummer16NanoAODv5-PUMoriond17_Nano1June2019_102X_mcRun2_asymptotic_v7-v1/NANOAODSIM",
+    "singletop_tW":"/ST_tW_top_5f_inclusiveDecays_13TeV-powheg-pythia8_TuneCUETP8M2T4/RunIISummer16NanoAODv5-PUMoriond17_Nano1June2019_102X_mcRun2_asymptotic_v7-v1/NANOAODSIM",
+    "singletop_tWB":"/ST_tW_antitop_5f_inclusiveDecays_13TeV-powheg-pythia8_TuneCUETP8M2T4/RunIISummer16NanoAODv5-PUMoriond17_Nano1June2019_102X_mcRun2_asymptotic_v7-v1/NANOAODSIM",
+    "singletop_tW-scaleup":"/ST_tW_top_5f_scaleup_inclusiveDecays_13TeV-powheg-pythia8_TuneCUETP8M1/RunIISummer16NanoAODv5-PUMoriond17_Nano1June2019_102X_mcRun2_asymptotic_v7_ext1-v1/NANOAODSIM",
+    "singletop_tW-scaledown":"/ST_tW_top_5f_scaledown_inclusiveDecays_13TeV-powheg-pythia8_TuneCUETP8M1/RunIISummer16NanoAODv5-PUMoriond17_Nano1June2019_102X_mcRun2_asymptotic_v7_ext1-v1/NANOAODSIM",
+    "singletop_tWB-scaleup":"/ST_tW_antitop_5f_scaleup_inclusiveDecays_13TeV-powheg-pythia8_TuneCUETP8M1/RunIISummer16NanoAODv5-PUMoriond17_Nano1June2019_102X_mcRun2_asymptotic_v7_ext1-v1/NANOAODSIM",
+    "singletop_tWB-scaledown":"/ST_tW_antitop_5f_scaledown_inclusiveDecays_13TeV-powheg-pythia8_TuneCUETP8M1/RunIISummer16NanoAODv5-PUMoriond17_Nano1June2019_102X_mcRun2_asymptotic_v7_ext1-v1/NANOAODSIM",
+    "singletop_t":"/ST_t-channel_top_4f_inclusiveDecays_13TeV-powhegV2-madspin-pythia8_TuneCUETP8M1/RunIISummer16NanoAODv5-PUMoriond17_Nano1June2019_102X_mcRun2_asymptotic_v7-v1/NANOAODSIM",
+    "singletop_tB":"/ST_t-channel_antitop_4f_inclusiveDecays_13TeV-powhegV2-madspin-pythia8_TuneCUETP8M1/RunIISummer16NanoAODv5-PUMoriond17_Nano1June2019_102X_mcRun2_asymptotic_v7-v1/NANOAODSIM",
+    "singletop_s":"/ST_s-channel_4f_InclusiveDecays_13TeV-amcatnlo-pythia8/RunIISummer16NanoAODv5-PUMoriond17_Nano1June2019_102X_mcRun2_asymptotic_v7-v1/NANOAODSIM",
     "signalLH1200":"/store/user/lcorcodi/BStarNanoAODv4_16/BstarToTW_M-1200_LH_TuneCUETP8M1_13TeV-madgraph-pythia8/Bstar_private2_M-1200_LH_TuneCUETP8M1_13TeV-madgraph-pythia8_NANOAODv4/*/0000/*.root",
     "signalLH1400":"/store/user/lcorcodi/BStarNanoAODv4_16/BstarToTW_M-1400_LH_TuneCUETP8M1_13TeV-madgraph-pythia8/Bstar_private2_M-1400_LH_TuneCUETP8M1_13TeV-madgraph-pythia8_NANOAODv4/*/0000/*.root",
     "signalLH1600":"/store/user/lcorcodi/BStarNanoAODv4_16/BstarToTW_M-1600_LH_TuneCUETP8M1_13TeV-madgraph-pythia8/Bstar_private2_M-1600_LH_TuneCUETP8M1_13TeV-madgraph-pythia8_NANOAODv4/*/0000/*.root",
@@ -48,24 +51,22 @@ input_subs = {
     "signalRH2600":"/store/user/lcorcodi/BStarNanoAODv4_16/BstarToTW_M-2600_RH_TuneCUETP8M1_13TeV-madgraph-pythia8/Bstar_private2_M-2600_RH_TuneCUETP8M1_13TeV-madgraph-pythia8_NANOAODv4/*/0000/*.root",
     "signalRH2800":"/store/user/lcorcodi/BStarNanoAODv4_16/BstarToTW_M-2800_RH_TuneCUETP8M1_13TeV-madgraph-pythia8/Bstar_private2_M-2800_RH_TuneCUETP8M1_13TeV-madgraph-pythia8_NANOAODv4/*/0000/*.root",
     "signalRH3000":"/store/user/lcorcodi/BStarNanoAODv4_16/BstarToTW_M-3000_RH_TuneCUETP8M1_13TeV-madgraph-pythia8/Bstar_private2_M-3000_RH_TuneCUETP8M1_13TeV-madgraph-pythia8_NANOAODv4/*/0000/*.root"
-
 }
 executables = []
 
-# loj = open('../../treeMaker.listOfJobs','w')
+# Remove files first
+print 'rm *_loc.txt'
+subprocess.call(['rm *_loc.txt'],shell=True)
 
 for i in input_subs.keys():
-    if 'signal' in i:
+    if '/store/user/' in input_subs[i]:
         files = glob.glob('/eos/uscms'+input_subs[i])
         out = open(i+'_loc.txt','w')
         for f in files:
             out.write(f.replace('/eos/uscms','root://cmsxrootd.fnal.gov/')+'\n')
-        out.close
-
-        # executables.append('dasgoclient -query "file dataset='+input_subs[i]+' instance=prod/phys03" > '+i+'_loc.txt')
+        out.close()
     else:
         executables.append('dasgoclient -query "file dataset='+input_subs[i]+'" > '+i+'_loc.txt')
-    # loj.write("python tardir/bstarTreeMaker.py "+i+'\n')
 for s in executables:
     print s
     subprocess.call([s],shell=True)

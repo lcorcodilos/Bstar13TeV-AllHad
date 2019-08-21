@@ -16,7 +16,6 @@
 ##################################################################
 
 import os
-import array
 import glob
 import math
 from random import random
@@ -27,8 +26,6 @@ import time
 import subprocess
 import cppyy
 import pickle
-import GenParticleChecker as gpc
-from array import *
 from ROOT import *
 from PhysicsTools.NanoAODTools.postprocessing.tools import *
 
@@ -91,7 +88,7 @@ def LoadConstants(year):
             # 'ttagsf_errUp':0.15,
             # 'ttagsf_errDown':0.06,
             'ttbar_xsec':377.96, #uncertainty +4.8%-6.1%
-            'ttbar_semilep_xsec':365.34,
+            'ttbar-semilep_xsec':365.34,
             'QCDHT700_xsec':6802,
             'QCDHT1000_xsec':1206,
             'QCDHT1500_xsec':120.4,
@@ -127,7 +124,7 @@ def LoadConstants(year):
         }
     elif year == '18':
         return  {
-            'lumi':59692.687741,
+            'lumi':60001.0,#59692.687741,
             'qcd_lumi':7080.08,
             'wtagsf_HP':0.97,# HP = High purity
             'wtagsfsig_HP':0.06,
@@ -137,7 +134,7 @@ def LoadConstants(year):
             # 'ttagsf_errUp':0.15,
             # 'ttagsf_errDown':0.06,
             'ttbar_xsec':377.96, #uncertainty +4.8%-6.1%
-            'ttbar_semilep_xsec':365.34,
+            'ttbar-semilep_xsec':365.34,
             'QCDHT700_xsec':6802,
             'QCDHT1000_xsec':1206,
             'QCDHT1500_xsec':120.4,
@@ -172,13 +169,6 @@ def LoadConstants(year):
             'signalRH3000_xsec':0.003224
         }
 
-def LoadFilters():
-    return ['Flag_goodVertices',
-            'Flag_HBHENoiseFilter',
-            'Flag_HBHENoiseIsoFilter',
-            'Flag_globalTightHalo2016Filter',
-            'Flag_EcalDeadCellTriggerPrimitiveFilter',
-            'Flag_eeBadScFilter']
     
 def LoadCuts(region,year):
     cuts = {
@@ -241,114 +231,8 @@ def LoadCuts(region,year):
 def Load_jetNano(string,year):
     print 'running on ' + string 
 
-    # if di != '':
     return 'root://cmseos.fnal.gov//store/user/lcorcodi/bstar_nano/rootfiles/'+string+'_bstar'+year+'.root'
-    # else:
-    #     return 'bstarTrees/rootfiles/'+string+'_bstar.root'
-    # # Open pickle with locations
-    # jetNanoLocations = pickle.load(open("jetNanoLocations.p", "rb"))
 
-    # if 'signal' in string:
-    #     string = string.replace('signal','Bstar')
-
-
-
-def FindDeepAK8csv(setname):
-    setDict = {
-        'data':{
-            'location':['JetHT/JetHT_Run2016B-05Feb2018_ver1-v1_jetNano_v0p1/',
-                            'JetHT/JetHT_Run2016B-05Feb2018_ver2-v1_jetNano_v0p1/',
-                            'JetHT/JetHT_Run2016C-05Feb2018-v1_jetNano_v0p1/',
-                            'JetHT/JetHT_Run2016E-05Feb2018-v1_jetNano_v0p1/',
-                            'JetHT/JetHT_Run2016F-05Feb2018-v1_jetNano_v0p1/',
-                            'JetHT/JetHT_Run2016G-05Feb2018-v1_jetNano_v0p1/',
-                            'JetHT/JetHT_Run2016H-05Feb2018_ver2-v1_jetNano_v0p1/',
-                            'JetHT/JetHT_Run2016H-05Feb2018_ver3-v1_jetNano_v0p1/']
-        },
-        'ttbar':{
-            'location':['TT_TuneCUETP8M2T4_13TeV-powheg-pythia8/TT_TuneCUETP8M2T4_13TeV-powheg-pythia8_jetNano_v0p1/']
-        },
-        'QCD':{
-            'location':['QCD_HT500to700_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/QCD_HT500to700_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_jetNano_v0p1/',
-                            'QCD_HT500to700_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/QCD_HT500to700_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_jetNano_v0p1_ext/',
-                            'QCD_HT700to1000_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/QCD_HT700to1000_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_jetNano_v0p1/',
-                            'QCD_HT700to1000_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/QCD_HT700to1000_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_jetNano_v0p1_ext/',
-                            'QCD_HT1000to1500_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/QCD_HT1000to1500_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_jetNano_v0p1/',
-                            'QCD_HT1000to1500_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/QCD_HT1000to1500_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_jetNano_v0p1_ext/',
-                            'QCD_HT1500to2000_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/QCD_HT1500to2000_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_jetNano_v0p1/',
-                            'QCD_HT1500to2000_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/QCD_HT1500to2000_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_jetNano_v0p1_ext/',
-                            'QCD_HT2000toInf_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/QCD_HT1500to2000_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_jetNano_v0p1/',
-                            'QCD_HT2000toInf_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/QCD_HT1500to2000_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_jetNano_v0p1_ext/']
-        },
-        'singletop':{
-            'location':['ST_t-channel_antitop_4f_inclusiveDecays_TuneCUETP8M2T4_13TeV-powhegV2-madspin/ST_t-channel_antitop_4f_inclusiveDecays_TuneCUETP8M2T4_13TeV-powhegV2-madspin_jetNano_v0p1/',
-                            'ST_t-channel_top_4f_inclusiveDecays_TuneCUETP8M2T4_13TeV-powhegV2-madspin/ST_t-channel_antitop_4f_inclusiveDecays_TuneCUETP8M2T4_13TeV-powhegV2-madspin_jetNano_v0p1/',
-                            'ST_tW_antitop_5f_inclusiveDecays_13TeV-powheg-pythia8_TuneCUETP8M2T4/ST_tW_antitop_5f_inclusiveDecays_13TeV-powheg-pythia8_TuneCUETP8M2T4_jetNano_v0p1/',
-                            'ST_tW_top_5f_inclusiveDecays_13TeV-powheg-pythia8_TuneCUETP8M2T4/ST_tW_top_5f_inclusiveDecays_13TeV-powheg-pythia8_TuneCUETP8M2T4_jetNano_v0p1/']
-        },
-        'signalLH1200':{
-            'location':['BstarToTW_M-1200_LH_TuneCUETP8M1_13TeV-madgraph-pythia8/BstarToTW_M-1200_LH_TuneCUETP8M1_13TeV-madgraph-pythia8_jetNano_v0p1/']
-        },
-        'signalLH1400':{
-            'location':['BstarToTW_M-1400_LH_TuneCUETP8M1_13TeV-madgraph-pythia8/BstarToTW_M-1400_LH_TuneCUETP8M1_13TeV-madgraph-pythia8_jetNano_v0p1/']
-        },
-        'signalLH1600':{
-            'location':['BstarToTW_M-1600_LH_TuneCUETP8M1_13TeV-madgraph-pythia8/BstarToTW_M-1600_LH_TuneCUETP8M1_13TeV-madgraph-pythia8_jetNano_v0p1/']
-        },
-        'signalLH1800':{
-            'location':['BstarToTW_M-1800_LH_TuneCUETP8M1_13TeV-madgraph-pythia8/BstarToTW_M-1800_LH_TuneCUETP8M1_13TeV-madgraph-pythia8_jetNano_v0p1/']
-        },
-        'signalLH2000':{
-            'location':['BstarToTW_M-2000_LH_TuneCUETP8M1_13TeV-madgraph-pythia8/BstarToTW_M-2000_LH_TuneCUETP8M1_13TeV-madgraph-pythia8_jetNano_v0p1/']
-        },
-        'signalLH2200':{
-            'location':['BstarToTW_M-2200_LH_TuneCUETP8M1_13TeV-madgraph-pythia8/BstarToTW_M-2200_LH_TuneCUETP8M1_13TeV-madgraph-pythia8_jetNano_v0p1/']
-        },
-        'signalLH2400':{
-            'location':['BstarToTW_M-2400_LH_TuneCUETP8M1_13TeV-madgraph-pythia8/BstarToTW_M-2400_LH_TuneCUETP8M1_13TeV-madgraph-pythia8_jetNano_v0p1/']
-        },
-        'signalLH2600':{
-            'location':['BstarToTW_M-2600_LH_TuneCUETP8M1_13TeV-madgraph-pythia8/BstarToTW_M-2600_LH_TuneCUETP8M1_13TeV-madgraph-pythia8_jetNano_v0p1/']
-        },
-        'signalLH2800':{
-            'location':['BstarToTW_M-2800_LH_TuneCUETP8M1_13TeV-madgraph-pythia8/BstarToTW_M-2800_LH_TuneCUETP8M1_13TeV-madgraph-pythia8_jetNano_v0p1/']
-        },
-        'signalLH3000':{
-            'location':['BstarToTW_M-3000_LH_TuneCUETP8M1_13TeV-madgraph-pythia8/BstarToTW_M-3000_LH_TuneCUETP8M1_13TeV-madgraph-pythia8_jetNano_v0p1/']
-        },
-        'signalRH1200':{
-            'location':['BstarToTW_M-1200_RH_TuneCUETP8M1_13TeV-madgraph-pythia8/BstarToTW_M-1200_RH_TuneCUETP8M1_13TeV-madgraph-pythia8_jetNano_v0p1/']
-        },
-        'signalRH1400':{
-            'location':['BstarToTW_M-1400_RH_TuneCUETP8M1_13TeV-madgraph-pythia8/BstarToTW_M-1400_RH_TuneCUETP8M1_13TeV-madgraph-pythia8_jetNano_v0p1/']
-        },
-        'signalRH1600':{
-            'location':['BstarToTW_M-1600_RH_TuneCUETP8M1_13TeV-madgraph-pythia8/BstarToTW_M-1600_RH_TuneCUETP8M1_13TeV-madgraph-pythia8_jetNano_v0p1/']
-        },
-        'signalRH1800':{
-            'location':['BstarToTW_M-1800_RH_TuneCUETP8M1_13TeV-madgraph-pythia8/BstarToTW_M-1800_RH_TuneCUETP8M1_13TeV-madgraph-pythia8_jetNano_v0p1/']
-        },
-        'signalRH2000':{
-            'location':['BstarToTW_M-2000_RH_TuneCUETP8M1_13TeV-madgraph-pythia8/BstarToTW_M-2000_RH_TuneCUETP8M1_13TeV-madgraph-pythia8_jetNano_v0p1/']
-        },
-        'signalRH2200':{
-            'location':['BstarToTW_M-2200_RH_TuneCUETP8M1_13TeV-madgraph-pythia8/BstarToTW_M-2200_RH_TuneCUETP8M1_13TeV-madgraph-pythia8_jetNano_v0p1/']
-        },
-        'signalRH2400':{
-            'location':['BstarToTW_M-2400_RH_TuneCUETP8M1_13TeV-madgraph-pythia8/BstarToTW_M-2400_RH_TuneCUETP8M1_13TeV-madgraph-pythia8_jetNano_v0p1/']
-        },
-        'signalRH2600':{
-            'location':['BstarToTW_M-2600_RH_TuneCUETP8M1_13TeV-madgraph-pythia8/BstarToTW_M-2600_RH_TuneCUETP8M1_13TeV-madgraph-pythia8_jetNano_v0p1/']
-        },
-        'signalRH2800':{
-            'location':['BstarToTW_M-2800_RH_TuneCUETP8M1_13TeV-madgraph-pythia8/BstarToTW_M-2800_RH_TuneCUETP8M1_13TeV-madgraph-pythia8_jetNano_v0p1/']
-        },
-        'signalRH3000':{
-            'location':['BstarToTW_M-3000_RH_TuneCUETP8M1_13TeV-madgraph-pythia8/BstarToTW_M-3000_RH_TuneCUETP8M1_13TeV-madgraph-pythia8_jetNano_v0p1/']
-        }
-    }
-
-    return setDict[setname]['location']
 
 
 def PDF_Lookup(pdfs , pdfOP ):
@@ -413,7 +297,10 @@ class myGenParticle:
         self.vect.SetPtEtaPhiM(genpart.pt,genpart.eta,genpart.phi,genpart.mass)
         self.motherIdx = genpart.genPartIdxMother
 
-def SFT_Lookup(jet, file, genparticles, wp):
+def SFT_Lookup(jet, file, genparticles, wp,ievent=1):
+    import GenParticleChecker
+    from GenParticleChecker import GenParticleTree,GenParticleObj
+    
     if wp == 'loose':
         workpoint = 'wp3'
     elif wp == 'medium':
@@ -434,7 +321,7 @@ def SFT_Lookup(jet, file, genparticles, wp):
         this_gen_part.SetPDGName(abs(this_gen_part.pdgId))
         
         # Add particles to tree and keep track of them in external lists
-        if abs(this_gen_part.pdgId) == 6:# and this_gen_part.status == 62: # 22 means intermediate part of hardest subprocess, only other to appear is 62 (outgoing subprocess particle with primordial kT included)
+        if abs(this_gen_part.pdgId) == 6 and this_gen_part.vect.DeltaR(jet)<0.8:# and this_gen_part.status == 62: # 22 means intermediate part of hardest subprocess, only other to appear is 62 (outgoing subprocess particle with primordial kT included)
             particle_tree.AddParticle(this_gen_part)
             tops.append(this_gen_part)
 
@@ -446,23 +333,44 @@ def SFT_Lookup(jet, file, genparticles, wp):
             particle_tree.AddParticle(this_gen_part)
             quarks.append(this_gen_part)
 
+        elif this_gen_part.vect.DeltaR(jet)<0.8:
+            particle_tree.AddParticle(this_gen_part)
+
     for W in Ws:
         # If parent is a top that matches with the jet
-        top = particle_tree.GetParent(W)
-        if abs(top.pdgId) == 6 and top.DeltaR(jet) < 0.8:
-            # Loop over the daughters of the W
-            for c in particle_tree.GetChildren(W):
-                if abs(c.pdgId) >= 1 and abs(c.pdgId) <= 5:
-                    # Append daughter quarks to prongs
-                    prongs.append(c)
+        wParent = particle_tree.GetParent(W)
+        if wParent != False:
+            if abs(wParent.pdgId) == 6 and wParent.DeltaR(jet) < 0.8:
+                # Loop over the daughters of the W
+                this_W = W
+                # Skip down chain of W's to last one
+                if len(particle_tree.GetChildren(this_W)) == 1 and particle_tree.GetChildren(this_W)[0].pdgId == W.pdgId:
+                    this_W = particle_tree.GetChildren(this_W)[0]
+                
+                for c in particle_tree.GetChildren(this_W):
+                    if abs(c.pdgId) >= 1 and abs(c.pdgId) <= 5:
+                        # Append daughter quarks to prongs
+                        prongs.append(c)
 
     for q in quarks:
         # if bottom      and     has a parent              and   parent is a top                          and    the top matches to the jet
-        if abs(q.pdgId) == 5 and particle_tree.GetParent(q) and abs(particle_tree.GetParent(q).pdgId) == 6 and particle_tree.GetParent(q).DeltaR(jet) < 0.8:
-            prongs.append(c)
+        if abs(q.pdgId) == 5:
+            bottomParent = particle_tree.GetParent(q)
+            # if parent exists
+            if bottomParent != False:
+                # if parent is a top matched to the jet
+                if abs(bottomParent.pdgId) == 6 and bottomParent.DeltaR(jet) < 0.8:
+                    prongs.append(q)
 
     # Now that we have the prongs, check how many are merged
     merged_particles = 0
+    if len(prongs) < 3: # you've either tagged a QCD jet and can't match to a gen top or the W decayed leptonically so don't apply a SF in either case
+        # if len(prongs) == 1: 
+        #     particle_tree.PrintTree(ievent,['idx','status'],wp,jet)
+        #     raw_input(prongs[0].idx)
+        return [1,1,1],-len(prongs)-1
+
+
     for p in prongs:
         if p.DeltaR(jet) < 0.8:
             merged_particles += 1
@@ -475,10 +383,12 @@ def SFT_Lookup(jet, file, genparticles, wp):
         hnom = file.Get('PUPPI_'+workpoint+'_btag/sf_semimerged_nominal')
         hup = file.Get('PUPPI_'+workpoint+'_btag/sf_semimerged_up')
         hdown = file.Get('PUPPI_'+workpoint+'_btag/sf_semimerged_down')
-    else:
+    elif merged_particles == 1:
         hnom = file.Get('PUPPI_'+workpoint+'_btag/sf_notmerged_nominal')
         hup = file.Get('PUPPI_'+workpoint+'_btag/sf_notmerged_up')
         hdown = file.Get('PUPPI_'+workpoint+'_btag/sf_notmerged_down')
+    else:
+        return [1,1,1],-len(prongs)-1
 
     if jet.Perp() > 5000:
         sfbin_nom = hnom.GetNbinsX()
@@ -493,34 +403,34 @@ def SFT_Lookup(jet, file, genparticles, wp):
     up = hup.GetBinContent(sfbin_up)
     down = hdown.GetBinContent(sfbin_down)
 
-    return [nom,up,down]
+    return [nom,up,down],merged_particles
 
 
-def SFT_Lookup_MERGEDONLY( jet, file , wp ):
-    if wp == 'loose':
-        workpoint = 'wp3'
-    elif wp == 'medium':
-        workpoint = 'wp4'
-    elif wp == 'tight':
-        workpoint = 'wp5'
+# def SFT_Lookup_MERGEDONLY( jet, file , wp ):
+#     if wp == 'loose':
+#         workpoint = 'wp3'
+#     elif wp == 'medium':
+#         workpoint = 'wp4'
+#     elif wp == 'tight':
+#         workpoint = 'wp5'
 
-    hnom = file.Get('PUPPI_'+workpoint+'_btag/sf_mergedTop_nominal')
-    hup = file.Get('PUPPI_'+workpoint+'_btag/sf_mergedTop_up')
-    hdown = file.Get('PUPPI_'+workpoint+'_btag/sf_mergedTop_down')
-    if jet.Perp() > 5000:
-        sfbin_nom = hnom.GetNbinsX()
-        sfbin_up = hup.GetNbinsX()
-        sfbin_down = hdown.GetNbinsX()
-    else:
-        sfbin_nom = hnom.FindFixBin(jet.Perp())
-        sfbin_up = hup.FindFixBin(jet.Perp())
-        sfbin_down = hdown.FindFixBin(jet.Perp())
+#     hnom = file.Get('PUPPI_'+workpoint+'_btag/sf_mergedTop_nominal')
+#     hup = file.Get('PUPPI_'+workpoint+'_btag/sf_mergedTop_up')
+#     hdown = file.Get('PUPPI_'+workpoint+'_btag/sf_mergedTop_down')
+#     if jet.Perp() > 5000:
+#         sfbin_nom = hnom.GetNbinsX()
+#         sfbin_up = hup.GetNbinsX()
+#         sfbin_down = hdown.GetNbinsX()
+#     else:
+#         sfbin_nom = hnom.FindFixBin(jet.Perp())
+#         sfbin_up = hup.FindFixBin(jet.Perp())
+#         sfbin_down = hdown.FindFixBin(jet.Perp())
 
-    nom = hnom.GetBinContent(sfbin_nom)
-    up = hup.GetBinContent(sfbin_up)
-    down = hdown.GetBinContent(sfbin_down)
+#     nom = hnom.GetBinContent(sfbin_nom)
+#     up = hup.GetBinContent(sfbin_up)
+#     down = hdown.GetBinContent(sfbin_down)
 
-    return [nom,up,down]
+#     return [nom,up,down]
 
 #This looks up the ttbar pt reweighting scale factor when making ttrees
 def PTW_Lookup( GP ):
@@ -551,35 +461,41 @@ def PTW_Lookup( GP ):
     wTbarPt = exp(0.0615-0.0005*genTBpt)
     return sqrt(wTPt*wTbarPt)
 
-
 # This does the W jet matching requirement by looking up the deltaR separation
 # of the daughter particle from the W axis. If passes, return 1.
-def WJetMatching(GP):
-    passed = 0
-    failedDaughters = 0
-    for ig in range(0,len(GP)):
-        isWp = GP[ig].pdgId== 24 and GP[ig].status == 22
-        isWm = GP[ig].pdgId== -24 and GP[ig].status == 22
-        if isWp or isWm:
-            # Windex = GP[ig].GetIndex()
-            Wvect = TLorentzVector()
-            Wvect.SetPtEtaPhiM(GP[ig].pt,GP[ig].eta,GP[ig].phi,GP[ig].mass)
+def WJetMatching(wjetVect,genparticles):
+    import GenParticleChecker
+    from GenParticleChecker import GenParticleTree,GenParticleObj
+    
+    # Build the tree of gen particles that we care about
+    particle_tree = GenParticleTree()
+    Ws = []
+    quarks = []
+    prongs = [] # Final particles we'll check
+    for i,p in enumerate(genparticles):
+        # Internal class info
+        this_gen_part = GenParticleObj(i,p)
+        this_gen_part.SetStatusFlags()
+        this_gen_part.SetPDGName(abs(this_gen_part.pdgId))
+        
+        # Add particles to tree and keep track of them in external lists
+        if abs(this_gen_part.pdgId) == 24:# and this_gen_part.status == 22: # 22 means intermediate part of hardest subprocess, only other to appear is 52 (outgoing copy of recoiler, with changed momentum)
+            particle_tree.AddParticle(this_gen_part)
+            Ws.append(this_gen_part)
 
-            daughterVects = []
-            for d in GP:
-                if d.genPartIdxMother == ig:
-                    thisDaughterVect = TLorentzVector()
-                    thisDaughterVect.SetPtEtaPhiM(d.pt,d.eta,d.phi,d.mass)
-                    daughterVects.append(thisDaughterVect)
+        elif abs(this_gen_part.pdgId) >= 1 and abs(this_gen_part.pdgId) <= 5:
+            particle_tree.AddParticle(this_gen_part)
+            quarks.append(this_gen_part)
 
-            for daughter in daughterVects:
-                if Wvect.DeltaR(daughter) > 0.8:
-                    failedDaughters += 1
+    for q in quarks:
+        # if parent is a w and 
+        if particle_tree.GetParent(q) and abs(particle_tree.GetParent(q).pdgId) == 24 and particle_tree.GetParent(q).vect.DeltaR(wjetVect) < 0.8 and q.vect.DeltaR(wjetVect) < 0.8:
+            prongs.append(q)
 
-    if failedDaughters == 0:
-        passed = 1
-
-    return passed         
+    if len(prongs) == 2:
+        return True
+    else:
+        return False        
 
 # Outdated by pu weight producer in nanoaod-tools
 # def PU_Lookup(PU , PUP):
@@ -622,21 +538,19 @@ def Hemispherize(jetCollection):
 
     return Jetsh0,Jetsh1
 
-def Weightify(wd,outname):
+def Weightify(wd,outname,drop=[]):
     final_w = 1.0
-    corrections = ['Pileup','Topsf','sjbsf','Wsf','Trigger','Ptreweight']
+    corrections = [corr for corr in wd.keys() if 'nom' in wd[corr].keys() and corr not in drop]
 
     if outname == 'nominal':
         for c in corrections:
-            if 'nom' in wd[c].keys():
-                final_w = final_w*wd[c]['nom']
-
+            final_w = final_w*wd[c]['nom']
 
     elif outname.split('_')[0] in corrections:
         if outname.split('_')[1] in wd[outname.split('_')[0]].keys():
             final_w = wd[outname.split('_')[0]][outname.split('_')[1]]
         for c in corrections:
-            if (c != outname.split('_')[0]) and ('nom' in wd[c].keys()):
+            if (c != outname.split('_')[0]):
                 final_w = final_w*wd[c]['nom']
 
     else:
@@ -647,14 +561,19 @@ def Weightify(wd,outname):
     
     return final_w
 
-def LeptonicSelection(electronColl, muonColl, ak4jetColl):
+def LeptonVeto(event, year, sf_file):
+    from PhysicsTools.NanoAODTools.postprocessing.framework.datamodel import Collection,Object,Event
+
+    ak4jetColl = Collection(event, 'Jet')
+    electronColl = Collection(event, 'Electron')
+    muonColl = Collection(event, 'Muon')
 
     # Leptonic W selection
     # * 1 isolated lepton
     #    * pt > 53 GeV
     #    * |eta| < 2.4  
     #    * tight muon (rel. iso < .15) or tight isolated electron
-    # * veto on additional leptons
+    # * veto on additional leptons --> Can ignore this because all had shouldn't have any events with more than candidate lepton either
     #    * pt > 30GeV
     #    * |eta| < 2.4 
     #    * veto id electrons or loose id muons)
@@ -667,6 +586,43 @@ def LeptonicSelection(electronColl, muonColl, ak4jetColl):
     # * deltaR (lepton, b-jet) > 2.0
     # * 1 HOTVR top tag
     # * reconstruction chi^2 < 30
+
+    # Construct list of candidates es and mus
+    lepW_candidate_es = [e for e in electronColl if e.pt > 53 and abs(e.eta) < 2.4]
+    lepW_candidate_mus = [mu for mu in muonColl if mu.pt > 53 and abs(mu.eta) < 2.4]
+
+    lep_sf = 1
+
+    # If you're able to make the cut on pt and eta alone, don't change SF and just give false for lepW selection
+    if len(lepW_candidate_es) == 0 and len(lepW_candidate_mus) == 0:
+        lepW_veto = True
+    # If you need to check lepton IDs...
+    else:
+        # Check electrons
+        for ie,e in enumerate(lepW_candidate_es):
+            # Check if it passes veto
+            if e.cutBased != 4:
+                lepW_candidate_es.pop(ie)
+                lep_sf *= SFe_Lookup(year,sf_file,e.pt,e.eta)
+            
+        if len(lepW_candidate_es) > 0:
+            lepW_veto = False
+
+        # Check muons
+        else:
+            for im,m in enumerate(lepW_candidate_mus):
+                # If tight ID and Iso, we'll toss it
+                if not mu.tightId:
+                    lepW_candidate_mus.pop(im)
+                    lep_sf *= SFmu_Lookup(year,'ID',sf_file,mu.pt,mu.eta)
+                elif mu.pfRelIso04_all > .15:
+                    lepW_candidate_mus.pop(im)
+                    lep_sf *= SFmu_Lookup(year,'ISO',sf_file,mu.pt,mu.eta)
+
+            if len(lepW_candidate_mus) > 0:
+                lepW_veto = False
+            else:
+                lepW_veto = True
 
     # Leptonic Top selection
     # * 1 unisolated Tight Lepton  
@@ -685,26 +641,50 @@ def LeptonicSelection(electronColl, muonColl, ak4jetColl):
     # * MET >80 GeV and AK8 jet pt>950 GeV for Muon channel
     # * MET>240GeV and AK8 jet pt>750 GeV for Electron channel.
 
-    # ----------------------- #
-    # To veto, need a NOT of: #
-    # ----------------------- # 
-    # 1 isolated lepton
-    # - pt > 53 GeV
-    # - |eta| < 2.4
-    # - tight muon (rel. iso < .15) or tight isolated electron
-    # AND
-    # 1 unisolated tight lepton
-    # - pt > 53 (muon), 30 (electron)
-    # - |eta| < 2.4
-    # - deltaR(lepton,closestAK4jet) > 0.4
+    lepT_candidates = [e for e in electronColl if e.pt > 30 and abs(e.eta) < 2.4] + [mu for mu in electronColl if mu.pt > 53 and abs(e.eta) < 2.4]
 
-    selection = False
+    if len(lepT_candidates) == 0:
+        lepT_veto = True
 
-    # for e in electronColl:
-    #     if e.pt > 53 and abs(e.eta) < 2.4 and e.cutBased == 4
+    else:
+        for il,l in enumerate(lepT_candidates):
+            if l.jetIdx != -1:
+                closestAK4 = ak4jetColl[l.jetIdx]
+                closestAK4_LV, l_LV = TLorentzVector(), TLorentzVector()
+                closestAK4_LV.SetPtEtaPhiM(closestAK4.pt, closestAK4.eta, closestAK4.phi, closestAK4.mass)
+                l_LV.SetPtEtaPhiM(l.pt, l.eta, l.phi, l.mass)
+            else:
+                closestAK4_LV = None
+            deltaRcut = l_LV.DeltaR(closestAK4_LV) > 0.4 if closestAK4_LV != None else False
 
+            if not deltaRcut:
+                if hasattr(l,'jetPtRelv2'):
+                    if l.jetPtRelv2 < 15: 
+                        lepT_candidates.pop(il)
+                else:
+                    lepT_candidates.pop(il)
 
-    return selection
+        if len(lepT_candidates) > 0:
+            lepT_veto = False
+        else:
+            lepT_veto = True
+        lepT_veto = False
+
+    lep_veto = lepW_veto and lepT_veto
+
+    return lep_veto, lep_sf
+
+def SFe_Lookup(year,sf_file,pt,eta):
+    sf_hist = sf_file.Get(year+'_Electron_veto_sf')
+    return sf_hist.GetBinContent(sf_hist.GetXaxis().FindBin(eta),sf_hist.GetYaxis().FindBin(pt))
+
+def SFmu_Lookup(year,ISOorID,sf_file,pt,eta):
+    sf_hist = sf_file.Get(year+'_Muon_'+ISOorID+'_veto_sf')
+    if year == "16":
+        return sf_hist.GetBinContent(sf_hist.GetXaxis().FindBin(eta),sf_hist.GetYaxis().FindBin(pt))
+    else:
+        return sf_hist.GetBinContent(sf_hist.GetXaxis().FindBin(pt),sf_hist.GetYaxis().FindBin(abs(eta)))
+
 
 #This is just a quick function to automatically make a tree
 #This is used right now to automatically output branches used to validate the cuts used in a run

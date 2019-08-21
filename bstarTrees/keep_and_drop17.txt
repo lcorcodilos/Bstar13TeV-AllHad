@@ -1,6 +1,8 @@
 drop *
 
 keep *FatJet*
+keep nJet
+keep Jet_*
 keep *SubJet*
 keep *GenJet*
 keep run
@@ -22,12 +24,8 @@ keep *Pileup*
 keep *genWeight*
 keep Generator_scalePDF
 
-keep Electron_*Iso*
-keep Electron_pt
-keep Electron_eta
-keep Electron_cutBased
+keep Electron_*
+keep nElectron
 
-keep Muon_pt
-keep Muon_eta
-keep Muon_*Id*
-keep Muon_*Iso*
+keep Muon_*
+keep nMuon
