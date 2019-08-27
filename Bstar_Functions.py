@@ -172,16 +172,15 @@ def LoadConstants(year):
     
 def LoadCuts(region,year):
     cuts = {
-        'wpt':[500.0,float("inf")],
-        'tpt':[500.0,float("inf")],
+        'sumpt':[1000.0,float("inf")],
+        'wpt':[400.0,float("inf")],
+        'tpt':[400.0,float("inf")],
         'dy':[0.0,1.6],
         'tmass':[105.0,220.0],
         'wmass':[65.0,105.0],
         'tau32loose':[0.0,0.8],
         'tau32medium':[0.0,0.65],
         'tau32tight':[0.0,0.54],
-        'eta1':[0.0,0.8],
-        'eta2':[0.8,2.4],
         'eta':[0.0,2.4]}
 
     if year == '16':
@@ -259,178 +258,9 @@ def PDF_Lookup(pdfs , pdfOP ):
     else :
         return max(-12.0,1.0-sqrt((ilimweight) / (len(limitedpdf))))
 
-def Trigger_Lookup( H , TRP ):
-    Weight = 1.0
-    Weightup = 1.0
-    Weightdown = 1.0
-    if H < 2000.0:
-        bin0 = TRP.FindBin(H) 
-        jetTriggerWeight = TRP.GetBinContent(bin0)
-        # Check that we're not in an empty bin in the fully efficient region
-        if jetTriggerWeight == 0:
-            if TRP.GetBinContent(bin0-1) == 1.0 and TRP.GetBinContent(bin0+1) == 1.0:
-                jetTriggerWeight = 1.0
-            elif TRP.GetBinContent(bin0-1) > 0 or TRP.GetBinContent(bin0+1) > 0:
-                jetTriggerWeight = (TRP.GetBinContent(bin0-1)+TRP.GetBinContent(bin0+1))/2.
-
-        Weight = jetTriggerWeight
-        deltaTriggerEff  = 0.5*(1.0-jetTriggerWeight)
-        Weightup  =   min(1.0,jetTriggerWeight + deltaTriggerEff)
-        Weightdown  =   max(0.0,jetTriggerWeight - deltaTriggerEff)
-        
-    return [Weight,Weightup,Weightdown]
 
 
-def SFTdeep_Lookup( pttop, plots ):
-    nom = plots['nom'].Eval(pttop)
-    up = plots['up'].Eval(pttop)
-    down = plots['down'].Eval(pttop)
-    return [nom,up,down]
 
-class myGenParticle:
-    def __init__ (self, index, genpart):
-        self.idx = index
-        self.genpart = genpart
-        self.status = genpart.status
-        self.pdgId = genpart.pdgId
-        self.vect = TLorentzVector()
-        self.vect.SetPtEtaPhiM(genpart.pt,genpart.eta,genpart.phi,genpart.mass)
-        self.motherIdx = genpart.genPartIdxMother
-
-def SFT_Lookup(jet, file, genparticles, wp,ievent=1):
-    import GenParticleChecker
-    from GenParticleChecker import GenParticleTree,GenParticleObj
-    
-    if wp == 'loose':
-        workpoint = 'wp3'
-    elif wp == 'medium':
-        workpoint = 'wp4'
-    elif wp == 'tight':
-        workpoint = 'wp5'
-
-    # Build the tree of gen particles that we care about
-    particle_tree = GenParticleTree()
-    tops = []
-    Ws = []
-    quarks = []
-    prongs = [] # Final particles we'll check
-    for i,p in enumerate(genparticles):
-        # Internal class info
-        this_gen_part = GenParticleObj(i,p)
-        this_gen_part.SetStatusFlags()
-        this_gen_part.SetPDGName(abs(this_gen_part.pdgId))
-        
-        # Add particles to tree and keep track of them in external lists
-        if abs(this_gen_part.pdgId) == 6 and this_gen_part.vect.DeltaR(jet)<0.8:# and this_gen_part.status == 62: # 22 means intermediate part of hardest subprocess, only other to appear is 62 (outgoing subprocess particle with primordial kT included)
-            particle_tree.AddParticle(this_gen_part)
-            tops.append(this_gen_part)
-
-        elif abs(this_gen_part.pdgId) == 24:# and this_gen_part.status == 22: # 22 means intermediate part of hardest subprocess, only other to appear is 52 (outgoing copy of recoiler, with changed momentum)
-            particle_tree.AddParticle(this_gen_part)
-            Ws.append(this_gen_part)
-
-        elif abs(this_gen_part.pdgId) >= 1 and abs(this_gen_part.pdgId) <= 5 and this_gen_part.status == 23:
-            particle_tree.AddParticle(this_gen_part)
-            quarks.append(this_gen_part)
-
-        elif this_gen_part.vect.DeltaR(jet)<0.8:
-            particle_tree.AddParticle(this_gen_part)
-
-    for W in Ws:
-        # If parent is a top that matches with the jet
-        wParent = particle_tree.GetParent(W)
-        if wParent != False:
-            if abs(wParent.pdgId) == 6 and wParent.DeltaR(jet) < 0.8:
-                # Loop over the daughters of the W
-                this_W = W
-                # Skip down chain of W's to last one
-                if len(particle_tree.GetChildren(this_W)) == 1 and particle_tree.GetChildren(this_W)[0].pdgId == W.pdgId:
-                    this_W = particle_tree.GetChildren(this_W)[0]
-                
-                for c in particle_tree.GetChildren(this_W):
-                    if abs(c.pdgId) >= 1 and abs(c.pdgId) <= 5:
-                        # Append daughter quarks to prongs
-                        prongs.append(c)
-
-    for q in quarks:
-        # if bottom      and     has a parent              and   parent is a top                          and    the top matches to the jet
-        if abs(q.pdgId) == 5:
-            bottomParent = particle_tree.GetParent(q)
-            # if parent exists
-            if bottomParent != False:
-                # if parent is a top matched to the jet
-                if abs(bottomParent.pdgId) == 6 and bottomParent.DeltaR(jet) < 0.8:
-                    prongs.append(q)
-
-    # Now that we have the prongs, check how many are merged
-    merged_particles = 0
-    if len(prongs) < 3: # you've either tagged a QCD jet and can't match to a gen top or the W decayed leptonically so don't apply a SF in either case
-        # if len(prongs) == 1: 
-        #     particle_tree.PrintTree(ievent,['idx','status'],wp,jet)
-        #     raw_input(prongs[0].idx)
-        return [1,1,1],-len(prongs)-1
-
-
-    for p in prongs:
-        if p.DeltaR(jet) < 0.8:
-            merged_particles += 1
-
-    if merged_particles == 3:
-        hnom = file.Get('PUPPI_'+workpoint+'_btag/sf_mergedTop_nominal')
-        hup = file.Get('PUPPI_'+workpoint+'_btag/sf_mergedTop_up')
-        hdown = file.Get('PUPPI_'+workpoint+'_btag/sf_mergedTop_down')
-    elif merged_particles == 2:
-        hnom = file.Get('PUPPI_'+workpoint+'_btag/sf_semimerged_nominal')
-        hup = file.Get('PUPPI_'+workpoint+'_btag/sf_semimerged_up')
-        hdown = file.Get('PUPPI_'+workpoint+'_btag/sf_semimerged_down')
-    elif merged_particles == 1:
-        hnom = file.Get('PUPPI_'+workpoint+'_btag/sf_notmerged_nominal')
-        hup = file.Get('PUPPI_'+workpoint+'_btag/sf_notmerged_up')
-        hdown = file.Get('PUPPI_'+workpoint+'_btag/sf_notmerged_down')
-    else:
-        return [1,1,1],-len(prongs)-1
-
-    if jet.Perp() > 5000:
-        sfbin_nom = hnom.GetNbinsX()
-        sfbin_up = hup.GetNbinsX()
-        sfbin_down = hdown.GetNbinsX()
-    else:
-        sfbin_nom = hnom.FindFixBin(jet.Perp())
-        sfbin_up = hup.FindFixBin(jet.Perp())
-        sfbin_down = hdown.FindFixBin(jet.Perp())
-
-    nom = hnom.GetBinContent(sfbin_nom)
-    up = hup.GetBinContent(sfbin_up)
-    down = hdown.GetBinContent(sfbin_down)
-
-    return [nom,up,down],merged_particles
-
-
-# def SFT_Lookup_MERGEDONLY( jet, file , wp ):
-#     if wp == 'loose':
-#         workpoint = 'wp3'
-#     elif wp == 'medium':
-#         workpoint = 'wp4'
-#     elif wp == 'tight':
-#         workpoint = 'wp5'
-
-#     hnom = file.Get('PUPPI_'+workpoint+'_btag/sf_mergedTop_nominal')
-#     hup = file.Get('PUPPI_'+workpoint+'_btag/sf_mergedTop_up')
-#     hdown = file.Get('PUPPI_'+workpoint+'_btag/sf_mergedTop_down')
-#     if jet.Perp() > 5000:
-#         sfbin_nom = hnom.GetNbinsX()
-#         sfbin_up = hup.GetNbinsX()
-#         sfbin_down = hdown.GetNbinsX()
-#     else:
-#         sfbin_nom = hnom.FindFixBin(jet.Perp())
-#         sfbin_up = hup.FindFixBin(jet.Perp())
-#         sfbin_down = hdown.FindFixBin(jet.Perp())
-
-#     nom = hnom.GetBinContent(sfbin_nom)
-#     up = hup.GetBinContent(sfbin_up)
-#     down = hdown.GetBinContent(sfbin_down)
-
-#     return [nom,up,down]
 
 #This looks up the ttbar pt reweighting scale factor when making ttrees
 def PTW_Lookup( GP ):
@@ -461,41 +291,7 @@ def PTW_Lookup( GP ):
     wTbarPt = exp(0.0615-0.0005*genTBpt)
     return sqrt(wTPt*wTbarPt)
 
-# This does the W jet matching requirement by looking up the deltaR separation
-# of the daughter particle from the W axis. If passes, return 1.
-def WJetMatching(wjetVect,genparticles):
-    import GenParticleChecker
-    from GenParticleChecker import GenParticleTree,GenParticleObj
-    
-    # Build the tree of gen particles that we care about
-    particle_tree = GenParticleTree()
-    Ws = []
-    quarks = []
-    prongs = [] # Final particles we'll check
-    for i,p in enumerate(genparticles):
-        # Internal class info
-        this_gen_part = GenParticleObj(i,p)
-        this_gen_part.SetStatusFlags()
-        this_gen_part.SetPDGName(abs(this_gen_part.pdgId))
-        
-        # Add particles to tree and keep track of them in external lists
-        if abs(this_gen_part.pdgId) == 24:# and this_gen_part.status == 22: # 22 means intermediate part of hardest subprocess, only other to appear is 52 (outgoing copy of recoiler, with changed momentum)
-            particle_tree.AddParticle(this_gen_part)
-            Ws.append(this_gen_part)
-
-        elif abs(this_gen_part.pdgId) >= 1 and abs(this_gen_part.pdgId) <= 5:
-            particle_tree.AddParticle(this_gen_part)
-            quarks.append(this_gen_part)
-
-    for q in quarks:
-        # if parent is a w and 
-        if particle_tree.GetParent(q) and abs(particle_tree.GetParent(q).pdgId) == 24 and particle_tree.GetParent(q).vect.DeltaR(wjetVect) < 0.8 and q.vect.DeltaR(wjetVect) < 0.8:
-            prongs.append(q)
-
-    if len(prongs) == 2:
-        return True
-    else:
-        return False        
+     
 
 # Outdated by pu weight producer in nanoaod-tools
 # def PU_Lookup(PU , PUP):
@@ -527,16 +323,7 @@ def getCorrectedPuppiSDmass(fatjetVect, subjetsCollection, puppisd_corrGEN, pupp
 
     return uncorrectedFatJetVect.M() * totalWeight
 
-def Hemispherize(jetCollection):
-    Jetsh1 = []
-    Jetsh0 = []
-    for ijet in range(0,len(jetCollection)):
-        if abs(deltaPhi(jetCollection[0].phi,jetCollection[ijet].phi))>TMath.Pi()/2.0:
-            Jetsh1.append(ijet)
-        else:
-            Jetsh0.append(ijet)
 
-    return Jetsh0,Jetsh1
 
 def Weightify(wd,outname,drop=[]):
     final_w = 1.0
@@ -695,29 +482,7 @@ def Make_Trees(Floats,name="Tree"):
         t.Branch(F, Floats[F], F+"/D")
     return t
 
-# Quick way to get extrapolation uncertainty
-def ExtrapUncert_Lookup(pt,purity,year):
-    if year == '16':
-        if purity == 'HP':
-            x = 0.085
-        elif purity == 'LP':
-            x = 0.039
-        elif purity == False:
-            return 0
-        extrap_uncert = x*log(pt/200)
-        return extrap_uncert
-    elif year == '17' or year == '18':
-        if pt > 350 and pt < 600:
-            return 0.13
-        else:
-            if purity == 'HP':
-                x = 0.085
-            elif purity == 'LP':
-                x = 0.039
-            elif purity == False:
-                return 0
-            extrap_uncert = x*log(pt/200)
-            return extrap_uncert
+
 
 def dictToLatexTable(dict2convert,outfilename,roworder=[],columnorder=[],caption=''):
     # First set of keys are row, second are column

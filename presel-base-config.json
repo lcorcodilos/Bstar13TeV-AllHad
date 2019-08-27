@@ -1,0 +1,14 @@
+{
+    "trigger":{
+        "16":"HLT_PFHT800ORHLT_PFHT900ORHLT_PFJet450",
+        "17":"HLT_PFHT1050ORHLT_PFJet500",
+        "18":"HLT_PFHT1050ORHLT_PFJet500"
+    },
+    "pretrigger":{
+        "16":"HLT_Mu50",
+        "17":"HLT_Mu50",
+        "18":"HLT_Mu50"
+    },
+    "qcdweight":false,
+    "tau32":"medium"
+}
