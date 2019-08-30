@@ -172,16 +172,14 @@ def LoadConstants(year):
     
 def LoadCuts(region,year):
     cuts = {
-        'wpt':[500.0,float("inf")],
-        'tpt':[500.0,float("inf")],
+        'wpt':[400.0,float("inf")],
+        'tpt':[400.0,float("inf")],
         'dy':[0.0,1.6],
         'tmass':[105.0,220.0],
         'wmass':[65.0,105.0],
         'tau32loose':[0.0,0.8],
         'tau32medium':[0.0,0.65],
         'tau32tight':[0.0,0.54],
-        'eta1':[0.0,0.8],
-        'eta2':[0.8,2.4],
         'eta':[0.0,2.4]}
 
     if year == '16':
@@ -588,6 +586,7 @@ def LeptonVeto(event, year, sf_file):
     # * reconstruction chi^2 < 30
 
     # Construct list of candidates es and mus
+    lepW_additional_leps = [e for e in electronColl if e.pt > 30 and abs(e.eta) < 2.4]+[mu for mu in muonColl if mu.pt > 30 and abs(mu.eta) < 2.4]
     lepW_candidate_es = [e for e in electronColl if e.pt > 53 and abs(e.eta) < 2.4]
     lepW_candidate_mus = [mu for mu in muonColl if mu.pt > 53 and abs(mu.eta) < 2.4]
 
@@ -595,6 +594,9 @@ def LeptonVeto(event, year, sf_file):
 
     # If you're able to make the cut on pt and eta alone, don't change SF and just give false for lepW selection
     if len(lepW_candidate_es) == 0 and len(lepW_candidate_mus) == 0:
+        lepW_veto = True
+    # If there are additional leptons in the event:
+    elif len(lepW_additional_leps) > 1:
         lepW_veto = True
     # If you need to check lepton IDs...
     else:
@@ -668,11 +670,71 @@ def LeptonVeto(event, year, sf_file):
             lepT_veto = False
         else:
             lepT_veto = True
-        lepT_veto = False
 
     lep_veto = lepW_veto and lepT_veto
 
-    return lep_veto, lep_sf
+    return lep_veto, lepW_veto, lepT_veto, lepT_candidates, lepW_candidate_es, lepW_candidate_mus#lep_sf
+
+# Check if jet is an all-hadronic b* decay
+def AllHadIdentifier(genparticles,lepveto):
+    import GenParticleChecker
+    from GenParticleChecker import GenParticleTree,GenParticleObj
+    
+    # Build the tree of gen particles that we care about
+    particle_tree = GenParticleTree()
+    bstars = []
+    Ws = []
+    tops = []
+    quarks = []
+    leptons = []
+    prongs = [] # Final particles we'll check
+    for i,p in enumerate(genparticles):
+        # Internal class info
+        this_gen_part = GenParticleObj(i,p)
+        this_gen_part.SetStatusFlags()
+        this_gen_part.SetPDGName(abs(this_gen_part.pdgId))
+        
+        # Add particles to tree and keep track of them in external lists
+        if abs(this_gen_part.pdgId) == 24:# and this_gen_part.status == 22: # 22 means intermediate part of hardest subprocess, only other to appear is 52 (outgoing copy of recoiler, with changed momentum)
+            particle_tree.AddParticle(this_gen_part)
+            Ws.append(this_gen_part)
+
+        # tops
+        elif abs(this_gen_part.pdgId) == 6:
+            particle_tree.AddParticle(this_gen_part)
+            tops.append(this_gen_part)
+
+        # b*
+        elif abs(this_gen_part.pdgId) == 1005 and this_gen_part.status == 62:
+            particle_tree.AddParticle(this_gen_part)
+            bstars.append(this_gen_part)
+
+        # leptons
+        elif abs(this_gen_part.pdgId) in range(11,17):
+            particle_tree.AddParticle(this_gen_part)
+            leptons.append(this_gen_part)
+
+        # quarks
+        elif abs(this_gen_part.pdgId) in range(1,6):# and this_gen_part.status == 23:
+            particle_tree.AddParticle(this_gen_part)
+            quarks.append(this_gen_part)
+
+        else: particle_tree.AddParticle(this_gen_part)
+
+    pchain = {  'Hadronic W':particle_tree.FindChain('1005>24>1:5'),
+                'Hadronic top':particle_tree.FindChain('1005>6>24>1:5'),
+                'Leptonic W':particle_tree.FindChain('1005>24>11:16'),
+                'Leptonic top':particle_tree.FindChain('1005>6>24>11:16'),
+                'Leptonic b':particle_tree.FindChain('1005>6>5>11:16'),}
+    
+    # if pchain['Hadronic W'] != False and pchain['Hadronic top'] != False and pchain['Leptonic b'] != False and not lepveto:
+    #     particle_tree.PrintTree(ievent,options=['pdgId','status','vect:Pt'])
+    #     raw_input('waiting')
+
+    return pchain,particle_tree
+
+    # if pchain['Hadronic W'] != False and pchain['Hadronic top'] != False and pchain['Leptonic b'] != False: return True
+    # else: return False
 
 def SFe_Lookup(year,sf_file,pt,eta):
     sf_hist = sf_file.Get(year+'_Electron_veto_sf')
