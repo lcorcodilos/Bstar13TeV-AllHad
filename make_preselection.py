@@ -766,17 +766,17 @@ if __name__ == "__main__":
 
                 if preselection: 
                     doneAlready = True
-                    lepveto,lepvetoSF = LeptonVeto(event,options.year,lepSFfile)
-
-                    if not lepveto:
-                        inLepSel += 1
-                        continue
-                    else:
-                        notInLepSel += 1
+                    # lepveto, lepW_veto, lepT_veto, lepT_candidates, lepW_candidate_es, lepW_candidate_mus = LeptonVeto(event,options.year,lepSFfile)
 
                     # Get GenParticles for use below
                     if 'data' not in options.set:
                         GenParticles = Collection(event,'GenPart')
+               
+                    # if not lepveto:
+                    #     inLepSel += 1
+                    #     # continue
+                    # else:
+                    #     notInLepSel += 1
 
                     ###############################
                     # Weighting and Uncertainties #
