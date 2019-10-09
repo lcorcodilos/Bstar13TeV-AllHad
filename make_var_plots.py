@@ -3,6 +3,12 @@ from ROOT import *
 gStyle.SetOptStat(0)
 gROOT.SetBatch(kTRUE)
 
+import CMS_lumi, tdrstyle
+tdrstyle.setTDRStyle()
+CMS_lumi.writeExtraText = 1
+CMS_lumi.extraText = "Preliminary"
+CMS_lumi.lumi_sqrtS = "13 TeV"
+
 from optparse import OptionParser
 
 
@@ -42,9 +48,10 @@ for s in sets:
     year = options.year
     if 'signal' in s and year == '18': # temp hack since we don't have 17 or 18 signals...
         year = '17'
+
     infiles[s] = {'file':TFile.Open("rootfiles/TWvariables"+year+"_"+s+"_tau32"+options.tau32+'_'+options.region+".root")}
     f = infiles[s]['file']
-
+    print f
     for d in dists:
         if d == 'deltaY':
             infiles[s][d] = f.Get('MtwvsdeltaY').ProjectionX().Clone()
@@ -116,7 +123,25 @@ for d in dists:
     gPad.RedrawAxis()
     leg.Draw()
 
+    T = 0.08*H_ref
+    B = 0.12*H_ref 
+    L = 0.12*W_ref
+    R = 0.04*W_ref
+
+    c.SetFillColor(0)
+    c.SetBorderMode(0)
+    c.SetFrameFillStyle(0)
+    c.SetFrameBorderMode(0)
+    c.SetLeftMargin( L/W )
+    c.SetRightMargin( R/W )
+    c.SetTopMargin( T/H )
+    c.SetBottomMargin( B/H )
+    c.SetTickx(0)
+    c.SetTicky(0)
+
     outfile.cd()
+    canvas.Update()
+    canvas.RedrawAxis()
     c.Write()
     c.Print('VarPlots/'+d+options.year+'_tau32'+options.tau32+'_'+options.region+".pdf",'pdf')
 
