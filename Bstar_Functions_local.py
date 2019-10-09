@@ -431,132 +431,198 @@ def SFT_Lookup(jet, file, genparticles, wp,ievent=1):
 #     return [nom,up,down]
 
 #This looks up the ttbar pt reweighting scale factor when making ttrees
-def PTW_Lookup( GP ):
-    genTpt = -100.
-    genTBpt = -100  
+def PTW_Lookup( GP, jets ):
+    genTpt = None
+    genTBpt = None 
 
     # For all gen particles
     for ig in GP :
-        # Determine if t or tbar
-        isT = ig.pdgId == 6 and ig.status == 22
-        isTB = ig.pdgId == -6 and ig.status == 22
+        if ig.pdgId == -6 and ig.statusFlags & (1 << 13): 
+            antitop_lv = TLorentzVector()
+            antitop_lv.SetPtEtaPhiM(ig.pt,ig.eta,ig.phi,ig.mass)
+            if antitop_lv.DeltaR(jets[0]) <0.8 or antitop_lv.DeltaR(jets[1]) <0.8:
+                genTBpt = ig.pt
+        elif ig.pdgId == 6 and ig.statusFlags & (1 << 13): 
+            top_lv = TLorentzVector()
+            top_lv.SetPtEtaPhiM(ig.pt,ig.eta,ig.phi,ig.mass)
+            if top_lv.DeltaR(jets[0]) <0.8 or top_lv.DeltaR(jets[1]) <0.8:
+                genTpt = ig.pt 
 
-        if isT and ig.statusFlags & (1 << 13):
-            genTpt = ig.pt
-        elif isTB and ig.statusFlags & (1 << 13):
-            genTBpt = ig.pt 
-        else:
-            continue
+    if (genTpt == None) or (genTBpt == None):pair_exists = False
+    else: pair_exists = True
+    
+    if genTpt == None: wTPt = 1.0
+    else: wTPt = exp(0.0615-0.0005*genTpt)
 
-        if (genTpt<0) or (genTBpt<0):
-            print "ERROR in top pt reweighting. Top or anti-top pt less than 0."
-            quit()
+    if genTBpt == None: wTbarPt = 1.0
+    else: wTbarPt = exp(0.0615-0.0005*genTBpt)
+    
+    return sqrt(wTPt*wTbarPt),pair_exists
 
-    # wTPt = exp(0.156-0.00137*genTpt)
-    # wTbarPt = exp(0.156-0.00137*genTBpt)
-
-    wTPt = exp(0.0615-0.0005*genTpt)
-    wTbarPt = exp(0.0615-0.0005*genTBpt)
-    return sqrt(wTPt*wTbarPt)
 
 # This does the W jet matching requirement by looking up the deltaR separation
 # of the daughter particle from the W axis. If passes, return 1.
-def WJetMatching(wjetVect,genparticles):
+def WJetMatching(wjetVect,genparticles,ttbar=False):
     import GenParticleChecker
     from GenParticleChecker import GenParticleTree,GenParticleObj
     
     # Build the tree of gen particles that we care about
     particle_tree = GenParticleTree()
-    Ws = []
-    quarks = []
-    prongs = [] # Final particles we'll check
-    for i,p in enumerate(genparticles):
-        # Internal class info
-        this_gen_part = GenParticleObj(i,p)
-        this_gen_part.SetStatusFlags()
-        this_gen_part.SetPDGName(abs(this_gen_part.pdgId))
-        
-        # Add particles to tree and keep track of them in external lists
-        if abs(this_gen_part.pdgId) == 24:# and this_gen_part.status == 22: # 22 means intermediate part of hardest subprocess, only other to appear is 52 (outgoing copy of recoiler, with changed momentum)
-            particle_tree.AddParticle(this_gen_part)
-            Ws.append(this_gen_part)
-
-        elif abs(this_gen_part.pdgId) >= 1 and abs(this_gen_part.pdgId) <= 5:
-            particle_tree.AddParticle(this_gen_part)
-            quarks.append(this_gen_part)
-
-    for q in quarks:
-        # if parent is a w and 
-        if particle_tree.GetParent(q) and abs(particle_tree.GetParent(q).pdgId) == 24 and particle_tree.GetParent(q).vect.DeltaR(wjetVect) < 0.8 and q.vect.DeltaR(wjetVect) < 0.8:
-            prongs.append(q)
-
-    if len(prongs) == 2:
-        return True
-    else:
-        return False        
-
-# Outdated by pu weight producer in nanoaod-tools
-# def PU_Lookup(PU , PUP):
-#     # PU == on, up, down
-#     thisbin = PUP.FindBin(float(PU))
-#     return PUP.GetBinContent(thisbin)
-
-def getCorrectedPuppiSDmass(fatjetVect, subjetsCollection, puppisd_corrGEN, puppisd_corrRECO_cen, puppisd_corrRECO_for):
-    # Lookup with PUPPI AK8 Jet pt and eta (with JECs) but apply to uncorrected SD mass which is reconstructed by summing subjet 4-vectors
-    genCorr  = 1.
-    recoCorr = 1.
-    totalWeight = 1.
-
-    genCorr =  puppisd_corrGEN.Eval( fatjetVect.Perp() );
     
-    if abs(fatjetVect.Eta()) <= 1.3:
-        recoCorr = puppisd_corrRECO_cen.Eval( fatjetVect.Perp() )
+    if not ttbar:
+        Ws = []
+        quarks = []
+        prongs = [] # Final particles we'll check
+        for i,p in enumerate(genparticles):
+            # Internal class info
+            this_gen_part = GenParticleObj(i,p)
+            this_gen_part.SetStatusFlags()
+            this_gen_part.SetPDGName(abs(this_gen_part.pdgId))
+            
+            # Add particles to tree and keep track of them in external lists
+            if abs(this_gen_part.pdgId) == 24:# and this_gen_part.status == 22: # 22 means intermediate part of hardest subprocess, only other to appear is 52 (outgoing copy of recoiler, with changed momentum)
+                particle_tree.AddParticle(this_gen_part)
+                Ws.append(this_gen_part)
+
+            elif abs(this_gen_part.pdgId) >= 1 and abs(this_gen_part.pdgId) <= 5:
+                particle_tree.AddParticle(this_gen_part)
+                quarks.append(this_gen_part)
+
+        for q in quarks:
+            # if parent is a w and 
+            if particle_tree.GetParent(q) and abs(particle_tree.GetParent(q).pdgId) == 24 and particle_tree.GetParent(q).vect.DeltaR(wjetVect) < 0.8 and q.vect.DeltaR(wjetVect) < 0.8:
+                prongs.append(q)
+
+        if len(prongs) == 2:
+            return True
+        else:
+            return False   
+    
+    # If ttbar MC
     else:
-        recoCorr = puppisd_corrRECO_for.Eval( fatjetVect.Perp() )
+        tops = []
+        Ws = []
+        quarks = []
+        qprongs = [] # Final particles we'll check
+        bprongs = []
+        for i,p in enumerate(genparticles):
+            # Internal class info
+            this_gen_part = GenParticleObj(i,p)
+            this_gen_part.SetStatusFlags()
+            this_gen_part.SetPDGName(abs(this_gen_part.pdgId))
+            
+            # Add particles to tree and keep track of them in external lists
+            if abs(this_gen_part.pdgId) == 6:# and this_gen_part.status == 62: # 22 means intermediate part of hardest subprocess, only other to appear is 62 (outgoing subprocess particle with primordial kT included)
+                particle_tree.AddParticle(this_gen_part)
+                tops.append(this_gen_part)
 
-    totalWeight = genCorr * recoCorr
+            elif abs(this_gen_part.pdgId) == 24:# and this_gen_part.status == 22: # 22 means intermediate part of hardest subprocess, only other to appear is 52 (outgoing copy of recoiler, with changed momentum)
+                particle_tree.AddParticle(this_gen_part)
+                Ws.append(this_gen_part)
 
-    uncorrectedFatJetVect = TLorentzVector()
-    for subjet in subjets:
-        subjet_vect = TLorentzVector()
-        subjet_vect = SetPtEtaPhiM(subjet.pt, subjet.eta, subjet.phi, subjet.msoftdrop)
-        if subjet_vect.DeltaR(fatjetVect) < 0.8:
-            uncorrectedFatJetVect += subjet_vect
+            elif abs(this_gen_part.pdgId) >= 1 and abs(this_gen_part.pdgId) <= 5 and this_gen_part.status == 23:
+                particle_tree.AddParticle(this_gen_part)
+                quarks.append(this_gen_part)
 
-    return uncorrectedFatJetVect.M() * totalWeight
+        found_top = False
+        for t in tops:
+            if t.vect.DeltaR(wjetVect)<0.8: found_top = True
+
+        if not found_top: return False
+
+        for W in Ws:
+            # If parent is a top that matches with the jet
+            wParent = particle_tree.GetParent(W)
+            if wParent != False and abs(wParent.pdgId) == 6 and wParent.DeltaR(wjetVect) < 0.8 and wParent.pt > 200:
+                # Loop over the daughters of the W
+                this_W = W
+                # Skip down chain of W's to last one
+                if len(particle_tree.GetChildren(this_W)) == 1 and particle_tree.GetChildren(this_W)[0].pdgId == W.pdgId:
+                    this_W = particle_tree.GetChildren(this_W)[0]
+                
+                for c in particle_tree.GetChildren(this_W):
+                    if abs(c.pdgId) >= 1 and abs(c.pdgId) <= 5:
+                        # Append daughter quarks to prongs
+                        if c.DeltaR(wjetVect)<0.8:qprongs.append(c)
+                            
+        for q in quarks:
+            # if bottom     
+            if abs(q.pdgId) == 5:
+                bottomParent = particle_tree.GetParent(q)
+                # if parent exists and is a top matched to the jet
+                if bottomParent != False and abs(bottomParent.pdgId) == 6 and bottomParent.DeltaR(wjetVect) < 0.8 and bottomParent.pt > 200:
+                    if q.DeltaR(wjetVect) < 0.8: bprongs.append(q)
+
+        # Now that we have the prongs, check how many are merged Ws with no b in jet            
+        if len(bprongs) == 0 and len(qprongs) == 2:
+            return True
+        else:
+            return False
+
+# def getCorrectedPuppiSDmass(fatjetVect, subjetsCollection, puppisd_corrGEN, puppisd_corrRECO_cen, puppisd_corrRECO_for):
+#     # Lookup with PUPPI AK8 Jet pt and eta (with JECs) but apply to uncorrected SD mass which is reconstructed by summing subjet 4-vectors
+#     genCorr  = 1.
+#     recoCorr = 1.
+#     totalWeight = 1.
+
+#     genCorr =  puppisd_corrGEN.Eval( fatjetVect.Perp() );
+    
+#     if abs(fatjetVect.Eta()) <= 1.3:
+#         recoCorr = puppisd_corrRECO_cen.Eval( fatjetVect.Perp() )
+#     else:
+#         recoCorr = puppisd_corrRECO_for.Eval( fatjetVect.Perp() )
+
+#     totalWeight = genCorr * recoCorr
+
+#     uncorrectedFatJetVect = TLorentzVector()
+#     for subjet in subjets:
+#         subjet_vect = TLorentzVector()
+#         subjet_vect = SetPtEtaPhiM(subjet.pt, subjet.eta, subjet.phi, subjet.msoftdrop)
+#         if subjet_vect.DeltaR(fatjetVect) < 0.8:
+#             uncorrectedFatJetVect += subjet_vect
+
+#     return uncorrectedFatJetVect.M() * totalWeight
+
+def jetIDChecker(jetObj):
+    jetID = jetObj.jetId
+    if (jetID & 1 == 0):    # if not loose
+        if (jetID & 2 == 0): # and if not tight - Need to check here because loose is always false in 2017
+            return False                      # move on
+        else:
+            return True
+    else:
+        return True
 
 def Hemispherize(jetCollection):
     Jetsh1 = []
     Jetsh0 = []
     for ijet in range(0,len(jetCollection)):
         if abs(deltaPhi(jetCollection[0].phi,jetCollection[ijet].phi))>TMath.Pi()/2.0:
-            Jetsh1.append(ijet)
+            if jetIDChecker(jetCollection[ijet]): Jetsh1.append(ijet)
         else:
-            Jetsh0.append(ijet)
+            if jetIDChecker(jetCollection[ijet]): Jetsh0.append(ijet)
 
     return Jetsh0,Jetsh1
 
-def Weightify(wd,outname,drop=[]):
+def Weightify(wd,outnames,drop=[]):
     final_w = 1.0
     corrections = [corr for corr in wd.keys() if 'nom' in wd[corr].keys() and corr not in drop]
 
-    if outname == 'nominal':
+    if type(outnames) == str: outnames = [outnames]
+
+    # If nominal, apply all corrections
+    if outnames[0] == 'nominal':
         for c in corrections:
             final_w = final_w*wd[c]['nom']
+        return final_w
 
-    elif outname.split('_')[0] in corrections:
-        if outname.split('_')[1] in wd[outname.split('_')[0]].keys():
-            final_w = wd[outname.split('_')[0]][outname.split('_')[1]]
-        for c in corrections:
-            if (c != outname.split('_')[0]):
-                final_w = final_w*wd[c]['nom']
-
-    else:
-        final_w = wd[outname.split('_')[0]][outname.split('_')[1]]
-        for c in corrections:
-            if 'nom' in wd[c].keys():
-                final_w = final_w*wd[c]['nom']
-    
+    # If not nominal, apply the variation of the correction and all other nominal corrections
+    for outname in outnames:
+        final_w *= wd[outname.split('_')[0]][outname.split('_')[1]]
+    for c in corrections:
+        if c not in [o.split('_')[0] for o in outnames]:
+            final_w = final_w*wd[c]['nom']
+   
     return final_w
 
 def LeptonVeto(event, year, sf_file):
