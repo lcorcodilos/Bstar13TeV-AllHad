@@ -847,26 +847,19 @@ if __name__ == "__main__":
 
                         # Trigger weight applied
                         if tname != 'none' and 'data' not in options.set:
-                            weights['Trigger']['nom'] = Trigger_Lookup( ht , TrigPlot1 )[0]
-                            weights['Trigger']['up'] = Trigger_Lookup( ht , TrigPlot1 )[1]
-                            weights['Trigger']['down'] = Trigger_Lookup( ht , TrigPlot1 )[2]
+                            trig_weights = Trigger_Lookup( MtopW , TrigPlot1 )
+                            weights['Trigger']['nom'] = trig_weights[0]
+                            weights['Trigger']['up'] = trig_weights[1]
+                            weights['Trigger']['down'] = trig_weights[2]
 
                         # Top pt reweighting
                         if options.ptreweight == "on" and 'ttbar' in options.set:
-                            weights['Ptreweight']['nom'] = PTW_Lookup(GenParticles)
-                            weights['Ptreweight']['up'] = 1.5*PTW_Lookup(GenParticles)
-                            weights['Ptreweight']['down'] = 0.5*PTW_Lookup(GenParticles)
-                    
-
-                    # Fill weight tree
-                    for k in weightArrays.keys():
-                        if k != 'Total' and 'nom' in weights[k].keys(): weightArrays[k][0] = weights[k]['nom']
-                        elif k != 'Total' and 'nom' not in weights[k].keys(): weightArrays[k][0] = 1.0
-                        else:
-                            weightArrays[k][0] = 1.0
-                            for w in weights.keys(): 
-                                if 'nom' in weights[w]: weightArrays[k][0] *= weights[w]['nom']
-                    weightTree.Fill()
+                            weights['Ptreweight']['nom'],pair_exists = PTW_Lookup(GenParticles,[tjet,wjet])
+                            weights['Ptreweight']['up'] = 1.5*weights['Ptreweight']['nom']
+                            weights['Ptreweight']['down'] = 0.5*weights['Ptreweight']['nom']         
+                            badtptreweight = exp(0.0615-0.0005*-100)        
+                            if pair_exists: tptpair +=1
+                            else: notptpair +=1
 
                     ####################################
                     # Split into top tag pass and fail #
