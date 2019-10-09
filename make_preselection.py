@@ -586,11 +586,9 @@ if __name__ == "__main__":
         if filterFails > 0:
             continue
 
-        # Separate into hemispheres the leading and subleading jets
+        # Separate into hemispheres the leading and subleading jets (also does jet ID check)
         Jetsh0,Jetsh1 = Hemispherize(ak8JetsColl)
-
-        if (len(Jetsh1) < 1):
-            continue
+        if (len(Jetsh1) < 1) or (len(Jetsh0) < 1): continue
 
         leadingJet = ak8JetsColl[Jetsh0[0]]
         subleadingJet = ak8JetsColl[Jetsh1[0]]
@@ -612,7 +610,7 @@ if __name__ == "__main__":
                         "mass":leadingJet.mass_nom,
                         "pt":leadingJet.pt_nom, # This will just have JER and JES corrections
                         "eta":leadingJet.eta,
-                        "SDmass":leadingJet.msoftdrop_raw if 'data' not in options.set else leadingJet.msoftdrop, # Does not have PUPPI SD mass correction
+                        "SDmass":leadingJet.msoftdrop_raw,#raw if 'data' not in options.set else leadingJet.msoftdrop, # Does not have PUPPI SD mass correction
                         "subJetIdx1":leadingJet.subJetIdx1,
                         "subJetIdx2":leadingJet.subJetIdx2,
                         "JEScorr":1.0
@@ -625,7 +623,7 @@ if __name__ == "__main__":
                         "mass":subleadingJet.mass_nom, # This will just JEC
                         "pt":subleadingJet.pt_nom, # This will just JEC
                         "eta":subleadingJet.eta,
-                        "SDmass":subleadingJet.msoftdrop_raw if 'data' not in options.set else subleadingJet.msoftdrop, # Has only PUPPI SD mass correction
+                        "SDmass":subleadingJet.msoftdrop_nom,#raw if 'data' not in options.set else subleadingJet.msoftdrop, # Has only PUPPI SD mass correction
                         "subJetIdx1":subleadingJet.subJetIdx1,
                         "subJetIdx2":subleadingJet.subJetIdx2,
                         "JEScorr":1.0
@@ -652,7 +650,7 @@ if __name__ == "__main__":
                         "mass":leadingJet.mass_nom, # This will just JEC
                         "pt":leadingJet.pt_nom, # This will just JEC
                         "eta":leadingJet.eta,
-                        "SDmass":leadingJet.msoftdrop_raw if 'data' not in options.set else leadingJet.msoftdrop, # Has only PUPPI SD mass correction
+                        "SDmass":leadingJet.msoftdrop_nom,#raw if 'data' not in options.set else leadingJet.msoftdrop, # Has only PUPPI SD mass correction
                         "subJetIdx1":leadingJet.subJetIdx1,
                         "subJetIdx2":leadingJet.subJetIdx2,
                         "JEScorr":1.0 
@@ -665,7 +663,7 @@ if __name__ == "__main__":
                         "mass":subleadingJet.mass_nom, # This will just JEC
                         "pt":subleadingJet.pt_nom, # This will just JEC
                         "eta":subleadingJet.eta,
-                        "SDmass":subleadingJet.msoftdrop_raw if 'data' not in options.set else subleadingJet.msoftdrop, # Does not have PUPPI SD mass correction
+                        "SDmass":subleadingJet.msoftdrop_raw,#raw if 'data' not in options.set else subleadingJet.msoftdrop, # Does not have PUPPI SD mass correction
                         "subJetIdx1":subleadingJet.subJetIdx1,
                         "subJetIdx2":subleadingJet.subJetIdx2,
                         "JEScorr":1.0
