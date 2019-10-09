@@ -753,8 +753,9 @@ if __name__ == "__main__":
                         # if both not negative, use largest
                         else: w_btagval = max(getattr(subJetsColl[wVals['subJetIdx1']],btagtype), getattr(subJetsColl[wVals['subJetIdx2']],btagtype))
                         
-                        w_sjbtag_cut = Cuts['deepbtag'][0]<= w_btagval<Cuts['deepbtag'][1]
-                        preselection = wpt_cut and tpt_cut and dy_cut and MtopW_cut and wmass_cut and w_sjbtag_cut and w_tau32_cut
+                    # INDENT FIXED
+                    w_sjbtag_cut = Cuts['deepbtag'][0]<= w_btagval<Cuts['deepbtag'][1]
+                    preselection = wpt_cut and tpt_cut and dy_cut and MtopW_cut and Mtop_cut and wmass_cut and w_sjbtag_cut and w_tau32_cut
 
                     if runOthers and checkingFirstHemi:
                         if wpt_cut and tpt_cut and dy_cut:
