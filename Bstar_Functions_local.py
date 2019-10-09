@@ -299,11 +299,11 @@ def SFT_Lookup(jet, file, genparticles, wp,ievent=1):
     import GenParticleChecker
     from GenParticleChecker import GenParticleTree,GenParticleObj
     
-    if wp == 'loose':
+    if wp == 'tight':
         workpoint = 'wp3'
     elif wp == 'medium':
         workpoint = 'wp4'
-    elif wp == 'tight':
+    elif wp == 'loose':
         workpoint = 'wp5'
 
     # Build the tree of gen particles that we care about
