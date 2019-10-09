@@ -787,6 +787,7 @@ if __name__ == "__main__":
                     weights = { 'PDF':{},
                                 'Pileup':{},
                                 'Topsf':{},
+                                'TopsfPresel':{'nom':1,'up':1,'down':1},
                                 'Q2':{},
                                 # 'sjbsf':{},
                                 'Wsf':{},
@@ -924,9 +925,10 @@ if __name__ == "__main__":
                             # Top tagging tau32+sjbtag scale factor 
                             if "QCD" not in options.set and 'data' not in options.set:
                                 sft,wtop_merging_status = SFT_Lookup(wjet,ttagsffile,GenParticles,'tight')#(wjet, ttagsffile, GenParticles, options.tau32)#, GenParticles)
-                                weights['Topsf']['nom'] *= sft[0]
-                                weights['Topsf']['up'] *= sft[1]
-                                weights['Topsf']['down'] *= sft[2]
+                                weights['TopsfPresel'] = {}
+                                weights['TopsfPresel']['nom'] = sft[0]
+                                weights['TopsfPresel']['up'] = sft[1]
+                                weights['TopsfPresel']['down'] = sft[2]
 
                                 # Subjet b tagging scale factor
                                 # weights['sjbsf']['nom'] *= reader.eval_auto_bounds('central', 0, abs(wVals['eta']), wVals['pt'])
@@ -934,15 +936,44 @@ if __name__ == "__main__":
                                 # weights['sjbsf']['down'] *= reader.eval_auto_bounds('down', 0, abs(wVals['eta']), wVals['pt'])
 
                             else:
-                                weights['Topsf']['nom'] = 1.0
-                                weights['Topsf']['up'] =  1.0
-                                weights['Topsf']['down'] = 1.0
+                                weights['TopsfPresel'] = {}
+                                weights['TopsfPresel']['nom'] = 1.0
+                                weights['TopsfPresel']['up'] =  1.0
+                                weights['TopsfPresel']['down'] = 1.0
                                 # weights['sjbsf']['nom'] = 1.0
                                 # weights['sjbsf']['up'] = 1.0
                                 # weights['sjbsf']['down'] = 1.0
 
+                        if 'signal' in options.set:
+                            chains,tree = AllHadIdentifier(GenParticles,count)
+
+                            if chains['Hadronic W'] != False and chains['Hadronic top'] != False:
+                                sigDecay.Fill(1)
+                                if chains['Leptonic b'] != False:
+                                    sigDecay.Fill(4)
+                                    # if lepveto: sigDecay.Fill(6)
+                                    # else: sigDecay.Fill(5)
+                                # if lepveto: 
+                                #     sigDecay.Fill(10)
+                                #     # if chains['Leptonic b'] == False:
+                                #     #     tree.PrintTree(count,options=['pdgId','status','pt'])
+                                # else: 
+                                #     if lepT_veto and lepW_veto:
+                                #         sigDecay.Fill(7)
+                                #     elif lepT_veto and not lepW_veto:
+                                #         sigDecay.Fill(8)
+                                #     elif not lepT_veto and lepW_veto:
+                                #         sigDecay.Fill(9)
+
+                            elif chains['Hadronic W'] != False and chains['Leptonic top'] != False:
+                                sigDecay.Fill(3)
+                            elif chains['Hadronic top'] != False and chains['Leptonic W'] != False:
+                                sigDecay.Fill(2)
+                            else: sigDecay.Fill(11)
 
                         MtwvMtPass.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'nominal')) 
+                        if 'ttbar' in options.set: MtwvMtPassBadTpt.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'nominal',drop=['Ptreweight'])*badtptreweight)
+                        MtwvMtPassNotrig.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'nominal',drop=['Trigger']))
                         MtwvMtFailSub.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'nominal',drop=['Topsf'])*(weights['Topsf']['nom']-1))
 
                         if runOthers:
@@ -953,14 +984,11 @@ if __name__ == "__main__":
                                 MtwvMtPassPUup.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Pileup_up'))
                                 MtwvMtPassPUdown.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Pileup_down'))
 
-                                MtwvMtPassTopup.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Topsf_up'))
-                                MtwvMtPassTopdown.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Topsf_down'))
+                                MtwvMtPassTopup.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,['Topsf_up','TopsfPresel_up']))
+                                MtwvMtPassTopdown.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,['Topsf_down','TopsfPresel_down']))
 
                                 MtwvMtPassScaleup.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Q2_up'))
                                 MtwvMtPassScaledown.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Q2_down'))
-
-                                # MtwvMtPassSjbtagup.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'sjbsf_up'))
-                                # MtwvMtPassSjbtagdown.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'sjbsf_down'))
 
                                 MtwvMtPassTrigup.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Trigger_up'))
                                 MtwvMtPassTrigdown.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Trigger_down'))
