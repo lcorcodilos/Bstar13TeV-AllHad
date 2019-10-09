@@ -54,49 +54,49 @@ if __name__ == "__main__":
                 default   =   '16',
                 dest      =   'year',
                 help      =   'Year (16,17,18)')
-    parser.add_option('-n', '--num', metavar='F', type='string', action='store',
-                    default   =   'all',
-                    dest      =   'num',
-                    help      =   'job number')
-    parser.add_option('-j', '--jobs', metavar='F', type='string', action='store',
-                    default   =   '1',
-                    dest      =   'jobs',
-                    help      =   'number of jobs')
+    parser.add_option('-j', '--job', metavar='FILE', type='string', action='store',
+                    default   =   '',
+                    dest      =   'job',
+                    help      =   'Job number')
+    parser.add_option('-n', '--njobs', metavar='FILE', type='string', action='store',
+                    default   =   '',
+                    dest      =   'njobs',
+                    help      =   'Number of jobs')
 
     (options, args) = parser.parse_args()
 
     # Prep for deepcsv b-tag if deepak8 is off
     # From https://twiki.cern.ch/twiki/bin/view/CMS/BTagCalibration
-    gSystem.Load('libCondFormatsBTauObjects') 
-    gSystem.Load('libCondToolsBTau') 
-    if options.year == '16':
-        calib = BTagCalibration('DeepCSV', 'SFs/DeepCSV_2016LegacySF_V1.csv')
-    elif options.year == '17':
-        calib = BTagCalibration('DeepCSV', 'SFs/subjet_DeepCSV_94XSF_V4_B_F.csv')
-    elif options.year == '18':
-        calib = BTagCalibration('DeepCSV', 'SFs/DeepCSV_102XSF_V1.csv')
+    # gSystem.Load('libCondFormatsBTauObjects') 
+    # gSystem.Load('libCondToolsBTau') 
+    # if options.year == '16':
+    #     calib = BTagCalibration('DeepCSV', 'SFs/DeepCSV_2016LegacySF_V1.csv')
+    # elif options.year == '17':
+    #     calib = BTagCalibration('DeepCSV', 'SFs/subjet_DeepCSV_94XSF_V4_B_F.csv')
+    # elif options.year == '18':
+    #     calib = BTagCalibration('DeepCSV', 'SFs/DeepCSV_102XSF_V1.csv')
         
-    v_sys = getattr(ROOT, 'vector<string>')()
-    v_sys.push_back('up')
-    v_sys.push_back('down')
+    # v_sys = getattr(ROOT, 'vector<string>')()
+    # v_sys.push_back('up')
+    # v_sys.push_back('down')
 
-    reader = BTagCalibrationReader(
-        0,              # 0 is for loose op, 1: medium, 2: tight, 3: discr. reshaping
-        "central",      # central systematic type
-        v_sys,          # vector of other sys. types
-    )   
+    # reader = BTagCalibrationReader(
+    #     0,              # 0 is for loose op, 1: medium, 2: tight, 3: discr. reshaping
+    #     "central",      # central systematic type
+    #     v_sys,          # vector of other sys. types
+    # )   
 
-    reader.load(
-        calib, 
-        0,          # 0 is for b flavour, 1: FLAV_C, 2: FLAV_UDSG 
-        "incl"      # measurement type
-    ) 
+    # reader.load(
+    #     calib, 
+    #     0,          # 0 is for b flavour, 1: FLAV_C, 2: FLAV_UDSG 
+    #     "incl"      # measurement type
+    # ) 
 
-    if options.region == 'ttbar':
-        wIsTtagged = True
-        print 'W side will be top tagged'
-    else:
-        wIsTtagged = False
+    # if options.region == 'ttbar':
+    #     wIsTtagged = True
+    #     print 'W side will be top tagged'
+    # else:
+    #     wIsTtagged = False
 
     ######################################
     # Make strings for final file naming #
@@ -109,7 +109,7 @@ if __name__ == "__main__":
         # btagtype = 'btagCSVV2'
     elif options.year == '17' or options.year == '18':
         tname = 'HLT_PFHT1050ORHLT_PFJet500'
-        pretrig_string = 'HLT_IsoMu27'
+        pretrig_string = 'HLT_Mu50'
     btagtype = 'btagDeepB'
 
 
@@ -121,12 +121,11 @@ if __name__ == "__main__":
     #######################
     # Setup job splitting #
     #######################
-    jobs=int(options.jobs)
-    if jobs != 1:
-        num=int(options.num)
-        jobs=int(options.jobs)
-        print "Running over " +str(jobs)+ " jobs"
-        print "This will process job " +str(num)
+    njobs=int(options.njobs)
+    if njobs != 1:
+        ijob=int(options.job)
+        print "Running over " +str(njobs)+ " jobs"
+        print "This will process job " +str(ijob)
     else:
         print "Running over all events"
 
@@ -147,25 +146,25 @@ if __name__ == "__main__":
     ##########################################################
     if options.set != 'data':
         print "Triggerweight_data"+options.year+"_pre_"+pretrig_string+".root"
-        print 'TriggerWeight_'+tname+'_Ht'
+        print 'TriggerWeight_'+tname+'_Res'
         TrigFile = TFile.Open("trigger/Triggerweight_data"+options.year+"_pre_"+pretrig_string+".root")
-        TrigPlot = TrigFile.Get('TriggerWeight_'+tname+'_Ht')
+        TrigPlot = TrigFile.Get('TriggerWeight_'+tname+'_Res')
         TrigPlot1 = TrigPlot.Clone()
         
-        PileFile = TFile.Open("pileup/PileUp_Ratio_ttbar"+options.year+".root")
-        PilePlots = {
-            "nom": PileFile.Get("Pileup_Ratio"),
-            "up": PileFile.Get("Pileup_Ratio_up"),
-            "down": PileFile.Get("Pileup_Ratio_down")}
+        # PileFile = TFile.Open("pileup/PileUp_Ratio_ttbar"+options.year+".root")
+        # PilePlots = {
+        #     "nom": PileFile.Get("Pileup_Ratio"),
+        #     "up": PileFile.Get("Pileup_Ratio_up"),
+        #     "down": PileFile.Get("Pileup_Ratio_down")}
         
-        ttagsffile = TFile.Open('SFs/20'+tempyear+'TopTaggingScaleFactors.root')
+        ttagsffile = TFile.Open('SFs/20'+tempyear+'TopTaggingScaleFactors_NoMassCut.root')
 
 
     #############################
     # Make new file for storage #
     #############################
-    if jobs!=1:
-        f = TFile( "TWvariables"+options.year+"_"+options.set+"_job"+options.num+"of"+options.jobs+"_"+ttagstring+'_'+options.region+".root", "recreate" )
+    if njobs!=1:
+        f = TFile( "TWvariables"+options.year+"_"+options.set+"_job"+str(ijob)+"of"+str(njobs)+"_"+ttagstring+'_'+options.region+".root", "recreate" )
     else:
         f = TFile( "TWvariables"+options.year+"_"+options.set+"_"+ttagstring+'_'+options.region+".root", "recreate" )
     f.cd()
@@ -250,13 +249,13 @@ if __name__ == "__main__":
     #####################################
     # Design the splitting if necessary #
     #####################################
-    if jobs != 1:
-        evInJob = int(treeEntries/jobs)
+    if njobs != 1:
+        evInJob = int(treeEntries/njobs)
         
-        lowBinEdge = evInJob*(num-1)
-        highBinEdge = evInJob*num
+        lowBinEdge = evInJob*(ijob-1)
+        highBinEdge = evInJob*ijob
 
-        if num == jobs:
+        if ijob == njobs:
             highBinEdge = treeEntries
     else:
         lowBinEdge = 0
@@ -286,7 +285,7 @@ if __name__ == "__main__":
         #####################################
 
         # Apply triggers first
-        if options.set == 'data':
+        if 'data' in options.set:
             passt = False
             for t in tname.split('OR'):
                 try: 
@@ -351,9 +350,9 @@ if __name__ == "__main__":
                     "tau2":leadingJet.tau2,
                     "tau3":leadingJet.tau3,
                     "phi":leadingJet.phi,
-                    "pt":leadingJet.pt,
+                    "pt":leadingJet.pt_nom,
                     "eta":leadingJet.eta,
-                    "SDmass":leadingJet.msoftdrop,
+                    "SDmass":leadingJet.msoftdrop_raw,
                     "subJetIdx1":leadingJet.subJetIdx1,
                     "subJetIdx2":leadingJet.subJetIdx2
                 }
@@ -361,9 +360,9 @@ if __name__ == "__main__":
                     "tau1":subleadingJet.tau1,
                     "tau2":subleadingJet.tau2,
                     "phi":subleadingJet.phi,
-                    "pt":subleadingJet.pt,
+                    "pt":subleadingJet.pt_nom,
                     "eta":subleadingJet.eta,
-                    "SDmass":subleadingJet.msoftdrop,
+                    "SDmass":subleadingJet.msoftdrop_nom,
                     "subJetIdx1":subleadingJet.subJetIdx1,
                     "subJetIdx2":subleadingJet.subJetIdx2
                 }
@@ -375,9 +374,9 @@ if __name__ == "__main__":
                     "tau1":leadingJet.tau1,
                     "tau2":leadingJet.tau2,
                     "phi":leadingJet.phi,
-                    "pt":leadingJet.pt,
+                    "pt":leadingJet.pt_nom,
                     "eta":leadingJet.eta,
-                    "SDmass":leadingJet.msoftdrop,
+                    "SDmass":leadingJet.msoftdrop_nom,
                     "subJetIdx1":leadingJet.subJetIdx1,
                     "subJetIdx2":leadingJet.subJetIdx2
                 }
@@ -385,9 +384,9 @@ if __name__ == "__main__":
                     "tau2":subleadingJet.tau2,
                     "tau3":subleadingJet.tau3,
                     "phi":subleadingJet.phi,
-                    "pt":subleadingJet.pt,
+                    "pt":subleadingJet.pt_nom,
                     "eta":subleadingJet.eta,
-                    "SDmass":subleadingJet.msoftdrop,
+                    "SDmass":subleadingJet.msoftdrop_raw,
                     "subJetIdx1":subleadingJet.subJetIdx1,
                     "subJetIdx2":subleadingJet.subJetIdx2
                 }
@@ -395,9 +394,10 @@ if __name__ == "__main__":
             elif hemis == 'hemis1' and doneAlready == True:
                 continue
 
-
             # Standard W tag
             if wVals['tau1'] > 0: tau21val = wVals['tau2']/wVals['tau1']
+            else: continue
+            if tVals['tau2'] > 0: tau32val = tVals['tau3']/tVals['tau2']
             else: continue
 
        
@@ -412,7 +412,7 @@ if __name__ == "__main__":
             MtopW = (tjet+wjet).M()
 
             # Get GenParticles for use below
-            if options.set != 'data':
+            if 'data' not in options.set:
                 GenParticles = Collection(event,'GenPart')
 
             ###############################
@@ -420,107 +420,57 @@ if __name__ == "__main__":
             ###############################
 
             # Initialize event weight
-            weights = { 'PDF':{},
-                        'Pileup':{},
+            weights = { 'Pileup':{},
                         'Topsf':{},
-                        'Q2':{},
-                        'sjbsf':{},
                         'Wsf':{},
                         'Trigger':{},
-                        'Ptreweight':{},
-                        'Extrap':{}}
+                        'Ptreweight':{}
+                        }
 
             
-            if options.set!="data":
-                # PDF weight
-                weights['PDF']['up'] = PDF_Lookup(inTree.readBranch('LHEPdfWeight'),'up')
-                weights['PDF']['down'] = PDF_Lookup(inTree.readBranch('LHEPdfWeight'),'down')
-
-                # Q2 Scale
-                weights['Q2']['up'] = inTree.readBranch('LHEScaleWeight')[8]
-                weights['Q2']['down'] = inTree.readBranch('LHEScaleWeight')[0]
-
+            if 'data' not in options.set:
                 # Pileup reweighting applied
-                weights['Pileup']['nom'] = PU_Lookup(inTree.readBranch('Pileup_nPU'),PilePlots['nom'])
-                weights['Pileup']['up'] = PU_Lookup(inTree.readBranch('Pileup_nPU'),PilePlots['up'])
-                weights['Pileup']['down'] = PU_Lookup(inTree.readBranch('Pileup_nPU'),PilePlots['down'])
-
+                weights['Pileup']['nom'] = inTree.readBranch('puWeight')
 
                 # Top tagging tau32+sjbtag scale factor 
                 if "QCD" not in options.set:
-                    sft = SFT_Lookup_MERGEDONLY(tjet,ttagsffile)#(tjet, ttagsffile, GenParticles, options.tau32)#_MERGEDONLY(tjet, ttagsffile)#, GenParticles)
+                    sft,top_merging_status = SFT_Lookup(tjet,ttagsffile,GenParticles,options.tau32,count)#(tjet, ttagsffile, GenParticles, options.tau32)#_MERGEDONLY(tjet, ttagsffile)#, GenParticles)
                     weights['Topsf']['nom'] = sft[0]
-                    weights['Topsf']['up'] = sft[1]
-                    weights['Topsf']['down'] = sft[2]
 
-                    # Subjet b tagging scale factor
-                    weights['sjbsf']['nom'] = reader.eval_auto_bounds('central', 0, abs(tVals['eta']), tVals['pt'])
-                    weights['sjbsf']['up'] = reader.eval_auto_bounds('up', 0, abs(tVals['eta']), tVals['pt'])
-                    weights['sjbsf']['down'] = reader.eval_auto_bounds('down', 0, abs(tVals['eta']), tVals['pt'])
-
-
-                if wIsTtagged:
-                    # Top tagging tau32+sjbtag scale factor 
-                    if "QCD" not in options.set:
-                        sft = SFT_Lookup_MERGEDONLY(wjet,ttagsffile)#(wjet, ttagsffile, GenParticles, options.tau32)#, GenParticles)
-                        weights['Topsf']['nom'] *= sft[0]
-                        weights['Topsf']['up'] *= sft[1]
-                        weights['Topsf']['down'] *= sft[2]
-
-                        # Subjet b tagging scale factor
-                        weights['sjbsf']['nom'] *= reader.eval_auto_bounds('central', 0, abs(wVals['eta']), wVals['pt'])
-                        weights['sjbsf']['up'] *= reader.eval_auto_bounds('up', 0, abs(wVals['eta']), wVals['pt'])
-                        weights['sjbsf']['down'] *= reader.eval_auto_bounds('down', 0, abs(wVals['eta']), wVals['pt'])
-
-            
                 # Determine purity for scale factor
-                if options.region == 'default':
-                    Wpurity = 'HP'
+                if options.region == 'default':    Wpurity = 'HP'
                 elif options.region == 'sideband':
-                    if options.year == '16':
-                        Wpurity = 'LP'
-                    elif options.year != '16' and (Cuts['tau21LP'][0] < tau21val < Cuts['tau21LP'][1]):
-                        Wpurity = 'LP'
-                    else:
-                        Wpurity = False
-                else:
-                    Wpurity = False
+                    if options.year == '16':       Wpurity = 'LP'
+                    elif options.year != '16' and (Cuts['tau21LP'][0] < tau21val < Cuts['tau21LP'][1]): Wpurity = 'LP'
+                    else:                          Wpurity = False
+                else:                              Wpurity = False
 
                 # W matching
                 WJetMatchingRequirement = 0
-                if (options.set.find('tW') != -1 or options.set.find('signal') != -1) and not wIsTtagged:
-                    if WJetMatching(GenParticles) == 1 and Wpurity != False:
+                if ('tW' in options.set or 'signal' in options.set):
+                    if WJetMatching(wjet,GenParticles) and Wpurity != False:
                         wtagsf = Cons['wtagsf_'+Wpurity]
-                        wtagsfsig = Cons['wtagsfsig_'+Wpurity]
-
                         weights['Wsf']['nom'] = wtagsf
-                        weights['Wsf']['up'] = (wtagsf + wtagsfsig)
-                        weights['Wsf']['down'] = (wtagsf - wtagsfsig)
+                    else: weights['Wsf']['nom'] = 1.0
+                else: weights['Wsf']['nom'] = 1.0
 
-                # Get the extrapolation uncertainty
-                extrap = ExtrapUncert_Lookup(wjet.Perp(),Wpurity,options.year)
-                weights['Extrap']['up'] = 1+extrap
-                weights['Extrap']['down'] = 1-extrap
+                # # Get the extrapolation uncertainty
+                # extrap = ExtrapUncert_Lookup(wjet.Perp(),Wpurity,options.year)
+                # weights['Extrap']['up'] = 1+extrap
+                # weights['Extrap']['down'] = 1-extrap
 
                 # Trigger weight applied
-                if tname != 'none' and options.set!='data' :
+                if tname != 'none' and 'data' not in options.set:
                     weights['Trigger']['nom'] = Trigger_Lookup( ht , TrigPlot1 )[0]
-                    weights['Trigger']['up'] = Trigger_Lookup( ht , TrigPlot1 )[1]
-                    weights['Trigger']['down'] = Trigger_Lookup( ht , TrigPlot1 )[2]
 
                 # Top pt reweighting
-                if options.set.find('ttbar') != -1:
+                if 'ttbar' in options.set:
                     weights['Ptreweight']['nom'] = PTW_Lookup(GenParticles)
-                    weights['Ptreweight']['up'] = 1.5*PTW_Lookup(GenParticles)
-                    weights['Ptreweight']['down'] = 0.5*PTW_Lookup(GenParticles)
 
 
             ####################################
             # Split into top tag pass and fail #
             ####################################
-            if tVals['tau2'] > 0: tau32val = tVals['tau3']/tVals['tau2']
-            else: continue
-
             if (tVals['subJetIdx1'] < 0) or (tVals['subJetIdx1'] >= len(subJetsColl)):
                 # if both negative, throw away event
                 if (tVals['subJetIdx2'] < 0) or (tVals['subJetIdx2'] >= len(subJetsColl)): continue
@@ -546,6 +496,8 @@ if __name__ == "__main__":
             sjbtag_cut = Cuts['deepbtag'][0]<= btagval<Cuts['deepbtag'][1]
             tau32_cut = Cuts['tau32'+options.tau32][0]<=tau32val<Cuts['tau32'+options.tau32][1]
 
+            if eta_cut and wpt_cut and tpt_cut: doneAlready = True
+
             for nminus in nminusones:
 
                 if nminus == 'dy':      preselection = eta_cut and wpt_cut and tpt_cut and tau21_cut and wmass_cut
@@ -554,8 +506,6 @@ if __name__ == "__main__":
                 else:                   preselection = eta_cut and wpt_cut and tpt_cut and dy_cut and tau21_cut and wmass_cut
 
                 if preselection: 
-                    doneAlready = True
-
                     if nminus == 'tau32':       top_tag = sjbtag_cut
                     elif nminus == 'sjbtag':    top_tag = tau32_cut
                     else:                       top_tag = sjbtag_cut and tau32_cut
