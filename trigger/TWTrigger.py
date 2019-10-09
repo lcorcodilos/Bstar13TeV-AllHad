@@ -11,6 +11,7 @@
 ##                               ##
 ###################################################################
 
+import time, os, sys
 import ROOT
 from ROOT import *
 
@@ -27,29 +28,29 @@ from optparse import OptionParser
 parser = OptionParser()
 
 parser.add_option('-s', '--set', metavar='F', type='string', action='store',
-                  default   =   'data',
-                  dest      =   'set',
-                  help      =   'dataset (ie data,ttbar etc)')
+                default   =   'data',
+                dest      =   'set',
+                help      =   'dataset (ie data,ttbar etc)')
 parser.add_option('-y', '--y', metavar='F', type='string', action='store',
-                  default   =   '16',
-                  dest      =   'year',
-                  help      =   '16, 17')
-parser.add_option('-n', '--num', metavar='F', type='string', action='store',
-                  default   =   '1',
-                  dest      =   'num',
-                  help      =   'job number')
-parser.add_option('-j', '--jobs', metavar='F', type='string', action='store',
-                  default   =   '1',
-                  dest      =   'jobs',
-                  help      =   'number of jobs')
-parser.add_option('-t', '--tname', metavar='F', type='string', action='store',
-                  default   =   'HLT_PFHT800,HLT_PFHT900,HLT_PFJet450', # For 2017 use 'HLT_PFHT1050,HLT_PFJet500'
-                  dest      =   'tname',
-                  help      =   'trigger name')
-parser.add_option('-p', '--pretname', metavar='F', type='string', action='store',
-                  default   =   'HLT_Mu50',# For 2016, can use 'HLT_PFHT475', For 2017 use 'HLT_PFHT510' or 'HLT_IsoMu27'
-                  dest      =   'pretname',
-                  help      =   'pre-trigger name')
+                default   =   '16',
+                dest      =   'year',
+                help      =   '16, 17')
+parser.add_option('-j', '--job', metavar='FILE', type='string', action='store',
+                default   =   '',
+                dest      =   'job',
+                help      =   'Job number')
+parser.add_option('-n', '--njobs', metavar='FILE', type='string', action='store',
+                default   =   '',
+                dest      =   'njobs',
+                help      =   'Number of jobs')
+# parser.add_option('-t', '--tname', metavar='F', type='string', action='store',
+#                 default   =   '',#'HLT_PFHT800,HLT_PFHT900,HLT_PFJet450', # For 2017 use 'HLT_PFHT1050,HLT_PFJet500'
+#                 dest      =   'tname',
+#                 help      =   'trigger name')
+# parser.add_option('-p', '--pretname', metavar='F', type='string', action='store',
+#                 default   =   'HLT_Mu50',# For 2016, can use 'HLT_PFHT475', For 2017 use 'HLT_PFHT510' or 'HLT_IsoMu27'
+#                 dest      =   'pretname',
+#                 help      =   'pre-trigger name')
 
 
 (options, args) = parser.parse_args()
@@ -63,42 +64,29 @@ print ""
 
 # Prep for deepcsv b-tag if deepak8 is off
 # From https://twiki.cern.ch/twiki/bin/view/CMS/BTagCalibration
-gSystem.Load('libCondFormatsBTauObjects') 
-gSystem.Load('libCondToolsBTau') 
-if options.year == '16':
-    calib = BTagCalibration('DeepCSV', 'SFs/DeepCSV_2016LegacySF_V1.csv')
-elif options.year == '17':
-    calib = BTagCalibration('DeepCSV', 'SFs/subjet_DeepCSV_94XSF_V4_B_F.csv')
-elif options.year == '18':
-    calib = BTagCalibration('DeepCSV', 'SFs/DeepCSV_102XSF_V1.csv')
-v_sys = getattr(ROOT, 'vector<string>')()
-v_sys.push_back('up')
-v_sys.push_back('down')
+# gSystem.Load('libCondFormatsBTauObjects') 
+# gSystem.Load('libCondToolsBTau') 
+# if options.year == '16':
+#     calib = BTagCalibration('DeepCSV', 'SFs/DeepCSV_2016LegacySF_V1.csv')
+# elif options.year == '17':
+#     calib = BTagCalibration('DeepCSV', 'SFs/subjet_DeepCSV_94XSF_V4_B_F.csv')
+# elif options.year == '18':
+#     calib = BTagCalibration('DeepCSV', 'SFs/DeepCSV_102XSF_V1.csv')
+# v_sys = getattr(ROOT, 'vector<string>')()
+# v_sys.push_back('up')
+# v_sys.push_back('down')
 
-reader = BTagCalibrationReader(
-    0,              # 0 is for loose op, 1: medium, 2: tight, 3: discr. reshaping
-    "central",      # central systematic type
-    v_sys,          # vector of other sys. types
-)   
+# reader = BTagCalibrationReader(
+#     0,              # 0 is for loose op, 1: medium, 2: tight, 3: discr. reshaping
+#     "central",      # central systematic type
+#     v_sys,          # vector of other sys. types
+# )   
 
-reader.load(
-    calib, 
-    0,          # 0 is for b flavour, 1: FLAV_C, 2: FLAV_UDSG 
-    "incl"      # measurement type
-) 
-
-######################################
-# Setup grid production if necessary #
-######################################
-
-#If running on the grid we access the script within a tarred directory
-di = ""
-# if options.grid == 'on':
-#     di = "tardir/"
-#     sys.path.insert(0, 'tardir/')
-
-# gROOT.Macro(di+"rootlogon.C")
-
+# reader.load(
+#     calib, 
+#     0,          # 0 is for b flavour, 1: FLAV_C, 2: FLAV_UDSG 
+#     "incl"      # measurement type
+# ) 
 
 #################################
 # Load cut values and constants #
@@ -114,33 +102,38 @@ Cuts = LoadCuts("default",options.year)
 
 jetcoll = "FatJet"
 
-mass_name = ''
-
 #####################
 # Get trigger names #
 #####################
-tnameOR = ''
-tname = options.tname.split(',')
-Tstr_list = [options.pretname]
-pretrigName = options.pretname # defaults to NONE and nothing happens
-for iname in range(0,len(tname)):
-    tnameOR+=tname[iname]
-    if iname!=len(tname)-1:
-        tnameOR+='OR'
-    Tstr_list.append(tname[iname])
+# Trigger
+if options.year == '16':
+    tname = 'HLT_PFHT800ORHLT_PFHT900ORHLT_PFJet450'
+    pretrig_string = 'HLT_Mu50'
+    # btagtype = 'btagCSVV2'
+elif options.year == '17' or options.year == '18':
+    tname = 'HLT_PFHT1050ORHLT_PFJet500'
+    pretrig_string = 'HLT_Mu50'
 
-print Tstr_list
+# tnameOR = ''
+# tname = options.tname.split(',')
+# Tstr_list = [options.pretname]
+# pretrigName = options.pretname # defaults to NONE and nothing happens
+# for iname in range(0,len(tname)):
+#     tnameOR+=tname[iname]
+#     if iname!=len(tname)-1:
+#         tnameOR+='OR'
+#     Tstr_list.append(tname[iname])
 
+# print Tstr_list
 
 #######################
 # Setup job splitting #
 #######################
-jobs=int(options.jobs)
-if jobs != 1:
-    num=int(options.num)
-    jobs=int(options.jobs)
-    print "Running over " +str(jobs)+ " jobs"
-    print "This will process job " +str(num)
+njobs=int(options.njobs)
+if njobs != 1:
+    ijob=int(options.job)
+    print "Running over " +str(njobs)+ " jobs"
+    print "This will process job " +str(ijob)
 else:
     print "Running over all events"
 
@@ -148,49 +141,58 @@ else:
 #############################
 # Make new file for storage #
 #############################
-if jobs != 1:
-    f = TFile.Open( "TWTrigger"+options.set+options.year+tnameOR+"_pre_"+options.pretname+"_job"+options.num+"of"+options.jobs+".root", "recreate" )
+if njobs != 1:
+    f = TFile.Open( "TWTrigger"+options.year+'_'+options.set+'_'+tname+"_pre_"+pretrig_string+"_job"+str(ijob)+"of"+str(njobs)+".root", "recreate" )
 else:
-    f = TFile.Open( "trigger_studies/TWTrigger"+options.set+options.year+tnameOR+"_pre_"+options.pretname+".root", "recreate" )
+    f = TFile.Open( "trigger/trigger_studies/TWTrigger"+options.year+'_'+options.set+'_'+tname+"_pre_"+pretrig_string+".root", "recreate" )
 
 ###################
 # Book histograms #
 ###################
-Htpreuntrig          = TH1D("Htpreuntrig",           "",             400,  0,  4000 )
-Htuntrig          = TH1D("Htuntrig",           "",             400,  0,  4000 )
+Ht_untrig_pre = TH1D("Ht_untrig_pre", "", 36, 400, 4000)
+Ht_untrig    = TH1D("Ht_untrig",    "", 36, 400, 4000)
+Ht_untrig_pre.Sumw2()
+Ht_untrig.Sumw2()
 
-Htpreuntrig.Sumw2()
-Htuntrig.Sumw2()
-
-Htpre          = TH1D("Htpre",           "",             400,  0,  4000 )
-Ht          = TH1D("Ht",           "",             400,  0,  4000 )
-
-Htpre.Sumw2()
+Ht_pre       = TH1D("Ht_pre",       "", 36, 400, 4000)
+Ht          = TH1D("Ht",          "", 36, 400, 4000)
+Ht_pre.Sumw2()
 Ht.Sumw2()
 
-Htprettags          = TH1D("Htprettags",           "",             400,  0,  4000 )
-Htttags         = TH1D("Htttags",           "",             400,  0,  4000 )
+# Ht_ttag_pre  = TH1D("Ht_ttag_pre",  "", 36, 400, 4000)
+# Ht_ttag     = TH1D("Ht_ttag",     "", 36, 400, 4000)
+# Ht_ttag_pre.Sumw2()
+# Ht_ttag.Sumw2()
 
-Htprettags.Sumw2()
-Htttags.Sumw2()
-
-Ptpre          = TH1D("Ptpre",           "",             200,  0,  2000 )
-Pt          = TH1D("Pt",           "",             200,  0,  2000 )
-
-Ptpre.Sumw2()
+Pt_pre       = TH1D("Pt_pre",       "", 160, 400, 2000)
+Pt          = TH1D("Pt",          "", 160, 400, 2000)
+Pt_pre.Sumw2()
 Pt.Sumw2()
 
-Mpre          = TH1D("Mpre",           "",             100,  0,  200 )
-M          = TH1D("M",           "",             100,  0,  200 )
-
-Mpre.Sumw2()
+M_pre        = TH1D("M_pre",        "", 200, 0, 400)
+M           = TH1D("M",           "", 200, 0, 400)
+M_pre.Sumw2()
 M.Sumw2()
 
-Respre          = TH1D("Respre",           "",             36,  400,  4000 )
-Res          = TH1D("Res",           "",             36,  400,  4000 )
+Res_W_pre      = TH1D("Res_W_pre",      "", 36, 400, 4000)
+Res_W         = TH1D("Res_W",         "", 36, 400, 4000)
+Res_W_pre.Sumw2()
+Res_W.Sumw2()
 
-Respre.Sumw2()
-Res.Sumw2()
+Res_t_pre     = TH1D("Res_t_pre",      "", 36, 400, 4000)
+Res_t         = TH1D("Res_t",         "", 36, 400, 4000)
+Res_t_pre.Sumw2()
+Res_t.Sumw2()
+
+Res_tW_pre     = TH1D("Res_tW_pre",      "", 36, 400, 4000)
+Res_tW         = TH1D("Res_tW",         "", 36, 400, 4000)
+Res_tW_pre.Sumw2()
+Res_tW.Sumw2()
+
+Res_tt_pre     = TH1D("Res_tt_pre",      "", 36, 400, 4000)
+Res_tt         = TH1D("Res_tt",         "", 36, 400, 4000)
+Res_tt_pre.Sumw2()
+Res_tt.Sumw2()
 
 ###############################
 # Grab root file that we want #
@@ -207,20 +209,16 @@ elist,jsonFiter = preSkim(inTree,None,'')
 inTree = InputTree(inTree,elist)
 treeEntries = inTree.entries
 
-
-# Setup some pre-loop variables
-trigdict = {} # Filled with the trigger names as keys and trigger bits as values
-
 #####################################
 # Design the splitting if necessary #
 #####################################
-if jobs != 1:
-    evInJob = int(treeEntries/jobs)
+if njobs != 1:
+    evInJob = int(treeEntries/njobs)
     
-    lowBinEdge = evInJob*(num-1)
-    highBinEdge = evInJob*num
+    lowBinEdge = evInJob*(ijob-1)
+    highBinEdge = evInJob*ijob
 
-    if num == jobs:
+    if ijob == njobs:
         highBinEdge = treeEntries
 else:
     lowBinEdge = 0
@@ -228,8 +226,9 @@ else:
 
 print "Range of events: (" + str(lowBinEdge) + ", " + str(highBinEdge) + ")"
 
+# Setup some pre-loop variables
 count = 0
-
+trigdict = {} # Filled with the trigger names as keys and trigger bits as values
 trigFails = {}
 
 ##############
@@ -239,28 +238,34 @@ start = time.time()
 last_event_time = start
 event_time_sum = 0
 for entry in range(lowBinEdge,highBinEdge):
-
     count   =   count + 1
-    # sys.stdout.write("%i / %i ... \r" % (count,(highBinEdge-lowBinEdge)))
-    # sys.stdout.flush()
-    if count % 10000 == 0 :
+    if 'condor' not in os.getcwd():
+        if count > 1:
+            # current_event_time = time.time()
+            # event_time_sum += (current_event_time - last_event_time)
+            sys.stdout.write("%i / %i ... \r" % (count,(highBinEdge-lowBinEdge)))
+            # sys.stdout.write("Avg time = %f " % (event_time_sum/count) )
+            sys.stdout.flush()
+            # last_event_time = current_event_time
+    else:
+        if count % 10000 == 0 :
             print  '--------- Processing Event ' + str(count) +'   -- percent complete ' + str(100*count/(highBinEdge-lowBinEdge)) + '% -- '
+
+    # Grab the event
     event = Event(inTree, entry)
 
     # Grab bits for event
-    trigdict[pretrigName] = inTree.readBranch(pretrigName)
+    trigdict[pretrig_string] = inTree.readBranch(pretrig_string)
 
-    for t in options.tname.split(','):
+    for t in tname.split('OR'):
         try:
             trigdict[t] = inTree.readBranch(t)
         except:
-            print 'Trigger '+t+' does not exist in '+options.set
-            if t in trigFails.keys():
-                trigFails[t] += 1
-            else:
-                trigFails[t] = 1
+            # print 'Trigger '+t+' does not exist in '+options.set
+            if t in trigFails.keys(): trigFails[t] += 1
+            else: trigFails[t] = 1
 
-            trigdict[t] = 0
+            trigdict[t] = False
     
     # Have to grab Collections for each collection of interest
     # -- collections are for types of objects where there could be multiple values
@@ -268,15 +273,14 @@ for entry in range(lowBinEdge,highBinEdge):
     ak8JetsColl = Collection(event, jetcoll)
     subJetsColl = Collection(event, 'SubJet')
 
+    if len(ak8JetsColl) < 2: continue
+
     # Now jetID which (in binary #s) is stored with bit1 as loose, bit2 as tight, and filters (after grabbing jet collections)
-    try:
-        for i in range(2):
-            looseJetID = ak8JetsColl[i].jetId 
-            if (ak8JetsColl[i].jetId & 1 == 0):    # if not loose
-                if (ak8JetsColl[i].jetId & 2 == 0): # and if not tight - Need to check here because loose is always false in 2017
-                    continue                      # move on
-    except:
-        continue
+    for i in range(2):
+        looseJetID = ak8JetsColl[i].jetId 
+        if (ak8JetsColl[i].jetId & 1 == 0):    # if not loose
+            if (ak8JetsColl[i].jetId & 2 == 0): # and if not tight - Need to check here because loose is always false in 2017
+                continue                      # move on
 
     # Now filters/flags
     # flagColl = Collection(event,'Flag')
@@ -297,9 +301,7 @@ for entry in range(lowBinEdge,highBinEdge):
 
     # Separate into hemispheres the leading and subleading jets
     Jetsh0,Jetsh1 = Hemispherize(ak8JetsColl)
-    
-    if (len(Jetsh1) < 1):
-        continue
+    if (len(Jetsh1) < 1) or (len(Jetsh0) < 1): continue
 
     leadingJet = ak8JetsColl[Jetsh0[0]]
     subleadingJet = ak8JetsColl[Jetsh1[0]]
@@ -317,10 +319,10 @@ for entry in range(lowBinEdge,highBinEdge):
                     "tau2":leadingJet.tau2,
                     "tau3":leadingJet.tau3,
                     "phi":leadingJet.phi,
-                    "mass":getattr(leadingJet,'mass'+mass_name),
-                    "pt":leadingJet.pt,
+                    "mass":leadingJet.mass_nom,
+                    "pt":leadingJet.pt_nom, # This will just have JER and JES corrections
                     "eta":leadingJet.eta,
-                    "SDmass":leadingJet.msoftdrop,
+                    "SDmass":leadingJet.msoftdrop_raw,
                     "subJetIdx1":leadingJet.subJetIdx1,
                     "subJetIdx2":leadingJet.subJetIdx2
                 }
@@ -329,14 +331,13 @@ for entry in range(lowBinEdge,highBinEdge):
                     "tau2":subleadingJet.tau2,
                     "tau3":subleadingJet.tau3,
                     "phi":subleadingJet.phi,
-                    "mass":getattr(subleadingJet,'mass'+mass_name),
-                    "pt":subleadingJet.pt,
+                    "mass":subleadingJet.mass_nom,
+                    "pt":subleadingJet.pt_nom,
                     "eta":subleadingJet.eta,
-                    "SDmass":subleadingJet.msoftdrop,
+                    "SDmass":subleadingJet.msoftdrop_nom,
                     "subJetIdx1":subleadingJet.subJetIdx1,
                     "subJetIdx2":subleadingJet.subJetIdx2
                 }
-
 
             elif hemis == 'hemis1' and doneAlready == False:
                 wVals = {
@@ -344,10 +345,10 @@ for entry in range(lowBinEdge,highBinEdge):
                     "tau2":leadingJet.tau2,
                     "tau3":leadingJet.tau3,
                     "phi":leadingJet.phi,
-                    "mass":getattr(leadingJet,'mass'+mass_name),
-                    "pt":leadingJet.pt,
+                    "mass":leadingJet.mass_nom,
+                    "pt":leadingJet.pt_nom,
                     "eta":leadingJet.eta,
-                    "SDmass":leadingJet.msoftdrop,
+                    "SDmass":leadingJet.msoftdrop_nom,
                     "subJetIdx1":leadingJet.subJetIdx1,
                     "subJetIdx2":leadingJet.subJetIdx2
                 }
@@ -356,10 +357,10 @@ for entry in range(lowBinEdge,highBinEdge):
                     "tau2":subleadingJet.tau2,
                     "tau3":subleadingJet.tau3,
                     "phi":subleadingJet.phi,
-                    "mass":getattr(subleadingJet,'mass'+mass_name),
-                    "pt":subleadingJet.pt,
+                    "mass":subleadingJet.mass_nom,
+                    "pt":subleadingJet.pt_nom,
                     "eta":subleadingJet.eta,
-                    "SDmass":subleadingJet.msoftdrop,
+                    "SDmass":subleadingJet.msoftdrop_raw,
                     "subJetIdx1":subleadingJet.subJetIdx1,
                     "subJetIdx2":subleadingJet.subJetIdx2
                 }
@@ -368,122 +369,122 @@ for entry in range(lowBinEdge,highBinEdge):
                 continue
 
             tjet = TLorentzVector()
-            tjet.SetPtEtaPhiM(tVals["pt"],tVals["eta"],tVals["phi"],tVals["mass"])
+            tjet.SetPtEtaPhiM(tVals["pt"],tVals["eta"],tVals["phi"],tVals["SDmass"])
 
             wjet = TLorentzVector()
-            wjet.SetPtEtaPhiM(wVals["pt"],wVals["eta"],wVals["phi"],wVals["mass"])
+            wjet.SetPtEtaPhiM(wVals["pt"],wVals["eta"],wVals["phi"],wVals["SDmass"])
 
-            HT = tjet.Perp() + wjet.Perp()
-            PT = tjet.Perp()
+            ht = tjet.Perp() + wjet.Perp()
+            MtopW = (tjet+wjet).M()
+            top_pt = tjet.Perp()
+            top_mass = tjet.M()
 
-            MA = tVals['SDmass']
-
-            resmass = (tjet+wjet).M()
-
-            tmass_cut = Cuts['tmass'][0]<tVals['SDmass']<Cuts['tmass'][1]
-            wmass_cut = Cuts['wmass'][0]<wVals['SDmass']<Cuts['wmass'][1]
-
-            TRIGBOOL = []
-            preTRIGBOOL = False
+            trig_bools = []
+            pretrig_bool = False
 
             for t in trigdict.keys():
                 # If the trigger is the pre trigger, save a trigger bit other than FALSE
-                if t==pretrigName:
-                    preTRIGBOOL = trigdict[t]
-                    
+                if t == pretrig_string: pretrig_bool = trigdict[t]
                 # Add it to the list of trigger booleans
-                elif t in Tstr_list:
-                    TRIGBOOL.append(trigdict[t])
-        
+                elif t in tname.split('OR'): trig_bools.append(trigdict[t])
 
             # If there's no pre trigger, make the bool true
-            if options.pretname == 'NONE':
-                preTRIGBOOL = True
+            # if options.pretname == 'NONE':
+            #     preTRIGBOOL = True
 
             # Initialize...
-            TPASS = False
+            trig_pass = False
 
             # If the event passes any of the triggers, pass the event and stop checking if it passes others (break for loop)
-            for TB in TRIGBOOL:
-                if TB:
-                    TPASS = True
-                    break 
-
+            if True in trig_bools: trig_pass = True
 
             # Fill HT histo for all events
-            Htpreuntrig.Fill(HT)
-            if TPASS:
-                # and another for events that pass one trigger
-                Htuntrig.Fill(HT)
+            Ht_untrig_pre.Fill(ht)
+            if trig_pass: Ht_untrig.Fill(ht)                
 
             # If we don't pass the pre trigger, go on to the next event
-            if not preTRIGBOOL:
-                continue 
+            if not pretrig_bool: continue 
 
-            # Make preselection of pt, dy, and W tag
+            # Make kinematic preselection
+            MtopW_cut = MtopW > 1000.
+            ht_cut = ht > 1000.
+            Mtop_cut = top_mass > 50.0
             dy_val = abs(tjet.Rapidity()-wjet.Rapidity())
             wpt_cut = Cuts['wpt'][0]<wjet.Perp()<Cuts['wpt'][1]
             tpt_cut = Cuts['tpt'][0]<tjet.Perp()<Cuts['tpt'][1]
             dy_cut = Cuts['dy'][0]<=dy_val<Cuts['dy'][1]
-            if wVals['tau1'] > 0:
-                tau21val = wVals['tau2']/wVals['tau1']
+
+            # Preselection W
+            presel_wmass_cut = Cuts['wmass'][0]<wVals['SDmass']<Cuts['wmass'][1]
+            if wVals['tau1'] > 0: tau21val = wVals['tau2']/wVals['tau1']
+            else: continue
+            presel_tau21_cut =  Cuts['tau21'][0]<=tau21val<Cuts['tau21'][1]
+
+            # Preselection Top
+            presel_tmass_cut = Cuts['tmass'][0]<wVals['SDmass']<Cuts['tmass'][1]
+            if wVals['tau2'] > 0: tau32val = wVals['tau3']/wVals['tau2']
+            else: continue
+            presel_tau32_cut =  Cuts['tau32tight'][0]<=tau32val<Cuts['tau32tight'][1]
+
+            if (wVals['subJetIdx1'] < 0) or (wVals['subJetIdx1'] >= len(subJetsColl)):
+                if (wVals['subJetIdx2'] < 0) or (wVals['subJetIdx2'] >= len(subJetsColl)): continue # if both negative, throw away event
+                else: presel_btagval = subJetsColl[wVals['subJetIdx2']].btagDeepB  # if idx2 not negative or bad index, use that
             else:
-                continue
+                if (wVals['subJetIdx2'] < 0) or (wVals['subJetIdx2'] >= len(subJetsColl)): presel_btagval = subJetsColl[wVals['subJetIdx1']].btagDeepB# if idx1 not negative, use that
+                # if both not negative, use largest
+                else: presel_btagval = max(subJetsColl[wVals['subJetIdx1']].btagDeepB, subJetsColl[wVals['subJetIdx2']].btagDeepB)
+            presel_sjbtag_cut = Cuts['deepbtag'][0]<= presel_btagval<Cuts['deepbtag'][1]
 
-            tau21_cut =  Cuts['tau21'][0]<=tau21val<Cuts['tau21'][1]
+            # Alphabet Top
+            if tVals['tau2'] > 0: tau32val = tVals['tau3']/tVals['tau2']
+            else: continue
+            alpha_tau32_cut = Cuts['tau32medium'][0]<=tau32val<Cuts['tau32medium'][1]
 
-            wmass_cut = Cuts['wmass'][0]<=wVals["SDmass"]<Cuts['wmass'][1]
-
-            preselection = wpt_cut and tpt_cut and dy_cut and wmass_cut and tau21_cut
-
-            if preselection:
-                doneAlready = True
-                # Fill HT, Pt, and Mass distributions that pass pre trigger
-                Htpre.Fill(HT)
-                Ptpre.Fill(PT)
-                Mpre.Fill(MA)
-                Respre.Fill(resmass)
-
-
-                # Fill HT, Pt, and Mass distributions, that pass main trigger
-                if TPASS:
-                    Ht.Fill(HT)
-                    Pt.Fill(PT)
-                    M.Fill(MA)
-                    Res.Fill(resmass)
-
+            if (tVals['subJetIdx1'] < 0) or (tVals['subJetIdx1'] >= len(subJetsColl)):
+                if (tVals['subJetIdx2'] < 0) or (tVals['subJetIdx2'] >= len(subJetsColl)): continue # if both negative, throw away event
+                else: alpha_btagval = subJetsColl[tVals['subJetIdx2']].btagDeepB  # if idx2 not negative or bad index, use that
+            else:
+                if (tVals['subJetIdx2'] < 0) or (tVals['subJetIdx2'] >= len(subJetsColl)): alpha_btagval = subJetsColl[tVals['subJetIdx1']].btagDeepB# if idx1 not negative, use that
+                # if both not negative, use largest
+                else: alpha_btagval = max(subJetsColl[tVals['subJetIdx1']].btagDeepB, subJetsColl[tVals['subJetIdx2']].btagDeepB)
+            alpha_sjbtag_cut = Cuts['deepbtag'][0]<= alpha_btagval<Cuts['deepbtag'][1]
             
-                # If we pass top tagging
-                if tVals['tau2'] > 0:
-                        tau32val = tVals['tau3']/tVals['tau2']
-                else:
-                    continue
-                tau32_cut = Cuts['tau32medium'][0]<=tau32val<Cuts['tau32medium'][1]
 
-                if (tVals['subJetIdx1'] < 0) or (tVals['subJetIdx1'] >= len(subJetsColl)):
-                    if (tVals['subJetIdx2'] < 0) or (tVals['subJetIdx2'] >= len(subJetsColl)):  # if both negative, throw away event
-                        continue
-                    else:   # if idx2 not negative or bad index, use that
-                        btagval = subJetsColl[tVals['subJetIdx2']].btagDeepB#btagCSVV2
+            preselection = MtopW_cut and ht_cut and Mtop_cut and wpt_cut and tpt_cut and dy_cut
+            if preselection:
+                if presel_wmass_cut and presel_tau21_cut:
+                    doneAlready = True
+                    # Fill HT, Pt, and Mass distributions that pass pre trigger
+                    Ht_pre.Fill(ht)
+                    Pt_pre.Fill(top_pt)
+                    M_pre.Fill(top_mass)
+                    Res_W_pre.Fill(MtopW)
 
-                else:
-                    if (tVals['subJetIdx2'] < 0) or (tVals['subJetIdx2'] >= len(subJetsColl)): # if idx1 not negative, use that
-                        btagval = subJetsColl[tVals['subJetIdx1']].btagDeepB#btagCSVV2
-                    # if both not negative, use largest
-                    else:
-                        btagval = max(subJetsColl[tVals['subJetIdx1']].btagDeepB, subJetsColl[tVals['subJetIdx2']].btagDeepB)
-                    
+                    # Fill HT, Pt, and Mass distributions, that pass main trigger
+                    if trig_pass:
+                        Ht.Fill(ht)
+                        Pt.Fill(top_pt)
+                        M.Fill(top_mass)
+                        Res_W.Fill(MtopW)
 
-                sjbtag_cut = Cuts['deepbtag'][0]<= btagval<Cuts['deepbtag'][1]
-                    
+                    # Fill if we pass top tagging
+                    if alpha_sjbtag_cut and alpha_tau32_cut: 
+                        Res_tW_pre.Fill(ht)
+                        if trig_pass: Res_tW.Fill(ht)
 
-                top_tag = sjbtag_cut and tau32_cut
+                elif presel_tmass_cut and presel_tau32_cut and presel_sjbtag_cut:
+                    doneAlready = True
+                    # Fill HT, Pt, and Mass distributions that pass pre trigger
+                    Res_t_pre.Fill(MtopW)
 
-                # Fill if we pass top tagging
-                if top_tag and tmass_cut: 
-                    Htprettags.Fill(HT)
-                    if TPASS:
-                        Htttags.Fill(HT)
+                    # Fill HT, Pt, and Mass distributions, that pass main trigger
+                    if trig_pass:
+                        Res_t.Fill(MtopW)
+
+                    # Fill if we pass top tagging
+                    if alpha_sjbtag_cut and alpha_tau32_cut: 
+                        Res_tt_pre.Fill(ht)
+                        if trig_pass: Res_tt.Fill(ht)
 
 print trigFails
 
