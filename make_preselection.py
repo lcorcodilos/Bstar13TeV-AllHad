@@ -568,15 +568,7 @@ if __name__ == "__main__":
         ak8JetsColl = Collection(event, jetcoll)
         subJetsColl = Collection(event, 'SubJet')
 
-        # Now jetID which (in binary #s) is stored with bit1 as loose, bit2 as tight, and filters (after grabbing jet collections)
-        try:
-            for i in range(2):
-                looseJetID = ak8JetsColl[i].jetId 
-                if (ak8JetsColl[i].jetId & 1 == 0):    # if not loose
-                    if (ak8JetsColl[i].jetId & 2 == 0): # and if not tight - Need to check here because loose is always false in 2017
-                        continue                      # move on
-        except:
-            continue
+        if len(ak8JetsColl) < 2: continue
 
         # Now filters/flags
         filters = [inTree.readBranch('Flag_goodVertices'),
