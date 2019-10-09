@@ -52,6 +52,10 @@ def LoadConstants(year):
             'singletop_s_xsec':10.32,
             'singletop_t_xsec':136.02,
             'singletop_tW_xsec':35.85,
+            'singletop_tW-scaleup_xsec':35.85,
+            'singletop_tW-scaledown_xsec':35.85,
+            'singletop_tWB-scaleup_xsec':35.85,
+            'singletop_tWB-scaledown_xsec':35.85,
             'singletop_tB_xsec':80.95,
             'singletop_tWB_xsec':35.85,
             'WjetsHT600_xsec':68.57,
@@ -275,15 +279,15 @@ def Trigger_Lookup( H , TRP ):
         deltaTriggerEff  = 0.5*(1.0-jetTriggerWeight)
         Weightup  =   min(1.0,jetTriggerWeight + deltaTriggerEff)
         Weightdown  =   max(0.0,jetTriggerWeight - deltaTriggerEff)
-        
+
     return [Weight,Weightup,Weightdown]
 
 
-def SFTdeep_Lookup( pttop, plots ):
-    nom = plots['nom'].Eval(pttop)
-    up = plots['up'].Eval(pttop)
-    down = plots['down'].Eval(pttop)
-    return [nom,up,down]
+# def SFTdeep_Lookup( pttop, plots ):
+#     nom = plots['nom'].Eval(pttop)
+#     up = plots['up'].Eval(pttop)
+#     down = plots['down'].Eval(pttop)
+#     return [nom,up,down]
 
 class myGenParticle:
     def __init__ (self, index, genpart):
@@ -791,7 +795,7 @@ def AllHadIdentifier(genparticles,lepveto):
                 'Hadronic top':particle_tree.FindChain('1005>6>24>1:5'),
                 'Leptonic W':particle_tree.FindChain('1005>24>11:16'),
                 'Leptonic top':particle_tree.FindChain('1005>6>24>11:16'),
-                'Leptonic b':particle_tree.FindChain('1005>6>5>11:16'),}
+                'Leptonic b':particle_tree.FindChain('1005>6>5>11:16')}
     
     # if pchain['Hadronic W'] != False and pchain['Hadronic top'] != False and pchain['Leptonic b'] != False and not lepveto:
     #     particle_tree.PrintTree(ievent,options=['pdgId','status','vect:Pt'])
@@ -993,37 +997,35 @@ def PDFNormUncert(nominal, up, down, xsec_nominal):
 
     return xsec_up, xsec_down
 
-def DAK8_crosscheck(fromDAK8,fromEvent):
-    # Inputs are two lists of [pt, eta, phi]
+# def DAK8_crosscheck(fromDAK8,fromEvent):
+#     # Inputs are two lists of [pt, eta, phi]
     
-    for i in range(len(fromDAK8)):
-        if fromDAK8[i] != fromEvent[i]:
+#     for i in range(len(fromDAK8)):
+#         if fromDAK8[i] != fromEvent[i]:
 
-            diff = abs(fromDAK8[i]-fromEvent[i])
-            if i == 2: # if phi
-                if abs(fromDAK8[i]-fromEvent[i]) > math.pi:
-                    diff = 2*math.pi - abs(fromDAK8[i]-fromEvent[i])
+#             diff = abs(fromDAK8[i]-fromEvent[i])
+#             if i == 2: # if phi
+#                 if abs(fromDAK8[i]-fromEvent[i]) > math.pi:
+#                     diff = 2*math.pi - abs(fromDAK8[i]-fromEvent[i])
                  
 
-            disc = diff/(abs(fromDAK8[i])/2+abs(fromEvent[i])/2)
+#             disc = diff/(abs(fromDAK8[i])/2+abs(fromEvent[i])/2)
             
-            if disc > 0.05 and i != 0:
-                return False
-            elif disc > 0.1:
-                return False
+#             if disc > 0.05 and i != 0:
+#                 return False
+#             elif disc > 0.1:
+#                 return False
 
-    return True
+#     return True
 
 
 def flatTag():
     r = random()
-
     return r
 
 
 def linTag(a=1.):
     r = random()
-
     # Derived by inverting Integral(mx+b,{x,0,x})
     lin = a*math.sqrt(r)
     # norm = (a/3)
@@ -1034,7 +1036,6 @@ def linTag(a=1.):
 
 def quadTag(a=1.):
     r = random()
-
     # Derived by inverting Integral(ax^2+bx+c,{x,0,x})
     onethird = 1./3.
     quad = a*math.pow(r,onethird)
