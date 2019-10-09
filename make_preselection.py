@@ -823,12 +823,13 @@ if __name__ == "__main__":
                                 wFakes.Fill(top_merged_particles+1)
 
                             # W matching
-                            if ('QCD' not in options.set and not wIsTtagged):#'tW' in options.set or 'signal' in options.set) and not wIsTtagged:
-                                if WJetMatching(wjet,GenParticles) and Wpurity != False:
+                            if ('tW' in options.set or 'signal' in options.set or 'ttbar' in options.set):#'tW' in options.set or 'signal' in options.set) and not wIsTtagged:
+                                if 'ttbar' in options.set: isTtbar = True
+                                else: isTtbar = False
+                                if WJetMatching(wjet,GenParticles,ttbar=isTtbar) and Wpurity != False:
                                     wmatchcount+=1
                                     wtagsf = Cons['wtagsf_'+Wpurity]
                                     wtagsfsig = Cons['wtagsfsig_'+Wpurity]
-
                                 else:
                                     wtagsf = 1.0
                                     wtagsfsig = 0.0
@@ -975,21 +976,18 @@ if __name__ == "__main__":
                                 MtwvMtFailSubScaleup.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Q2_up',drop=['Topsf'])*(weights['Topsf']['nom']-1))
                                 MtwvMtFailSubScaledown.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Q2_down',drop=['Topsf'])*(weights['Topsf']['nom']-1))
 
-                                # MtwvMtFailSubSjbtagup.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'sjbsf_up',drop=['Topsf'])*(weights['Topsf']['nom']-1))
-                                # MtwvMtFailSubSjbtagdown.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'sjbsf_down',drop=['Topsf'])*(weights['Topsf']['nom']-1))
-
                                 MtwvMtFailSubTrigup.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Trigger_up',drop=['Topsf'])*(weights['Topsf']['nom']-1))
                                 MtwvMtFailSubTrigdown.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Trigger_down',drop=['Topsf'])*(weights['Topsf']['nom']-1))
 
-                                if ('tW' in options.set or 'signal' in options.set) and not wIsTtagged:
+                                if ('tW' in options.set or 'signal' in options.set or 'ttbar' in options.set) and not wIsTtagged:
                                     MtwvMtPassWup.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Wsf_up')) 
                                     MtwvMtPassWdown.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Wsf_down'))
 
-                                    MtwvMtPassExtrapUp.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Extrap_up'))
-                                    MtwvMtPassExtrapDown.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Extrap_down'))
-
                                     MtwvMtFailSubWup.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Wsf_up',drop=['Topsf'])*(weights['Topsf']['nom']-1))
                                     MtwvMtFailSubWdown.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Wsf_down',drop=['Topsf'])*(weights['Topsf']['nom']-1))
+
+                                    MtwvMtPassExtrapUp.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Extrap_up'))
+                                    MtwvMtPassExtrapDown.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Extrap_down'))
 
                                     MtwvMtFailSubExtrapUp.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Extrap_up',drop=['Topsf'])*(weights['Topsf']['nom']-1))
                                     MtwvMtFailSubExtrapDown.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Extrap_down',drop=['Topsf'])*(weights['Topsf']['nom']-1))
@@ -1022,13 +1020,10 @@ if __name__ == "__main__":
                             MtwvMtFailScaleup.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Q2_up',drop=['Topsf']))
                             MtwvMtFailScaledown.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Q2_down',drop=['Topsf']))
 
-                            # MtwvMtFailSjbtagup.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'sjbsf_up'))
-                            # MtwvMtFailSjbtagdown.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'sjbsf_down'))
-
                             MtwvMtFailTrigup.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Trigger_up',drop=['Topsf']))
                             MtwvMtFailTrigdown.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Trigger_down',drop=['Topsf']))
                             
-                            if ('tW' in options.set or 'signal' in options.set) and not wIsTtagged:
+                            if ('tW' in options.set or 'signal' in options.set or 'ttbar' in options.set) and not wIsTtagged:
                                 MtwvMtFailWup.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Wsf_up',drop=['Topsf'])) 
                                 MtwvMtFailWdown.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Wsf_down',drop=['Topsf']))
 
@@ -1076,7 +1071,7 @@ if __name__ == "__main__":
         MtwvMtFailScaledown.Add(MtwvMtFailSubScaledown,-1)
         MtwvMtFailTrigup.Add(MtwvMtFailSubTrigup,-1)
         MtwvMtFailTrigdown.Add(MtwvMtFailSubTrigdown,-1)
-        if ('tW' in options.set or 'signal' in options.set) and not wIsTtagged:
+        if ('tW' in options.set or 'signal' in options.set or 'ttbar' in options.set) and not wIsTtagged:
             MtwvMtFailWup.Add(MtwvMtFailSubWup,-1)
             MtwvMtFailWdown.Add(MtwvMtFailSubWdown,-1)
             MtwvMtFailExtrapUp.Add(MtwvMtFailSubExtrapUp,-1)
