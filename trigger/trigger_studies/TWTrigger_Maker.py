@@ -24,74 +24,76 @@ from optparse import OptionParser
 parser = OptionParser()
 
 parser.add_option('-s', '--set', metavar='F', type='string', action='store',
-                  default   =   'data',
-                  dest      =   'set',
-                  help      =   'dataset (ie data,ttbar etc)')
+                default   =   'data',
+                dest      =   'set',
+                help      =   'dataset (ie data,ttbar etc)')
 parser.add_option('-y', '--y', metavar='F', type='string', action='store',
-                  default   =   '16',
-                  dest      =   'year',
-                  help      =   '16, 17')
+                default   =   '16',
+                dest      =   'year',
+                help      =   '16, 17')
 parser.add_option('-d', '--disc', metavar='F', type='string', action='store',
-                  default   =   '',
-                  dest      =   'disc',
-                  help      =   'empty, untrig, or ttags')
-parser.add_option('-t', '--tname', metavar='F', type='string', action='store',
-                  default   =   'HLT_PFHT800,HLT_PFHT900,HLT_PFJet450', #For 2017 use ''
-                  dest      =   'tname',
-                  help      =   'trigger name')
-parser.add_option('-p', '--pret', metavar='F', type='string', action='store',
-                  default   =   'HLT_Mu50',#'HLT_PFHT475',
-                  dest      =   'pret',
-                  help      =   'pretrigger name')
+                default   =   '',
+                dest      =   'disc',
+                help      =   'empty, untrig, or ttags')
+# parser.add_option('-t', '--tname', metavar='F', type='string', action='store',
+#                   default   =   'HLT_PFHT800,HLT_PFHT900,HLT_PFJet450', #For 2017 use ''
+#                   dest      =   'tname',
+#                   help      =   'trigger name')
+# parser.add_option('-p', '--pret', metavar='F', type='string', action='store',
+#                   default   =   'HLT_Mu50',#'HLT_PFHT475',
+#                   dest      =   'pret',
+#                   help      =   'pretrigger name')
 
 (options, args) = parser.parse_args()
-
 
 leg = TLegend(0.0, 0.0, 1.0, 1.0)
 leg.SetFillColor(0)
 leg.SetBorderSize(0)
 
-tnameOR = ''
-tname = options.tname.split(',')
-for iname in range(0,len(tname)):
-    tnameOR+=tname[iname]
-    if iname!=len(tname)-1:
-        tnameOR+='OR'
+# tname = ''
+# tname = options.tname.split(',')
+# for iname in range(0,len(tname)):
+#     tname+=tname[iname]
+#     if iname!=len(tname)-1:
+#         tname+='OR'
 
+# Trigger
+if options.year == '16':
+    tname = 'HLT_PFHT800ORHLT_PFHT900ORHLT_PFJet450'
+    pretrig_string = 'HLT_Mu50'
+    # btagtype = 'btagCSVV2'
+elif options.year == '17' or options.year == '18':
+    tname = 'HLT_PFHT1050ORHLT_PFJet500'
+    pretrig_string = 'HLT_Mu50'
 
-
-Trigfile = ROOT.TFile( "Triggerweight_"+options.set+options.year+options.disc+'_pre_'+options.pret+".root", "recreate" )
-# for ifile in range(0,len(trigs)) :
-
-infile = ROOT.TFile("TWTrigger"+options.set+options.year+tnameOR+'_pre_'+options.pret+".root")
-
-HT = infile.Get('Ht'+options.disc)
-HTpre = infile.Get('Htpre'+options.disc)
-HT.Rebin(5)
-HTpre.Rebin(5)
+if options.disc != '': disc_string = '_'+options.disc
+else: disc_string = ''
+Trigfile = ROOT.TFile( "Triggerweight"+options.year+"_"+options.set+disc_string+'_pre_'+pretrig_string+".root", "recreate" )
+infile = ROOT.TFile("TWTrigger"+options.year+'_'+options.set+'_'+tname+'_pre_'+pretrig_string+".root")
 
 pres = [
-    infile.Get('Htpre'+options.disc),
-    infile.Get('Respre')
+    infile.Get('Ht_pre'),
+    infile.Get('Res'+disc_string+'_pre')
     ]
 posts = [
-    infile.Get('Ht'+options.disc),
-    infile.Get('Res')
+    infile.Get('Ht'),
+    infile.Get('Res'+disc_string)
     ] 
 titles = [
     ';p_{T_{jet1}} + p_{T_{jet2}} (GeV);Efficiency',
     ';M_{jet1+jet2} (GeV);Efficiency'
     ]
 ranges = [
-    [300,2000],
+    [400,4000],
     [400,4000]]
 name = ['Ht','Res']
 
-print tnameOR
-print 'Full integral: ' + str(HT.Integral()/HTpre.Integral())
-print 'Partial integral: ' + str(HT.Integral(HT.FindBin(550),HT.FindBin(2000))/HTpre.Integral(HT.FindBin(550),HT.FindBin(2000)))
-
 for h in range(0,len(posts)):
+    print tname + '_' + name[h]
+    print 'Full integral: ' + str(posts[h].Integral()/pres[h].Integral())
+    print 'Partial integral: ' + str(posts[h].Integral(posts[h].FindBin(600),posts[h].FindBin(2000))/pres[h].Integral(pres[h].FindBin(600),pres[h].FindBin(2000)))
+
+
     # Create the outfiles that will store fit and sigma data for use later
     c1 = TCanvas('c1', '', 700, 500)
     HT = posts[h]
@@ -103,7 +105,7 @@ for h in range(0,len(posts)):
     for x in range(1,TR.GetNbinsX()+1):
         TR.SetBinError(x,0.5*(1-TR.GetBinContent(x)))
 
-    leg.AddEntry(TR , tnameOR.replace('OR',' OR '), 'p')
+    leg.AddEntry(TR , tname.replace('OR',' OR '), 'p')
 
     # Tline = TLine(600.0, 0.5, 820.0, 1.01)
     # Tline.SetLineColor(kRed)
@@ -127,11 +129,11 @@ for h in range(0,len(posts)):
     TR.GetYaxis().SetTitleOffset(0.8)
 
     Trigfile.cd()
-    TR.Write("TriggerWeight_"+tnameOR+'_'+name[h])
+    TR.Write("TriggerWeight_"+tname+'_'+name[h])
     # c3 = TCanvas('c3', '', 700, 500)
     # TR.Draw("")
-    c1.Print('plots/Trigger'+options.year+'_'+tnameOR+options.disc+'_'+name[h]+'_'+options.pret+'.root', 'root')
-    c1.Print('plots/Trigger'+options.year+'_'+tnameOR+options.disc+'_'+name[h]+'_'+options.pret+'.pdf', 'pdf')
+    c1.Print('plots/Trigger'+options.year+'_'+tname+disc_string+'_'+name[h]+'_'+pretrig_string+'.root', 'root')
+    c1.Print('plots/Trigger'+options.year+'_'+tname+disc_string+'_'+name[h]+'_'+pretrig_string+'.pdf', 'pdf')
 
     # #Tline.Draw()
     # c1.Print('plots/Trigger_TEMP'+options.disc+'.root', 'root')
