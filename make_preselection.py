@@ -245,165 +245,181 @@ if __name__ == "__main__":
     ###################
     # Book histograms #
     ###################
-    MtwvMtPass     = TH2F("MtwvMtPass",     "mass of tw vs mass of top - Pass", 60, 50, 350, 35, 500, 4000 )
-    MtwvMtFail     = TH2F("MtwvMtFail",     "mass of tw vs mass of top - Fail", 60, 50, 350, 35, 500, 4000 )
-    MtwvMtFailSub  = TH2F("MtwvMtFailSub",     "mass of tw vs mass of top - FailSub", 60, 50, 350, 35, 500, 4000 )
+    MtwvMtPass     = TH2F("MtwvMtPass",     "mass of tw vs mass of top - Pass", 60, 50, 350, 70, 500, 4000 )
+    if 'ttbar' in options.set: MtwvMtPassBadTpt     = TH2F("MtwvMtPassBadTpt",     "mass of tw vs mass of top - Pass - Bad top pt reweight", 60, 50, 350, 70, 500, 4000 )
+    MtwvMtPassNotrig    = TH2F("MtwvMtPassNotrig",     "mass of tw vs mass of top - Pass - No trigger", 60, 50, 350, 70, 500, 4000 )
+    MtwvMtFail     = TH2F("MtwvMtFail",     "mass of tw vs mass of top - Fail", 60, 50, 350, 70, 500, 4000 )
+    MtwvMtFailSub  = TH2F("MtwvMtFailSub",     "mass of tw vs mass of top - FailSub", 60, 50, 350, 70, 500, 4000 )
     MtwvMtPass.Sumw2()
+    if 'ttbar' in options.set: MtwvMtPassBadTpt.Sumw2()
     MtwvMtFail.Sumw2()
     MtwvMtFailSub.Sumw2()
 
     nev = TH1F("nev",   "nev",      1, 0, 1 )
 
-    lepVetoCount = TH1F('lepVetoCount','Lepton veto count',2,0,2)
-    lepVetoCount.GetXaxis().SetBinLabel(1,'In Semi-lep channels')
-    lepVetoCount.GetXaxis().SetBinLabel(2,'Not in Semi-lep channels')
+    # lepVetoCount = TH1F('lepVetoCount','Lepton veto count',2,0,2)
+    # lepVetoCount.GetXaxis().SetBinLabel(1,'In Semi-lep channels')
+    # lepVetoCount.GetXaxis().SetBinLabel(2,'Not in Semi-lep channels')
+
+    sigDecay = TH1F('sigDecay','sigDecay',11,0.5,11.5)
+    sigDecay.GetXaxis().SetBinLabel(1,'Di-hadronic')
+    sigDecay.GetXaxis().SetBinLabel(2,'Leptonic W')
+    sigDecay.GetXaxis().SetBinLabel(3,'Leptonic top')
+    sigDecay.GetXaxis().SetBinLabel(4,'All-had with lep b')
+    sigDecay.GetXaxis().SetBinLabel(5,'All-had with lep b and vetoed')
+    sigDecay.GetXaxis().SetBinLabel(6,'All-had with lep b and not vetoed')
+    sigDecay.GetXaxis().SetBinLabel(7,'All-had vetoed')
+    sigDecay.GetXaxis().SetBinLabel(8,'All-had lep-W veto')
+    sigDecay.GetXaxis().SetBinLabel(9,'All-had lep-t veto')
+    sigDecay.GetXaxis().SetBinLabel(10,'All-had not vetoed')
+    sigDecay.GetXaxis().SetBinLabel(11,'Other')
 
     wmatchCount = TH1F('wmatchCount','W match count',1,0,1)
     wmatchCount.GetXaxis().SetBinLabel(1,'Number of times the W matching passed')
 
     if runOthers == True:
         if 'data' not in options.set:
-            MtwvMtPassPDFup   = TH2F("MtwvMtPassPDFup", "mass of tw vs mass of top PDF up - Pass", 60, 50, 350, 35, 500, 4000 )
-            MtwvMtPassPDFdown = TH2F("MtwvMtPassPDFdown",   "mass of tw vs mass of top PDF down - Pass", 60, 50, 350, 35, 500, 4000 )
+            MtwvMtPassPDFup   = TH2F("MtwvMtPassPDFup", "mass of tw vs mass of top PDF up - Pass", 60, 50, 350, 70, 500, 4000 )
+            MtwvMtPassPDFdown = TH2F("MtwvMtPassPDFdown",   "mass of tw vs mass of top PDF down - Pass", 60, 50, 350, 70, 500, 4000 )
             MtwvMtPassPDFup.Sumw2()
             MtwvMtPassPDFdown.Sumw2()
 
-            MtwvMtPassPUup   = TH2F("MtwvMtPassPUup", "mass of tw vs mass of top PU up - Pass", 60, 50, 350, 35, 500, 4000 )
-            MtwvMtPassPUdown = TH2F("MtwvMtPassPUdown",   "mass of tw vs mass of top PU down - Pass", 60, 50, 350, 35, 500, 4000 )
+            MtwvMtPassPUup   = TH2F("MtwvMtPassPUup", "mass of tw vs mass of top PU up - Pass", 60, 50, 350, 70, 500, 4000 )
+            MtwvMtPassPUdown = TH2F("MtwvMtPassPUdown",   "mass of tw vs mass of top PU down - Pass", 60, 50, 350, 70, 500, 4000 )
             MtwvMtPassPUup.Sumw2()
             MtwvMtPassPUdown.Sumw2()
 
-            MtwvMtPassTopup   = TH2F("MtwvMtPassTopup", "mass of tw vs mass of top sf up - Pass", 60, 50, 350, 35, 500, 4000 )
-            MtwvMtPassTopdown = TH2F("MtwvMtPassTopdown",   "mass of tw vs mass of top sf down - Pass", 60, 50, 350, 35, 500, 4000 )
+            MtwvMtPassTopup   = TH2F("MtwvMtPassTopup", "mass of tw vs mass of top sf up - Pass", 60, 50, 350, 70, 500, 4000 )
+            MtwvMtPassTopdown = TH2F("MtwvMtPassTopdown",   "mass of tw vs mass of top sf down - Pass", 60, 50, 350, 70, 500, 4000 )
             MtwvMtPassTopup.Sumw2()
             MtwvMtPassTopdown.Sumw2()
 
-            MtwvMtPassScaleup   = TH2F("MtwvMtPassScaleup", "mass of tw vs mass of Q^2 scale up - Pass", 60, 50, 350, 35, 500, 4000 )
-            MtwvMtPassScaledown = TH2F("MtwvMtPassScaledown",   "mass of tw vs mass of Q^2 scale down - Pass", 60, 50, 350, 35, 500, 4000 )
+            MtwvMtPassScaleup   = TH2F("MtwvMtPassScaleup", "mass of tw vs mass of Q^2 scale up - Pass", 60, 50, 350, 70, 500, 4000 )
+            MtwvMtPassScaledown = TH2F("MtwvMtPassScaledown",   "mass of tw vs mass of Q^2 scale down - Pass", 60, 50, 350, 70, 500, 4000 )
             MtwvMtPassScaleup.Sumw2()
             MtwvMtPassScaledown.Sumw2()
 
-            MtwvMtPassSjbtagup   = TH2F("MtwvMtPassSjbtagup", "mass of tw vs mass of sjbtag sf up - Pass", 60, 50, 350, 35, 500, 4000 )
-            MtwvMtPassSjbtagdown = TH2F("MtwvMtPassSjbtagdown",   "mass of tw vs mass of sjbtag sf down - Pass", 60, 50, 350, 35, 500, 4000 )
+            MtwvMtPassSjbtagup   = TH2F("MtwvMtPassSjbtagup", "mass of tw vs mass of sjbtag sf up - Pass", 60, 50, 350, 70, 500, 4000 )
+            MtwvMtPassSjbtagdown = TH2F("MtwvMtPassSjbtagdown",   "mass of tw vs mass of sjbtag sf down - Pass", 60, 50, 350, 70, 500, 4000 )
             MtwvMtPassSjbtagup.Sumw2()
             MtwvMtPassSjbtagdown.Sumw2()
 
-            MtwvMtPassTrigup   = TH2F("MtwvMtPassTrigup", "mass of tw vs mass of top trig up - Pass", 60, 50, 350, 35, 500, 4000 )
-            MtwvMtPassTrigdown = TH2F("MtwvMtPassTrigdown",   "mass of tw vs mass of top trig down - Pass", 60, 50, 350, 35, 500, 4000 )
+            MtwvMtPassTrigup   = TH2F("MtwvMtPassTrigup", "mass of tw vs mass of top trig up - Pass", 60, 50, 350, 70, 500, 4000 )
+            MtwvMtPassTrigdown = TH2F("MtwvMtPassTrigdown",   "mass of tw vs mass of top trig down - Pass", 60, 50, 350, 70, 500, 4000 )
             MtwvMtPassTrigup.Sumw2()
             MtwvMtPassTrigdown.Sumw2()
 
             if 'ttbar' in options.set:
-                MtwvMtPassTptup    = TH2F("MtwvMtPassTptup",  "mass of tw vs mass of top top pt reweight up - Pass",  60, 50, 350, 35, 500, 4000 )
-                MtwvMtPassTptdown  = TH2F("MtwvMtPassTptdown",    "mass of tw vs mass of top top pt reweight down - Pass",60, 50, 350, 35, 500, 4000 )
+                MtwvMtPassTptup    = TH2F("MtwvMtPassTptup",  "mass of tw vs mass of top top pt reweight up - Pass",  60, 50, 350, 70, 500, 4000 )
+                MtwvMtPassTptdown  = TH2F("MtwvMtPassTptdown",    "mass of tw vs mass of top top pt reweight down - Pass",60, 50, 350, 70, 500, 4000 )
                 MtwvMtPassTptup.Sumw2()
                 MtwvMtPassTptdown.Sumw2()
 
-            if ('tW' in options.set or 'signal' in options.set) and not wIsTtagged:
-                MtwvMtPassWup      = TH2F("MtwvMtPassWup",    "mass of tw vs mass of top w tag SF up - Pass", 60, 50, 350, 35, 500, 4000 )
-                MtwvMtPassWdown    = TH2F("MtwvMtPassWdown",  "mass of tw vs mass of top w tag SF down - Pass",   60, 50, 350, 35, 500, 4000 )
+            if ('tW' in options.set or 'signal' in options.set or 'ttbar' in options.set) and not wIsTtagged:
+                MtwvMtPassWup      = TH2F("MtwvMtPassWup",    "mass of tw vs mass of top w tag SF up - Pass", 60, 50, 350, 70, 500, 4000 )
+                MtwvMtPassWdown    = TH2F("MtwvMtPassWdown",  "mass of tw vs mass of top w tag SF down - Pass",   60, 50, 350, 70, 500, 4000 )
                 MtwvMtPassWup.Sumw2()
                 MtwvMtPassWdown.Sumw2()
 
-                MtwvMtPassExtrapUp = TH2F("MtwvMtPassExtrapUp", "mass of tw vs mass of top extrapolation uncertainty up - Pass", 60, 50, 350, 35, 500, 4000)
-                MtwvMtPassExtrapDown = TH2F("MtwvMtPassExtrapDown", "mass of tw vs mass of top extrapolation uncertainty down - Pass", 60, 50, 350, 35, 500, 4000)
+                MtwvMtPassExtrapUp = TH2F("MtwvMtPassExtrapUp", "mass of tw vs mass of top extrapolation uncertainty up - Pass", 60, 50, 350, 70, 500, 4000)
+                MtwvMtPassExtrapDown = TH2F("MtwvMtPassExtrapDown", "mass of tw vs mass of top extrapolation uncertainty down - Pass", 60, 50, 350, 70, 500, 4000)
                 MtwvMtPassExtrapUp.Sumw2()
                 MtwvMtPassExtrapDown.Sumw2()
 
             # Fail
-            MtwvMtFailPDFup   = TH2F("MtwvMtFailPDFup", "mass of tw vs mass of top PDF up - Fail", 60, 50, 350, 35, 500, 4000 )
-            MtwvMtFailPDFdown = TH2F("MtwvMtFailPDFdown",   "mass of tw vs mass of top PDF up - Fail", 60, 50, 350, 35, 500, 4000 )
+            MtwvMtFailPDFup   = TH2F("MtwvMtFailPDFup", "mass of tw vs mass of top PDF up - Fail", 60, 50, 350, 70, 500, 4000 )
+            MtwvMtFailPDFdown = TH2F("MtwvMtFailPDFdown",   "mass of tw vs mass of top PDF up - Fail", 60, 50, 350, 70, 500, 4000 )
             MtwvMtFailPDFup.Sumw2()
             MtwvMtFailPDFdown.Sumw2()
 
-            MtwvMtFailPUup   = TH2F("MtwvMtFailPUup", "mass of tw vs mass of top PU up - Fail", 60, 50, 350, 35, 500, 4000 )
-            MtwvMtFailPUdown = TH2F("MtwvMtFailPUdown",   "mass of tw vs mass of top PU up - Fail", 60, 50, 350, 35, 500, 4000 )
+            MtwvMtFailPUup   = TH2F("MtwvMtFailPUup", "mass of tw vs mass of top PU up - Fail", 60, 50, 350, 70, 500, 4000 )
+            MtwvMtFailPUdown = TH2F("MtwvMtFailPUdown",   "mass of tw vs mass of top PU up - Fail", 60, 50, 350, 70, 500, 4000 )
             MtwvMtFailPUup.Sumw2()
             MtwvMtFailPUdown.Sumw2()
 
-            MtwvMtFailTopup   = TH2F("MtwvMtFailTopup", "mass of tw vs mass of top sf up - Fail", 60, 50, 350, 35, 500, 4000 )
-            MtwvMtFailTopdown = TH2F("MtwvMtFailTopdown",   "mass of tw vs mass of top sf up - Fail", 60, 50, 350, 35, 500, 4000 )
+            MtwvMtFailTopup   = TH2F("MtwvMtFailTopup", "mass of tw vs mass of top sf up - Fail", 60, 50, 350, 70, 500, 4000 )
+            MtwvMtFailTopdown = TH2F("MtwvMtFailTopdown",   "mass of tw vs mass of top sf up - Fail", 60, 50, 350, 70, 500, 4000 )
             MtwvMtFailTopup.Sumw2()
             MtwvMtFailTopdown.Sumw2()
 
-            MtwvMtFailScaleup   = TH2F("MtwvMtFailScaleup", "mass of tw vs mass of Q^2 scale up - Fail", 60, 50, 350, 35, 500, 4000 )
-            MtwvMtFailScaledown = TH2F("MtwvMtFailScaledown",   "mass of tw vs mass of Q^2 scale down - Fail", 60, 50, 350, 35, 500, 4000 )
+            MtwvMtFailScaleup   = TH2F("MtwvMtFailScaleup", "mass of tw vs mass of Q^2 scale up - Fail", 60, 50, 350, 70, 500, 4000 )
+            MtwvMtFailScaledown = TH2F("MtwvMtFailScaledown",   "mass of tw vs mass of Q^2 scale down - Fail", 60, 50, 350, 70, 500, 4000 )
             MtwvMtFailScaleup.Sumw2()
             MtwvMtFailScaledown.Sumw2()
 
-            MtwvMtFailSjbtagup   = TH2F("MtwvMtFailSjbtagup", "mass of tw vs mass of sjbtag sf up - Fail", 60, 50, 350, 35, 500, 4000 )
-            MtwvMtFailSjbtagdown = TH2F("MtwvMtFailSjbtagdown",   "mass of tw vs mass of sjbtag sf down - Fail", 60, 50, 350, 35, 500, 4000 )
+            MtwvMtFailSjbtagup   = TH2F("MtwvMtFailSjbtagup", "mass of tw vs mass of sjbtag sf up - Fail", 60, 50, 350, 70, 500, 4000 )
+            MtwvMtFailSjbtagdown = TH2F("MtwvMtFailSjbtagdown",   "mass of tw vs mass of sjbtag sf down - Fail", 60, 50, 350, 70, 500, 4000 )
             MtwvMtFailSjbtagup.Sumw2()
             MtwvMtFailSjbtagdown.Sumw2()
 
-            MtwvMtFailTrigup   = TH2F("MtwvMtFailTrigup", "mass of tw vs mass of top trig up - Fail", 60, 50, 350, 35, 500, 4000 )
-            MtwvMtFailTrigdown = TH2F("MtwvMtFailTrigdown",   "mass of tw vs mass of top trig up - Fail", 60, 50, 350, 35, 500, 4000 )
+            MtwvMtFailTrigup   = TH2F("MtwvMtFailTrigup", "mass of tw vs mass of top trig up - Fail", 60, 50, 350, 70, 500, 4000 )
+            MtwvMtFailTrigdown = TH2F("MtwvMtFailTrigdown",   "mass of tw vs mass of top trig up - Fail", 60, 50, 350, 70, 500, 4000 )
             MtwvMtFailTrigup.Sumw2()
             MtwvMtFailTrigdown.Sumw2()
             
             if 'ttbar' in options.set:
-                MtwvMtFailTptup    = TH2F("MtwvMtFailTptup",  "mass of tw vs mass of top top pt reweight up - Fail",  60, 50, 350, 35, 500, 4000 )
-                MtwvMtFailTptdown  = TH2F("MtwvMtFailTptdown",    "mass of tw vs mass of top top pt reweight down - Fail",60, 50, 350, 35, 500, 4000 )
+                MtwvMtFailTptup    = TH2F("MtwvMtFailTptup",  "mass of tw vs mass of top top pt reweight up - Fail",  60, 50, 350, 70, 500, 4000 )
+                MtwvMtFailTptdown  = TH2F("MtwvMtFailTptdown",    "mass of tw vs mass of top top pt reweight down - Fail",60, 50, 350, 70, 500, 4000 )
                 MtwvMtFailTptup.Sumw2()
                 MtwvMtFailTptdown.Sumw2()
 
-            if ('tW' in options.set or 'signal' in options.set) and not wIsTtagged:
-                MtwvMtFailExtrapUp = TH2F("MtwvMtFailExtrapUp", "mass of tw vs mass of top extrapolation uncertainty up - Fail", 60, 50, 350, 35, 500, 4000)
-                MtwvMtFailExtrapDown = TH2F("MtwvMtFailExtrapDown", "mass of tw vs mass of top extrapolation uncertainty down - Fail", 60, 50, 350, 35, 500, 4000)
+            if ('tW' in options.set or 'signal' in options.set or 'ttbar' in options.set) and not wIsTtagged:
+                MtwvMtFailExtrapUp = TH2F("MtwvMtFailExtrapUp", "mass of tw vs mass of top extrapolation uncertainty up - Fail", 60, 50, 350, 70, 500, 4000)
+                MtwvMtFailExtrapDown = TH2F("MtwvMtFailExtrapDown", "mass of tw vs mass of top extrapolation uncertainty down - Fail", 60, 50, 350, 70, 500, 4000)
                 MtwvMtFailExtrapUp.Sumw2()
                 MtwvMtFailExtrapDown.Sumw2()
 
-                MtwvMtFailWup      = TH2F("MtwvMtFailWup",    "mass of tw vs mass of top w tag SF up - Fail", 60, 50, 350, 35, 500, 4000 )
-                MtwvMtFailWdown    = TH2F("MtwvMtFailWdown",  "mass of tw vs mass of top w tag SF down - Fail",   60, 50, 350, 35, 500, 4000 )
+                MtwvMtFailWup      = TH2F("MtwvMtFailWup",    "mass of tw vs mass of top w tag SF up - Fail", 60, 50, 350, 70, 500, 4000 )
+                MtwvMtFailWdown    = TH2F("MtwvMtFailWdown",  "mass of tw vs mass of top w tag SF down - Fail",   60, 50, 350, 70, 500, 4000 )
                 MtwvMtFailWup.Sumw2()
                 MtwvMtFailWdown.Sumw2()
 
             # Subtraction of Fail the Pass events that change because of the top SF application
-            MtwvMtFailSubPDFup   = TH2F("MtwvMtFailSubPDFup", "mass of tw vs mass of top PDF up - FailSub", 60, 50, 350, 35, 500, 4000 )
-            MtwvMtFailSubPDFdown = TH2F("MtwvMtFailSubPDFdown",   "mass of tw vs mass of top PDF up - FailSub", 60, 50, 350, 35, 500, 4000 )
+            MtwvMtFailSubPDFup   = TH2F("MtwvMtFailSubPDFup", "mass of tw vs mass of top PDF up - FailSub", 60, 50, 350, 70, 500, 4000 )
+            MtwvMtFailSubPDFdown = TH2F("MtwvMtFailSubPDFdown",   "mass of tw vs mass of top PDF up - FailSub", 60, 50, 350, 70, 500, 4000 )
             MtwvMtFailSubPDFup.Sumw2()
             MtwvMtFailSubPDFdown.Sumw2()
 
-            MtwvMtFailSubPUup   = TH2F("MtwvMtFailSubPUup", "mass of tw vs mass of top PU up - FailSub", 60, 50, 350, 35, 500, 4000 )
-            MtwvMtFailSubPUdown = TH2F("MtwvMtFailSubPUdown",   "mass of tw vs mass of top PU up - FailSub", 60, 50, 350, 35, 500, 4000 )
+            MtwvMtFailSubPUup   = TH2F("MtwvMtFailSubPUup", "mass of tw vs mass of top PU up - FailSub", 60, 50, 350, 70, 500, 4000 )
+            MtwvMtFailSubPUdown = TH2F("MtwvMtFailSubPUdown",   "mass of tw vs mass of top PU up - FailSub", 60, 50, 350, 70, 500, 4000 )
             MtwvMtFailSubPUup.Sumw2()
             MtwvMtFailSubPUdown.Sumw2()
 
-            MtwvMtFailSubTopup   = TH2F("MtwvMtFailSubTopup", "mass of tw vs mass of top sf up - FailSub", 60, 50, 350, 35, 500, 4000 )
-            MtwvMtFailSubTopdown = TH2F("MtwvMtFailSubTopdown",   "mass of tw vs mass of top sf up - FailSub", 60, 50, 350, 35, 500, 4000 )
+            MtwvMtFailSubTopup   = TH2F("MtwvMtFailSubTopup", "mass of tw vs mass of top sf up - FailSub", 60, 50, 350, 70, 500, 4000 )
+            MtwvMtFailSubTopdown = TH2F("MtwvMtFailSubTopdown",   "mass of tw vs mass of top sf up - FailSub", 60, 50, 350, 70, 500, 4000 )
             MtwvMtFailSubTopup.Sumw2()
             MtwvMtFailSubTopdown.Sumw2()
 
-            MtwvMtFailSubScaleup   = TH2F("MtwvMtFailSubScaleup", "mass of tw vs mass of Q^2 scale up - FailSub", 60, 50, 350, 35, 500, 4000 )
-            MtwvMtFailSubScaledown = TH2F("MtwvMtFailSubScaledown",   "mass of tw vs mass of Q^2 scale down - FailSub", 60, 50, 350, 35, 500, 4000 )
+            MtwvMtFailSubScaleup   = TH2F("MtwvMtFailSubScaleup", "mass of tw vs mass of Q^2 scale up - FailSub", 60, 50, 350, 70, 500, 4000 )
+            MtwvMtFailSubScaledown = TH2F("MtwvMtFailSubScaledown",   "mass of tw vs mass of Q^2 scale down - FailSub", 60, 50, 350, 70, 500, 4000 )
             MtwvMtFailSubScaleup.Sumw2()
             MtwvMtFailSubScaledown.Sumw2()
 
-            MtwvMtFailSubSjbtagup   = TH2F("MtwvMtFailSubSjbtagup", "mass of tw vs mass of sjbtag sf up - FailSub", 60, 50, 350, 35, 500, 4000 )
-            MtwvMtFailSubSjbtagdown = TH2F("MtwvMtFailSubSjbtagdown",   "mass of tw vs mass of sjbtag sf down - FailSub", 60, 50, 350, 35, 500, 4000 )
+            MtwvMtFailSubSjbtagup   = TH2F("MtwvMtFailSubSjbtagup", "mass of tw vs mass of sjbtag sf up - FailSub", 60, 50, 350, 70, 500, 4000 )
+            MtwvMtFailSubSjbtagdown = TH2F("MtwvMtFailSubSjbtagdown",   "mass of tw vs mass of sjbtag sf down - FailSub", 60, 50, 350, 70, 500, 4000 )
             MtwvMtFailSubSjbtagup.Sumw2()
             MtwvMtFailSubSjbtagdown.Sumw2()
 
-            MtwvMtFailSubTrigup   = TH2F("MtwvMtFailSubTrigup", "mass of tw vs mass of top trig up - FailSub", 60, 50, 350, 35, 500, 4000 )
-            MtwvMtFailSubTrigdown = TH2F("MtwvMtFailSubTrigdown",   "mass of tw vs mass of top trig up - FailSub", 60, 50, 350, 35, 500, 4000 )
+            MtwvMtFailSubTrigup   = TH2F("MtwvMtFailSubTrigup", "mass of tw vs mass of top trig up - FailSub", 60, 50, 350, 70, 500, 4000 )
+            MtwvMtFailSubTrigdown = TH2F("MtwvMtFailSubTrigdown",   "mass of tw vs mass of top trig up - FailSub", 60, 50, 350, 70, 500, 4000 )
             MtwvMtFailSubTrigup.Sumw2()
             MtwvMtFailSubTrigdown.Sumw2()
 
             
             if 'ttbar' in options.set:
-                MtwvMtFailSubTptup    = TH2F("MtwvMtFailSubTptup",  "mass of tw vs mass of top top pt reweight up - FailSub",  60, 50, 350, 35, 500, 4000 )
-                MtwvMtFailSubTptdown  = TH2F("MtwvMtFailSubTptdown",    "mass of tw vs mass of top top pt reweight down - FailSub",60, 50, 350, 35, 500, 4000 )
+                MtwvMtFailSubTptup    = TH2F("MtwvMtFailSubTptup",  "mass of tw vs mass of top top pt reweight up - FailSub",  60, 50, 350, 70, 500, 4000 )
+                MtwvMtFailSubTptdown  = TH2F("MtwvMtFailSubTptdown",    "mass of tw vs mass of top top pt reweight down - FailSub",60, 50, 350, 70, 500, 4000 )
                 MtwvMtFailSubTptup.Sumw2()
                 MtwvMtFailSubTptdown.Sumw2()
 
-            if ('tW' in options.set or 'signal' in options.set) and not wIsTtagged:
-                MtwvMtFailSubExtrapUp = TH2F("MtwvMtFailSubExtrapUp", "mass of tw vs mass of top extrapolation uncertainty up - FailSub", 60, 50, 350, 35, 500, 4000)
-                MtwvMtFailSubExtrapDown = TH2F("MtwvMtFailSubExtrapDown", "mass of tw vs mass of top extrapolation uncertainty down - FailSub", 60, 50, 350, 35, 500, 4000)
+            if ('tW' in options.set or 'signal' in options.set or 'ttbar' in options.set) and not wIsTtagged:
+                MtwvMtFailSubExtrapUp = TH2F("MtwvMtFailSubExtrapUp", "mass of tw vs mass of top extrapolation uncertainty up - FailSub", 60, 50, 350, 70, 500, 4000)
+                MtwvMtFailSubExtrapDown = TH2F("MtwvMtFailSubExtrapDown", "mass of tw vs mass of top extrapolation uncertainty down - FailSub", 60, 50, 350, 70, 500, 4000)
                 MtwvMtFailSubExtrapUp.Sumw2()
                 MtwvMtFailSubExtrapDown.Sumw2()
 
-                MtwvMtFailSubWup      = TH2F("MtwvMtFailSubWup",    "mass of tw vs mass of top w tag SF up - FailSub", 60, 50, 350, 35, 500, 4000 )
-                MtwvMtFailSubWdown    = TH2F("MtwvMtFailSubWdown",  "mass of tw vs mass of top w tag SF down - FailSub",   60, 50, 350, 35, 500, 4000 )
+                MtwvMtFailSubWup      = TH2F("MtwvMtFailSubWup",    "mass of tw vs mass of top w tag SF up - FailSub", 60, 50, 350, 70, 500, 4000 )
+                MtwvMtFailSubWdown    = TH2F("MtwvMtFailSubWdown",  "mass of tw vs mass of top w tag SF down - FailSub",   60, 50, 350, 70, 500, 4000 )
                 MtwvMtFailSubWup.Sumw2()
                 MtwvMtFailSubWdown.Sumw2()
 
@@ -423,11 +439,11 @@ if __name__ == "__main__":
             TopMerging.GetXaxis().SetBinLabel(6,'2 merged particle')
             TopMerging.GetXaxis().SetBinLabel(7,'3 merged particle')
 
-        Mtw_cut1    = TH1F("Mtw_cut1",  "mass of tw after pt cuts and dy cuts", 35, 500, 4000)
-        Mtw_cut2    = TH1F("Mtw_cut2",  "mass of tw after tau21 cut", 35, 500, 4000)
-        Mtw_cut3    = TH1F("Mtw_cut3",  "mass of tw after wmass cut", 35, 500, 4000)
-        Mtw_cut4    = TH1F("Mtw_cut4", "mass of tw after tau32 cut", 35, 500, 4000)
-        Mtw_cut5    = TH1F("Mtw_cut5", "mass of tw after sjbtag cut", 35, 500, 4000)
+        Mtw_cut1    = TH1F("Mtw_cut1",  "mass of tw after pt cuts and dy cuts", 70, 500, 4000)
+        Mtw_cut2    = TH1F("Mtw_cut2",  "mass of tw after tau21 cut", 70, 500, 4000)
+        Mtw_cut3    = TH1F("Mtw_cut3",  "mass of tw after wmass cut", 70, 500, 4000)
+        Mtw_cut4    = TH1F("Mtw_cut4", "mass of tw after tau32 cut", 70, 500, 4000)
+        Mtw_cut5    = TH1F("Mtw_cut5", "mass of tw after sjbtag cut", 70, 500, 4000)
         Mtw_cut1.Sumw2()
         Mtw_cut2.Sumw2()
         Mtw_cut3.Sumw2()
@@ -435,8 +451,8 @@ if __name__ == "__main__":
         Mtw_cut5.Sumw2()
 
 
-    dumbTagPass = TH2F("dumbTagPass",     "mass of tw vs mass of top - Pass random tag", 60, 50, 350, 35, 500, 4000 )
-    dumbTagFail = TH2F("dumbTagFail",     "mass of tw vs mass of top - Fail random tag", 60, 50, 350, 35, 500, 4000 )
+    dumbTagPass = TH2F("dumbTagPass",     "mass of tw vs mass of top - Pass random tag", 60, 50, 350, 70, 500, 4000 )
+    dumbTagFail = TH2F("dumbTagFail",     "mass of tw vs mass of top - Fail random tag", 60, 50, 350, 70, 500, 4000 )
 
     dumbTagPass.Sumw2()
     dumbTagFail.Sumw2()
@@ -451,7 +467,9 @@ if __name__ == "__main__":
         'Trigger':array.array('d',[1.0]),
         'Ptreweight':array.array('d',[1.0]),
         'Extrap':array.array('d',[1.0]),
-        'Total':array.array('d',[1.0])
+        'Total':array.array('d',[1.0]),
+        'MtopW':array.array('d',[1.0]),
+        'Mtop':array.array('d',[1.0])
     }
     weightTree = Make_Trees(weightArrays,'weights')
 
@@ -459,7 +477,7 @@ if __name__ == "__main__":
     # Grab root file that we want #
     ###############################
     file_string = Load_jetNano(options.set,options.year)
-    file = TFile.Open('../temp/ttbar_bstar17.root')
+    file = TFile.Open(file_string)
 
 
     ################################
@@ -505,6 +523,8 @@ if __name__ == "__main__":
     wmatchcount = 0
     inLepSel = 0
     notInLepSel = 0
+    tptpair = 0
+    notptpair = 0
 
     ##############
     # Begin Loop #
