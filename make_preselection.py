@@ -96,30 +96,30 @@ if __name__ == "__main__":
 
     # Prep for deepcsv b-tag
     # From https://twiki.cern.ch/twiki/bin/view/CMS/BTagCalibration
-    gSystem.Load('libCondFormatsBTauObjects') 
-    gSystem.Load('libCondToolsBTau') 
-    if options.year == '16':
-        calib = BTagCalibration('DeepCSV', 'SFs/DeepCSV_2016LegacySF_V1.csv')
-    elif options.year == '17':
-        calib = BTagCalibration('DeepCSV', 'SFs/subjet_DeepCSV_94XSF_V4_B_F.csv')
-    elif options.year == '18':
-        calib = BTagCalibration('DeepCSV', 'SFs/DeepCSV_102XSF_V1.csv')
+    # gSystem.Load('libCondFormatsBTauObjects') 
+    # gSystem.Load('libCondToolsBTau') 
+    # if options.year == '16':
+    #     calib = BTagCalibration('DeepCSV', 'SFs/DeepCSV_2016LegacySF_V1.csv')
+    # elif options.year == '17':
+    #     calib = BTagCalibration('DeepCSV', 'SFs/subjet_DeepCSV_94XSF_V4_B_F.csv')
+    # elif options.year == '18':
+    #     calib = BTagCalibration('DeepCSV', 'SFs/DeepCSV_102XSF_V1.csv')
         
-    v_sys = getattr(ROOT, 'vector<string>')()
-    v_sys.push_back('up')
-    v_sys.push_back('down')
+    # v_sys = getattr(ROOT, 'vector<string>')()
+    # v_sys.push_back('up')
+    # v_sys.push_back('down')
 
-    reader = BTagCalibrationReader(
-        0,              # 0 is for loose op, 1: medium, 2: tight, 3: discr. reshaping
-        "central",      # central systematic type
-        v_sys,          # vector of other sys. types
-    )   
+    # reader = BTagCalibrationReader(
+    #     0,              # 0 is for loose op, 1: medium, 2: tight, 3: discr. reshaping
+    #     "central",      # central systematic type
+    #     v_sys,          # vector of other sys. types
+    # )   
 
-    reader.load(
-        calib, 
-        0,          # 0 is for b flavour, 1: FLAV_C, 2: FLAV_UDSG 
-        "incl"      # measurement type
-    ) 
+    # reader.load(
+    #     calib, 
+    #     0,          # 0 is for b flavour, 1: FLAV_C, 2: FLAV_UDSG 
+    #     "incl"      # measurement type
+    # ) 
 
     if options.region == 'ttbar':
         wIsTtagged = True
