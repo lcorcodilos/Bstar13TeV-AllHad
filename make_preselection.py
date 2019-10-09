@@ -218,21 +218,18 @@ if __name__ == "__main__":
     # Load Trigger, Pileup reweight, Puppi+SD corr, and ttag sf if not data #
     #########################################################################
     if 'data' not in options.set:
-        print "Triggerweight_data"+options.year+"_pre_"+pretrig_string+".root"
-        print 'TriggerWeight_'+tname+'_Ht'
-        TrigFile = TFile.Open("trigger/trigger_studies/Triggerweight_data"+options.year+"_pre_"+pretrig_string+".root")
-        TrigPlot = TrigFile.Get('TriggerWeight_'+tname+'_Ht')
+        if options.region != 'ttbar': trigfile_str = "Triggerweight"+options.year+"_data_W_pre_"+pretrig_string+".root"
+        else: trigfile_str = "Triggerweight"+options.year+"_data_t_pre_"+pretrig_string+".root"
+        trighist_str = 'TriggerWeight_'+tname+'_Res'
+        print trigfile_str
+        print trighist_str
+        TrigFile = TFile.Open("trigger/trigger_studies/"+trigfile_str)
+        TrigPlot = TrigFile.Get(trighist_str)
         TrigPlot1 = TrigPlot.Clone()
-        
-        #PileFile = TFile.Open("pileup/PileUp_Ratio_ttbar"+options.year+".root")
-        #PilePlots = {
-        #    "nom": PileFile.Get("Pileup_Ratio"),
-        #    "up": PileFile.Get("Pileup_Ratio_up"),
-        #    "down": PileFile.Get("Pileup_Ratio_down")}
         
         ttagsffile = TFile.Open('SFs/20'+tempyear+'TopTaggingScaleFactors_NoMassCut.root')
 
-    lepSFfile = TFile.Open('SFs/bstar_lep_veto_sfs.root')
+    # lepSFfile = TFile.Open('SFs/bstar_lep_veto_sfs.root')
 
 
     #############################
