@@ -10,7 +10,9 @@ mkdir tardir; cp tarball.tgz tardir/; cd tardir
 tar xzvf tarball.tgz
 mkdir ../CMSSW_10_2_13/src/BStar13TeV/
 cp -r * ../CMSSW_10_2_13/src/BStar13TeV/
-cd ../CMSSW_10_2_13/src/BStar13TeV/
+cd ../CMSSW_10_2_13/src/BStar13TeV
+cp trigger/TWTrigger.py ./
+ls -trlh
 eval `scramv1 runtime -sh`
 
 echo python TWTrigger.py $*

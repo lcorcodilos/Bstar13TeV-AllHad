@@ -2,10 +2,10 @@ import subprocess
 
 commands = []
 
-base_string = '-s TEMPSET -r TEMPREG -t TEMPTAU32 -j NJOB -n IJOB -y TEMPYEAR'# -j -r -a -b
+base_string = '-s TEMPSET -r TEMPREG -t TEMPTAU32 -n NJOB -j IJOB -y TEMPYEAR'# -j -r -a -b
 
 for year in ['16','17','18']:
-    for tau32 in ['loose','medium']:
+    for tau32 in ['medium']:
         for reg in ['default']:
             year_string = base_string.replace("TEMPYEAR",year).replace('TEMPREG',reg).replace('TEMPTAU32',tau32)
             # QCD
@@ -71,14 +71,14 @@ for year in ['16','17','18']:
 
             # for data in data_dict.keys():
 
-            if year == '16': subsets = ['B2','C','D','E','F','G','H']
-            elif year == '17': subsets = ['B','C','D','E','F']
-            elif year == '18': subsets = ['A','B','C','D']
-            for sub in subsets:
-                data_string = year_string.replace('TEMPSET','data'+sub).replace('NJOB','5')
-                for i in range(1,6):
-                    data_job_string = data_string.replace('IJOB',str(i))
-                    commands.append(data_job_string)
+            # if year == '16': subsets = ['B2','C','D','E','F','G','H']
+            # elif year == '17': subsets = ['B','C','D','E','F']
+            # elif year == '18': subsets = ['A','B','C','D']
+            # for sub in subsets:
+            #    data_string = year_string.replace('TEMPSET','data'+sub).replace('NJOB','5')
+            #    for i in range(1,6):
+            #        data_job_string = data_string.replace('IJOB',str(i))
+            #        commands.append(data_job_string)
 
 outfile = open('../args/bstar_nminusone_args.txt','w')
 

@@ -35,7 +35,7 @@ name_string = '_'+options.name if options.name != '' else ''
 # Initialize output file
 outfile = open('../args/bstar_presel'+name_string+'_args.txt','w')
 
-base_string = '-s TEMPSET -r TEMPREG -j IJOB -n NJOB -y TEMPYEAR -t TEMPTAGGER -q'
+base_string = '-s TEMPSET -r TEMPREG -j IJOB -n NJOB -y TEMPYEAR -t TEMPTAGGER'
 
 for year in years:
     for reg in regions:
