@@ -706,6 +706,8 @@ if __name__ == "__main__":
                 
                 # Make and get all cuts
                 MtopW_cut = MtopW > 1000.
+                ht_cut = ht > 1000.
+                Mtop_cut = tVals["SDmass"] > 50.0
                 dy_val = abs(tjet.Rapidity()-wjet.Rapidity())
                 wpt_cut = Cuts['wpt'][0]<wjet.Perp()<Cuts['wpt'][1]
                 tpt_cut = Cuts['tpt'][0]<tjet.Perp()<Cuts['tpt'][1]
@@ -723,7 +725,7 @@ if __name__ == "__main__":
 
                     tau21_cut =  Cuts['tau21'][0]<=tau21val<Cuts['tau21'][1]
                     wmass_cut = Cuts['wmass'][0]<=wVals["SDmass"]<Cuts['wmass'][1]
-                    preselection = wpt_cut and tpt_cut and dy_cut and MtopW_cut and wmass_cut and tau21_cut
+                    preselection = wpt_cut and tpt_cut and dy_cut and MtopW_cut and Mtop_cut and wmass_cut and tau21_cut
                 
                     if runOthers and checkingFirstHemi:
                         if wpt_cut and tpt_cut and dy_cut:
@@ -1037,14 +1039,29 @@ if __name__ == "__main__":
                                 MtwvMtFailTptup.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Ptreweight_up',drop=['Topsf']))
                                 MtwvMtFailTptdown.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Ptreweight_down',drop=['Topsf'])) 
 
+                    # Fill weight tree
+                    for k in weightArrays.keys():
+                        if k not in ['Total','MtopW','Mtop'] and 'nom' in weights[k].keys(): weightArrays[k][0] = weights[k]['nom']
+                        elif k not in ['Total','MtopW','Mtop'] and 'nom' not in weights[k].keys(): weightArrays[k][0] = 1.0
+                        elif k == 'Total':
+                            weightArrays[k][0] = 1.0
+                            for w in weights.keys(): 
+                                if 'nom' in weights[w]: weightArrays[k][0] *= weights[w]['nom']
+                        elif k == 'MtopW':
+                            weightArrays[k][0] = MtopW
+                        elif k == 'Mtop':
+                            weightArrays[k][0] = tVals["SDmass"]
+                    weightTree.Fill()
                 
-    lepVetoCount.SetBinContent(1,inLepSel)
-    lepVetoCount.SetBinContent(2,notInLepSel)
+    # lepVetoCount.SetBinContent(1,inLepSel)
+    # lepVetoCount.SetBinContent(2,notInLepSel)
     wmatchCount.SetBinContent(1,wmatchcount)
     nev.SetBinContent(1,count)          
     end = time.time()
     print '\n'
     print str((end-start)/60.) + ' min'
+
+    print "Pair found: %s, No pair found: %s" % (tptpair,notptpair)
 
     # Correct the failing distribution from the top tag sf application in pass (subtract events that were gained/lost in pass)
     MtwvMtFail.Add(MtwvMtFailSub,-1)
