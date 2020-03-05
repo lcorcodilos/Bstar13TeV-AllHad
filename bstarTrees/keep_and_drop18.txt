@@ -29,3 +29,5 @@ keep nElectron
 
 keep Muon_*
 keep nMuon
+
+keep *puWeight*

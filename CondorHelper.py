@@ -17,7 +17,10 @@ parser.add_option('-a', '--args', metavar='FILE', type='string', action='store',
                 default   =   '',
                 dest      =   'args',
                 help      =   'Text file with python arguments')
-
+parser.add_option('-m', '--memory', metavar='FILE', type='string', action='store',
+                default   =   '2000',
+                dest      =   'memory',
+                help      =   'Amount of memory to request')
 
 (options, args) = parser.parse_args()
 
@@ -34,6 +37,7 @@ timestr = time.strftime("%Y%m%d-%H%M%S")
 out_jdl = 'temp_'+timestr+'_jdl'
 commands.append("sed 's$TEMPSCRIPT$"+options.runscript+"$g' condor/templates/jdl_template > "+out_jdl)
 commands.append("sed -i 's$TEMPARGS$"+options.args+"$g' "+out_jdl)
+commands.append("sed -i 's$request_memory = 2000$request_memory = "+options.memory+"$g' "+out_jdl)
 commands.append("condor_submit "+out_jdl+" -debugfile condor_submit_debug.log")
 commands.append("mv "+out_jdl+" condor/jdls/")
 # commands.append("condor_q lcorcodi")

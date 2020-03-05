@@ -13,7 +13,7 @@
 #####################################################################
 
 import ROOT
-from ROOT import TLorentzVector
+# from ROOT import TLorentzVector
 
 class GenParticleTree:
     def __init__ (self):
@@ -137,7 +137,7 @@ class GenParticleTree:
                     this_node_label += '\n%s=%s'%(o,getattr(n,o))
 
             if jet != None:
-                this_node_label += '\n%s=%.2f'%('\Delta R with jet',n.vect.DeltaR(jet))
+                this_node_label += '\n%s=%.2f'%('\Delta R with jet',n.DeltaR(jet))
 
             dot.node(this_node_name, this_node_label)
             for ichild in n.childIndex:
@@ -154,9 +154,8 @@ class GenParticleObj:
         self.statusFlagsInt = genpart.statusFlags
         self.pdgId = genpart.pdgId
         self.name = ''
-        self.vect = TLorentzVector()
-        self.vect.SetPtEtaPhiM(genpart.pt,genpart.eta,genpart.phi,genpart.mass)
-        self.pt = self.vect.Perp()
+        self.vect = ROOT.Math.PtEtaPhiMVector(genpart.pt,genpart.eta,genpart.phi,genpart.mass)
+        self.pt = self.vect.Pt()
         self.eta = self.vect.Eta()
         self.phi = self.vect.Phi()
         self.mass = self.vect.M()
@@ -199,13 +198,13 @@ class GenParticleObj:
     # Compare to jet and do basic tests of proximity
     def CompareToJet(self,jetvect):
         sameHemisphere = True if self.vect.DeltaPhi(jetvect) < math.pi else False
-        deltaR = self.vect.DeltaR(jetvect) < 0.8
+        deltaR = self.DeltaR(jetvect) < 0.8
         deltaM = (abs(jetvect.M() - self.vect.M())/self.vect.M() < 0.05)
 
         return {'sameHemisphere':sameHemisphere,'deltaR':deltaR,'deltaM':deltaM}
 
     def DeltaR(self,vect):
-        return self.vect.DeltaR(vect)
+        return ROOT.Math.VectorUtil.DeltaR(self.vect,vect)
 
     # Set individual flags
     def SetStatusFlags(self):

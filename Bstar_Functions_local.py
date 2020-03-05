@@ -28,6 +28,8 @@ import cppyy
 import pickle
 from ROOT import *
 from PhysicsTools.NanoAODTools.postprocessing.tools import *
+import GenParticleChecker
+from GenParticleChecker import GenParticleTree,GenParticleObj
 
 #This is the most impostant Function.  Correct information here is essential to obtaining valid results.
 #In order we have Luminosity, top tagging scale factor, cross sections for wprime right,left,mixed,ttbar,qcd, and singletop and their corresponding event numbers
@@ -69,6 +71,12 @@ def LoadConstants(year):
             'signalLH2600_xsec':0.01073,
             'signalLH2800_xsec':0.005829,
             'signalLH3000_xsec':0.003234,
+            'signalLH3200_xsec':0.001868,
+            'signalLH3400_xsec':0.001068,
+            'signalLH3600_xsec':0.0006203,
+            'signalLH3800_xsec':0.0003647,
+            'signalLH4000_xsec':0.0002182,
+            'signalLH4200_xsec':0.000133,
             'signalRH1200_xsec':1.936,
             'signalRH1400_xsec':0.7816,
             'signalRH1600_xsec':0.3416,
@@ -78,7 +86,13 @@ def LoadConstants(year):
             'signalRH2400_xsec':0.02008,
             'signalRH2600_xsec':0.01068,
             'signalRH2800_xsec':0.005814,
-            'signalRH3000_xsec':0.003224
+            'signalRH3000_xsec':0.003224,
+            'signalRH3200_xsec':0.001858,
+            'signalRH3400_xsec':0.001065,
+            'signalRH3600_xsec':0.0006177,
+            'signalRH3800_xsec':0.0003652,
+            'signalRH4000_xsec':0.0002178,
+            'signalRH4200_xsec':0.0001332
         }
     elif year == '17':
         return  {
@@ -115,6 +129,12 @@ def LoadConstants(year):
             'signalLH2600_xsec':0.01073,
             'signalLH2800_xsec':0.005829,
             'signalLH3000_xsec':0.003234,
+            'signalLH3200_xsec':0.00228,
+            'signalLH3400_xsec':0.001342,
+            'signalLH3600_xsec':0.0008058,
+            'signalLH3800_xsec':0.0004879,
+            'signalLH4000_xsec':0.0003002,
+            'signalLH4200_xsec':0.0001873,
             'signalRH1200_xsec':1.936,
             'signalRH1400_xsec':0.7816,
             'signalRH1600_xsec':0.3416,
@@ -124,16 +144,23 @@ def LoadConstants(year):
             'signalRH2400_xsec':0.02008,
             'signalRH2600_xsec':0.01068,
             'signalRH2800_xsec':0.005814,
-            'signalRH3000_xsec':0.003224
+            'signalRH3000_xsec':0.003224,
+            'signalRH3200_xsec':0.00227,
+            'signalRH3400_xsec':0.001339,
+            'signalRH3600_xsec':0.0008017,
+            'signalRH3800_xsec':0.000487,
+            'signalRH4000_xsec':0.0003,
+            'signalRH4200_xsec':0.000187
+
         }
     elif year == '18':
         return  {
             'lumi':60001.0,#59692.687741,
             'qcd_lumi':7080.08,
-            'wtagsf_HP':0.97,# HP = High purity
-            'wtagsfsig_HP':0.06,
-            'wtagsf_LP':1.14,# LP = Low purity
-            'wtagsfsig_LP':0.29,
+            'wtagsf_HP':0.980,# HP = High purity
+            'wtagsfsig_HP':0.027,
+            'wtagsf_LP':1.120,# LP = Low purity
+            'wtagsfsig_LP':0.275,
             # 'ttagsf':1.07,
             # 'ttagsf_errUp':0.15,
             # 'ttagsf_errDown':0.06,
@@ -161,6 +188,12 @@ def LoadConstants(year):
             'signalLH2600_xsec':0.01073,
             'signalLH2800_xsec':0.005829,
             'signalLH3000_xsec':0.003234,
+            'signalLH3200_xsec':0.00228,
+            'signalLH3400_xsec':0.001342,
+            'signalLH3600_xsec':0.0008058,
+            'signalLH3800_xsec':0.0004879,
+            'signalLH4000_xsec':0.0003002,
+            'signalLH4200_xsec':0.0001873,
             'signalRH1200_xsec':1.936,
             'signalRH1400_xsec':0.7816,
             'signalRH1600_xsec':0.3416,
@@ -170,7 +203,13 @@ def LoadConstants(year):
             'signalRH2400_xsec':0.02008,
             'signalRH2600_xsec':0.01068,
             'signalRH2800_xsec':0.005814,
-            'signalRH3000_xsec':0.003224
+            'signalRH3000_xsec':0.003224,
+            'signalRH3200_xsec':0.00227,
+            'signalRH3400_xsec':0.001339,
+            'signalRH3600_xsec':0.0008017,
+            'signalRH3800_xsec':0.000487,
+            'signalRH4000_xsec':0.0003,
+            'signalRH4200_xsec':0.000187
         }
 
     
@@ -206,7 +245,7 @@ def LoadCuts(region,year):
             cuts['tau21LP'] = [0.45,0.75]
 
         elif region == 'sideband':
-            cuts['tau21'] = [0.45,1.0]
+            cuts['tau21'] = [0.45,0.75]
             cuts['tau21LP'] = [0.45,0.75]
 
         # elif region == 'ttbar':
@@ -235,31 +274,52 @@ def Load_jetNano(string,year):
 
     return 'root://cmseos.fnal.gov//store/user/lcorcodi/bstar_nano/rootfiles/'+string+'_bstar'+year+'.root'
 
+def DeltaR(v1,v2): Math.VectorUtil.DeltaR(v1,v2)
 
+def PDF_Lookup(pdfs,normhist=None):
+    if normhist == None:
+        # Computes the variance of the pdf weights to estimate the up and down uncertainty for each set (event)
+        ilimweight = 0.0
 
-def PDF_Lookup(pdfs , pdfOP ):
-    # Computes the variance of the pdf weights to estimate the up and down uncertainty for each set (event)
-    ilimweight = 0.0
+        limitedpdf = []
+        for ipdf in range(pdfs.GetSize()):
+            curpdf = pdfs[ipdf]
+            if abs(curpdf)<1000.0:
+                limitedpdf.append(curpdf)
 
-    limitedpdf = []
-    for ipdf in range(pdfs.GetSize()):
-        curpdf = pdfs[ipdf]
-        if abs(curpdf)<1000.0:
-            limitedpdf.append(curpdf)
+        if len(limitedpdf) == 0:
+            return 1,1
 
-    if len(limitedpdf) == 0:
-        return 1
+        limave =  limitedpdf
+        limave =  reduce(lambda x, y: x + y, limitedpdf) / len(limitedpdf)
+        #print ave
+        for limpdf in limitedpdf :
+            ilimweight = ilimweight + (limpdf-limave)*(limpdf-limave)
 
-    limave =  limitedpdf
-    limave =  reduce(lambda x, y: x + y, limitedpdf) / len(limitedpdf)
-    #print ave
-    for limpdf in limitedpdf :
-        ilimweight = ilimweight + (limpdf-limave)*(limpdf-limave)
+        # return up, down
+        return min(13.0,1.0+sqrt((ilimweight) / (len(limitedpdf)))), max(-12.0,1.0-sqrt((ilimweight) / (len(limitedpdf))))        
 
-    if pdfOP == "up" :
-        return min(13.0,1.0+sqrt((ilimweight) / (len(limitedpdf))))
-    else :
-        return max(-12.0,1.0-sqrt((ilimweight) / (len(limitedpdf))))
+    else:
+        # Computes the variance of the pdf weights to estimate the up and down uncertainty for each set (event)
+        ilimweight = 0.0
+
+        limitedpdf = []
+        for ipdf in range(pdfs.GetSize()):
+            curpdf = pdfs[ipdf]
+            if abs(curpdf)<1000.0:
+                limitedpdf.append(curpdf)
+
+        if len(limitedpdf) == 0:
+            return 1,1
+
+        limave =  limitedpdf
+        limave =  reduce(lambda x, y: x + y, limitedpdf) / len(limitedpdf)
+        #print ave
+        for limpdf in limitedpdf :
+            ilimweight = ilimweight + (limpdf-limave)*(limpdf-limave)
+
+        # return up, down
+        return min(13.0,1.0+sqrt((ilimweight) / (len(limitedpdf))))/normhist.GetBinContent(1), max(-12.0,1.0-sqrt((ilimweight) / (len(limitedpdf))))/normhist.GetBinContent(2)
 
 def Trigger_Lookup( H , TRP ):
     Weight = 1.0
@@ -295,14 +355,10 @@ class myGenParticle:
         self.genpart = genpart
         self.status = genpart.status
         self.pdgId = genpart.pdgId
-        self.vect = TLorentzVector()
-        self.vect.SetPtEtaPhiM(genpart.pt,genpart.eta,genpart.phi,genpart.mass)
+        self.vect = ROOT.Math.PtEtaPhiMVector(genpart.pt,genpart.eta,genpart.phi,genpart.mass)
         self.motherIdx = genpart.genPartIdxMother
 
-def SFT_Lookup(jet, file, genparticles, wp,ievent=1):
-    import GenParticleChecker
-    from GenParticleChecker import GenParticleTree,GenParticleObj
-    
+def SFT_Lookup(jet, file, genparticles, wp,ievent=1):    
     if wp == 'tight':
         workpoint = 'wp3'
     elif wp == 'medium':
@@ -323,7 +379,7 @@ def SFT_Lookup(jet, file, genparticles, wp,ievent=1):
         this_gen_part.SetPDGName(abs(this_gen_part.pdgId))
         
         # Add particles to tree and keep track of them in external lists
-        if abs(this_gen_part.pdgId) == 6 and this_gen_part.vect.DeltaR(jet)<0.8:# and this_gen_part.status == 62: # 22 means intermediate part of hardest subprocess, only other to appear is 62 (outgoing subprocess particle with primordial kT included)
+        if abs(this_gen_part.pdgId) == 6 and this_gen_part.DeltaR(jet)<0.8:# and this_gen_part.status == 62: # 22 means intermediate part of hardest subprocess, only other to appear is 62 (outgoing subprocess particle with primordial kT included)
             particle_tree.AddParticle(this_gen_part)
             tops.append(this_gen_part)
 
@@ -335,7 +391,7 @@ def SFT_Lookup(jet, file, genparticles, wp,ievent=1):
             particle_tree.AddParticle(this_gen_part)
             quarks.append(this_gen_part)
 
-        elif this_gen_part.vect.DeltaR(jet)<0.8:
+        elif this_gen_part.DeltaR(jet)<0.8:
             particle_tree.AddParticle(this_gen_part)
 
     for W in Ws:
@@ -392,20 +448,58 @@ def SFT_Lookup(jet, file, genparticles, wp,ievent=1):
     else:
         return [1,1,1],-len(prongs)-1
 
-    if jet.Perp() > 5000:
+    if jet.Pt() > 5000:
         sfbin_nom = hnom.GetNbinsX()
         sfbin_up = hup.GetNbinsX()
         sfbin_down = hdown.GetNbinsX()
     else:
-        sfbin_nom = hnom.FindFixBin(jet.Perp())
-        sfbin_up = hup.FindFixBin(jet.Perp())
-        sfbin_down = hdown.FindFixBin(jet.Perp())
+        sfbin_nom = hnom.FindFixBin(jet.Pt())
+        sfbin_up = hup.FindFixBin(jet.Pt())
+        sfbin_down = hdown.FindFixBin(jet.Pt())
 
     nom = hnom.GetBinContent(sfbin_nom)
     up = hup.GetBinContent(sfbin_up)
     down = hdown.GetBinContent(sfbin_down)
 
+    del particle_tree
+
     return [nom,up,down],merged_particles
+
+def SFT_Variation(top_merging_status,wIsTtagged,wtop_merging_status):
+    out = {
+            1:{"up":"nominal", "down":"nominal"},
+            2:{"up":"nominal", "down":"nominal"},
+            3:{"up":"nominal", "down":"nominal"}
+        }
+
+    new_alphatop_key = top_merging_status if (top_merging_status > 0) else "none"
+    new_preseltop_key = wtop_merging_status if (wIsTtagged and wtop_merging_status > 0) else "none" 
+    
+    # Simple case where we couldn't determine merging for either
+    if new_alphatop_key == "none" and new_preseltop_key == "none": 
+        return out
+    # If one is "none"
+    elif new_alphatop_key == "none":
+        out[new_preseltop_key]['up'] = 'TopsfPresel_up'
+        out[new_preseltop_key]['down'] = 'TopsfPresel_down'
+    # If the other is "none"
+    elif new_preseltop_key == "none":
+        out[new_alphatop_key]['up'] = 'Topsf_up'
+        out[new_alphatop_key]['down'] = 'Topsf_down'
+    # If neither is "none"
+    else:
+        # If they are the same
+        if new_alphatop_key == new_preseltop_key:
+            out[new_preseltop_key]['up'] = ['Topsf_up','TopsfPresel_up']
+            out[new_preseltop_key]['down'] = ['Topsf_down','TopsfPresel_down']
+        # If they are different
+        else:
+            out[new_preseltop_key]['up'] = 'TopsfPresel_up'
+            out[new_preseltop_key]['down'] = 'TopsfPresel_down'
+            out[new_alphatop_key]['up'] = 'Topsf_up'
+            out[new_alphatop_key]['down'] = 'Topsf_down'
+
+    return out
 
 
 # def SFT_Lookup_MERGEDONLY( jet, file , wp ):
@@ -439,29 +533,49 @@ def PTW_Lookup( GP, jets ):
     genTpt = None
     genTBpt = None 
 
+    wTPt = {}
+    wTbarPt = {}
+    sfs = {}
+    for k in ['nom','alpha_up','alpha_down','beta_up','beta_down']:
+        wTPt[k] = None
+        wTbarPt[k] = None
+        sfs[k] = None
+
     # For all gen particles
     for ig in GP :
         if ig.pdgId == -6 and ig.statusFlags & (1 << 13): 
-            antitop_lv = TLorentzVector()
-            antitop_lv.SetPtEtaPhiM(ig.pt,ig.eta,ig.phi,ig.mass)
-            if antitop_lv.DeltaR(jets[0]) <0.8 or antitop_lv.DeltaR(jets[1]) <0.8:
+            antitop_lv = ROOT.Math.PtEtaPhiMVector(ig.pt,ig.eta,ig.phi,ig.mass)
+            if DeltaR(antitop_lv,jets[0]) <0.8 or DeltaR(antitop_lv,jets[1]) <0.8:
                 genTBpt = ig.pt
         elif ig.pdgId == 6 and ig.statusFlags & (1 << 13): 
-            top_lv = TLorentzVector()
-            top_lv.SetPtEtaPhiM(ig.pt,ig.eta,ig.phi,ig.mass)
-            if top_lv.DeltaR(jets[0]) <0.8 or top_lv.DeltaR(jets[1]) <0.8:
+            top_lv = ROOT.Math.PtEtaPhiMVector(ig.pt,ig.eta,ig.phi,ig.mass)
+            if DeltaR(top_lv,jets[0]) <0.8 or DeltaR(top_lv,jets[1]) <0.8:
                 genTpt = ig.pt 
 
     if (genTpt == None) or (genTBpt == None):pair_exists = False
     else: pair_exists = True
     
-    if genTpt == None: wTPt = 1.0
-    else: wTPt = exp(0.0615-0.0005*genTpt)
+    if genTpt == None: 
+        for k in wTPt.keys(): wTPt[k] = 1.0
+    else: 
+        wTPt['nom'] = exp(0.0615-0.0005*genTpt)
+        wTPt['alpha_up'] = exp(1.5*0.0615-0.0005*genTpt)
+        wTPt['alpha_down'] = exp(0.5*0.0615-0.0005*genTpt)
+        wTPt['beta_up'] = exp(0.0615-1.5*0.0005*genTpt)
+        wTPt['beta_down'] = exp(0.0615-0.5*0.0005*genTpt)
 
-    if genTBpt == None: wTbarPt = 1.0
-    else: wTbarPt = exp(0.0615-0.0005*genTBpt)
-    
-    return sqrt(wTPt*wTbarPt),pair_exists
+    if genTBpt == None:
+        for k in wTbarPt.keys(): wTbarPt[k] = 1.0
+    else:
+        wTbarPt['nom'] = exp(0.0615-0.0005*genTBpt)
+        wTbarPt['alpha_up'] = exp(1.5*0.0615-0.0005*genTBpt)
+        wTbarPt['alpha_down'] = exp(0.5*0.0615-0.0005*genTBpt)
+        wTbarPt['beta_up'] = exp(0.0615-1.5*0.0005*genTBpt)
+        wTbarPt['beta_down'] = exp(0.0615-0.5*0.0005*genTBpt)
+
+    for k in sfs.keys():
+        sfs[k] = sqrt(wTPt[k]*wTbarPt[k])
+    return sfs,pair_exists
 
 
 # This does the W jet matching requirement by looking up the deltaR separation
@@ -494,7 +608,7 @@ def WJetMatching(wjetVect,genparticles,ttbar=False):
 
         for q in quarks:
             # if parent is a w and 
-            if particle_tree.GetParent(q) and abs(particle_tree.GetParent(q).pdgId) == 24 and particle_tree.GetParent(q).vect.DeltaR(wjetVect) < 0.8 and q.vect.DeltaR(wjetVect) < 0.8:
+            if particle_tree.GetParent(q) and abs(particle_tree.GetParent(q).pdgId) == 24 and particle_tree.GetParent(q).DeltaR(wjetVect) < 0.8 and q.DeltaR(wjetVect) < 0.8:
                 prongs.append(q)
 
         if len(prongs) == 2:
@@ -530,7 +644,7 @@ def WJetMatching(wjetVect,genparticles,ttbar=False):
 
         found_top = False
         for t in tops:
-            if t.vect.DeltaR(wjetVect)<0.8: found_top = True
+            if t.DeltaR(wjetVect)<0.8: found_top = True
 
         if not found_top: return False
 
@@ -722,12 +836,11 @@ def LeptonVeto(event, year, sf_file):
         for il,l in enumerate(lepT_candidates):
             if l.jetIdx != -1:
                 closestAK4 = ak4jetColl[l.jetIdx]
-                closestAK4_LV, l_LV = TLorentzVector(), TLorentzVector()
-                closestAK4_LV.SetPtEtaPhiM(closestAK4.pt, closestAK4.eta, closestAK4.phi, closestAK4.mass)
-                l_LV.SetPtEtaPhiM(l.pt, l.eta, l.phi, l.mass)
+                closestAK4_LV = ROOT.Math.PtEtaPhiMVector(closestAK4.pt, closestAK4.eta, closestAK4.phi, closestAK4.mass)
+                l_LV = ROOT.Math.PtEtaPhiMVector(l.pt, l.eta, l.phi, l.mass)
             else:
                 closestAK4_LV = None
-            deltaRcut = l_LV.DeltaR(closestAK4_LV) > 0.4 if closestAK4_LV != None else False
+            deltaRcut = DeltaR(l_LV,closestAK4_LV) > 0.4 if closestAK4_LV != None else False
 
             if not deltaRcut:
                 if hasattr(l,'jetPtRelv2'):

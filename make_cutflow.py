@@ -29,7 +29,7 @@ def dictToLatexTable(dict2convert,outfilename,roworder=[],columnorder=[],caption
 
     latexout = open(outfilename,'w')
     latexout.write('\\begin{table}[] \n')
-    latexout.write('\\adjustbox{center}{')
+    # latexout.write('\\adjustbox{center}{')
     latexout.write('\\begin{tabular}{|c|'+len(columns)*'c'+'|} \n')
     latexout.write('\\hline \n')
 
@@ -53,7 +53,7 @@ def dictToLatexTable(dict2convert,outfilename,roworder=[],columnorder=[],caption
 
     latexout.write('\\hline \n')
     latexout.write('\\end{tabular} \n')
-    latexout.write('} \n')  # close off adjustbox
+    # latexout.write('} \n')  # close off adjustbox
     latexout.write('\\caption{'+caption+'} \n')
     latexout.write('\\end{table}')
     latexout.close()
@@ -76,8 +76,6 @@ captions = {
     "ttbar18":"ttbar measurement region selection, 2018 - note that signal yields are currently for 2016 signals"
 }
 
-# Temporary hack - remove at some point
-tempyear = '16'
 
 # All of the processes 
 columns = [
@@ -117,8 +115,8 @@ infoDict = {
         "file":TFile.Open("rootfiles/TWpreselection"+year+"_ttbar_tau32medium_"+region+".root"),
         "column":"$\\ttbar$"
     },
-    "ttbar_semilep": {
-        "file":TFile.Open("rootfiles/TWpreselection"+year+"_ttbar_semilep_tau32medium_"+region+".root"),
+    "ttbar-semilep": {
+        "file":TFile.Open("rootfiles/TWpreselection"+year+"_ttbar-semilep_tau32medium_"+region+".root"),
         "column":"$\\ttbar$ (semi-lep)"
     },
     "Wjets": {
@@ -146,15 +144,15 @@ infoDict = {
         "column":"single top ($\\bar{t}W$)"
     },
     "signalLH1200": {
-        "file":TFile.Open("rootfiles/TWpreselection"+tempyear+"_signalLH1200_tau32medium_"+region+".root"),
+        "file":TFile.Open("rootfiles/TWpreselection"+year+"_signalLH1200_tau32medium_"+region+".root"),
         "column":"$b^{*}$ 1200 GeV"
     },
     "signalLH2000": {
-        "file":TFile.Open("rootfiles/TWpreselection"+tempyear+"_signalLH2000_tau32medium_"+region+".root"),
+        "file":TFile.Open("rootfiles/TWpreselection"+year+"_signalLH2000_tau32medium_"+region+".root"),
         "column":"$b^{*}$ 2000 GeV"
     },
     "signalLH2800": {
-        "file":TFile.Open("rootfiles/TWpreselection"+tempyear+"_signalLH2800_tau32medium_"+region+".root"),
+        "file":TFile.Open("rootfiles/TWpreselection"+year+"_signalLH2800_tau32medium_"+region+".root"),
         "column":"$b^{*}$ 2800 GeV"
     },
 
@@ -170,7 +168,7 @@ for i,r in enumerate(rows):
         # Skip over some stuff
         if year == '17' and t == 'singletop_s':
             continue
-        if year == '16' and t == 'ttbar_semilep':
+        if year == '16' and t == 'ttbar-semilep':
             continue
 
         # Grab the file

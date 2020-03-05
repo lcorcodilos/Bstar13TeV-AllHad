@@ -111,7 +111,7 @@ if options.year == '16':
     pretrig_string = 'HLT_Mu50'
     # btagtype = 'btagCSVV2'
 elif options.year == '17' or options.year == '18':
-    tname = 'HLT_PFHT1050ORHLT_PFJet500'
+    tname = 'HLT_PFHT1050ORHLT_PFJet500ORHLT_AK8PFJet380_TrimMass30ORHLT_AK8PFJet400_TrimMass30'
     pretrig_string = 'HLT_Mu50'
 
 # tnameOR = ''
@@ -149,15 +149,28 @@ else:
 ###################
 # Book histograms #
 ###################
-Ht_untrig_pre = TH1D("Ht_untrig_pre", "", 36, 400, 4000)
-Ht_untrig    = TH1D("Ht_untrig",    "", 36, 400, 4000)
-Ht_untrig_pre.Sumw2()
-Ht_untrig.Sumw2()
+Ht_untrig     = TH1D("Ht_untrig",         "", 36, 400, 4000)
+Ht_untrig_pre = TH1D("Ht_untrig_pre",         "", 36, 400, 4000)
 
-Ht_pre       = TH1D("Ht_pre",       "", 36, 400, 4000)
-Ht          = TH1D("Ht",          "", 36, 400, 4000)
-Ht_pre.Sumw2()
-Ht.Sumw2()
+Ht_W_pre      = TH1D("Ht_W_pre",      "", 36, 400, 4000)
+Ht_W         = TH1D("Ht_W",         "", 36, 400, 4000)
+Ht_W_pre.Sumw2()
+Ht_W.Sumw2()
+
+Ht_t_pre     = TH1D("Ht_t_pre",      "", 36, 400, 4000)
+Ht_t         = TH1D("Ht_t",         "", 36, 400, 4000)
+Ht_t_pre.Sumw2()
+Ht_t.Sumw2()
+
+Ht_tW_pre     = TH1D("Ht_tW_pre",      "", 36, 400, 4000)
+Ht_tW         = TH1D("Ht_tW",         "", 36, 400, 4000)
+Ht_tW_pre.Sumw2()
+Ht_tW.Sumw2()
+
+Ht_tt_pre     = TH1D("Ht_tt_pre",      "", 36, 400, 4000)
+Ht_tt         = TH1D("Ht_tt",         "", 36, 400, 4000)
+Ht_tt_pre.Sumw2()
+Ht_tt.Sumw2()
 
 # Ht_ttag_pre  = TH1D("Ht_ttag_pre",  "", 36, 400, 4000)
 # Ht_ttag     = TH1D("Ht_ttag",     "", 36, 400, 4000)
@@ -335,6 +348,7 @@ for entry in range(lowBinEdge,highBinEdge):
                     "pt":subleadingJet.pt_nom,
                     "eta":subleadingJet.eta,
                     "SDmass":subleadingJet.msoftdrop_nom,
+                    "SDmass_top":leadingJet.msoftdrop_raw,
                     "subJetIdx1":subleadingJet.subJetIdx1,
                     "subJetIdx2":subleadingJet.subJetIdx2
                 }
@@ -349,6 +363,7 @@ for entry in range(lowBinEdge,highBinEdge):
                     "pt":leadingJet.pt_nom,
                     "eta":leadingJet.eta,
                     "SDmass":leadingJet.msoftdrop_nom,
+                    "SDmass_top":leadingJet.msoftdrop_raw,
                     "subJetIdx1":leadingJet.subJetIdx1,
                     "subJetIdx2":leadingJet.subJetIdx2
                 }
@@ -407,7 +422,7 @@ for entry in range(lowBinEdge,highBinEdge):
 
             # Make kinematic preselection
             MtopW_cut = MtopW > 1000.
-            ht_cut = ht > 1000.
+            # ht_cut = ht > 1000.
             Mtop_cut = top_mass > 50.0
             dy_val = abs(tjet.Rapidity()-wjet.Rapidity())
             wpt_cut = Cuts['wpt'][0]<wjet.Perp()<Cuts['wpt'][1]
@@ -450,41 +465,49 @@ for entry in range(lowBinEdge,highBinEdge):
             alpha_sjbtag_cut = Cuts['deepbtag'][0]<= alpha_btagval<Cuts['deepbtag'][1]
             
 
-            preselection = MtopW_cut and ht_cut and Mtop_cut and wpt_cut and tpt_cut and dy_cut
+            preselection = MtopW_cut and Mtop_cut and wpt_cut and tpt_cut and dy_cut
             if preselection:
                 if presel_wmass_cut and presel_tau21_cut:
                     doneAlready = True
                     # Fill HT, Pt, and Mass distributions that pass pre trigger
-                    Ht_pre.Fill(ht)
+                    Ht_W_pre.Fill(ht)
                     Pt_pre.Fill(top_pt)
                     M_pre.Fill(top_mass)
                     Res_W_pre.Fill(MtopW)
 
                     # Fill HT, Pt, and Mass distributions, that pass main trigger
                     if trig_pass:
-                        Ht.Fill(ht)
+                        Ht_W.Fill(ht)
                         Pt.Fill(top_pt)
                         M.Fill(top_mass)
                         Res_W.Fill(MtopW)
 
                     # Fill if we pass top tagging
                     if alpha_sjbtag_cut and alpha_tau32_cut: 
-                        Res_tW_pre.Fill(ht)
-                        if trig_pass: Res_tW.Fill(ht)
+                        Res_tW_pre.Fill(MtopW)
+                        Ht_tW_pre.Fill(ht)
+                        if trig_pass:
+                            Res_tW.Fill(MtopW)
+                            Ht_tW.Fill(ht)
 
                 elif presel_tmass_cut and presel_tau32_cut and presel_sjbtag_cut:
                     doneAlready = True
                     # Fill HT, Pt, and Mass distributions that pass pre trigger
                     Res_t_pre.Fill(MtopW)
+                    Ht_t_pre.Fill(ht)
 
                     # Fill HT, Pt, and Mass distributions, that pass main trigger
                     if trig_pass:
                         Res_t.Fill(MtopW)
+                        Ht_t.Fill(ht)
 
                     # Fill if we pass top tagging
                     if alpha_sjbtag_cut and alpha_tau32_cut: 
-                        Res_tt_pre.Fill(ht)
-                        if trig_pass: Res_tt.Fill(ht)
+                        Res_tt_pre.Fill(MtopW)
+                        Ht_tt_pre.Fill(ht)
+                        if trig_pass:
+                            Res_tt.Fill(MtopW)
+                            Ht_tt.Fill(ht)
 
 print trigFails
 

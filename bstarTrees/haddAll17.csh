@@ -8,6 +8,11 @@ python hadd_and_organize.py signalLH2400 17
 python hadd_and_organize.py signalLH2600 17
 python hadd_and_organize.py signalLH2800 17
 python hadd_and_organize.py signalLH3000 17
+python hadd_and_organize.py signalLH3200 17
+python hadd_and_organize.py signalLH3400 17
+python hadd_and_organize.py signalLH3600 17
+python hadd_and_organize.py signalLH3800 17
+python hadd_and_organize.py signalLH4000 17
 
 python hadd_and_organize.py signalRH1200 17
 python hadd_and_organize.py signalRH1400 17
@@ -19,13 +24,18 @@ python hadd_and_organize.py signalRH2400 17
 python hadd_and_organize.py signalRH2600 17
 python hadd_and_organize.py signalRH2800 17
 python hadd_and_organize.py signalRH3000 17
+python hadd_and_organize.py signalRH3200 17
+python hadd_and_organize.py signalRH3400 17
+python hadd_and_organize.py signalRH3600 17
+python hadd_and_organize.py signalRH3800 17
+python hadd_and_organize.py signalRH4000 17
 
 python hadd_and_organize.py QCDHT1000 17
 python hadd_and_organize.py QCDHT700 17
 python hadd_and_organize.py QCDHT1500 17
 python hadd_and_organize.py QCDHT2000 17
 
-python hadd_and_organize.py ttbar 17
+#python hadd_and_organize.py ttbar 17
 python hadd_and_organize.py ttbar_semilep 17
 
 python hadd_and_organize.py WjetsHT400 17

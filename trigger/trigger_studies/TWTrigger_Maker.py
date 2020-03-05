@@ -63,7 +63,7 @@ if options.year == '16':
     pretrig_string = 'HLT_Mu50'
     # btagtype = 'btagCSVV2'
 elif options.year == '17' or options.year == '18':
-    tname = 'HLT_PFHT1050ORHLT_PFJet500'
+    tname = 'HLT_PFHT1050ORHLT_PFJet500ORHLT_AK8PFJet380_TrimMass30ORHLT_AK8PFJet400_TrimMass30'
     pretrig_string = 'HLT_Mu50'
 
 if options.disc != '': disc_string = '_'+options.disc
@@ -72,11 +72,11 @@ Trigfile = ROOT.TFile( "Triggerweight"+options.year+"_"+options.set+disc_string+
 infile = ROOT.TFile("TWTrigger"+options.year+'_'+options.set+'_'+tname+'_pre_'+pretrig_string+".root")
 
 pres = [
-    infile.Get('Ht_pre'),
+    infile.Get('Ht'+disc_string+'_pre'),
     infile.Get('Res'+disc_string+'_pre')
     ]
 posts = [
-    infile.Get('Ht'),
+    infile.Get('Ht'+disc_string),
     infile.Get('Res'+disc_string)
     ] 
 titles = [
@@ -133,7 +133,7 @@ for h in range(0,len(posts)):
     # c3 = TCanvas('c3', '', 700, 500)
     # TR.Draw("")
     c1.Print('plots/Trigger'+options.year+'_'+tname+disc_string+'_'+name[h]+'_'+pretrig_string+'.root', 'root')
-    c1.Print('plots/Trigger'+options.year+'_'+tname+disc_string+'_'+name[h]+'_'+pretrig_string+'.pdf', 'pdf')
+    c1.Print('plots/Trigger'+options.year+'_'+tname+disc_string+'_'+name[h]+'_'+pretrig_string+'.png', 'png')
 
     # #Tline.Draw()
     # c1.Print('plots/Trigger_TEMP'+options.disc+'.root', 'root')
