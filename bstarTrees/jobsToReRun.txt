@@ -1,0 +1,16 @@
+-s QCDHT2000 -j 3 -n 7 -y 17
+-s QCDHT2000 -j 5 -n 7 -y 17
+-s QCDHT2000ext -j 1 -n 6 -y 16
+-s QCDHT2000ext -j 5 -n 6 -y 16
+-s QCDHT1500 -j 2 -n 6 -y 16
+-s QCDHT1500 -j 3 -n 6 -y 16
+-s QCDHT1500ext -j 5 -n 9 -y 16
+-s QCDHT1500ext -j 6 -n 9 -y 16
+-s QCDHT1500ext -j 8 -n 9 -y 16
+-s QCDHT1500 -j 4 -n 13 -y 17
+-s QCDHT1500 -j 5 -n 13 -y 17
+-s QCDHT1500 -j 6 -n 13 -y 17
+-s QCDHT1500 -j 7 -n 13 -y 17
+-s QCDHT1500 -j 8 -n 13 -y 17
+-s QCDHT1500 -j 10 -n 13 -y 17
+-s QCDHT1000 -j 15 -n 21 -y 17

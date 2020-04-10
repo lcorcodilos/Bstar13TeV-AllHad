@@ -23,11 +23,6 @@ keep *LHEScaleWeight*
 keep *Pileup*
 keep *genWeight*
 keep Generator_scalePDF
-
-keep Electron_*
-keep nElectron
-
-keep Muon_*
-keep nMuon
+keep PrefireWeight*
 
 keep *puWeight*

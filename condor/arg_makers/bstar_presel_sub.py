@@ -46,20 +46,22 @@ for year in years:
 
             if options.setnames == '':setnames = glob.glob('../../bstarTrees/NanoAOD'+year+'_lists/*_loc.txt')
             else: setnames = options.setnames.split(',')
-            
+            #print setnames 
             for loc_file in setnames:
-                if options.setnames == '':
-                    setname = loc_file.split('/')[-1].split('_loc')[0]
-                else:
-                    setname = loc_file
+                print loc_file
+                
+                setname = loc_file.split('/')[-1].split('_loc')[0] 
 
-                    if (setname not in ignore) and not ('-q' in base_string and 'data' in setname):
+                if (setname not in ignore) and not ('-q' in base_string and 'data' in setname):
                         if not os.path.exists('/eos/uscms/store/user/lcorcodi/bstar_nano/rootfiles/'+setname+'_bstar'+year+'.root'): continue
                         # Get njobs by counting how many GB in each file (1 job if file size < 1 GB)
                         bitsize = os.path.getsize('/eos/uscms/store/user/lcorcodi/bstar_nano/rootfiles/'+setname+'_bstar'+year+'.root')
                         if bitsize/float(10**9) < 1:  set_njobs = 1
                         else: set_njobs = int(round(bitsize/float(10**9)))
-
+                        if reg == 'ttbar' and 'ttbar' in setname and year == '18': 
+                            print 'Special jobs for ttbar in ttMR'
+                            set_njobs = set_njobs*10
+                        
                         njob_string = job_base_string.replace('TEMPSET',setname).replace('NJOB',str(set_njobs))               
                         for i in range(1,set_njobs+1):
                             job_string = njob_string.replace('IJOB',str(i))

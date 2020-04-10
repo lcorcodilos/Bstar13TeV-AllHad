@@ -66,7 +66,37 @@ input_subs = {
     "signalRH3400":"/BstarToTW_M-3400_RH_TuneCUETP8M1_13TeV-madgraph-pythia8/RunIISummer16NanoAODv6-PUMoriond17_Nano25Oct2019_102X_mcRun2_asymptotic_v7-v1/NANOAODSIM",
     "signalRH3600":"/BstarToTW_M-3600_RH_TuneCUETP8M1_13TeV-madgraph-pythia8/RunIISummer16NanoAODv6-PUMoriond17_Nano25Oct2019_102X_mcRun2_asymptotic_v7-v1/NANOAODSIM",
     "signalRH3800":"/BstarToTW_M-3800_RH_TuneCUETP8M1_13TeV-madgraph-pythia8/RunIISummer16NanoAODv6-PUMoriond17_Nano25Oct2019_102X_mcRun2_asymptotic_v7-v1/NANOAODSIM",
-    "signalRH4000":"/BstarToTW_M-4000_RH_TuneCUETP8M1_13TeV-madgraph-pythia8/RunIISummer16NanoAODv6-PUMoriond17_Nano25Oct2019_102X_mcRun2_asymptotic_v7-v1/NANOAODSIM"
+    "signalRH4000":"/BstarToTW_M-4000_RH_TuneCUETP8M1_13TeV-madgraph-pythia8/RunIISummer16NanoAODv6-PUMoriond17_Nano25Oct2019_102X_mcRun2_asymptotic_v7-v1/NANOAODSIM",
+
+    "BprimeLH1200":"/BprimeTToTW_M-1200_LH_TuneCUETP8M1_13TeV-madgraph-pythia8/RunIISummer16NanoAODv6-PUMoriond17_Nano25Oct2019_102X_mcRun2_asymptotic_v7-v1/NANOAODSIM",
+    "BprimeLH1300":"/BprimeTToTW_M-1300_LH_TuneCUETP8M1_13TeV-madgraph-pythia8/RunIISummer16NanoAODv6-PUMoriond17_Nano25Oct2019_102X_mcRun2_asymptotic_v7-v1/NANOAODSIM",
+    "BprimeLH1400":"/BprimeTToTW_M-1400_LH_TuneCUETP8M1_13TeV-madgraph-pythia8/RunIISummer16NanoAODv6-PUMoriond17_Nano25Oct2019_102X_mcRun2_asymptotic_v7-v1/NANOAODSIM",
+    "BprimeLH1500":"/BprimeTToTW_M-1500_LH_TuneCUETP8M1_13TeV-madgraph-pythia8/RunIISummer16NanoAODv6-PUMoriond17_Nano25Oct2019_102X_mcRun2_asymptotic_v7-v1/NANOAODSIM",
+    "BprimeLH1600":"/BprimeTToTW_M-1600_LH_TuneCUETP8M1_13TeV-madgraph-pythia8/RunIISummer16NanoAODv6-PUMoriond17_Nano25Oct2019_102X_mcRun2_asymptotic_v7-v1/NANOAODSIM",
+    "BprimeLH1700":"/BprimeTToTW_M-1700_LH_TuneCUETP8M1_13TeV-madgraph-pythia8/RunIISummer16NanoAODv6-PUMoriond17_Nano25Oct2019_102X_mcRun2_asymptotic_v7-v1/NANOAODSIM",
+    "BprimeLH1800":"/BprimeTToTW_M-1800_LH_TuneCUETP8M1_13TeV-madgraph-pythia8/RunIISummer16NanoAODv6-PUMoriond17_Nano25Oct2019_102X_mcRun2_asymptotic_v7-v1/NANOAODSIM",
+    "BprimeRH1200":"/BprimeTToTW_M-1200_RH_TuneCUETP8M1_13TeV-madgraph-pythia8/RunIISummer16NanoAODv6-PUMoriond17_Nano25Oct2019_102X_mcRun2_asymptotic_v7-v1/NANOAODSIM",
+    "BprimeRH1300":"/BprimeTToTW_M-1300_RH_TuneCUETP8M1_13TeV-madgraph-pythia8/RunIISummer16NanoAODv6-PUMoriond17_Nano25Oct2019_102X_mcRun2_asymptotic_v7-v1/NANOAODSIM",
+    "BprimeRH1400":"/BprimeTToTW_M-1400_RH_TuneCUETP8M1_13TeV-madgraph-pythia8/RunIISummer16NanoAODv6-PUMoriond17_Nano25Oct2019_102X_mcRun2_asymptotic_v7-v1/NANOAODSIM",
+    "BprimeRH1500":"/BprimeTToTW_M-1500_RH_TuneCUETP8M1_13TeV-madgraph-pythia8/RunIISummer16NanoAODv6-PUMoriond17_Nano25Oct2019_102X_mcRun2_asymptotic_v7-v1/NANOAODSIM",
+    "BprimeRH1600":"/BprimeTToTW_M-1600_RH_TuneCUETP8M1_13TeV-madgraph-pythia8/RunIISummer16NanoAODv6-PUMoriond17_Nano25Oct2019_102X_mcRun2_asymptotic_v7-v1/NANOAODSIM",
+    "BprimeRH1700":"/BprimeTToTW_M-1700_RH_TuneCUETP8M1_13TeV-madgraph-pythia8/RunIISummer16NanoAODv6-PUMoriond17_Nano25Oct2019_102X_mcRun2_asymptotic_v7-v1/NANOAODSIM",
+    "BprimeRH1800":"/BprimeTToTW_M-1800_RH_TuneCUETP8M1_13TeV-madgraph-pythia8/RunIISummer16NanoAODv6-PUMoriond17_Nano25Oct2019_102X_mcRun2_asymptotic_v7-v1/NANOAODSIM",
+
+    "TprimeLH1200":"/TprimeBToTZ_M-1200_LH_TuneCUETP8M1_13TeV-madgraph-pythia8/RunIISummer16NanoAODv6-PUMoriond17_Nano25Oct2019_102X_mcRun2_asymptotic_v7-v1/NANOAODSIM",
+    "TprimeLH1300":"/TprimeBToTZ_M-1300_LH_TuneCUETP8M1_13TeV-madgraph-pythia8/RunIISummer16NanoAODv6-PUMoriond17_Nano25Oct2019_102X_mcRun2_asymptotic_v7-v1/NANOAODSIM",
+    "TprimeLH1400":"/TprimeBToTZ_M-1400_LH_TuneCUETP8M1_13TeV-madgraph-pythia8/RunIISummer16NanoAODv6-PUMoriond17_Nano25Oct2019_102X_mcRun2_asymptotic_v7-v1/NANOAODSIM",
+    "TprimeLH1500":"/TprimeBToTZ_M-1500_LH_TuneCUETP8M1_13TeV-madgraph-pythia8/RunIISummer16NanoAODv6-PUMoriond17_Nano25Oct2019_102X_mcRun2_asymptotic_v7-v1/NANOAODSIM",
+    "TprimeLH1600":"/TprimeBToTZ_M-1600_LH_TuneCUETP8M1_13TeV-madgraph-pythia8/RunIISummer16NanoAODv6-PUMoriond17_Nano25Oct2019_102X_mcRun2_asymptotic_v7-v1/NANOAODSIM",
+    "TprimeLH1700":"/TprimeBToTZ_M-1700_LH_TuneCUETP8M1_13TeV-madgraph-pythia8/RunIISummer16NanoAODv6-PUMoriond17_Nano25Oct2019_102X_mcRun2_asymptotic_v7-v1/NANOAODSIM",
+    "TprimeLH1800":"/TprimeBToTZ_M-1800_LH_TuneCUETP8M1_13TeV-madgraph-pythia8/RunIISummer16NanoAODv6-PUMoriond17_Nano25Oct2019_102X_mcRun2_asymptotic_v7-v1/NANOAODSIM",
+    "TprimeRH1200":"/TprimeBToTZ_M-1200_RH_TuneCUETP8M1_13TeV-madgraph-pythia8/RunIISummer16NanoAODv6-PUMoriond17_Nano25Oct2019_102X_mcRun2_asymptotic_v7-v1/NANOAODSIM",
+    "TprimeRH1300":"/TprimeBToTZ_M-1300_RH_TuneCUETP8M1_13TeV-madgraph-pythia8/RunIISummer16NanoAODv6-PUMoriond17_Nano25Oct2019_102X_mcRun2_asymptotic_v7-v1/NANOAODSIM",
+    "TprimeRH1400":"/TprimeBToTZ_M-1400_RH_TuneCUETP8M1_13TeV-madgraph-pythia8/RunIISummer16NanoAODv6-PUMoriond17_Nano25Oct2019_102X_mcRun2_asymptotic_v7-v1/NANOAODSIM",
+    "TprimeRH1500":"/TprimeBToTZ_M-1500_RH_TuneCUETP8M1_13TeV-madgraph-pythia8/RunIISummer16NanoAODv6-PUMoriond17_Nano25Oct2019_102X_mcRun2_asymptotic_v7-v1/NANOAODSIM",
+    "TprimeRH1600":"/TprimeBToTZ_M-1600_RH_TuneCUETP8M1_13TeV-madgraph-pythia8/RunIISummer16NanoAODv6-PUMoriond17_Nano25Oct2019_102X_mcRun2_asymptotic_v7-v1/NANOAODSIM",
+    "TprimeRH1700":"/TprimeBToTZ_M-1700_RH_TuneCUETP8M1_13TeV-madgraph-pythia8/RunIISummer16NanoAODv6-PUMoriond17_Nano25Oct2019_102X_mcRun2_asymptotic_v7-v1/NANOAODSIM",
+    "TprimeRH1800":"/TprimeBToTZ_M-1800_RH_TuneCUETP8M1_13TeV-madgraph-pythia8/RunIISummer16NanoAODv6-PUMoriond17_Nano25Oct2019_102X_mcRun2_asymptotic_v7-v1/NANOAODSIM"
 }
 executables = []
 
@@ -74,6 +104,8 @@ executables = []
 print 'rm *_loc.txt'
 subprocess.call(['rm *_loc.txt'],shell=True)
 
+f_release = open('release.txt','w')
+f_release.close()
 for i in input_subs.keys():
     if '/store/user/' in input_subs[i]:
         files = glob.glob('/eos/uscms'+input_subs[i])
@@ -83,6 +115,8 @@ for i in input_subs.keys():
         out.close()
     else:
         executables.append('dasgoclient -query "file dataset='+input_subs[i]+'" > '+i+'_loc.txt')
+        executables.append('echo '+input_subs[i]+' >> release.txt')
+        executables.append('dasgoclient -query "release dataset='+input_subs[i]+'" >> release.txt')
 for s in executables:
     print s
     subprocess.call([s],shell=True)

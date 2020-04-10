@@ -10,6 +10,7 @@ from PhysicsTools.NanoAODTools.postprocessing.framework.postprocessor import *
 from PhysicsTools.NanoAODTools.postprocessing.modules.jme.jetmetHelperRun2 import *#UncertaintiesFactorized import *
 from PhysicsTools.NanoAODTools.postprocessing.modules.jme.jetRecalib import *
 from PhysicsTools.NanoAODTools.postprocessing.modules.common.puWeightProducer import *
+from PhysicsTools.NanoAODTools.postprocessing.modules.common.PrefireCorr import *
 # import add_DAK8
 # from add_DAK8 import *
 
@@ -52,9 +53,9 @@ corrector = createJMECorrector(isMC, year, period, jesUncertainty, redojec, jett
 
 if not isMC: mymodules = [corrector()]
 else:
-    if options.year == '16': mymodules =  [corrector(),puAutoWeight_2016()]
+    if options.year == '16': mymodules =  [corrector(),puAutoWeight_2016(),PrefCorr_2016()]
             
-    elif options.year == '17': mymodules = [corrector(),puAutoWeight_2017()]
+    elif options.year == '17': mymodules = [corrector(),puAutoWeight_2017(),PrefCorr_2017()]
 
     elif options.year == '18': mymodules = [corrector(),puAutoWeight_2018()]
 

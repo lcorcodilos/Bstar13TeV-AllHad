@@ -32,6 +32,7 @@ pp = pprint.PrettyPrinter(indent = 2)
 
 import Bstar_Functions_local
 from Bstar_Functions_local import *
+# import PrefireCorr
 
 
 if __name__ == "__main__":
@@ -151,26 +152,37 @@ if __name__ == "__main__":
     # else:
     #     tnamestr = tname
 
+    if options.year in ['16','17'] and 'QCD' not in options.set and 'cale' not in options.set: prefcorr = True
+    else: prefcorr = False
+
     # JECs
     runOthers = True
     mod = ''
+    JES = ''
+    JER = ''
+    JMS = ''
+    JMR = ''
     if options.JES!='nom':
         mod = '_JES' + '_' + options.JES
+        JES = '_'+options.JES
         # JMC_name = '_jesTotal'+options.JES.capitalize()
         # JEC_name = '_jesTotal'+options.JES.capitalize()
         runOthers = False
     if options.JER!='nom':
         mod = '_JER' + '_' + options.JER
+        JER = '_'+options.JER
         # JMC_name = '_nom'
         # JEC_name = '_jer'+options.JER.capitalize()
         runOthers = False
     if options.JMS!='nom':
         mod = '_JMS' + '_' + options.JMS
+        JMS = '_'+options.JMS
         # JMC_name = '_jms'+options.JMS.capitalize()
         # JEC_name = '_nom'
         runOthers = False
     if options.JMR!='nom':
         mod = '_JMR' + '_' + options.JMR
+        JMR = '_'+options.JMR
         # JMC_name = '_jmr'+options.JMR.capitalize()
         # JEC_name = '_nom'
         runOthers = False
@@ -261,6 +273,7 @@ if __name__ == "__main__":
     MtwvMtFailSub.Sumw2()
 
     nev = TH1F("nev",   "nev",      1, 0, 1 )
+    Mw = TH1F("Mw","m_{W} (GeV)",40,40,120)
 
     # lepVetoCount = TH1F('lepVetoCount','Lepton veto count',2,0,2)
     # lepVetoCount.GetXaxis().SetBinLabel(1,'In Semi-lep channels')
@@ -325,6 +338,12 @@ if __name__ == "__main__":
             MtwvMtPassTrigup.Sumw2()
             MtwvMtPassTrigdown.Sumw2()
 
+            if prefcorr:
+                MtwvMtPassPrefireup = TH2F("MtwvMtPassPrefireup", "mass of tw vs mass of top prefire up - Pass", 60, 50, 350, 70, 500, 4000 )
+                MtwvMtPassPrefiredown = TH2F("MtwvMtPassPrefiredown",   "mass of tw vs mass of top prefire down - Pass", 60, 50, 350, 70, 500, 4000 )
+                MtwvMtPassPrefireup.Sumw2()
+                MtwvMtPassPrefiredown.Sumw2()
+
             if 'ttbar' in options.set:
                 MtwvMtPassTptAlphaup    = TH2F("MtwvMtPassTptAlphaup",  "mass of tw vs mass of top top pt reweight alpha up - Pass",  60, 50, 350, 70, 500, 4000 )
                 MtwvMtPassTptAlphadown  = TH2F("MtwvMtPassTptAlphadown",    "mass of tw vs mass of top top pt reweight alpha down - Pass",60, 50, 350, 70, 500, 4000 )
@@ -388,6 +407,12 @@ if __name__ == "__main__":
             MtwvMtFailTrigdown = TH2F("MtwvMtFailTrigdown",   "mass of tw vs mass of top trig up - Fail", 60, 50, 350, 70, 500, 4000 )
             MtwvMtFailTrigup.Sumw2()
             MtwvMtFailTrigdown.Sumw2()
+
+            if prefcorr:
+                MtwvMtFailPrefireup = TH2F("MtwvMtFailPrefireup", "mass of tw vs mass of top prefire up - Pass", 60, 50, 350, 70, 500, 4000 )
+                MtwvMtFailPrefiredown = TH2F("MtwvMtFailPrefiredown",   "mass of tw vs mass of top prefire down - Pass", 60, 50, 350, 70, 500, 4000 )
+                MtwvMtFailPrefireup.Sumw2()
+                MtwvMtFailPrefiredown.Sumw2()
             
             if 'ttbar' in options.set:
                 MtwvMtFailTptAlphaup    = TH2F("MtwvMtFailTptAlphaup",  "mass of tw vs mass of top top pt reweight alpha up - Fail",  60, 50, 350, 70, 500, 4000 )
@@ -452,6 +477,11 @@ if __name__ == "__main__":
             MtwvMtFailSubTrigup.Sumw2()
             MtwvMtFailSubTrigdown.Sumw2()
 
+            if prefcorr:
+                MtwvMtFailSubPrefireup = TH2F("MtwvMtFailSubPrefireup", "mass of tw vs mass of top prefire up - Pass", 60, 50, 350, 70, 500, 4000 )
+                MtwvMtFailSubPrefiredown = TH2F("MtwvMtFailSubPrefiredown",   "mass of tw vs mass of top prefire down - Pass", 60, 50, 350, 70, 500, 4000 )
+                MtwvMtFailSubPrefireup.Sumw2()
+                MtwvMtFailSubPrefiredown.Sumw2()
             
             if 'ttbar' in options.set:
                 MtwvMtFailSubTptAlphaup    = TH2F("MtwvMtFailSubTptAlphaup",  "mass of tw vs mass of top top pt reweight alpha up - FailSub",  60, 50, 350, 70, 500, 4000 )
@@ -654,7 +684,7 @@ if __name__ == "__main__":
 
         if eta_cut:
             doneAlready = False
-
+            # For masses, nom has JECs and raw does not.
             for hemis in ['hemis0','hemis1']:
                 if hemis == 'hemis0':
                     # Load up the ttree values
@@ -667,7 +697,7 @@ if __name__ == "__main__":
                         "mass":leadingJet.mass_nom,
                         "pt":leadingJet.pt_nom, # This will just have JER and JES corrections
                         "eta":leadingJet.eta,
-                        "SDmass":leadingJet.msoftdrop_raw,#raw if 'data' not in options.set else leadingJet.msoftdrop, # Does not have PUPPI SD mass correction
+                        "SDmass":leadingJet.msoftdrop_nom, # Does not have PUPPI SD mass correction
                         "subJetIdx1":leadingJet.subJetIdx1,
                         "subJetIdx2":leadingJet.subJetIdx2,
                         "JEScorr":1.0
@@ -680,22 +710,25 @@ if __name__ == "__main__":
                         "mass":subleadingJet.mass_nom, # This will just JEC
                         "pt":subleadingJet.pt_nom, # This will just JEC
                         "eta":subleadingJet.eta,
-                        "SDmass":subleadingJet.msoftdrop_nom if not wIsTtagged else subleadingJet.msoftdrop_raw, # Has PUPPI SD mass correction if not a top
+                        "SDmass":subleadingJet.msoftdrop_nom,#raw if not wIsTtagged else subleadingJet.msoftdrop_nom, # Add PUPPI SD mass correction if not a top
                         "subJetIdx1":subleadingJet.subJetIdx1,
                         "subJetIdx2":subleadingJet.subJetIdx2,
                         "JEScorr":1.0
                     }
 
-                    if options.JES != 'nom':
-                        tVals['JEScorr'] = getattr(leadingJet,'corr_JES_Total'+options.JES.capitalize())
-                        wVals['JEScorr'] = getattr(subleadingJet,'corr_JES_Total'+options.JES.capitalize())
                     if 'data' not in options.set:
-                        tVals['JERcorr'] = getattr(leadingJet,'corr_JER_'+options.JER)
-                        wVals["JERcorr"] = getattr(subleadingJet,'corr_JER_'+options.JER)
+                        if options.JES != 'nom':
+                            tVals['JEScorr'] = getattr(leadingJet,'corr_JESTotal'+JES)
+                            wVals['JEScorr'] = getattr(subleadingJet,'corr_JESTotal'+JES)
+                        tVals['JERcorr'] = getattr(leadingJet,'corr_JER'+JER)
+                        wVals["JERcorr"] = getattr(subleadingJet,'corr_JER'+JER)
 
                         if options.region != 'ttbar':
-                            wVals["JMScorr"] = getattr(subleadingJet,'corr_JMS_'+options.JER)
-                            wVals["JMRcorr"] = getattr(subleadingJet,'groomed_corr_JMR_'+options.JER)
+                            wVals["JMScorr"] = getattr(subleadingJet,'corr_JMS'+JMS)
+                            wVals["JMRcorr"] = getattr(subleadingJet,'msoftdrop_corr_JMR'+JMR)
+
+                    #if options.region != 'ttbar':
+                    #    wVals['PSDMC'] = getattr(subleadingJet,'msoftdrop_corr_PUPPI')
 
                 elif hemis == 'hemis1' and doneAlready == False:
                     checkingFirstHemi = False
@@ -707,7 +740,7 @@ if __name__ == "__main__":
                         "mass":leadingJet.mass_nom, # This will just JEC
                         "pt":leadingJet.pt_nom, # This will just JEC
                         "eta":leadingJet.eta,
-                        "SDmass":leadingJet.msoftdrop_nom if not wIsTtagged else leadingJet.msoftdrop_raw, # Has PUPPI SD mass correction if W
+                        "SDmass":leadingJet.msoftdrop_nom,# if not wIsTtagged else leadingJet.msoftdrop_nom, # Add PUPPI SD mass correction if W
                         "subJetIdx1":leadingJet.subJetIdx1,
                         "subJetIdx2":leadingJet.subJetIdx2,
                         "JEScorr":1.0 
@@ -720,36 +753,40 @@ if __name__ == "__main__":
                         "mass":subleadingJet.mass_nom, # This will just JEC
                         "pt":subleadingJet.pt_nom, # This will just JEC
                         "eta":subleadingJet.eta,
-                        "SDmass":subleadingJet.msoftdrop_raw,#raw if 'data' not in options.set else subleadingJet.msoftdrop, # Does not have PUPPI SD mass correction
+                        "SDmass":subleadingJet.msoftdrop_nom, # Does not have PUPPI SD mass correction
                         "subJetIdx1":subleadingJet.subJetIdx1,
                         "subJetIdx2":subleadingJet.subJetIdx2,
                         "JEScorr":1.0
                     }
 
-                    if options.JES != 'nom':
-                        wVals['JEScorr'] = getattr(leadingJet,'corr_JES_Total'+options.JES.capitalize())
-                        tVals['JEScorr'] = getattr(subleadingJet,'corr_JES_Total'+options.JES.capitalize())
-
                     if 'data' not in options.set:
-                         wVals['JERcorr'] = getattr(leadingJet,'corr_JER_'+options.JER)
-                         tVals["JERcorr"] = getattr(subleadingJet,'corr_JER_'+options.JER)
+                        if options.JES != 'nom':
+                            wVals['JEScorr'] = getattr(leadingJet,'corr_JESTotal'+JES)
+                            tVals['JEScorr'] = getattr(subleadingJet,'corr_JESTotal'+JES)
+                        wVals['JERcorr'] = getattr(leadingJet,'corr_JER'+JER)
+                        tVals["JERcorr"] = getattr(subleadingJet,'corr_JER'+JER)
 
-                         if options.region != 'ttbar':
-                            wVals["JMScorr"] = getattr(leadingJet,'corr_JMS_'+options.JER)
-                            wVals["JMRcorr"] = getattr(leadingJet,'groomed_corr_JMR_'+options.JER)
+                        if options.region != 'ttbar':
+                            wVals["JMScorr"] = getattr(leadingJet,'corr_JMS'+JMS)
+                            wVals["JMRcorr"] = getattr(leadingJet,'msoftdrop_corr_JMR'+JMR)
+
+                    #if options.region != 'ttbar':
+                    #    wVals["PSDMC"] = getattr(leadingJet,'msoftdrop_corr_PUPPI')
 
                 elif hemis == 'hemis1' and doneAlready == True:
                     continue
-
+                
                 # Apply jet corrections
+                #if not wIsTtagged: wVals['SDmass'] = wVals['SDmass']*wVals['PSDMC']
                 if 'data' not in options.set:
                     wVals['pt'] = wVals['pt']*wVals['JEScorr']*wVals['JERcorr']
                     tVals['pt'] = tVals['pt']*tVals['JEScorr']*tVals['JERcorr']
-                    wVals['SDmass'] = wVals['SDmass']*wVals['JEScorr']*wVals['JERcorr']
                     tVals['SDmass'] = tVals['SDmass']*tVals['JEScorr']*tVals['JERcorr']
-                    if options.region != 'ttbar':
-                        wVals['SDmass'] = wVals['SDmass']*wVals['JMScorr']*wVals['JMRcorr']
-
+                    if not wIsTtagged:
+                        wVals['SDmass'] = wVals['SDmass']*wVals['JMScorr']*wVals['JMRcorr']*wVals['JEScorr']*wVals['JERcorr']
+                    else:
+                        wVals['SDmass'] = wVals['SDmass']*wVals['JEScorr']*wVals['JERcorr']
+                    
 
                 # Make the lorentz vectors
                 tjet = ROOT.Math.PtEtaPhiMVector(tVals["pt"],tVals["eta"],tVals["phi"],tVals["SDmass"])
@@ -782,6 +819,9 @@ if __name__ == "__main__":
                     wmass_cut = Cuts['wmass'][0]<=wVals["SDmass"]<Cuts['wmass'][1]
                     preselection = wpt_cut and tpt_cut and dy_cut and MtopW_cut and Mtop_cut and wmass_cut and tau21_cut and ht_cut
                 
+                    if wpt_cut and tpt_cut and dy_cut and MtopW_cut and tau21_cut and ht_cut:
+                        Mw.Fill(wVals['SDmass'])
+
                     if runOthers and checkingFirstHemi:
                         if wpt_cut and tpt_cut and dy_cut:
                             Mtw_cut1.Fill(MtopW,norm_weight)
@@ -920,7 +960,15 @@ if __name__ == "__main__":
                             badtptreweight = exp(0.0615-0.0005*-100)        
                             if pair_exists: tptpair +=1
                             else: notptpair +=1
-                            
+
+                        # Trigger pre-fire
+                        if prefcorr:
+                            # prefire_weights = prefire_correction.analyze(event)
+                            weights['Prefire'] = {
+                                'nom': inTree.readBranch('PrefireWeight'),
+                                'up': inTree.readBranch('PrefireWeight_Up'),
+                                'down': inTree.readBranch('PrefireWeight_Down')
+                            }
 
                     ####################################
                     # Split into top tag pass and fail #
@@ -1059,6 +1107,10 @@ if __name__ == "__main__":
                                 MtwvMtPassTrigup.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Trigger_up'))
                                 MtwvMtPassTrigdown.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Trigger_down'))
 
+                                if prefcorr:
+                                    MtwvMtPassPrefireup.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Prefire_up'))
+                                    MtwvMtPassPrefiredown.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Prefire_down'))
+
                                 ############
                                 # Fail sub #
                                 ############
@@ -1084,6 +1136,10 @@ if __name__ == "__main__":
 
                                 MtwvMtFailSubTrigup.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Trigger_up',drop=['Topsf'])*(weights['Topsf']['nom']-1))
                                 MtwvMtFailSubTrigdown.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Trigger_down',drop=['Topsf'])*(weights['Topsf']['nom']-1))
+
+                                if prefcorr:
+                                    MtwvMtFailSubPrefireup.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Prefire_up',drop=['Topsf'])*(weights['Topsf']['nom']-1))
+                                    MtwvMtFailSubPrefiredown.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Prefire_down',drop=['Topsf'])*(weights['Topsf']['nom']-1))
 
                                 if ('tW' in options.set or 'signal' in options.set or 'ttbar' in options.set) and not wIsTtagged:
                                     MtwvMtPassWup.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Wsf_up')) 
@@ -1140,6 +1196,10 @@ if __name__ == "__main__":
                             MtwvMtFailTrigup.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Trigger_up',drop=['Topsf']))
                             MtwvMtFailTrigdown.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Trigger_down',drop=['Topsf']))
                             
+                            if prefcorr:
+                                MtwvMtFailPrefireup.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Prefire_up',drop=['Topsf']))
+                                MtwvMtFailPrefiredown.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Prefire_down',drop=['Topsf']))
+
                             if ('tW' in options.set or 'signal' in options.set or 'ttbar' in options.set) and not wIsTtagged:
                                 MtwvMtFailWup.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Wsf_up',drop=['Topsf'])) 
                                 MtwvMtFailWdown.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Wsf_down',drop=['Topsf']))
@@ -1197,6 +1257,9 @@ if __name__ == "__main__":
         MtwvMtFailScaledown.Add(MtwvMtFailSubScaledown,-1)
         MtwvMtFailTrigup.Add(MtwvMtFailSubTrigup,-1)
         MtwvMtFailTrigdown.Add(MtwvMtFailSubTrigdown,-1)
+        if prefcorr:
+            MtwvMtFailPrefireup.Add(MtwvMtFailSubPrefireup,-1)
+            MtwvMtFailPrefiredown.Add(MtwvMtFailSubPrefiredown,-1)
         if ('tW' in options.set or 'signal' in options.set or 'ttbar' in options.set) and not wIsTtagged:
             MtwvMtFailWup.Add(MtwvMtFailSubWup,-1)
             MtwvMtFailWdown.Add(MtwvMtFailSubWdown,-1)

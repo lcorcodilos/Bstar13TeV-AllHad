@@ -35,8 +35,8 @@ python hadd_and_organize.py QCDHT700 17
 python hadd_and_organize.py QCDHT1500 17
 python hadd_and_organize.py QCDHT2000 17
 
-#python hadd_and_organize.py ttbar 17
-python hadd_and_organize.py ttbar_semilep 17
+python hadd_and_organize.py ttbar 17
+python hadd_and_organize.py ttbar-semilep 17
 
 python hadd_and_organize.py WjetsHT400 17
 python hadd_and_organize.py WjetsHT600 17

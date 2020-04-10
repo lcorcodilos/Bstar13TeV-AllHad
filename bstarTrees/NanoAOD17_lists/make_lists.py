@@ -66,6 +66,8 @@ executables = []
 print 'rm *_loc.txt'
 subprocess.call(['rm *_loc.txt'],shell=True)
 
+f_release = open('release.txt','w')
+f_release.close()
 for i in input_subs.keys():
     if '/store/user/' in input_subs[i]:
         files = glob.glob('/eos/uscms'+input_subs[i])
@@ -75,6 +77,8 @@ for i in input_subs.keys():
         out.close()
     else:
         executables.append('dasgoclient -query "file dataset='+input_subs[i]+'" > '+i+'_loc.txt')
+        executables.append('echo '+input_subs[i]+' >> release.txt')
+        executables.append('dasgoclient -query "release dataset='+input_subs[i]+'" >> release.txt')
 for s in executables:
     print s
     subprocess.call([s],shell=True)

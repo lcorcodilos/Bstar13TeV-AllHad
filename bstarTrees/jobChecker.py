@@ -26,16 +26,18 @@ for f in files:
     elif 'Normal termination' not in log_string:
         continue
 
-    stdoutFile = open(f.replace('notneeded/','').replace('.log','.stdout'),'r')
-    stderrFile = open(f.replace('.log','.stderr'),'r')
+    stdoutFile_name = f.replace('notneeded/','').replace('.log','.stdout')
+    stderrFile_name = f.replace('.log','.stderr')
+    stdoutFile = open(stdoutFile_name,'r')
+    stderrFile = open(stderrFile_name,'r')
     
     hasError = False 
     for line in stderrFile:
         if 'error' in line.lower():
             if 'SetBranchStatus' not in line:
                 hasError = True
-                print stderrFile+': '+line
-                log.append(stderrFile+': '+line)
+                print stderrFile_name+': '+line
+                log.append(stderrFile_name+': '+line)
     
     if hasError:
         for l in stdoutFile:

@@ -55,7 +55,15 @@ input_subs = {
     "signalRH3400":"/BstarToTW_M-3400_RH_TuneCP5_13TeV-madgraph-pythia8/RunIIAutumn18NanoAODv6-Nano25Oct2019_102X_upgrade2018_realistic_v20-v1/NANOAODSIM",
     "signalRH3600":"/BstarToTW_M-3600_RH_TuneCP5_13TeV-madgraph-pythia8/RunIIAutumn18NanoAODv6-Nano25Oct2019_102X_upgrade2018_realistic_v20-v1/NANOAODSIM",
     "signalRH3800":"/BstarToTW_M-3800_RH_TuneCP5_13TeV-madgraph-pythia8/RunIIAutumn18NanoAODv6-Nano25Oct2019_102X_upgrade2018_realistic_v20-v1/NANOAODSIM",
-    "signalRH4000":"/BstarToTW_M-4000_RH_TuneCP5_13TeV-madgraph-pythia8/RunIIAutumn18NanoAODv6-Nano25Oct2019_102X_upgrade2018_realistic_v20-v1/NANOAODSIM"
+    "signalRH4000":"/BstarToTW_M-4000_RH_TuneCP5_13TeV-madgraph-pythia8/RunIIAutumn18NanoAODv6-Nano25Oct2019_102X_upgrade2018_realistic_v20-v1/NANOAODSIM",
+ 
+    "TprimeLH1200":"/TprimeBToTZ_M-1200_LH_TuneCP5_PSweights_13TeV-madgraph_pythia8/RunIIAutumn18NanoAODv6-Nano25Oct2019_102X_upgrade2018_realistic_v20-v1/NANOAODSIM",
+    "TprimeLH1300":"/TprimeBToTZ_M-1300_LH_TuneCP5_PSweights_13TeV-madgraph_pythia8/RunIIAutumn18NanoAODv6-Nano25Oct2019_102X_upgrade2018_realistic_v20-v1/NANOAODSIM",
+    "TprimeLH1400":"/TprimeBToTZ_M-1400_LH_TuneCP5_PSweights_13TeV-madgraph_pythia8/RunIIAutumn18NanoAODv6-Nano25Oct2019_102X_upgrade2018_realistic_v20-v1/NANOAODSIM",
+    "TprimeLH1500":"/TprimeBToTZ_M-1500_LH_TuneCP5_PSweights_13TeV-madgraph_pythia8/RunIIAutumn18NanoAODv6-Nano25Oct2019_102X_upgrade2018_realistic_v20-v1/NANOAODSIM",
+    "TprimeLH1600":"/TprimeBToTZ_M-1600_LH_TuneCP5_PSweights_13TeV-madgraph_pythia8/RunIIAutumn18NanoAODv6-Nano25Oct2019_102X_upgrade2018_realistic_v20-v1/NANOAODSIM",
+    "TprimeLH1700":"/TprimeBToTZ_M-1700_LH_TuneCP5_PSweights_13TeV-madgraph_pythia8/RunIIAutumn18NanoAODv6-Nano25Oct2019_102X_upgrade2018_realistic_v20-v1/NANOAODSIM",
+    "TprimeLH1800":"/TprimeBToTZ_M-1800_LH_TuneCP5_PSweights_13TeV-madgraph_pythia8/RunIIAutumn18NanoAODv6-Nano25Oct2019_102X_upgrade2018_realistic_v20-v1/NANOAODSIM"
 
 }
 executables = []
