@@ -35,273 +35,111 @@ from GenParticleChecker import GenParticleTree,GenParticleObj
 #In order we have Luminosity, top tagging scale factor, cross sections for wprime right,left,mixed,ttbar,qcd, and singletop and their corresponding event numbers
 #If I wanted to access the left handed W' cross section at 1900 GeV I could do Xsecl1900 = LoadConstants()['xsec_wpl']['1900']
 def LoadConstants(year):
+    out = {
+        'QCDHT700_xsec':6802,
+        'QCDHT1000_xsec':1206,
+        'QCDHT1500_xsec':120.4,
+        'QCDHT2000_xsec':25.25,
+        'QCDHerwig_xsec':346.2,
+        'singletop_s_xsec':10.32,
+        'singletop_t_xsec':136.02,
+        'singletop_tW_xsec':35.85,
+        'singletop_tW-scaleup_xsec':35.85,
+        'singletop_tW-scaledown_xsec':35.85,
+        'singletop_tWB-scaleup_xsec':35.85,
+        'singletop_tWB-scaledown_xsec':35.85,
+        'singletop_tB_xsec':80.95,
+        'singletop_tWB_xsec':35.85,
+        'WjetsHT400_xsec':315.6,
+        'WjetsHT600_xsec':68.57,
+        'WjetsHT800_xsec':34.9,
+        'signalLH1200_xsec':1.0,
+        'signalLH1400_xsec':1.0,
+        'signalLH1600_xsec':0.1,
+        'signalLH1800_xsec':0.1,
+        'signalLH2000_xsec':0.1,
+        'signalLH2200_xsec':0.01,
+        'signalLH2400_xsec':0.01,
+        'signalLH2600_xsec':0.01,
+        'signalLH2800_xsec':0.01,
+        'signalLH3000_xsec':0.001,
+        'signalLH3200_xsec':0.001,
+        'signalLH3400_xsec':0.001,
+        'signalLH3600_xsec':0.001,
+        'signalLH3800_xsec':0.0001,
+        'signalLH4000_xsec':0.0001,
+        'signalRH1200_xsec':1.0,
+        'signalRH1400_xsec':1.0,
+        'signalRH1600_xsec':0.1,
+        'signalRH1800_xsec':0.1,
+        'signalRH2000_xsec':0.1,
+        'signalRH2200_xsec':0.01,
+        'signalRH2400_xsec':0.01,
+        'signalRH2600_xsec':0.01,
+        'signalRH2800_xsec':0.01,
+        'signalRH3000_xsec':0.001,
+        'signalRH3200_xsec':0.001,
+        'signalRH3400_xsec':0.001,
+        'signalRH3600_xsec':0.001,
+        'signalRH3800_xsec':0.0001,
+        'signalRH4000_xsec':0.0001,
+        'TprimeRH1200_xsec':0.001,
+        'TprimeRH1300_xsec':0.001,
+        'TprimeRH1400_xsec':0.001,
+        'TprimeRH1500_xsec':0.001,
+        'TprimeRH1600_xsec':0.001,
+        'TprimeRH1700_xsec':0.001,
+        'TprimeRH1800_xsec':0.001,
+        'TprimeLH1200_xsec':0.001,
+        'TprimeLH1300_xsec':0.001,
+        'TprimeLH1400_xsec':0.001,
+        'TprimeLH1500_xsec':0.001,
+        'TprimeLH1600_xsec':0.001,
+        'TprimeLH1700_xsec':0.001,
+        'TprimeLH1800_xsec':0.001,
+        'BprimeRH1200_xsec':0.001,
+        'BprimeRH1300_xsec':0.001,
+        'BprimeRH1400_xsec':0.001,
+        'BprimeRH1500_xsec':0.001,
+        'BprimeRH1600_xsec':0.001,
+        'BprimeRH1700_xsec':0.001,
+        'BprimeRH1800_xsec':0.001,
+        'BprimeLH1200_xsec':0.001,
+        'BprimeLH1300_xsec':0.001,
+        'BprimeLH1400_xsec':0.001,
+        'BprimeLH1500_xsec':0.001,
+        'BprimeLH1600_xsec':0.001,
+        'BprimeLH1700_xsec':0.001,
+        'BprimeLH1800_xsec':0.001
+    }
     if year == '16':
-        return  {
-            'lumi':35917.213466,
-            'qcd_lumi':5466.09,
-            'wtagsf_HP':1.0,# HP = High purity
-            'wtagsfsig_HP':0.06,
-            'wtagsf_LP':0.96,# LP = Low purity
-            'wtagsfsig_LP':0.11,
-            # 'ttagsf':1.07,
-            # 'ttagsf_errUp':0.15,
-            # 'ttagsf_errDown':0.06,
-            'ttbar_xsec':831.76,
-            'QCDHT700_xsec':6802,
-            'QCDHT1000_xsec':1206,
-            'QCDHT1500_xsec':120.4,
-            'QCDHT2000_xsec':25.25,
-            'singletop_s_xsec':10.32,
-            'singletop_t_xsec':136.02,
-            'singletop_tW_xsec':35.85,
-            'singletop_tW-scaleup_xsec':35.85,
-            'singletop_tW-scaledown_xsec':35.85,
-            'singletop_tWB-scaleup_xsec':35.85,
-            'singletop_tWB-scaledown_xsec':35.85,
-            'singletop_tB_xsec':80.95,
-            'singletop_tWB_xsec':35.85,
-            'WjetsHT600_xsec':68.57,
-            # 'signalLH1200_xsec':1.944,
-            # 'signalLH1400_xsec':0.7848,
-            # 'signalLH1600_xsec':0.3431,
-            # 'signalLH1800_xsec':0.1588,
-            # 'signalLH2000_xsec':0.07711,
-            # 'signalLH2200_xsec':0.03881,
-            # 'signalLH2400_xsec':0.02015,
-            # 'signalLH2600_xsec':0.01073,
-            # 'signalLH2800_xsec':0.005829,
-            # 'signalLH3000_xsec':0.003234,
-            # 'signalLH3200_xsec':0.001868,
-            # 'signalLH3400_xsec':0.001068,
-            # 'signalLH3600_xsec':0.0006203,
-            # 'signalLH3800_xsec':0.0003647,
-            # 'signalLH4000_xsec':0.0002182,
-            # 'signalLH4200_xsec':0.000133,
-            # 'signalRH1200_xsec':1.936,
-            # 'signalRH1400_xsec':0.7816,
-            # 'signalRH1600_xsec':0.3416,
-            # 'signalRH1800_xsec':0.1583,
-            # 'signalRH2000_xsec':0.07675,
-            # 'signalRH2200_xsec':0.03864,
-            # 'signalRH2400_xsec':0.02008,
-            # 'signalRH2600_xsec':0.01068,
-            # 'signalRH2800_xsec':0.005814,
-            # 'signalRH3000_xsec':0.003224,
-            # 'signalRH3200_xsec':0.001858,
-            # 'signalRH3400_xsec':0.001065,
-            # 'signalRH3600_xsec':0.0006177,
-            # 'signalRH3800_xsec':0.0003652,
-            # 'signalRH4000_xsec':0.0002178,
-            # 'signalRH4200_xsec':0.0001332
-            'signalLH1200_xsec':1.0,
-            'signalLH1400_xsec':1.0,
-            'signalLH1600_xsec':0.1,
-            'signalLH1800_xsec':0.1,
-            'signalLH2000_xsec':0.1,
-            'signalLH2200_xsec':0.01,
-            'signalLH2400_xsec':0.01,
-            'signalLH2600_xsec':0.01,
-            'signalLH2800_xsec':0.01,
-            'signalLH3000_xsec':0.001,
-            'signalLH3200_xsec':0.001,
-            'signalLH3400_xsec':0.001,
-            'signalLH3600_xsec':0.001,
-            'signalLH3800_xsec':0.0001,
-            'signalLH4000_xsec':0.0001,
-            'signalRH1200_xsec':1.0,
-            'signalRH1400_xsec':1.0,
-            'signalRH1600_xsec':0.1,
-            'signalRH1800_xsec':0.1,
-            'signalRH2000_xsec':0.1,
-            'signalRH2200_xsec':0.01,
-            'signalRH2400_xsec':0.01,
-            'signalRH2600_xsec':0.01,
-            'signalRH2800_xsec':0.01,
-            'signalRH3000_xsec':0.001,
-            'signalRH3200_xsec':0.001,
-            'signalRH3400_xsec':0.001,
-            'signalRH3600_xsec':0.001,
-            'signalRH3800_xsec':0.0001,
-            'signalRH4000_xsec':0.0001
-        }
+        out['lumi'] = 35917.213466
+        out['qcd_lumi'] = 5466.09
+        out['ttbar_xsec'] = 831.76
+        out['wtagsf_HP'] = 1.0 # HP = High purity
+        out['wtagsfsig_HP'] = 0.06
+        out['wtagsf_LP'] = 0.96 # LP = Low purity
+        out['wtagsfsig_LP'] = 0.11
+            
     elif year == '17':
-        return  {
-            'lumi':41521.427777,
-            'qcd_lumi':7016.29,
-            'wtagsf_HP':0.97,# HP = High purity
-            'wtagsfsig_HP':0.06,
-            'wtagsf_LP':1.14,# LP = Low purity
-            'wtagsfsig_LP':0.29,
-            # 'ttagsf':1.07,
-            # 'ttagsf_errUp':0.15,
-            # 'ttagsf_errDown':0.06,
-            'ttbar_xsec':377.96, #uncertainty +4.8%-6.1%
-            'ttbar-semilep_xsec':365.34,
-            'QCDHT700_xsec':6802,
-            'QCDHT1000_xsec':1206,
-            'QCDHT1500_xsec':120.4,
-            'QCDHT2000_xsec':25.25,
-            'singletop_s_xsec':10.32,
-            'singletop_t_xsec':136.02,
-            'singletop_tW_xsec':35.85,
-            'singletop_tB_xsec':80.95,
-            'singletop_tWB_xsec':35.85,
-            'WjetsHT400_xsec':315.6,
-            'WjetsHT600_xsec':68.57,
-            'WjetsHT800_xsec':34.9,
-            # 'signalLH1200_xsec':1.944,
-            # 'signalLH1400_xsec':0.7848,
-            # 'signalLH1600_xsec':0.3431,
-            # 'signalLH1800_xsec':0.1588,
-            # 'signalLH2000_xsec':0.07711,
-            # 'signalLH2200_xsec':0.03881,
-            # 'signalLH2400_xsec':0.02015,
-            # 'signalLH2600_xsec':0.01073,
-            # 'signalLH2800_xsec':0.005829,
-            # 'signalLH3000_xsec':0.003234,
-            # 'signalLH3200_xsec':0.00228,
-            # 'signalLH3400_xsec':0.001342,
-            # 'signalLH3600_xsec':0.0008058,
-            # 'signalLH3800_xsec':0.0004879,
-            # 'signalLH4000_xsec':0.0003002,
-            # 'signalLH4200_xsec':0.0001873,
-            # 'signalRH1200_xsec':1.936,
-            # 'signalRH1400_xsec':0.7816,
-            # 'signalRH1600_xsec':0.3416,
-            # 'signalRH1800_xsec':0.1583,
-            # 'signalRH2000_xsec':0.07675,
-            # 'signalRH2200_xsec':0.03864,
-            # 'signalRH2400_xsec':0.02008,
-            # 'signalRH2600_xsec':0.01068,
-            # 'signalRH2800_xsec':0.005814,
-            # 'signalRH3000_xsec':0.003224,
-            # 'signalRH3200_xsec':0.00227,
-            # 'signalRH3400_xsec':0.001339,
-            # 'signalRH3600_xsec':0.0008017,
-            # 'signalRH3800_xsec':0.000487,
-            # 'signalRH4000_xsec':0.0003,
-            # 'signalRH4200_xsec':0.000187
-            'signalLH1200_xsec':1.0,
-            'signalLH1400_xsec':1.0,
-            'signalLH1600_xsec':0.1,
-            'signalLH1800_xsec':0.1,
-            'signalLH2000_xsec':0.1,
-            'signalLH2200_xsec':0.01,
-            'signalLH2400_xsec':0.01,
-            'signalLH2600_xsec':0.01,
-            'signalLH2800_xsec':0.01,
-            'signalLH3000_xsec':0.001,
-            'signalLH3200_xsec':0.001,
-            'signalLH3400_xsec':0.001,
-            'signalLH3600_xsec':0.001,
-            'signalLH3800_xsec':0.0001,
-            'signalLH4000_xsec':0.0001,
-            'signalRH1200_xsec':1.0,
-            'signalRH1400_xsec':1.0,
-            'signalRH1600_xsec':0.1,
-            'signalRH1800_xsec':0.1,
-            'signalRH2000_xsec':0.1,
-            'signalRH2200_xsec':0.01,
-            'signalRH2400_xsec':0.01,
-            'signalRH2600_xsec':0.01,
-            'signalRH2800_xsec':0.01,
-            'signalRH3000_xsec':0.001,
-            'signalRH3200_xsec':0.001,
-            'signalRH3400_xsec':0.001,
-            'signalRH3600_xsec':0.001,
-            'signalRH3800_xsec':0.0001,
-            'signalRH4000_xsec':0.0001
-
-        }
+        out['lumi'] = 41521.427777
+        out['qcd_lumi'] = 7016.29
+        out['wtagsf_HP'] = 0.97 # HP = High purity
+        out['wtagsfsig_HP'] = 0.06
+        out['wtagsf_LP'] = 1.14 # LP = Low purity
+        out['wtagsfsig_LP'] = 0.29
+        out['ttbar_xsec'] = 377.96 #uncertainty +4.8%-6.1%
+        out['ttbar-semilep_xsec'] = 365.34
+            
     elif year == '18':
-        return  {
-            'lumi':59692.687741,#59692.687741,
-            'qcd_lumi':7080.08,
-            'wtagsf_HP':0.980,# HP = High purity
-            'wtagsfsig_HP':0.027,
-            'wtagsf_LP':1.120,# LP = Low purity
-            'wtagsfsig_LP':0.275,
-            # 'ttagsf':1.07,
-            # 'ttagsf_errUp':0.15,
-            # 'ttagsf_errDown':0.06,
-            'ttbar_xsec':377.96, #uncertainty +4.8%-6.1%
-            'ttbar-semilep_xsec':365.34,
-            'QCDHT700_xsec':6802,
-            'QCDHT1000_xsec':1206,
-            'QCDHT1500_xsec':120.4,
-            'QCDHT2000_xsec':25.25,
-            'singletop_s_xsec':10.32,
-            'singletop_t_xsec':136.02,
-            'singletop_tW_xsec':35.85,
-            'singletop_tB_xsec':80.95,
-            'singletop_tWB_xsec':35.85,
-            'WjetsHT400_xsec':315.6,
-            'WjetsHT600_xsec':68.57,
-            'WjetsHT800_xsec':34.9,
-            # 'signalLH1200_xsec':1.944,
-            # 'signalLH1400_xsec':0.7848,
-            # 'signalLH1600_xsec':0.3431,
-            # 'signalLH1800_xsec':0.1588,
-            # 'signalLH2000_xsec':0.07711,
-            # 'signalLH2200_xsec':0.03881,
-            # 'signalLH2400_xsec':0.02015,
-            # 'signalLH2600_xsec':0.01073,
-            # 'signalLH2800_xsec':0.005829,
-            # 'signalLH3000_xsec':0.003234,
-            # 'signalLH3200_xsec':0.00228,
-            # 'signalLH3400_xsec':0.001342,
-            # 'signalLH3600_xsec':0.0008058,
-            # 'signalLH3800_xsec':0.0004879,
-            # 'signalLH4000_xsec':0.0003002,
-            # 'signalLH4200_xsec':0.0001873,
-            # 'signalRH1200_xsec':1.936,
-            # 'signalRH1400_xsec':0.7816,
-            # 'signalRH1600_xsec':0.3416,
-            # 'signalRH1800_xsec':0.1583,
-            # 'signalRH2000_xsec':0.07675,
-            # 'signalRH2200_xsec':0.03864,
-            # 'signalRH2400_xsec':0.02008,
-            # 'signalRH2600_xsec':0.01068,
-            # 'signalRH2800_xsec':0.005814,
-            # 'signalRH3000_xsec':0.003224,
-            # 'signalRH3200_xsec':0.00227,
-            # 'signalRH3400_xsec':0.001339,
-            # 'signalRH3600_xsec':0.0008017,
-            # 'signalRH3800_xsec':0.000487,
-            # 'signalRH4000_xsec':0.0003,
-            # 'signalRH4200_xsec':0.000187
-            'signalLH1200_xsec':1.0,
-            'signalLH1400_xsec':1.0,
-            'signalLH1600_xsec':0.1,
-            'signalLH1800_xsec':0.1,
-            'signalLH2000_xsec':0.1,
-            'signalLH2200_xsec':0.01,
-            'signalLH2400_xsec':0.01,
-            'signalLH2600_xsec':0.01,
-            'signalLH2800_xsec':0.01,
-            'signalLH3000_xsec':0.001,
-            'signalLH3200_xsec':0.001,
-            'signalLH3400_xsec':0.001,
-            'signalLH3600_xsec':0.001,
-            'signalLH3800_xsec':0.0001,
-            'signalLH4000_xsec':0.0001,
-            'signalRH1200_xsec':1.0,
-            'signalRH1400_xsec':1.0,
-            'signalRH1600_xsec':0.1,
-            'signalRH1800_xsec':0.1,
-            'signalRH2000_xsec':0.1,
-            'signalRH2200_xsec':0.01,
-            'signalRH2400_xsec':0.01,
-            'signalRH2600_xsec':0.01,
-            'signalRH2800_xsec':0.01,
-            'signalRH3000_xsec':0.001,
-            'signalRH3200_xsec':0.001,
-            'signalRH3400_xsec':0.001,
-            'signalRH3600_xsec':0.001,
-            'signalRH3800_xsec':0.0001,
-            'signalRH4000_xsec':0.0001
-        }
+        out['lumi'] = 59692.687741#59692.687741,
+        out['qcd_lumi'] = 7080.08
+        out['wtagsf_HP'] = 0.980# HP = High purity
+        out['wtagsfsig_HP'] = 0.027
+        out['wtagsf_LP'] = 1.120# LP = Low purity
+        out['wtagsfsig_LP'] = 0.275
 
+    return out
     
 def LoadCuts(region,year):
     cuts = {
@@ -366,50 +204,40 @@ def Load_jetNano(string,year):
 
 def DeltaR(v1,v2): Math.VectorUtil.DeltaR(v1,v2)
 
-def PDF_Lookup(pdfs,normhist=None):
-    if normhist == None:
-        # Computes the variance of the pdf weights to estimate the up and down uncertainty for each set (event)
-        ilimweight = 0.0
+def PDF_Lookup(pdfs,hessian=False):
+    if len(pdfweights) == 0:
+        raise ValueError('LHEPDFWeight vector empty')
+        # return 1,1
 
-        limitedpdf = []
-        for ipdf in range(pdfs.GetSize()):
-            curpdf = pdfs[ipdf]
-            if abs(curpdf)<1000.0:
-                limitedpdf.append(curpdf)
+    if hessian:
+        # Computes sqrt of sum of differences squared
+        pdfweights = []
+        base_eigenvector = pdfweights[0]
+        for ipdf in range(1,pdfs.GetSize()):
+            pdfweights.append(pdfs[ipdf])
 
-        if len(limitedpdf) == 0:
-            return 1,1
+        sumsquares = 0
+        for pdf in pdfweights:
+            sumsquares = sumsquares + (pdf-base_eigenvector)**2
 
-        limave =  limitedpdf
-        limave =  reduce(lambda x, y: x + y, limitedpdf) / len(limitedpdf)
-        #print ave
-        for limpdf in limitedpdf :
-            ilimweight = ilimweight + (limpdf-limave)*(limpdf-limave)
-
-        # return up, down
-        return min(13.0,1.0+sqrt((ilimweight) / (len(limitedpdf)))), max(-12.0,1.0-sqrt((ilimweight) / (len(limitedpdf))))        
+        stddev = sqrt(sumsquares)
 
     else:
-        # Computes the variance of the pdf weights to estimate the up and down uncertainty for each set (event)
-        ilimweight = 0.0
-
-        limitedpdf = []
+        # Computes the std dev of the pdf weights to estimate the up and down uncertainty for each set (event)
+        pdfweights = []
         for ipdf in range(pdfs.GetSize()):
-            curpdf = pdfs[ipdf]
-            if abs(curpdf)<1000.0:
-                limitedpdf.append(curpdf)
+            pdfweights.append(pdfs[ipdf])
 
-        if len(limitedpdf) == 0:
-            return 1,1
+        pdfavg =  reduce(lambda x, y: x + y, pdfweights) / len(pdfweights)
+        sumsquares = 0
+        for pdf in pdfweights:
+            sumsquares = sumsquares + (pdf-pdfavg)**2
+        stddev = sqrt(sumsquares / (len(pdfweights)-1))
 
-        limave =  limitedpdf
-        limave =  reduce(lambda x, y: x + y, limitedpdf) / len(limitedpdf)
-        #print ave
-        for limpdf in limitedpdf :
-            ilimweight = ilimweight + (limpdf-limave)*(limpdf-limave)
+    lower = min(13.0,1.0+stddev)
+    upper =  max(-12.0,1.0-stddev)
 
-        # return up, down
-        return min(13.0,1.0+sqrt((ilimweight) / (len(limitedpdf))))/normhist.GetBinContent(1), max(-12.0,1.0-sqrt((ilimweight) / (len(limitedpdf))))/normhist.GetBinContent(2)
+    return lower,upper 
 
 def Trigger_Lookup( H , TRP ):
     Weight = 1.0

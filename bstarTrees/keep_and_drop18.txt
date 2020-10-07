@@ -23,5 +23,6 @@ keep *LHEScaleWeight*
 keep *Pileup*
 keep *genWeight*
 keep Generator_scalePDF
+keep PrefireWeight*
 
 keep *puWeight*

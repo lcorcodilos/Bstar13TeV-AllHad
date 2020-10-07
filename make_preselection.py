@@ -91,6 +91,10 @@ if __name__ == "__main__":
                     default   =   False,
                     dest      =   'qcdweight',
                     help      =   'Use QCD weighting')
+    parser.add_option('-H', '--HEM', action='store_false',
+                    default   =   True,
+                    dest      =   'HEM',
+                    help      =   'Add in HEM region')
 
 
     (options, args) = parser.parse_args()
@@ -133,6 +137,9 @@ if __name__ == "__main__":
         print 'Will use QCD weighting for this run'
         qcdweight_string='QCDweighting'
 
+    # if options.HEM and options.year != '18':
+    #     raise ValueError('HEM option is only usable with year 18.')
+
     ######################################
     # Make strings for final file naming #
     ######################################
@@ -152,7 +159,8 @@ if __name__ == "__main__":
     # else:
     #     tnamestr = tname
 
-    if options.year in ['16','17'] and 'QCD' not in options.set and 'cale' not in options.set: prefcorr = True
+    if 'QCD' not in options.set and 'cale' not in options.set and options.year != '18': prefcorr = True
+    # elif options.year == '18' and options.set in ['signalLH2800','signalRH3000']: prefcorr = True
     else: prefcorr = False
 
     # JECs
@@ -201,6 +209,12 @@ if __name__ == "__main__":
     elif options.tau32 != 'off':
         ttagstring = 'tau32'+options.tau32+qcdweight_string
 
+    if options.ptreweight == 'off':
+        ttagstring += '_flatptw'
+
+    if not options.HEM:
+        ttagstring += '_NoHEMcut'
+
     #######################
     # Setup job splitting #
     #######################
@@ -242,9 +256,9 @@ if __name__ == "__main__":
         
         ttagsffile = TFile.Open('SFs/20'+options.year+'TopTaggingScaleFactors_NoMassCut.root')
         ttagsffile_wmass = TFile.Open('SFs/20'+options.year+'TopTaggingScaleFactors.root')
-        if 'signal' in options.set:
-            pdf_norm_file = TFile.Open('SFs/pdf_norm_uncertainties_bstar.root')
-            pdf_norm = pdf_norm_file.Get(options.set+'_'+options.year)
+        # if 'signal' in options.set:
+        #     pdf_norm_file = TFile.Open('SFs/pdf_norm_uncertainties_bstar.root')
+        #     pdf_norm = pdf_norm_file.Get(options.set+'_'+options.year)
 
     # lepSFfile = TFile.Open('SFs/bstar_lep_veto_sfs.root')
 
@@ -575,7 +589,7 @@ if __name__ == "__main__":
     #############################
     # Get process normalization #
     #############################
-    norm_weight = 1
+    norm_weight_base = 1
     if 'data' not in options.set:
         runs_tree = file.Get("Runs")
         nevents_gen = 0
@@ -586,8 +600,14 @@ if __name__ == "__main__":
             except:
                 nevents_gen+=i.genEventCount_
 
-        xsec = Cons[options.set.replace('ext','')+'_xsec']
-        norm_weight = lumi*xsec/float(nevents_gen)
+        if options.set == 'QCDHerwig':
+            xsec = 1
+            norm_weight_base = 1
+        else:
+            xsec = Cons[options.set.replace('ext','')+'_xsec']
+            print '%s*%s/%s'%(lumi,xsec,nevents_gen)
+            norm_weight_base = lumi*xsec/float(nevents_gen)
+
 
     #####################################
     # Design the splitting if necessary #
@@ -682,7 +702,20 @@ if __name__ == "__main__":
 
         eta_cut = (Cuts['eta'][0]<abs(leadingJet.eta)<Cuts['eta'][1]) and (Cuts['eta'][0]<abs(subleadingJet.eta)<Cuts['eta'][1])
 
+        if options.HEM and '18' in options.year: 
+            HEM_cut = (-1.57 <leadingJet.phi< -0.87 and -2.5<leadingJet.eta<-1.3) or (-1.57 <subleadingJet.phi< -0.87 and -2.5<subleadingJet.eta<-1.3)
+        else:
+            HEM_cut = False
+
         if eta_cut:
+            if HEM_cut:
+                if 'data' in options.set: 
+                    continue
+                else:
+                    norm_weight = norm_weight_base * 0.353 #0.353 is ratio of AB to ABCD luminosity of 2018 data (ie we lose HEM region in ~65% of 2018 data)
+            else:
+                norm_weight = norm_weight_base
+
             doneAlready = False
             # For masses, nom has JECs and raw does not.
             for hemis in ['hemis0','hemis1']:
@@ -893,14 +926,19 @@ if __name__ == "__main__":
                     for k in weightArrays.keys(): weightArrays[k][0] = 1.0
                     
                     if 'data' not in options.set:
-                        # PDF weight
-                        if runOthers:
-                            if 'signal' in options.set: weights['PDF']['up'], weights['PDF']['down'] = PDF_Lookup(inTree.readBranch('LHEPdfWeight'),pdf_norm)
-                            else: weights['PDF']['up'], weights['PDF']['down'] = PDF_Lookup(inTree.readBranch('LHEPdfWeight'))
-                        
-                            # Q2 Scale
-                            weights['Q2']['up'] = inTree.readBranch('LHEScaleWeight')[0]
-                            weights['Q2']['down'] = inTree.readBranch('LHEScaleWeight')[8]
+                        if 'QCD' not in options.set:
+                            # PDF weight
+                            if runOthers:
+                                
+                                if 'signal' in options.set: 
+                                    hessianBool = True if options.year == 16 and int(options.set[-4:])<=3000 else False
+                                    if hessianBool: raw_input('HESSIAN PDF FOUND')
+                                    weights['PDF']['up'], weights['PDF']['down'] = PDF_Lookup(inTree.readBranch('LHEPdfWeight'), hessian=hessianBool)
+                                else: weights['PDF']['up'], weights['PDF']['down'] = PDF_Lookup(inTree.readBranch('LHEPdfWeight'))
+                            
+                                # Q2 Scale
+                                weights['Q2']['up'] = inTree.readBranch('LHEScaleWeight')[0]
+                                weights['Q2']['down'] = inTree.readBranch('LHEScaleWeight')[8]
 
                         # Pileup reweighting applied
                         if options.pileup == 'on':
@@ -950,8 +988,17 @@ if __name__ == "__main__":
                             weights['Trigger']['down'] = trig_weights[2]
 
                         # Top pt reweighting
-                        if options.ptreweight == "on" and 'ttbar' in options.set:
-                            tpt_weights,pair_exists = PTW_Lookup(GenParticles,[tjet,wjet])
+                        if 'ttbar' in options.set:
+                            if options.ptreweight == "on":
+                                tpt_weights,pair_exists = PTW_Lookup(GenParticles,[tjet,wjet])
+                            else:
+                                tpt_weights = { 'nom':0.870663,
+                                                'alpha_up':0.870663,
+                                                'alpha_down':0.870663,
+                                                'beta_up':0.870663,
+                                                'beta_down':0.870663}
+                                pair_exists = True
+
                             weights['PtreweightAlpha']['nom'] = tpt_weights['nom']
                             weights['PtreweightAlpha']['up'] = tpt_weights['alpha_up']
                             weights['PtreweightAlpha']['down'] = tpt_weights['alpha_down']
@@ -1079,7 +1126,7 @@ if __name__ == "__main__":
 
                     if top_tag:
                         MtwvMtPass.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'nominal')) 
-                        if 'ttbar' in options.set: MtwvMtPassBadTpt.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'nominal',drop=['PtreweightAlpha'])*badtptreweight)
+                        # if 'ttbar' in options.set: MtwvMtPassBadTpt.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'nominal',drop=['PtreweightAlpha'])*badtptreweight)
                         MtwvMtPassNotrig.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'nominal',drop=['Trigger']))
                         MtwvMtFailSub.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'nominal',drop=['Topsf'])*(weights['Topsf']['nom']-1))
 
@@ -1088,82 +1135,84 @@ if __name__ == "__main__":
                                 ########
                                 # Pass #
                                 ########
-                                MtwvMtPassPDFup.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'PDF_up'))
-                                MtwvMtPassPDFdown.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'PDF_down'))
+                                if 'QCD' not in options.set:
+                                    MtwvMtPassPDFup.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'PDF_up'))
+                                    MtwvMtPassPDFdown.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'PDF_down'))
 
-                                MtwvMtPassPUup.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Pileup_up'))
-                                MtwvMtPassPUdown.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Pileup_down'))
+                                    MtwvMtPassPUup.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Pileup_up'))
+                                    MtwvMtPassPUdown.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Pileup_down'))
 
-                                MtwvMtPassTop1up.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,sft_pass_strings[1]['up']))
-                                MtwvMtPassTop1down.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,sft_pass_strings[1]['down']))
-                                MtwvMtPassTop2up.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,sft_pass_strings[2]['up']))
-                                MtwvMtPassTop2down.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,sft_pass_strings[2]['down']))
-                                MtwvMtPassTop3up.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,sft_pass_strings[3]['up']))
-                                MtwvMtPassTop3down.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,sft_pass_strings[3]['down']))
-                                
-                                MtwvMtPassScaleup.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Q2_up'))
-                                MtwvMtPassScaledown.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Q2_down'))
+                                    MtwvMtPassTop1up.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,sft_pass_strings[1]['up']))
+                                    MtwvMtPassTop1down.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,sft_pass_strings[1]['down']))
+                                    MtwvMtPassTop2up.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,sft_pass_strings[2]['up']))
+                                    MtwvMtPassTop2down.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,sft_pass_strings[2]['down']))
+                                    MtwvMtPassTop3up.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,sft_pass_strings[3]['up']))
+                                    MtwvMtPassTop3down.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,sft_pass_strings[3]['down']))
+                                    
+                                    MtwvMtPassScaleup.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Q2_up'))
+                                    MtwvMtPassScaledown.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Q2_down'))
 
-                                MtwvMtPassTrigup.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Trigger_up'))
-                                MtwvMtPassTrigdown.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Trigger_down'))
+                                    MtwvMtPassTrigup.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Trigger_up'))
+                                    MtwvMtPassTrigdown.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Trigger_down'))
 
-                                if prefcorr:
-                                    MtwvMtPassPrefireup.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Prefire_up'))
-                                    MtwvMtPassPrefiredown.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Prefire_down'))
+                                    if prefcorr:
+                                        MtwvMtPassPrefireup.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Prefire_up'))
+                                        MtwvMtPassPrefiredown.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Prefire_down'))
 
                                 ############
                                 # Fail sub #
                                 ############
-                                MtwvMtFailSubPDFup.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'PDF_up',drop=['Topsf'])*(weights['Topsf']['nom']-1))
-                                MtwvMtFailSubPDFdown.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'PDF_down',drop=['Topsf'])*(weights['Topsf']['nom']-1))
+                                if 'QCD' not in options.set:
+                                    MtwvMtFailSubPDFup.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'PDF_up',drop=['Topsf'])*(weights['Topsf']['nom']-1))
+                                    MtwvMtFailSubPDFdown.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'PDF_down',drop=['Topsf'])*(weights['Topsf']['nom']-1))
 
-                                MtwvMtFailSubPUup.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Pileup_up',drop=['Topsf'])*(weights['Topsf']['nom']-1))
-                                MtwvMtFailSubPUdown.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Pileup_down',drop=['Topsf'])*(weights['Topsf']['nom']-1))
+                                    MtwvMtFailSubPUup.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Pileup_up',drop=['Topsf'])*(weights['Topsf']['nom']-1))
+                                    MtwvMtFailSubPUdown.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Pileup_down',drop=['Topsf'])*(weights['Topsf']['nom']-1))
 
-                                sub1up=sub2up=sub3up=sub1down=sub2down=sub3down='nom'
-                                if top_merging_status == 3: sub3up,sub3down = 'up','down'
-                                if top_merging_status == 2: sub2up,sub2down = 'up','down'
-                                if top_merging_status == 1: sub1up,sub1down = 'up','down'
-                                MtwvMtFailSubTop1up.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,sft_sub_strings[1]['up'],drop=['Topsf'])*(weights['Topsf'][sub1up]-1))
-                                MtwvMtFailSubTop1down.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,sft_sub_strings[1]['down'],drop=['Topsf'])*(weights['Topsf'][sub1down]-1))
-                                MtwvMtFailSubTop2up.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,sft_sub_strings[2]['up'],drop=['Topsf'])*(weights['Topsf'][sub2up]-1))
-                                MtwvMtFailSubTop2down.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,sft_sub_strings[2]['down'],drop=['Topsf'])*(weights['Topsf'][sub2down]-1))
-                                MtwvMtFailSubTop3up.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,sft_sub_strings[3]['up'],drop=['Topsf'])*(weights['Topsf'][sub3up]-1))
-                                MtwvMtFailSubTop3down.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,sft_sub_strings[3]['down'],drop=['Topsf'])*(weights['Topsf'][sub3down]-1))
+                                    sub1up=sub2up=sub3up=sub1down=sub2down=sub3down='nom'
+                                    if top_merging_status == 3: sub3up,sub3down = 'up','down'
+                                    if top_merging_status == 2: sub2up,sub2down = 'up','down'
+                                    if top_merging_status == 1: sub1up,sub1down = 'up','down'
+                                    MtwvMtFailSubTop1up.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,sft_sub_strings[1]['up'],drop=['Topsf'])*(weights['Topsf'][sub1up]-1))
+                                    MtwvMtFailSubTop1down.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,sft_sub_strings[1]['down'],drop=['Topsf'])*(weights['Topsf'][sub1down]-1))
+                                    MtwvMtFailSubTop2up.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,sft_sub_strings[2]['up'],drop=['Topsf'])*(weights['Topsf'][sub2up]-1))
+                                    MtwvMtFailSubTop2down.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,sft_sub_strings[2]['down'],drop=['Topsf'])*(weights['Topsf'][sub2down]-1))
+                                    MtwvMtFailSubTop3up.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,sft_sub_strings[3]['up'],drop=['Topsf'])*(weights['Topsf'][sub3up]-1))
+                                    MtwvMtFailSubTop3down.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,sft_sub_strings[3]['down'],drop=['Topsf'])*(weights['Topsf'][sub3down]-1))
 
-                                MtwvMtFailSubScaleup.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Q2_up',drop=['Topsf'])*(weights['Topsf']['nom']-1))
-                                MtwvMtFailSubScaledown.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Q2_down',drop=['Topsf'])*(weights['Topsf']['nom']-1))
+                                    MtwvMtFailSubScaleup.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Q2_up',drop=['Topsf'])*(weights['Topsf']['nom']-1))
+                                    MtwvMtFailSubScaledown.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Q2_down',drop=['Topsf'])*(weights['Topsf']['nom']-1))
 
-                                MtwvMtFailSubTrigup.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Trigger_up',drop=['Topsf'])*(weights['Topsf']['nom']-1))
-                                MtwvMtFailSubTrigdown.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Trigger_down',drop=['Topsf'])*(weights['Topsf']['nom']-1))
+                                    MtwvMtFailSubTrigup.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Trigger_up',drop=['Topsf'])*(weights['Topsf']['nom']-1))
+                                    MtwvMtFailSubTrigdown.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Trigger_down',drop=['Topsf'])*(weights['Topsf']['nom']-1))
 
-                                if prefcorr:
-                                    MtwvMtFailSubPrefireup.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Prefire_up',drop=['Topsf'])*(weights['Topsf']['nom']-1))
-                                    MtwvMtFailSubPrefiredown.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Prefire_down',drop=['Topsf'])*(weights['Topsf']['nom']-1))
+                                    if prefcorr:
+                                        MtwvMtFailSubPrefireup.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Prefire_up',drop=['Topsf'])*(weights['Topsf']['nom']-1))
+                                        MtwvMtFailSubPrefiredown.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Prefire_down',drop=['Topsf'])*(weights['Topsf']['nom']-1))
 
-                                if ('tW' in options.set or 'signal' in options.set or 'ttbar' in options.set) and not wIsTtagged:
-                                    MtwvMtPassWup.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Wsf_up')) 
-                                    MtwvMtPassWdown.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Wsf_down'))
+                                    if ('tW' in options.set or 'signal' in options.set or 'ttbar' in options.set) and not wIsTtagged:
+                                        MtwvMtPassWup.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Wsf_up')) 
+                                        MtwvMtPassWdown.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Wsf_down'))
 
-                                    MtwvMtFailSubWup.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Wsf_up',drop=['Topsf'])*(weights['Topsf']['nom']-1))
-                                    MtwvMtFailSubWdown.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Wsf_down',drop=['Topsf'])*(weights['Topsf']['nom']-1))
+                                        MtwvMtFailSubWup.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Wsf_up',drop=['Topsf'])*(weights['Topsf']['nom']-1))
+                                        MtwvMtFailSubWdown.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Wsf_down',drop=['Topsf'])*(weights['Topsf']['nom']-1))
 
-                                    MtwvMtPassExtrapUp.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Extrap_up'))
-                                    MtwvMtPassExtrapDown.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Extrap_down'))
+                                        MtwvMtPassExtrapUp.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Extrap_up'))
+                                        MtwvMtPassExtrapDown.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Extrap_down'))
 
-                                    MtwvMtFailSubExtrapUp.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Extrap_up',drop=['Topsf'])*(weights['Topsf']['nom']-1))
-                                    MtwvMtFailSubExtrapDown.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Extrap_down',drop=['Topsf'])*(weights['Topsf']['nom']-1))
+                                        MtwvMtFailSubExtrapUp.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Extrap_up',drop=['Topsf'])*(weights['Topsf']['nom']-1))
+                                        MtwvMtFailSubExtrapDown.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Extrap_down',drop=['Topsf'])*(weights['Topsf']['nom']-1))
 
-                                if 'ttbar' in options.set:
-                                    MtwvMtPassTptAlphaup.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'PtreweightAlpha_up'))
-                                    MtwvMtPassTptAlphadown.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'PtreweightAlpha_down')) 
-                                    MtwvMtPassTptBetaup.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'PtreweightBeta_up',drop=['PtreweightAlpha']))
-                                    MtwvMtPassTptBetadown.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'PtreweightBeta_down',drop=['PtreweightAlpha'])) 
+                                    if 'ttbar' in options.set:
+                                        MtwvMtPassTptAlphaup.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'PtreweightAlpha_up'))
+                                        MtwvMtPassTptAlphadown.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'PtreweightAlpha_down')) 
+                                        MtwvMtPassTptBetaup.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'PtreweightBeta_up',drop=['PtreweightAlpha']))
+                                        MtwvMtPassTptBetadown.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'PtreweightBeta_down',drop=['PtreweightAlpha'])) 
 
-                                    MtwvMtFailSubTptAlphaup.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'PtreweightAlpha_up',drop=['Topsf'])*(weights['Topsf']['nom']-1))
-                                    MtwvMtFailSubTptAlphadown.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'PtreweightAlpha_down',drop=['Topsf'])*(weights['Topsf']['nom']-1))
-                                    MtwvMtFailSubTptBetaup.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'PtreweightBeta_up',drop=['Topsf','PtreweightAlpha'])*(weights['Topsf']['nom']-1))
-                                    MtwvMtFailSubTptBetadown.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'PtreweightBeta_down',drop=['Topsf','PtreweightAlpha'])*(weights['Topsf']['nom']-1)) 
+                                        MtwvMtFailSubTptAlphaup.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'PtreweightAlpha_up',drop=['Topsf'])*(weights['Topsf']['nom']-1))
+                                        MtwvMtFailSubTptAlphadown.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'PtreweightAlpha_down',drop=['Topsf'])*(weights['Topsf']['nom']-1))
+                                        MtwvMtFailSubTptBetaup.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'PtreweightBeta_up',drop=['Topsf','PtreweightAlpha'])*(weights['Topsf']['nom']-1))
+                                        MtwvMtFailSubTptBetadown.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'PtreweightBeta_down',drop=['Topsf','PtreweightAlpha'])*(weights['Topsf']['nom']-1)) 
 
                     else:
                         ########
@@ -1177,41 +1226,42 @@ if __name__ == "__main__":
                             dumbTagFail.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'nominal',drop=['Topsf'])) 
 
                         if runOthers and 'data' not in options.set:
-                            MtwvMtFailPDFup.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'PDF_up',drop=['Topsf']))
-                            MtwvMtFailPDFdown.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'PDF_down',drop=['Topsf']))
+                            if 'QCD' not in options.set:
+                                MtwvMtFailPDFup.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'PDF_up',drop=['Topsf']))
+                                MtwvMtFailPDFdown.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'PDF_down',drop=['Topsf']))
 
-                            MtwvMtFailPUup.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Pileup_up',drop=['Topsf']))
-                            MtwvMtFailPUdown.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Pileup_down',drop=['Topsf']))
+                                MtwvMtFailPUup.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Pileup_up',drop=['Topsf']))
+                                MtwvMtFailPUdown.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Pileup_down',drop=['Topsf']))
 
-                            MtwvMtFailTop1up.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,sft_sub_strings[1]['up'],drop=['Topsf']))
-                            MtwvMtFailTop1down.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,sft_sub_strings[1]['down'],drop=['Topsf']))
-                            MtwvMtFailTop2up.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,sft_sub_strings[2]['up'],drop=['Topsf']))
-                            MtwvMtFailTop2down.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,sft_sub_strings[2]['down'],drop=['Topsf']))
-                            MtwvMtFailTop3up.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,sft_sub_strings[3]['up'],drop=['Topsf']))
-                            MtwvMtFailTop3down.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,sft_sub_strings[3]['down'],drop=['Topsf']))
-                            
-                            MtwvMtFailScaleup.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Q2_up',drop=['Topsf']))
-                            MtwvMtFailScaledown.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Q2_down',drop=['Topsf']))
+                                MtwvMtFailTop1up.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,sft_sub_strings[1]['up'],drop=['Topsf']))
+                                MtwvMtFailTop1down.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,sft_sub_strings[1]['down'],drop=['Topsf']))
+                                MtwvMtFailTop2up.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,sft_sub_strings[2]['up'],drop=['Topsf']))
+                                MtwvMtFailTop2down.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,sft_sub_strings[2]['down'],drop=['Topsf']))
+                                MtwvMtFailTop3up.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,sft_sub_strings[3]['up'],drop=['Topsf']))
+                                MtwvMtFailTop3down.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,sft_sub_strings[3]['down'],drop=['Topsf']))
+                                
+                                MtwvMtFailScaleup.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Q2_up',drop=['Topsf']))
+                                MtwvMtFailScaledown.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Q2_down',drop=['Topsf']))
 
-                            MtwvMtFailTrigup.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Trigger_up',drop=['Topsf']))
-                            MtwvMtFailTrigdown.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Trigger_down',drop=['Topsf']))
-                            
-                            if prefcorr:
-                                MtwvMtFailPrefireup.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Prefire_up',drop=['Topsf']))
-                                MtwvMtFailPrefiredown.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Prefire_down',drop=['Topsf']))
+                                MtwvMtFailTrigup.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Trigger_up',drop=['Topsf']))
+                                MtwvMtFailTrigdown.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Trigger_down',drop=['Topsf']))
+                                
+                                if prefcorr:
+                                    MtwvMtFailPrefireup.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Prefire_up',drop=['Topsf']))
+                                    MtwvMtFailPrefiredown.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Prefire_down',drop=['Topsf']))
 
-                            if ('tW' in options.set or 'signal' in options.set or 'ttbar' in options.set) and not wIsTtagged:
-                                MtwvMtFailWup.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Wsf_up',drop=['Topsf'])) 
-                                MtwvMtFailWdown.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Wsf_down',drop=['Topsf']))
+                                if ('tW' in options.set or 'signal' in options.set or 'ttbar' in options.set) and not wIsTtagged:
+                                    MtwvMtFailWup.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Wsf_up',drop=['Topsf'])) 
+                                    MtwvMtFailWdown.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Wsf_down',drop=['Topsf']))
 
-                                MtwvMtFailExtrapUp.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Extrap_up',drop=['Topsf']))
-                                MtwvMtFailExtrapDown.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Extrap_down',drop=['Topsf']))
+                                    MtwvMtFailExtrapUp.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Extrap_up',drop=['Topsf']))
+                                    MtwvMtFailExtrapDown.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Extrap_down',drop=['Topsf']))
 
-                            if 'ttbar' in options.set:
-                                MtwvMtFailTptAlphaup.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'PtreweightAlpha_up',drop=['Topsf']))
-                                MtwvMtFailTptAlphadown.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'PtreweightAlpha_down',drop=['Topsf'])) 
-                                MtwvMtFailTptBetaup.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'PtreweightBeta_up',drop=['Topsf','PtreweightAlpha']))
-                                MtwvMtFailTptBetadown.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'PtreweightBeta_down',drop=['Topsf','PtreweightAlpha'])) 
+                                if 'ttbar' in options.set:
+                                    MtwvMtFailTptAlphaup.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'PtreweightAlpha_up',drop=['Topsf']))
+                                    MtwvMtFailTptAlphadown.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'PtreweightAlpha_down',drop=['Topsf'])) 
+                                    MtwvMtFailTptBetaup.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'PtreweightBeta_up',drop=['Topsf','PtreweightAlpha']))
+                                    MtwvMtFailTptBetadown.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'PtreweightBeta_down',drop=['Topsf','PtreweightAlpha'])) 
 
                     # Fill weight tree
                     for k in weightArrays.keys():
@@ -1242,35 +1292,40 @@ if __name__ == "__main__":
     # Correct the failing distribution from the top tag sf application in pass (subtract events that were gained/lost in pass)
     MtwvMtFail.Add(MtwvMtFailSub,-1)
     if runOthers and 'data' not in options.set:
-        MtwvMtFailPDFup.Add(MtwvMtFailSubPDFup,-1)
-        MtwvMtFailPDFdown.Add(MtwvMtFailSubPDFdown,-1)
-        MtwvMtFailPUup.Add(MtwvMtFailSubPUup,-1)
-        MtwvMtFailPUdown.Add(MtwvMtFailSubPUdown,-1)
-        MtwvMtFailTop3up.Add(MtwvMtFailSubTop3up,-1)
-        MtwvMtFailTop3down.Add(MtwvMtFailSubTop3down,-1)
-        MtwvMtFailTop2up.Add(MtwvMtFailSubTop2up,-1)
-        MtwvMtFailTop2down.Add(MtwvMtFailSubTop2down,-1)
-        MtwvMtFailTop1up.Add(MtwvMtFailSubTop1up,-1)
-        MtwvMtFailTop1down.Add(MtwvMtFailSubTop1down,-1)
+        if 'QCD' not in options.set:
+            MtwvMtFailPDFup.Add(MtwvMtFailSubPDFup,-1)
+            MtwvMtFailPDFdown.Add(MtwvMtFailSubPDFdown,-1)
+            MtwvMtFailPUup.Add(MtwvMtFailSubPUup,-1)
+            MtwvMtFailPUdown.Add(MtwvMtFailSubPUdown,-1)
+            MtwvMtFailTop3up.Add(MtwvMtFailSubTop3up,-1)
+            MtwvMtFailTop3down.Add(MtwvMtFailSubTop3down,-1)
+            MtwvMtFailTop2up.Add(MtwvMtFailSubTop2up,-1)
+            MtwvMtFailTop2down.Add(MtwvMtFailSubTop2down,-1)
+            MtwvMtFailTop1up.Add(MtwvMtFailSubTop1up,-1)
+            MtwvMtFailTop1down.Add(MtwvMtFailSubTop1down,-1)
 
-        MtwvMtFailScaleup.Add(MtwvMtFailSubScaleup,-1)
-        MtwvMtFailScaledown.Add(MtwvMtFailSubScaledown,-1)
-        MtwvMtFailTrigup.Add(MtwvMtFailSubTrigup,-1)
-        MtwvMtFailTrigdown.Add(MtwvMtFailSubTrigdown,-1)
-        if prefcorr:
-            MtwvMtFailPrefireup.Add(MtwvMtFailSubPrefireup,-1)
-            MtwvMtFailPrefiredown.Add(MtwvMtFailSubPrefiredown,-1)
-        if ('tW' in options.set or 'signal' in options.set or 'ttbar' in options.set) and not wIsTtagged:
-            MtwvMtFailWup.Add(MtwvMtFailSubWup,-1)
-            MtwvMtFailWdown.Add(MtwvMtFailSubWdown,-1)
-            MtwvMtFailExtrapUp.Add(MtwvMtFailSubExtrapUp,-1)
-            MtwvMtFailExtrapDown.Add(MtwvMtFailSubExtrapDown,-1)
-        if 'ttbar' in options.set:
-            MtwvMtFailTptAlphaup.Add(MtwvMtFailSubTptAlphaup,-1)
-            MtwvMtFailTptAlphadown.Add(MtwvMtFailSubTptAlphadown,-1)
-            MtwvMtFailTptBetaup.Add(MtwvMtFailSubTptBetaup,-1)
-            MtwvMtFailTptBetadown.Add(MtwvMtFailSubTptBetadown,-1)
+            MtwvMtFailScaleup.Add(MtwvMtFailSubScaleup,-1)
+            MtwvMtFailScaledown.Add(MtwvMtFailSubScaledown,-1)
+            MtwvMtFailTrigup.Add(MtwvMtFailSubTrigup,-1)
+            MtwvMtFailTrigdown.Add(MtwvMtFailSubTrigdown,-1)
+            if prefcorr:
+                MtwvMtFailPrefireup.Add(MtwvMtFailSubPrefireup,-1)
+                MtwvMtFailPrefiredown.Add(MtwvMtFailSubPrefiredown,-1)
+            if ('tW' in options.set or 'signal' in options.set or 'ttbar' in options.set) and not wIsTtagged:
+                MtwvMtFailWup.Add(MtwvMtFailSubWup,-1)
+                MtwvMtFailWdown.Add(MtwvMtFailSubWdown,-1)
+                MtwvMtFailExtrapUp.Add(MtwvMtFailSubExtrapUp,-1)
+                MtwvMtFailExtrapDown.Add(MtwvMtFailSubExtrapDown,-1)
+            if 'ttbar' in options.set:
+                MtwvMtFailTptAlphaup.Add(MtwvMtFailSubTptAlphaup,-1)
+                MtwvMtFailTptAlphadown.Add(MtwvMtFailSubTptAlphadown,-1)
+                MtwvMtFailTptBetaup.Add(MtwvMtFailSubTptBetaup,-1)
+                MtwvMtFailTptBetadown.Add(MtwvMtFailSubTptBetadown,-1)
 
+        MtwvMtPassPDFup.Scale(MtwvMtPass.Integral()/MtwvMtPassPDFup.Integral())
+        MtwvMtPassPDFdown.Scale(MtwvMtPass.Integral()/MtwvMtPassPDFdown.Integral())
+        MtwvMtFailPDFup.Scale(MtwvMtFail.Integral()/MtwvMtFailPDFup.Integral())
+        MtwvMtFailPDFdown.Scale(MtwvMtFail.Integral()/MtwvMtFailPDFdown.Integral())
 
     f.cd()
     f.Write()

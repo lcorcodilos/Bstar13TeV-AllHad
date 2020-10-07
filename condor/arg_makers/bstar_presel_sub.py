@@ -45,7 +45,7 @@ for year in years:
             job_base_string = base_string.replace("TEMPYEAR",year).replace('TEMPREG',reg).replace('TEMPTAGGER',tagger)
 
             if options.setnames == '':setnames = glob.glob('../../bstarTrees/NanoAOD'+year+'_lists/*_loc.txt')
-            else: setnames = options.setnames.split(',')
+            else: setnames = ['../../bstarTrees/NanoAOD'+year+'_lists/%s_loc.txt'%s for s in options.setnames.split(',')]
             #print setnames 
             for loc_file in setnames:
                 print loc_file
@@ -53,7 +53,9 @@ for year in years:
                 setname = loc_file.split('/')[-1].split('_loc')[0] 
 
                 if (setname not in ignore) and not ('-q' in base_string and 'data' in setname):
-                        if not os.path.exists('/eos/uscms/store/user/lcorcodi/bstar_nano/rootfiles/'+setname+'_bstar'+year+'.root'): continue
+                        if not os.path.exists('/eos/uscms/store/user/lcorcodi/bstar_nano/rootfiles/'+setname+'_bstar'+year+'.root'): 
+                            print 'Cant find '+setname+'_bstar'+year+'.root'
+                            continue
                         # Get njobs by counting how many GB in each file (1 job if file size < 1 GB)
                         bitsize = os.path.getsize('/eos/uscms/store/user/lcorcodi/bstar_nano/rootfiles/'+setname+'_bstar'+year+'.root')
                         if bitsize/float(10**9) < 1:  set_njobs = 1

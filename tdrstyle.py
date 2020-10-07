@@ -50,8 +50,8 @@ def setTDRStyle():
   #tdrStyle.SetErrorMarker(20)
   #tdrStyle.SetErrorX(0.)
   
-  tdrStyle.SetMarkerStyle(20)
-  
+  # tdrStyle.SetMarkerStyle(20)
+  # 
 #For the fit/function:
   tdrStyle.SetOptFit(1)
   tdrStyle.SetFitFormat("5.4g")
@@ -87,7 +87,7 @@ def setTDRStyle():
 
 # For the Global title:
 
-  tdrStyle.SetOptTitle(0)
+  # tdrStyle.SetOptTitle(0)
   tdrStyle.SetTitleFont(42)
   tdrStyle.SetTitleColor(1)
   tdrStyle.SetTitleTextColor(1)
@@ -95,8 +95,8 @@ def setTDRStyle():
   tdrStyle.SetTitleFontSize(0.05)
   # tdrStyle.SetTitleH(0) # Set the height of the title box
   # tdrStyle.SetTitleW(0) # Set the width of the title box
-  # tdrStyle.SetTitleX(0) # Set the position of the title box
-  # tdrStyle.SetTitleY(0.985) # Set the position of the title box
+  tdrStyle.SetTitleX(0.12) # Set the position of the title box
+  tdrStyle.SetTitleY(0.995) # Set the position of the title box
   # tdrStyle.SetTitleStyle(Style_t style = 1001)
   # tdrStyle.SetTitleBorderSize(2)
 
@@ -104,7 +104,7 @@ def setTDRStyle():
 
   tdrStyle.SetTitleColor(1, "XYZ")
   tdrStyle.SetTitleFont(42, "XYZ")
-  tdrStyle.SetTitleSize(0.06, "XYZ")
+  tdrStyle.SetTitleSize(0.08, "XYZ")
   # tdrStyle.SetTitleXSize(Float_t size = 0.02) # Another way to set the size?
   # tdrStyle.SetTitleYSize(Float_t size = 0.02)
   tdrStyle.SetTitleXOffset(0.9)
@@ -146,7 +146,8 @@ def setTDRStyle():
   # tdrStyle.SetTimeOffset(Double_t toffset)
   # tdrStyle.SetHistMinimumZero(kTRUE)
 
-  tdrStyle.SetHatchesLineWidth(5)
-  tdrStyle.SetHatchesSpacing(0.05)
+  # tdrStyle.SetHatchesLineWidth(5)
+  # tdrStyle.SetHatchesSpacing(0.05)
 
   tdrStyle.cd()
+

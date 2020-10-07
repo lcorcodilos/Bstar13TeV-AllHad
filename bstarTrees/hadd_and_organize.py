@@ -57,6 +57,7 @@ else:
     execute.append('xrdcp -f '+setname+'_bstar'+year+'.root root://cmseos.fnal.gov//store/user/lcorcodi/bstar_nano/rootfiles/'+setname+'_bstar'+year+'.root')
     execute.append('rm '+setname+'_bstar'+year+'.root')
 
+#execute.append('source removers/eosRmer_'+setname+year+'.csh')
 eosrmer.close()
 for s in execute:
     print "Executing: %s" %s 

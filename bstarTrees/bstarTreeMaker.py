@@ -57,7 +57,7 @@ else:
             
     elif options.year == '17': mymodules = [corrector(),puAutoWeight_2017(),PrefCorr_2017()]
 
-    elif options.year == '18': mymodules = [corrector(),puAutoWeight_2018()]
+    elif options.year == '18': mymodules = [corrector(),puAutoWeight_2018(),PrefCorr_2017()]
 
     else:
         raise ValueError('ERROR: '+ options.year+' not supported yet.')
@@ -110,7 +110,7 @@ cutstring = "(FatJet_pt[0]>350)&&(FatJet_pt[1]>350)&&(FatJet_eta[0]<2.5)&&(FatJe
 if (split_end - split_start) > 1:
     p=PostProcessor(output_dir+'/',new_list,
                 cutstring,
-                branchsel='keep_and_drop'+options.year+'.txt',
+                branchsel='init_kad.txt',#'keep_and_drop'+options.year+'.txt',
                 outputbranchsel='keep_and_drop'+options.year+'.txt',
                 modules=mymodules,
                 provenance=True,haddFileName=hadded_file)#,fwkJobReport=True,jsonInput=runsAndLumis())
@@ -118,7 +118,7 @@ if (split_end - split_start) > 1:
 else:
     p=PostProcessor(output_dir+'/',new_list,
                 cutstring,
-                branchsel='keep_and_drop'+options.year+'.txt',
+                branchsel='init_kad.txt',#'keep_and_drop'+options.year+'.txt',
                 outputbranchsel='keep_and_drop'+options.year+'.txt',
                 modules=mymodules,
                 provenance=True)
