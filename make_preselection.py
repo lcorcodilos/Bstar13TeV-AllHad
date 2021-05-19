@@ -20,6 +20,7 @@ from PhysicsTools.NanoAODTools.postprocessing.framework.preskimming import preSk
 # import FatJetNNHelper
 # from FatJetNNHelper import *
 
+from Lumi_swig.LumiFilter import LumiFilter
 import pickle
 from optparse import OptionParser
 import copy
@@ -94,7 +95,7 @@ if __name__ == "__main__":
     parser.add_option('-H', '--HEM', action='store_false',
                     default   =   True,
                     dest      =   'HEM',
-                    help      =   'Add in HEM region')
+                    help      =   'Add in HEM region (default removed)')
 
 
     (options, args) = parser.parse_args()
@@ -146,12 +147,11 @@ if __name__ == "__main__":
 
     # Trigger
     if options.year == '16':
-        tname = 'HLT_PFHT800ORHLT_PFHT900ORHLT_PFJet450'
-        pretrig_string = 'HLT_Mu50'
-        # btagtype = 'btagCSVV2'
+        tname = 'HLT_PFHT800ORHLT_PFHT900ORHLT_PFJet450'        
     elif options.year == '17' or options.year == '18':
         tname = 'HLT_PFHT1050ORHLT_PFJet500ORHLT_AK8PFJet380_TrimMass30ORHLT_AK8PFJet400_TrimMass30'
-        pretrig_string = 'HLT_Mu50'
+
+    pretrig_string = 'HLT_Mu50'
     btagtype = 'btagDeepB'
 
     # if tname == 'HLT_PFHT900ORHLT_PFHT800ORHLT_AK8PFJet450':
@@ -237,6 +237,10 @@ if __name__ == "__main__":
 
     Cuts = LoadCuts(options.region,options.year)
 
+    lumiFilter = None
+    if 'data' in options.set and options.year in ['17','18']:
+        lumiFilter = LumiFilter(int(options.year))
+
     # tempyear = options.year
     # if options.year == '18':
     #     tempyear = '17'
@@ -256,9 +260,12 @@ if __name__ == "__main__":
         
         ttagsffile = TFile.Open('SFs/20'+options.year+'TopTaggingScaleFactors_NoMassCut.root')
         ttagsffile_wmass = TFile.Open('SFs/20'+options.year+'TopTaggingScaleFactors.root')
-        # if 'signal' in options.set:
-        #     pdf_norm_file = TFile.Open('SFs/pdf_norm_uncertainties_bstar.root')
-        #     pdf_norm = pdf_norm_file.Get(options.set+'_'+options.year)
+        if 'signal' in options.set:
+            pdf_norm_file = TFile.Open('SFs/pdf_norm_uncertainties_bstar.root')
+            pdf_norm = pdf_norm_file.Get(options.set+'_'+options.year)
+        elif 'prime' in options.set:
+            pdf_norm_file = TFile.Open('SFs/pdf_norm_uncertainties_TBprime.root')
+            pdf_norm = pdf_norm_file.Get(options.set+'_16')
 
     # lepSFfile = TFile.Open('SFs/bstar_lep_veto_sfs.root')
 
@@ -370,7 +377,7 @@ if __name__ == "__main__":
                 MtwvMtPassTptBetadown.Sumw2()
 
 
-            if ('tW' in options.set or 'signal' in options.set or 'ttbar' in options.set) and not wIsTtagged:
+            if ('tW' in options.set or 'signal' in options.set or 'ttbar' in options.set or 'prime' in options.set) and not wIsTtagged:
                 MtwvMtPassWup      = TH2F("MtwvMtPassWup",    "mass of tw vs mass of top w tag SF up - Pass", 60, 50, 350, 70, 500, 4000 )
                 MtwvMtPassWdown    = TH2F("MtwvMtPassWdown",  "mass of tw vs mass of top w tag SF down - Pass",   60, 50, 350, 70, 500, 4000 )
                 MtwvMtPassWup.Sumw2()
@@ -439,7 +446,7 @@ if __name__ == "__main__":
                 MtwvMtFailTptBetaup.Sumw2()
                 MtwvMtFailTptBetadown.Sumw2()
 
-            if ('tW' in options.set or 'signal' in options.set or 'ttbar' in options.set) and not wIsTtagged:
+            if ('tW' in options.set or 'signal' in options.set or 'ttbar' in options.set or 'prime' in options.set) and not wIsTtagged:
                 MtwvMtFailExtrapUp = TH2F("MtwvMtFailExtrapUp", "mass of tw vs mass of top extrapolation uncertainty up - Fail", 60, 50, 350, 70, 500, 4000)
                 MtwvMtFailExtrapDown = TH2F("MtwvMtFailExtrapDown", "mass of tw vs mass of top extrapolation uncertainty down - Fail", 60, 50, 350, 70, 500, 4000)
                 MtwvMtFailExtrapUp.Sumw2()
@@ -508,7 +515,7 @@ if __name__ == "__main__":
                 MtwvMtFailSubTptBetaup.Sumw2()
                 MtwvMtFailSubTptBetadown.Sumw2()
 
-            if ('tW' in options.set or 'signal' in options.set or 'ttbar' in options.set) and not wIsTtagged:
+            if ('tW' in options.set or 'signal' in options.set or 'ttbar' in options.set or 'prime' in options.set) and not wIsTtagged:
                 MtwvMtFailSubExtrapUp = TH2F("MtwvMtFailSubExtrapUp", "mass of tw vs mass of top extrapolation uncertainty up - FailSub", 60, 50, 350, 70, 500, 4000)
                 MtwvMtFailSubExtrapDown = TH2F("MtwvMtFailSubExtrapDown", "mass of tw vs mass of top extrapolation uncertainty down - FailSub", 60, 50, 350, 70, 500, 4000)
                 MtwvMtFailSubExtrapUp.Sumw2()
@@ -575,6 +582,7 @@ if __name__ == "__main__":
     # Grab root file that we want #
     ###############################
     file_string = Load_jetNano(options.set,options.year)
+    print 'Opening '+file_string
     file = TFile.Open(file_string)
 
 
@@ -596,18 +604,17 @@ if __name__ == "__main__":
         
         for i in runs_tree:
             try:
-                nevents_gen+=i.genEventCount
+                nevents_gen+=i.genEventSumw
             except:
-                nevents_gen+=i.genEventCount_
+                nevents_gen+=i.genEventSumw_
 
-        if options.set == 'QCDHerwig':
+        if 'QCD' in options.set:#options.set == 'QCDHerwig':
             xsec = 1
             norm_weight_base = 1
         else:
             xsec = Cons[options.set.replace('ext','')+'_xsec']
-            print '%s*%s/%s'%(lumi,xsec,nevents_gen)
             norm_weight_base = lumi*xsec/float(nevents_gen)
-
+            print '%s*%s/%s = %s'%(lumi,xsec,nevents_gen,norm_weight_base)
 
     #####################################
     # Design the splitting if necessary #
@@ -643,6 +650,7 @@ if __name__ == "__main__":
         count   =   count + 1
         if 'condor' not in os.getcwd():
             if count > 1:
+                pass
                 # current_event_time = time.time()
                 # event_time_sum += (current_event_time - last_event_time)
                 sys.stdout.write("%i / %i ... \r" % (count,(highBinEdge-lowBinEdge)))
@@ -655,6 +663,12 @@ if __name__ == "__main__":
 
         # Grab the event
         event = Event(inTree, entry)
+
+        # Apply lumi filter
+        if lumiFilter != None:
+            if not lumiFilter.eval(event.run,event.luminosityBlock):
+                # print ('Lumi filter on event (%s,%s)')%(event.run,event.luminosityBlock)
+                continue
 
         # Apply triggers first
         if 'data' in options.set:
@@ -702,19 +716,26 @@ if __name__ == "__main__":
 
         eta_cut = (Cuts['eta'][0]<abs(leadingJet.eta)<Cuts['eta'][1]) and (Cuts['eta'][0]<abs(subleadingJet.eta)<Cuts['eta'][1])
 
+        # For both data and MC, check if we have jets in the affected region
         if options.HEM and '18' in options.year: 
             HEM_cut = (-1.57 <leadingJet.phi< -0.87 and -2.5<leadingJet.eta<-1.3) or (-1.57 <subleadingJet.phi< -0.87 and -2.5<subleadingJet.eta<-1.3)
         else:
             HEM_cut = False
 
         if eta_cut:
+            # If there's an affected jet
             if HEM_cut:
-                if 'data' in options.set: 
+                # Drop the data
+                if ('data' in options.set) and ('D' in options.set or 'C' in options.set or ('B' in options.set and event.run>=319077)): 
                     continue
+                # Scale the MC event weight to equivalent of just AB luminosity
                 else:
                     norm_weight = norm_weight_base * 0.353 #0.353 is ratio of AB to ABCD luminosity of 2018 data (ie we lose HEM region in ~65% of 2018 data)
             else:
                 norm_weight = norm_weight_base
+
+            if 'data' not in options.set:
+                norm_weight = norm_weight*event.genWeight
 
             doneAlready = False
             # For masses, nom has JECs and raw does not.
@@ -929,7 +950,6 @@ if __name__ == "__main__":
                         if 'QCD' not in options.set:
                             # PDF weight
                             if runOthers:
-                                
                                 if 'signal' in options.set: 
                                     hessianBool = True if options.year == 16 and int(options.set[-4:])<=3000 else False
                                     if hessianBool: raw_input('HESSIAN PDF FOUND')
@@ -960,7 +980,7 @@ if __name__ == "__main__":
                                 wFakes.Fill(top_merged_particles+1)
 
                             # W matching
-                            if ('tW' in options.set or 'signal' in options.set or 'ttbar' in options.set):#'tW' in options.set or 'signal' in options.set) and not wIsTtagged:
+                            if ('tW' in options.set or 'signal' in options.set or 'ttbar' in options.set or 'prime' in options.set):#'tW' in options.set or 'signal' in options.set) and not wIsTtagged:
                                 if 'ttbar' in options.set: isTtbar = True
                                 else: isTtbar = False
                                 if WJetMatching(wjet,GenParticles,ttbar=isTtbar) and Wpurity != False:
@@ -970,7 +990,7 @@ if __name__ == "__main__":
                                 else:
                                     wtagsf = 1.0
                                     wtagsfsig = 0.0
-
+                            
                                 weights['Wsf']['nom'] = wtagsf
                                 weights['Wsf']['up'] = (wtagsf + wtagsfsig)
                                 weights['Wsf']['down'] = (wtagsf - wtagsfsig)
@@ -1136,8 +1156,9 @@ if __name__ == "__main__":
                                 # Pass #
                                 ########
                                 if 'QCD' not in options.set:
-                                    MtwvMtPassPDFup.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'PDF_up'))
-                                    MtwvMtPassPDFdown.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'PDF_down'))
+                                    if 'signal' in options.set or 'prime' in options.set:
+                                        MtwvMtPassPDFup.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'PDF_up')/pdf_norm.GetBinContent(1))
+                                        MtwvMtPassPDFdown.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'PDF_down')/pdf_norm.GetBinContent(2))
 
                                     MtwvMtPassPUup.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Pileup_up'))
                                     MtwvMtPassPUdown.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Pileup_down'))
@@ -1190,7 +1211,7 @@ if __name__ == "__main__":
                                         MtwvMtFailSubPrefireup.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Prefire_up',drop=['Topsf'])*(weights['Topsf']['nom']-1))
                                         MtwvMtFailSubPrefiredown.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Prefire_down',drop=['Topsf'])*(weights['Topsf']['nom']-1))
 
-                                    if ('tW' in options.set or 'signal' in options.set or 'ttbar' in options.set) and not wIsTtagged:
+                                    if ('tW' in options.set or 'signal' in options.set or 'ttbar' in options.set or 'prime' in options.set) and not wIsTtagged:
                                         MtwvMtPassWup.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Wsf_up')) 
                                         MtwvMtPassWdown.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Wsf_down'))
 
@@ -1311,7 +1332,7 @@ if __name__ == "__main__":
             if prefcorr:
                 MtwvMtFailPrefireup.Add(MtwvMtFailSubPrefireup,-1)
                 MtwvMtFailPrefiredown.Add(MtwvMtFailSubPrefiredown,-1)
-            if ('tW' in options.set or 'signal' in options.set or 'ttbar' in options.set) and not wIsTtagged:
+            if ('tW' in options.set or 'signal' in options.set or 'ttbar' in options.set or 'prime' in options.set) and not wIsTtagged:
                 MtwvMtFailWup.Add(MtwvMtFailSubWup,-1)
                 MtwvMtFailWdown.Add(MtwvMtFailSubWdown,-1)
                 MtwvMtFailExtrapUp.Add(MtwvMtFailSubExtrapUp,-1)
@@ -1322,10 +1343,11 @@ if __name__ == "__main__":
                 MtwvMtFailTptBetaup.Add(MtwvMtFailSubTptBetaup,-1)
                 MtwvMtFailTptBetadown.Add(MtwvMtFailSubTptBetadown,-1)
 
-        MtwvMtPassPDFup.Scale(MtwvMtPass.Integral()/MtwvMtPassPDFup.Integral())
-        MtwvMtPassPDFdown.Scale(MtwvMtPass.Integral()/MtwvMtPassPDFdown.Integral())
-        MtwvMtFailPDFup.Scale(MtwvMtFail.Integral()/MtwvMtFailPDFup.Integral())
-        MtwvMtFailPDFdown.Scale(MtwvMtFail.Integral()/MtwvMtFailPDFdown.Integral())
+            if 'signal' in options.set or 'Bprime' in options.set or 'Tprime' in options.set:
+                MtwvMtPassPDFup.Scale(MtwvMtPass.Integral()/MtwvMtPassPDFup.Integral())
+                MtwvMtPassPDFdown.Scale(MtwvMtPass.Integral()/MtwvMtPassPDFdown.Integral())
+                MtwvMtFailPDFup.Scale(MtwvMtFail.Integral()/MtwvMtFailPDFup.Integral())
+                MtwvMtFailPDFdown.Scale(MtwvMtFail.Integral()/MtwvMtFailPDFdown.Integral())
 
     f.cd()
     f.Write()

@@ -12,6 +12,7 @@
 ###################################################################
 
 import time, os, sys
+from Lumi_swig.LumiFilter import LumiFilter
 import ROOT
 from ROOT import *
 
@@ -62,32 +63,6 @@ for  opt,value in options.__dict__.items():
 print "=================="
 print "" 
 
-# Prep for deepcsv b-tag if deepak8 is off
-# From https://twiki.cern.ch/twiki/bin/view/CMS/BTagCalibration
-# gSystem.Load('libCondFormatsBTauObjects') 
-# gSystem.Load('libCondToolsBTau') 
-# if options.year == '16':
-#     calib = BTagCalibration('DeepCSV', 'SFs/DeepCSV_2016LegacySF_V1.csv')
-# elif options.year == '17':
-#     calib = BTagCalibration('DeepCSV', 'SFs/subjet_DeepCSV_94XSF_V4_B_F.csv')
-# elif options.year == '18':
-#     calib = BTagCalibration('DeepCSV', 'SFs/DeepCSV_102XSF_V1.csv')
-# v_sys = getattr(ROOT, 'vector<string>')()
-# v_sys.push_back('up')
-# v_sys.push_back('down')
-
-# reader = BTagCalibrationReader(
-#     0,              # 0 is for loose op, 1: medium, 2: tight, 3: discr. reshaping
-#     "central",      # central systematic type
-#     v_sys,          # vector of other sys. types
-# )   
-
-# reader.load(
-#     calib, 
-#     0,          # 0 is for b flavour, 1: FLAV_C, 2: FLAV_UDSG 
-#     "incl"      # measurement type
-# ) 
-
 #################################
 # Load cut values and constants #
 #################################
@@ -101,6 +76,10 @@ wtagsfsig = Cons['wtagsfsig_HP']
 Cuts = LoadCuts("default",options.year)
 
 jetcoll = "FatJet"
+
+lumiFilter = None
+if 'data' in options.set and options.year in ['17','18']:
+    lumiFilter = LumiFilter(int(options.year))
 
 #####################
 # Get trigger names #
@@ -214,6 +193,23 @@ file_string = Load_jetNano(options.set,options.year)
 print 'Loading '+file_string
 file = TFile.Open(file_string)
 
+norm_weight_base = 1
+lumi = Cons['qcd_lumi']
+Cons = LoadConstants(options.year)
+if 'data' not in options.set:
+    runs_tree = file.Get("Runs")
+    nevents_gen = 0
+    
+    for i in runs_tree:
+        try:
+            nevents_gen+=i.genEventCount
+        except:
+            nevents_gen+=i.genEventCount_
+            
+    xsec = Cons[options.set.replace('ext','')+'_xsec']
+    norm_weight_base = lumi*xsec/float(nevents_gen)
+    print ('%s*%s/%s = %s'%(lumi,xsec,nevents_gen,norm_weight_base))
+
 ################################
 # Grab event tree from nanoAOD #
 ################################
@@ -296,6 +292,12 @@ for entry in range(lowBinEdge,highBinEdge):
                 continue                      # move on
 
     # Now filters/flags
+    # Apply lumi filter
+    if lumiFilter != None:
+        if not lumiFilter.eval(event.run,event.luminosityBlock):
+            # print ('Lumi filter on event (%s,%s)')%(event.run,event.luminosityBlock)
+            continue
+
     # flagColl = Collection(event,'Flag')
     filters = [inTree.readBranch('Flag_goodVertices'),
                    inTree.readBranch('Flag_HBHENoiseFilter'),
@@ -508,6 +510,13 @@ for entry in range(lowBinEdge,highBinEdge):
                         if trig_pass:
                             Res_tt.Fill(MtopW)
                             Ht_tt.Fill(ht)
+
+for h in [Ht_W_pre, Ht_W, Ht_t_pre, Ht_t,
+          Ht_tW_pre, Ht_tW, Ht_tt_pre, Ht_tt,
+          Pt_pre, Pt, M_pre, M, Res_W_pre, 
+          Res_W, Res_t_pre, Res_t, Res_tW_pre, 
+          Res_tW, Res_tt_pre, Res_tt]:
+    h.Scale()
 
 print trigFails
 

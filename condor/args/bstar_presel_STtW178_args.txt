@@ -1,0 +1,216 @@
+-s singletop_tWB -r default -j 1 -n 1 -y 17 -t loose
+-s singletop_tWB -r default -j 1 -n 1 -y 17 -t loose -J up
+-s singletop_tWB -r default -j 1 -n 1 -y 17 -t loose -J down
+-s singletop_tWB -r default -j 1 -n 1 -y 17 -t loose -R up
+-s singletop_tWB -r default -j 1 -n 1 -y 17 -t loose -R down
+-s singletop_tWB -r default -j 1 -n 1 -y 17 -t loose -a up
+-s singletop_tWB -r default -j 1 -n 1 -y 17 -t loose -a down
+-s singletop_tWB -r default -j 1 -n 1 -y 17 -t loose -b up
+-s singletop_tWB -r default -j 1 -n 1 -y 17 -t loose -b down
+-s singletop_tW -r default -j 1 -n 1 -y 17 -t loose
+-s singletop_tW -r default -j 1 -n 1 -y 17 -t loose -J up
+-s singletop_tW -r default -j 1 -n 1 -y 17 -t loose -J down
+-s singletop_tW -r default -j 1 -n 1 -y 17 -t loose -R up
+-s singletop_tW -r default -j 1 -n 1 -y 17 -t loose -R down
+-s singletop_tW -r default -j 1 -n 1 -y 17 -t loose -a up
+-s singletop_tW -r default -j 1 -n 1 -y 17 -t loose -a down
+-s singletop_tW -r default -j 1 -n 1 -y 17 -t loose -b up
+-s singletop_tW -r default -j 1 -n 1 -y 17 -t loose -b down
+-s singletop_tWB -r default -j 1 -n 1 -y 17 -t medium
+-s singletop_tWB -r default -j 1 -n 1 -y 17 -t medium -J up
+-s singletop_tWB -r default -j 1 -n 1 -y 17 -t medium -J down
+-s singletop_tWB -r default -j 1 -n 1 -y 17 -t medium -R up
+-s singletop_tWB -r default -j 1 -n 1 -y 17 -t medium -R down
+-s singletop_tWB -r default -j 1 -n 1 -y 17 -t medium -a up
+-s singletop_tWB -r default -j 1 -n 1 -y 17 -t medium -a down
+-s singletop_tWB -r default -j 1 -n 1 -y 17 -t medium -b up
+-s singletop_tWB -r default -j 1 -n 1 -y 17 -t medium -b down
+-s singletop_tW -r default -j 1 -n 1 -y 17 -t medium
+-s singletop_tW -r default -j 1 -n 1 -y 17 -t medium -J up
+-s singletop_tW -r default -j 1 -n 1 -y 17 -t medium -J down
+-s singletop_tW -r default -j 1 -n 1 -y 17 -t medium -R up
+-s singletop_tW -r default -j 1 -n 1 -y 17 -t medium -R down
+-s singletop_tW -r default -j 1 -n 1 -y 17 -t medium -a up
+-s singletop_tW -r default -j 1 -n 1 -y 17 -t medium -a down
+-s singletop_tW -r default -j 1 -n 1 -y 17 -t medium -b up
+-s singletop_tW -r default -j 1 -n 1 -y 17 -t medium -b down
+-s singletop_tWB -r sideband -j 1 -n 1 -y 17 -t loose
+-s singletop_tWB -r sideband -j 1 -n 1 -y 17 -t loose -J up
+-s singletop_tWB -r sideband -j 1 -n 1 -y 17 -t loose -J down
+-s singletop_tWB -r sideband -j 1 -n 1 -y 17 -t loose -R up
+-s singletop_tWB -r sideband -j 1 -n 1 -y 17 -t loose -R down
+-s singletop_tWB -r sideband -j 1 -n 1 -y 17 -t loose -a up
+-s singletop_tWB -r sideband -j 1 -n 1 -y 17 -t loose -a down
+-s singletop_tWB -r sideband -j 1 -n 1 -y 17 -t loose -b up
+-s singletop_tWB -r sideband -j 1 -n 1 -y 17 -t loose -b down
+-s singletop_tW -r sideband -j 1 -n 1 -y 17 -t loose
+-s singletop_tW -r sideband -j 1 -n 1 -y 17 -t loose -J up
+-s singletop_tW -r sideband -j 1 -n 1 -y 17 -t loose -J down
+-s singletop_tW -r sideband -j 1 -n 1 -y 17 -t loose -R up
+-s singletop_tW -r sideband -j 1 -n 1 -y 17 -t loose -R down
+-s singletop_tW -r sideband -j 1 -n 1 -y 17 -t loose -a up
+-s singletop_tW -r sideband -j 1 -n 1 -y 17 -t loose -a down
+-s singletop_tW -r sideband -j 1 -n 1 -y 17 -t loose -b up
+-s singletop_tW -r sideband -j 1 -n 1 -y 17 -t loose -b down
+-s singletop_tWB -r sideband -j 1 -n 1 -y 17 -t medium
+-s singletop_tWB -r sideband -j 1 -n 1 -y 17 -t medium -J up
+-s singletop_tWB -r sideband -j 1 -n 1 -y 17 -t medium -J down
+-s singletop_tWB -r sideband -j 1 -n 1 -y 17 -t medium -R up
+-s singletop_tWB -r sideband -j 1 -n 1 -y 17 -t medium -R down
+-s singletop_tWB -r sideband -j 1 -n 1 -y 17 -t medium -a up
+-s singletop_tWB -r sideband -j 1 -n 1 -y 17 -t medium -a down
+-s singletop_tWB -r sideband -j 1 -n 1 -y 17 -t medium -b up
+-s singletop_tWB -r sideband -j 1 -n 1 -y 17 -t medium -b down
+-s singletop_tW -r sideband -j 1 -n 1 -y 17 -t medium
+-s singletop_tW -r sideband -j 1 -n 1 -y 17 -t medium -J up
+-s singletop_tW -r sideband -j 1 -n 1 -y 17 -t medium -J down
+-s singletop_tW -r sideband -j 1 -n 1 -y 17 -t medium -R up
+-s singletop_tW -r sideband -j 1 -n 1 -y 17 -t medium -R down
+-s singletop_tW -r sideband -j 1 -n 1 -y 17 -t medium -a up
+-s singletop_tW -r sideband -j 1 -n 1 -y 17 -t medium -a down
+-s singletop_tW -r sideband -j 1 -n 1 -y 17 -t medium -b up
+-s singletop_tW -r sideband -j 1 -n 1 -y 17 -t medium -b down
+-s singletop_tWB -r ttbar -j 1 -n 1 -y 17 -t loose
+-s singletop_tWB -r ttbar -j 1 -n 1 -y 17 -t loose -J up
+-s singletop_tWB -r ttbar -j 1 -n 1 -y 17 -t loose -J down
+-s singletop_tWB -r ttbar -j 1 -n 1 -y 17 -t loose -R up
+-s singletop_tWB -r ttbar -j 1 -n 1 -y 17 -t loose -R down
+-s singletop_tWB -r ttbar -j 1 -n 1 -y 17 -t loose -a up
+-s singletop_tWB -r ttbar -j 1 -n 1 -y 17 -t loose -a down
+-s singletop_tWB -r ttbar -j 1 -n 1 -y 17 -t loose -b up
+-s singletop_tWB -r ttbar -j 1 -n 1 -y 17 -t loose -b down
+-s singletop_tW -r ttbar -j 1 -n 1 -y 17 -t loose
+-s singletop_tW -r ttbar -j 1 -n 1 -y 17 -t loose -J up
+-s singletop_tW -r ttbar -j 1 -n 1 -y 17 -t loose -J down
+-s singletop_tW -r ttbar -j 1 -n 1 -y 17 -t loose -R up
+-s singletop_tW -r ttbar -j 1 -n 1 -y 17 -t loose -R down
+-s singletop_tW -r ttbar -j 1 -n 1 -y 17 -t loose -a up
+-s singletop_tW -r ttbar -j 1 -n 1 -y 17 -t loose -a down
+-s singletop_tW -r ttbar -j 1 -n 1 -y 17 -t loose -b up
+-s singletop_tW -r ttbar -j 1 -n 1 -y 17 -t loose -b down
+-s singletop_tWB -r ttbar -j 1 -n 1 -y 17 -t medium
+-s singletop_tWB -r ttbar -j 1 -n 1 -y 17 -t medium -J up
+-s singletop_tWB -r ttbar -j 1 -n 1 -y 17 -t medium -J down
+-s singletop_tWB -r ttbar -j 1 -n 1 -y 17 -t medium -R up
+-s singletop_tWB -r ttbar -j 1 -n 1 -y 17 -t medium -R down
+-s singletop_tWB -r ttbar -j 1 -n 1 -y 17 -t medium -a up
+-s singletop_tWB -r ttbar -j 1 -n 1 -y 17 -t medium -a down
+-s singletop_tWB -r ttbar -j 1 -n 1 -y 17 -t medium -b up
+-s singletop_tWB -r ttbar -j 1 -n 1 -y 17 -t medium -b down
+-s singletop_tW -r ttbar -j 1 -n 1 -y 17 -t medium
+-s singletop_tW -r ttbar -j 1 -n 1 -y 17 -t medium -J up
+-s singletop_tW -r ttbar -j 1 -n 1 -y 17 -t medium -J down
+-s singletop_tW -r ttbar -j 1 -n 1 -y 17 -t medium -R up
+-s singletop_tW -r ttbar -j 1 -n 1 -y 17 -t medium -R down
+-s singletop_tW -r ttbar -j 1 -n 1 -y 17 -t medium -a up
+-s singletop_tW -r ttbar -j 1 -n 1 -y 17 -t medium -a down
+-s singletop_tW -r ttbar -j 1 -n 1 -y 17 -t medium -b up
+-s singletop_tW -r ttbar -j 1 -n 1 -y 17 -t medium -b down
+-s singletop_tW -r default -j 1 -n 1 -y 18 -t loose
+-s singletop_tW -r default -j 1 -n 1 -y 18 -t loose -J up
+-s singletop_tW -r default -j 1 -n 1 -y 18 -t loose -J down
+-s singletop_tW -r default -j 1 -n 1 -y 18 -t loose -R up
+-s singletop_tW -r default -j 1 -n 1 -y 18 -t loose -R down
+-s singletop_tW -r default -j 1 -n 1 -y 18 -t loose -a up
+-s singletop_tW -r default -j 1 -n 1 -y 18 -t loose -a down
+-s singletop_tW -r default -j 1 -n 1 -y 18 -t loose -b up
+-s singletop_tW -r default -j 1 -n 1 -y 18 -t loose -b down
+-s singletop_tWB -r default -j 1 -n 1 -y 18 -t loose
+-s singletop_tWB -r default -j 1 -n 1 -y 18 -t loose -J up
+-s singletop_tWB -r default -j 1 -n 1 -y 18 -t loose -J down
+-s singletop_tWB -r default -j 1 -n 1 -y 18 -t loose -R up
+-s singletop_tWB -r default -j 1 -n 1 -y 18 -t loose -R down
+-s singletop_tWB -r default -j 1 -n 1 -y 18 -t loose -a up
+-s singletop_tWB -r default -j 1 -n 1 -y 18 -t loose -a down
+-s singletop_tWB -r default -j 1 -n 1 -y 18 -t loose -b up
+-s singletop_tWB -r default -j 1 -n 1 -y 18 -t loose -b down
+-s singletop_tW -r default -j 1 -n 1 -y 18 -t medium
+-s singletop_tW -r default -j 1 -n 1 -y 18 -t medium -J up
+-s singletop_tW -r default -j 1 -n 1 -y 18 -t medium -J down
+-s singletop_tW -r default -j 1 -n 1 -y 18 -t medium -R up
+-s singletop_tW -r default -j 1 -n 1 -y 18 -t medium -R down
+-s singletop_tW -r default -j 1 -n 1 -y 18 -t medium -a up
+-s singletop_tW -r default -j 1 -n 1 -y 18 -t medium -a down
+-s singletop_tW -r default -j 1 -n 1 -y 18 -t medium -b up
+-s singletop_tW -r default -j 1 -n 1 -y 18 -t medium -b down
+-s singletop_tWB -r default -j 1 -n 1 -y 18 -t medium
+-s singletop_tWB -r default -j 1 -n 1 -y 18 -t medium -J up
+-s singletop_tWB -r default -j 1 -n 1 -y 18 -t medium -J down
+-s singletop_tWB -r default -j 1 -n 1 -y 18 -t medium -R up
+-s singletop_tWB -r default -j 1 -n 1 -y 18 -t medium -R down
+-s singletop_tWB -r default -j 1 -n 1 -y 18 -t medium -a up
+-s singletop_tWB -r default -j 1 -n 1 -y 18 -t medium -a down
+-s singletop_tWB -r default -j 1 -n 1 -y 18 -t medium -b up
+-s singletop_tWB -r default -j 1 -n 1 -y 18 -t medium -b down
+-s singletop_tW -r sideband -j 1 -n 1 -y 18 -t loose
+-s singletop_tW -r sideband -j 1 -n 1 -y 18 -t loose -J up
+-s singletop_tW -r sideband -j 1 -n 1 -y 18 -t loose -J down
+-s singletop_tW -r sideband -j 1 -n 1 -y 18 -t loose -R up
+-s singletop_tW -r sideband -j 1 -n 1 -y 18 -t loose -R down
+-s singletop_tW -r sideband -j 1 -n 1 -y 18 -t loose -a up
+-s singletop_tW -r sideband -j 1 -n 1 -y 18 -t loose -a down
+-s singletop_tW -r sideband -j 1 -n 1 -y 18 -t loose -b up
+-s singletop_tW -r sideband -j 1 -n 1 -y 18 -t loose -b down
+-s singletop_tWB -r sideband -j 1 -n 1 -y 18 -t loose
+-s singletop_tWB -r sideband -j 1 -n 1 -y 18 -t loose -J up
+-s singletop_tWB -r sideband -j 1 -n 1 -y 18 -t loose -J down
+-s singletop_tWB -r sideband -j 1 -n 1 -y 18 -t loose -R up
+-s singletop_tWB -r sideband -j 1 -n 1 -y 18 -t loose -R down
+-s singletop_tWB -r sideband -j 1 -n 1 -y 18 -t loose -a up
+-s singletop_tWB -r sideband -j 1 -n 1 -y 18 -t loose -a down
+-s singletop_tWB -r sideband -j 1 -n 1 -y 18 -t loose -b up
+-s singletop_tWB -r sideband -j 1 -n 1 -y 18 -t loose -b down
+-s singletop_tW -r sideband -j 1 -n 1 -y 18 -t medium
+-s singletop_tW -r sideband -j 1 -n 1 -y 18 -t medium -J up
+-s singletop_tW -r sideband -j 1 -n 1 -y 18 -t medium -J down
+-s singletop_tW -r sideband -j 1 -n 1 -y 18 -t medium -R up
+-s singletop_tW -r sideband -j 1 -n 1 -y 18 -t medium -R down
+-s singletop_tW -r sideband -j 1 -n 1 -y 18 -t medium -a up
+-s singletop_tW -r sideband -j 1 -n 1 -y 18 -t medium -a down
+-s singletop_tW -r sideband -j 1 -n 1 -y 18 -t medium -b up
+-s singletop_tW -r sideband -j 1 -n 1 -y 18 -t medium -b down
+-s singletop_tWB -r sideband -j 1 -n 1 -y 18 -t medium
+-s singletop_tWB -r sideband -j 1 -n 1 -y 18 -t medium -J up
+-s singletop_tWB -r sideband -j 1 -n 1 -y 18 -t medium -J down
+-s singletop_tWB -r sideband -j 1 -n 1 -y 18 -t medium -R up
+-s singletop_tWB -r sideband -j 1 -n 1 -y 18 -t medium -R down
+-s singletop_tWB -r sideband -j 1 -n 1 -y 18 -t medium -a up
+-s singletop_tWB -r sideband -j 1 -n 1 -y 18 -t medium -a down
+-s singletop_tWB -r sideband -j 1 -n 1 -y 18 -t medium -b up
+-s singletop_tWB -r sideband -j 1 -n 1 -y 18 -t medium -b down
+-s singletop_tW -r ttbar -j 1 -n 1 -y 18 -t loose
+-s singletop_tW -r ttbar -j 1 -n 1 -y 18 -t loose -J up
+-s singletop_tW -r ttbar -j 1 -n 1 -y 18 -t loose -J down
+-s singletop_tW -r ttbar -j 1 -n 1 -y 18 -t loose -R up
+-s singletop_tW -r ttbar -j 1 -n 1 -y 18 -t loose -R down
+-s singletop_tW -r ttbar -j 1 -n 1 -y 18 -t loose -a up
+-s singletop_tW -r ttbar -j 1 -n 1 -y 18 -t loose -a down
+-s singletop_tW -r ttbar -j 1 -n 1 -y 18 -t loose -b up
+-s singletop_tW -r ttbar -j 1 -n 1 -y 18 -t loose -b down
+-s singletop_tWB -r ttbar -j 1 -n 1 -y 18 -t loose
+-s singletop_tWB -r ttbar -j 1 -n 1 -y 18 -t loose -J up
+-s singletop_tWB -r ttbar -j 1 -n 1 -y 18 -t loose -J down
+-s singletop_tWB -r ttbar -j 1 -n 1 -y 18 -t loose -R up
+-s singletop_tWB -r ttbar -j 1 -n 1 -y 18 -t loose -R down
+-s singletop_tWB -r ttbar -j 1 -n 1 -y 18 -t loose -a up
+-s singletop_tWB -r ttbar -j 1 -n 1 -y 18 -t loose -a down
+-s singletop_tWB -r ttbar -j 1 -n 1 -y 18 -t loose -b up
+-s singletop_tWB -r ttbar -j 1 -n 1 -y 18 -t loose -b down
+-s singletop_tW -r ttbar -j 1 -n 1 -y 18 -t medium
+-s singletop_tW -r ttbar -j 1 -n 1 -y 18 -t medium -J up
+-s singletop_tW -r ttbar -j 1 -n 1 -y 18 -t medium -J down
+-s singletop_tW -r ttbar -j 1 -n 1 -y 18 -t medium -R up
+-s singletop_tW -r ttbar -j 1 -n 1 -y 18 -t medium -R down
+-s singletop_tW -r ttbar -j 1 -n 1 -y 18 -t medium -a up
+-s singletop_tW -r ttbar -j 1 -n 1 -y 18 -t medium -a down
+-s singletop_tW -r ttbar -j 1 -n 1 -y 18 -t medium -b up
+-s singletop_tW -r ttbar -j 1 -n 1 -y 18 -t medium -b down
+-s singletop_tWB -r ttbar -j 1 -n 1 -y 18 -t medium
+-s singletop_tWB -r ttbar -j 1 -n 1 -y 18 -t medium -J up
+-s singletop_tWB -r ttbar -j 1 -n 1 -y 18 -t medium -J down
+-s singletop_tWB -r ttbar -j 1 -n 1 -y 18 -t medium -R up
+-s singletop_tWB -r ttbar -j 1 -n 1 -y 18 -t medium -R down
+-s singletop_tWB -r ttbar -j 1 -n 1 -y 18 -t medium -a up
+-s singletop_tWB -r ttbar -j 1 -n 1 -y 18 -t medium -a down
+-s singletop_tWB -r ttbar -j 1 -n 1 -y 18 -t medium -b up
+-s singletop_tWB -r ttbar -j 1 -n 1 -y 18 -t medium -b down

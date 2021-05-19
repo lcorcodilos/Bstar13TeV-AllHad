@@ -1,5 +1,5 @@
-import glob
-base = '-s TEMPSET -y TEMPYEAR -j TEMPJOB -n 25 \n'
+import glob,os
+base = '-s TEMPSET -y TEMPYEAR -j IJOB -n NJOB \n'
 out = open('../args/bstar_trig_args.txt','w')
 for year in ['16','17','18']:
     for loc_file in glob.glob('../../bstarTrees/NanoAOD'+year+'_lists/*_loc.txt'):
@@ -20,9 +20,13 @@ for year in ['16','17','18']:
 
     # for s in subsets:
     #     for p in pretrigs:
-            this_string = base.replace('TEMPYEAR',year).replace('TEMPSET',setname)
-            #out.write(this_string)
-            for j in range(1,26):
-                out.write(this_string.replace('TEMPJOB',str(j)))
+            # Get njobs by counting how many GB in each file (1 job if file size < 1 GB)
+            bitsize = os.path.getsize('/eos/uscms/store/user/lcorcodi/bstar_nano/rootfiles/'+setname+'_bstar'+year+'.root')
+            if bitsize/float(10**9) < 1:  set_njobs = 1
+            else: set_njobs = int(round(bitsize/float(10**9)))
+
+            this_string = base.replace('TEMPYEAR',year).replace('TEMPSET',setname).replace('NJOB',str(set_njobs))
+            for i in range(1,set_njobs+1):
+                out.write(this_string.replace('IJOB',str(i)))
 
 out.close()

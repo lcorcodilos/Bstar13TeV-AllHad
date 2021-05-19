@@ -15,17 +15,10 @@
 ##                                                              ##
 ##################################################################
 
-import os
-import glob
-import math
+import os, json, glob, math, sys, time, subprocess, pickle, array
 from random import random
 from math import sqrt, exp, log
 import ROOT
-import sys
-import time
-import subprocess
-import cppyy
-import pickle
 from ROOT import *
 from PhysicsTools.NanoAODTools.postprocessing.tools import *
 import GenParticleChecker
@@ -44,73 +37,82 @@ def LoadConstants(year):
         'singletop_s_xsec':10.32,
         'singletop_t_xsec':136.02,
         'singletop_tW_xsec':35.85,
+        'singletop_tW_DS_xsec':35.85,
         'singletop_tW-scaleup_xsec':35.85,
         'singletop_tW-scaledown_xsec':35.85,
         'singletop_tWB-scaleup_xsec':35.85,
         'singletop_tWB-scaledown_xsec':35.85,
         'singletop_tB_xsec':80.95,
         'singletop_tWB_xsec':35.85,
+        'singletop_tWB_DS_xsec':35.85,
         'WjetsHT400_xsec':315.6,
         'WjetsHT600_xsec':68.57,
         'WjetsHT800_xsec':34.9,
         'signalLH1200_xsec':1.0,
         'signalLH1400_xsec':1.0,
-        'signalLH1600_xsec':0.1,
-        'signalLH1800_xsec':0.1,
-        'signalLH2000_xsec':0.1,
-        'signalLH2200_xsec':0.01,
-        'signalLH2400_xsec':0.01,
-        'signalLH2600_xsec':0.01,
-        'signalLH2800_xsec':0.01,
-        'signalLH3000_xsec':0.001,
-        'signalLH3200_xsec':0.001,
-        'signalLH3400_xsec':0.001,
-        'signalLH3600_xsec':0.001,
-        'signalLH3800_xsec':0.0001,
-        'signalLH4000_xsec':0.0001,
+        'signalLH1600_xsec':1.0,
+        'signalLH1800_xsec':1.0,
+        'signalLH2000_xsec':1.0,
+        'signalLH2200_xsec':0.1,
+        'signalLH2400_xsec':0.1,
+        'signalLH2600_xsec':0.1,
+        'signalLH2800_xsec':0.1,
+        'signalLH3000_xsec':0.1,
+        'signalLH3200_xsec':0.01,
+        'signalLH3400_xsec':0.01,
+        'signalLH3600_xsec':0.01,
+        'signalLH3800_xsec':0.01,
+        'signalLH4000_xsec':0.01,
         'signalRH1200_xsec':1.0,
         'signalRH1400_xsec':1.0,
-        'signalRH1600_xsec':0.1,
-        'signalRH1800_xsec':0.1,
-        'signalRH2000_xsec':0.1,
-        'signalRH2200_xsec':0.01,
-        'signalRH2400_xsec':0.01,
-        'signalRH2600_xsec':0.01,
-        'signalRH2800_xsec':0.01,
-        'signalRH3000_xsec':0.001,
-        'signalRH3200_xsec':0.001,
-        'signalRH3400_xsec':0.001,
-        'signalRH3600_xsec':0.001,
-        'signalRH3800_xsec':0.0001,
-        'signalRH4000_xsec':0.0001,
-        'TprimeRH1200_xsec':0.001,
-        'TprimeRH1300_xsec':0.001,
-        'TprimeRH1400_xsec':0.001,
-        'TprimeRH1500_xsec':0.001,
-        'TprimeRH1600_xsec':0.001,
-        'TprimeRH1700_xsec':0.001,
-        'TprimeRH1800_xsec':0.001,
-        'TprimeLH1200_xsec':0.001,
-        'TprimeLH1300_xsec':0.001,
-        'TprimeLH1400_xsec':0.001,
-        'TprimeLH1500_xsec':0.001,
-        'TprimeLH1600_xsec':0.001,
-        'TprimeLH1700_xsec':0.001,
-        'TprimeLH1800_xsec':0.001,
-        'BprimeRH1200_xsec':0.001,
-        'BprimeRH1300_xsec':0.001,
-        'BprimeRH1400_xsec':0.001,
-        'BprimeRH1500_xsec':0.001,
-        'BprimeRH1600_xsec':0.001,
-        'BprimeRH1700_xsec':0.001,
-        'BprimeRH1800_xsec':0.001,
-        'BprimeLH1200_xsec':0.001,
-        'BprimeLH1300_xsec':0.001,
-        'BprimeLH1400_xsec':0.001,
-        'BprimeLH1500_xsec':0.001,
-        'BprimeLH1600_xsec':0.001,
-        'BprimeLH1700_xsec':0.001,
-        'BprimeLH1800_xsec':0.001
+        'signalRH1600_xsec':1.0,
+        'signalRH1800_xsec':1.0,
+        'signalRH2000_xsec':1.0,
+        'signalRH2200_xsec':0.1,
+        'signalRH2400_xsec':0.1,
+        'signalRH2600_xsec':0.1,
+        'signalRH2800_xsec':0.1,
+        'signalRH3000_xsec':0.1,
+        'signalRH3200_xsec':0.01,
+        'signalRH3400_xsec':0.01,
+        'signalRH3600_xsec':0.01,
+        'signalRH3800_xsec':0.01,
+        'signalRH4000_xsec':0.01,
+        'TprimeRH1200_xsec':1.0,
+        'TprimeRH1300_xsec':1.0,
+        'TprimeRH1400_xsec':1.0,
+        'TprimeRH1500_xsec':1.0,
+        'TprimeRH1600_xsec':1.0,
+        'TprimeRH1700_xsec':1.0,
+        'TprimeRH1800_xsec':1.0,
+        'TprimeLH1200_xsec':1.0,
+        'TprimeLH1300_xsec':1.0,
+        'TprimeLH1400_xsec':1.0,
+        'TprimeLH1500_xsec':1.0,
+        'TprimeLH1600_xsec':1.0,
+        'TprimeLH1700_xsec':1.0,
+        'TprimeLH1800_xsec':1.0,
+        'BprimeRH1200_xsec':1.0,
+        'BprimeRH1300_xsec':1.0,
+        'BprimeRH1400_xsec':1.0,
+        'BprimeRH1500_xsec':1.0,
+        'BprimeRH1600_xsec':1.0,
+        'BprimeRH1700_xsec':1.0,
+        'BprimeRH1800_xsec':1.0,
+        'BprimeLH1200_xsec':1.0,
+        'BprimeLH1300_xsec':1.0,
+        'BprimeLH1400_xsec':1.0,
+        'BprimeLH1500_xsec':1.0,
+        'BprimeLH1600_xsec':1.0,
+        'BprimeLH1700_xsec':1.0,
+        'BprimeLH1800_xsec':1.0,
+        'BprimeBLH1200_xsec':1.0,
+        'BprimeBLH1300_xsec':1.0,
+        'BprimeBLH1400_xsec':1.0,
+        'BprimeBLH1500_xsec':1.0,
+        'BprimeBLH1600_xsec':1.0,
+        'BprimeBLH1700_xsec':1.0,
+        'BprimeBLH1800_xsec':1.0
     }
     if year == '16':
         out['lumi'] = 35917.213466
@@ -138,6 +140,8 @@ def LoadConstants(year):
         out['wtagsfsig_HP'] = 0.027
         out['wtagsf_LP'] = 1.120# LP = Low purity
         out['wtagsfsig_LP'] = 0.275
+        out['ttbar_xsec'] = 377.96 #uncertainty +4.8%-6.1%
+        out['ttbar-semilep_xsec'] = 365.34
 
     return out
     
@@ -205,20 +209,16 @@ def Load_jetNano(string,year):
 def DeltaR(v1,v2): Math.VectorUtil.DeltaR(v1,v2)
 
 def PDF_Lookup(pdfs,hessian=False):
-    if len(pdfweights) == 0:
-        raise ValueError('LHEPDFWeight vector empty')
-        # return 1,1
+    if len(pdfs) == 0:
+        #raise ValueError('LHEPDFWeight vector empty')
+        return 1,1
 
     if hessian:
         # Computes sqrt of sum of differences squared
-        pdfweights = []
-        base_eigenvector = pdfweights[0]
-        for ipdf in range(1,pdfs.GetSize()):
-            pdfweights.append(pdfs[ipdf])
-
+        base_eigenvector = pdfs[0]
         sumsquares = 0
-        for pdf in pdfweights:
-            sumsquares = sumsquares + (pdf-base_eigenvector)**2
+        for ipdf in range(1,pdfs.GetSize()):
+            sumsquares = sumsquares + (pdfs[ipdf]-base_eigenvector)**2
 
         stddev = sqrt(sumsquares)
 
@@ -1072,3 +1072,219 @@ def quadTag(a=1.):
     quad = a*math.pow(r,onethird)
 
     return quad
+
+def getRRVs(xbinning,ybinning,xname,yname):
+    # Y
+    # yname = 'mred'
+    ylow = ybinning[0]
+    yhigh = ybinning[-1]
+    yRRV = RooRealVar(yname,yname,ylow,yhigh)
+    yBinArray = array.array('d',ybinning)
+    yRooBinning = RooBinning(len(ybinning)-1,yBinArray)
+    yRRV.setBinning(yRooBinning)
+
+    # X
+    # xname = 'mh'
+    xlow = xbinning[0]
+    xhigh = xbinning[-1]
+    xRRV = RooRealVar(xname,xname,xlow,xhigh)
+    xBinArray = array.array('d',xbinning)
+    xRooBinning = RooBinning(len(xbinning)-1,xBinArray)
+    xRRV.setBinning(xRooBinning)
+
+    return xRRV,yRRV
+
+def getBinEdges(hist):
+    xedges = []
+    yedges = []
+    for ibin in range(1,hist.GetNbinsX()+1):
+        xedges.append(hist.GetXaxis().GetBinLowEdge(ibin))
+    for ibin in range(1,hist.GetNbinsY()+1):
+        yedges.append(hist.GetYaxis().GetBinLowEdge(ibin))
+
+    xedges.append(hist.GetXaxis().GetBinUpEdge(hist.GetNbinsX()))
+    yedges.append(hist.GetYaxis().GetBinUpEdge(hist.GetNbinsY()))
+
+    return xedges,yedges
+
+def getRooBinning(bins):
+    binarray = array.array('d',bins)
+    return RooBinning(len(bins)-1,binarray)
+
+def cutEdges(minimum,maximum,edges):
+    out = []
+    for e in edges:
+        if e >= minimum and e <= maximum: out.append(e)
+    return out
+
+def getBinning(binDict, template):
+    # DOCUMENT
+
+    # If running a blinded fit, then we want to do a combined fit over 
+    # two categories: below and above the signal region. This requires
+    # generating histograms in those three regions and it's useful
+    # to have different binning for all of those. If the signal region
+    # is not blinded then we can fit the entire region but it's convenient
+    # to still do three categories for later parts of the code. So here are
+    # the options.
+    # 1) It may be desired or even required to bin the fit in three categories
+    # each with its own binning structure (say statistics are good in 
+    # region below the signal region but bad above it so you'd like to
+    # use more and fewer bins, respectively). 
+    # 2) Additionally, variable binning can be used for each category. 
+    # 3) Single binning strategy across all three regions and only defined
+    # once in the configuration.
+    # The only requirement for any of this is that the bin walls of the new
+    # binning match a bin wall of the input histograms (you can't make bins smaller or split bins!)
+
+    # For config input, this breaks down into
+    # Standard bins over one category - one NBINS,MIN,MAX
+    # Standard bins over three categories - three NBINS,MIN,MAX (organized by dict)
+    # Custom bins over one category - list of bin walls
+    # Custom bins over three categories - three lists of bin walls (organized by dict)
+
+    # Finally, we need to get the bin normalizations correct. So we look at one of the
+    # input histograms to get the bin widths and use that as the base to normalize the 
+    # rebinning to.
+
+    temp_input_hist = template
+    sigStart, sigEnd = binDict['X']['SIGSTART'], binDict['X']['SIGEND']
+    oldXwidth = (temp_input_hist.GetXaxis().GetXmax() - temp_input_hist.GetXaxis().GetXmin())/temp_input_hist.GetNbinsX()
+    oldYwidth = (temp_input_hist.GetYaxis().GetXmax() - temp_input_hist.GetYaxis().GetXmin())/temp_input_hist.GetNbinsY()
+
+    for v in ['X','Y']:
+        # ONE CATEGORY - VARIABLE
+        if 'BINS' in binDict[v].keys():
+            # If X, take one list of bins, split around signal region into three lists, feed back as dictionary
+            if v == 'X':
+                new_bins = splitBins(binDict[v]['BINS'],sigStart,sigEnd)
+            else: 
+                new_bins = binDict[v]['BINS']
+
+        # ONE CATEGORY - CONSTANT
+        elif ('MIN' in binDict[v].keys()) and ('MAX' in binDict[v].keys()) and ('NBINS' in binDict[v].keys()):
+            new_min = binDict[v]['MIN']
+            new_max = binDict[v]['MAX']
+            new_nbins = binDict[v]['NBINS']
+            new_width = float(new_max-new_min)/float(new_nbins)
+
+            bin_walls = []
+            for i in range(new_nbins):
+                b = new_min + new_width*i
+                bin_walls.append(b)
+            bin_walls.append(new_max)
+
+            if v == 'X':
+                new_bins = splitBins(bin_walls,sigStart,sigEnd)
+            else:
+                new_bins = bin_walls
+
+        # THREE CATEGORIES but only if in X
+        elif v == 'X':
+            if ('LOW' in binDict[v].keys()) and ('SIG' in binDict[v].keys()) and ('HIGH' in binDict[v].keys()):
+                new_bins = {}
+                for c in ['LOW','SIG','HIGH']:
+                    # Check each category if variable or not
+                    if 'BINS' in binDict[v][c].keys():
+                        new_bins[c] = binDict[v][c]['BINS']
+                    # or constant in each category
+                    elif ('MIN' in binDict[v][c].keys()) and ('MAX' in binDict[v][c].keys()) and ('NBINS' in binDict[v][c].keys()):
+                        new_min = binDict[v][c]['MIN']
+                        new_max = binDict[v][c]['MAX']
+                        new_nbins = binDict[v][c]['NBINS']
+                        new_width = float(new_max-new_min)/float(new_nbins)
+
+                        new_bins[c] = []
+                        b = new_min
+                        while (new_max - b) > new_width:
+                            new_bins[c].append(b)
+                            b += new_width
+                        new_bins[c].append(new_max)
+
+        else:
+            print ('No user bins specified. Will use binning of input histograms (data_obs_pass).')
+            temp_TH2 = template
+            new_bins = []
+            if v == 'X':
+                for b in range(1,temp_TH2.GetNbinsX()+1):
+                    new_bins.append(temp_TH2.GetXaxis().GetBinLowEdge(b))
+                new_bins.append(temp_TH2.GetXaxis().GetXmax())
+
+            elif v == 'Y':
+                for b in range(1,temp_TH2.GetNbinsY()+1):
+                    new_bins.append(temp_TH2.GetYaxis().GetBinLowEdge(b))
+                new_bins.append(temp_TH2.GetYaxis().GetXmax())
+
+        if v == 'X':
+            newXbins = new_bins
+    
+        elif v == 'Y':
+            newYbins = new_bins
+
+    if isinstance(newXbins,dict):
+        fullXbins = list(newXbins['LOW']) # need list() to make a copy - not a reference
+        for c in ['SIG','HIGH']:
+            fullXbins.extend(newXbins[c][1:])
+    else:
+        fullXbins = newXbins
+    return fullXbins,newYbins,oldXwidth,oldYwidth
+
+# Function stolen from https://stackoverflow.com/questions/9590382/forcing-python-json-module-to-work-with-ascii
+def openJSON(f,twoDconfig=True):
+    with open(f) as fInput_config:
+        input_config = json.load(fInput_config, object_hook=ascii_encode_dict)  # Converts most of the unicode to ascii
+
+        if twoDconfig:
+            for process in [proc for proc in input_config['PROCESS'].keys() if proc != 'HELP']:
+                for index,item in enumerate(input_config['PROCESS'][process]['SYSTEMATICS']):           # There's one list that also
+                    input_config['PROCESS'][process]['SYSTEMATICS'][index] = item.encode('ascii')  
+
+    return input_config
+
+def ascii_encode_dict(data):    
+    ascii_encode = lambda x: x.encode('ascii') if isinstance(x, unicode) else x 
+    return dict(map(ascii_encode, pair) for pair in data.items())
+
+def splitBins(binList, sigLow, sigHigh):
+    return_bins = {'LOW':[],'SIG':[],'HIGH':[]}
+    for b in binList:
+        if b <= sigLow:
+            return_bins['LOW'].append(b)
+        if b >= sigLow and b <= sigHigh:
+            return_bins['SIG'].append(b)
+        if b >= sigHigh:
+            return_bins['HIGH'].append(b)
+
+    return return_bins 
+
+def smooth(h,rho,sigma,config,nevents = 10000000,scale=1):
+    # Setup
+    n = h.Integral()
+
+    # Binning
+    xbins,ybins = getBinEdges(h)
+    xvar,yvar = getRRVs(xbins,ybins,config['BINNING']['X']['NAME'],config['BINNING']['Y']['NAME'])
+    bins_converted = getBinning(config['BINNING'],h)
+    xbins_out,ybins_out = getRRVs(bins_converted[0],bins_converted[1],config['BINNING']['X']['NAME'],config['BINNING']['Y']['NAME'])
+
+    genbinsx = xvar
+    genbinsy = yvar
+    drawbinsx = xbins_out
+    drawbinsy = ybins_out
+
+    print ('Creating PDF %s...'%h.GetName())
+    pdf_name = 'pdf_%s_%s%s'%(rho,sigma,h.GetName())
+    pdf = RooNDKeysPdf(pdf_name, pdf_name, RooArgList(xvar,yvar), h, "ma", rho, sigma, True, True)
+    print ('Done')
+
+    histname = '%s__%s_%s'%(h.GetName(),rho,sigma)
+    print ('Generating %s...'%(histname))
+    rdh = pdf.generateBinned(RooArgSet(genbinsx,genbinsy),nevents)
+    out = rdh.createHistogram(histname,drawbinsx,RooFit.YVar(drawbinsy))
+    del rdh
+    print ('Done')
+    
+    out.Scale(n/nevents)
+    out.Scale(scale)
+
+    return out

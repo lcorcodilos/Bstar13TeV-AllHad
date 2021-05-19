@@ -1,0 +1,1674 @@
+-s singletop_tWB -r default -j 1 -n 1 -y 17 -t loose
+-s singletop_tWB -r default -j 1 -n 1 -y 17 -t loose -J up
+-s singletop_tWB -r default -j 1 -n 1 -y 17 -t loose -J down
+-s singletop_tWB -r default -j 1 -n 1 -y 17 -t loose -R up
+-s singletop_tWB -r default -j 1 -n 1 -y 17 -t loose -R down
+-s singletop_tWB -r default -j 1 -n 1 -y 17 -t loose -a up
+-s singletop_tWB -r default -j 1 -n 1 -y 17 -t loose -a down
+-s singletop_tWB -r default -j 1 -n 1 -y 17 -t loose -b up
+-s singletop_tWB -r default -j 1 -n 1 -y 17 -t loose -b down
+-s singletop_tW -r default -j 1 -n 1 -y 17 -t loose
+-s singletop_tW -r default -j 1 -n 1 -y 17 -t loose -J up
+-s singletop_tW -r default -j 1 -n 1 -y 17 -t loose -J down
+-s singletop_tW -r default -j 1 -n 1 -y 17 -t loose -R up
+-s singletop_tW -r default -j 1 -n 1 -y 17 -t loose -R down
+-s singletop_tW -r default -j 1 -n 1 -y 17 -t loose -a up
+-s singletop_tW -r default -j 1 -n 1 -y 17 -t loose -a down
+-s singletop_tW -r default -j 1 -n 1 -y 17 -t loose -b up
+-s singletop_tW -r default -j 1 -n 1 -y 17 -t loose -b down
+-s ttbar-semilep -r default -j 1 -n 3 -y 17 -t loose
+-s ttbar-semilep -r default -j 1 -n 3 -y 17 -t loose -J up
+-s ttbar-semilep -r default -j 1 -n 3 -y 17 -t loose -J down
+-s ttbar-semilep -r default -j 1 -n 3 -y 17 -t loose -R up
+-s ttbar-semilep -r default -j 1 -n 3 -y 17 -t loose -R down
+-s ttbar-semilep -r default -j 1 -n 3 -y 17 -t loose -a up
+-s ttbar-semilep -r default -j 1 -n 3 -y 17 -t loose -a down
+-s ttbar-semilep -r default -j 1 -n 3 -y 17 -t loose -b up
+-s ttbar-semilep -r default -j 1 -n 3 -y 17 -t loose -b down
+-s ttbar-semilep -r default -j 2 -n 3 -y 17 -t loose
+-s ttbar-semilep -r default -j 2 -n 3 -y 17 -t loose -J up
+-s ttbar-semilep -r default -j 2 -n 3 -y 17 -t loose -J down
+-s ttbar-semilep -r default -j 2 -n 3 -y 17 -t loose -R up
+-s ttbar-semilep -r default -j 2 -n 3 -y 17 -t loose -R down
+-s ttbar-semilep -r default -j 2 -n 3 -y 17 -t loose -a up
+-s ttbar-semilep -r default -j 2 -n 3 -y 17 -t loose -a down
+-s ttbar-semilep -r default -j 2 -n 3 -y 17 -t loose -b up
+-s ttbar-semilep -r default -j 2 -n 3 -y 17 -t loose -b down
+-s ttbar-semilep -r default -j 3 -n 3 -y 17 -t loose
+-s ttbar-semilep -r default -j 3 -n 3 -y 17 -t loose -J up
+-s ttbar-semilep -r default -j 3 -n 3 -y 17 -t loose -J down
+-s ttbar-semilep -r default -j 3 -n 3 -y 17 -t loose -R up
+-s ttbar-semilep -r default -j 3 -n 3 -y 17 -t loose -R down
+-s ttbar-semilep -r default -j 3 -n 3 -y 17 -t loose -a up
+-s ttbar-semilep -r default -j 3 -n 3 -y 17 -t loose -a down
+-s ttbar-semilep -r default -j 3 -n 3 -y 17 -t loose -b up
+-s ttbar-semilep -r default -j 3 -n 3 -y 17 -t loose -b down
+-s ttbar -r default -j 1 -n 4 -y 17 -t loose
+-s ttbar -r default -j 1 -n 4 -y 17 -t loose -J up
+-s ttbar -r default -j 1 -n 4 -y 17 -t loose -J down
+-s ttbar -r default -j 1 -n 4 -y 17 -t loose -R up
+-s ttbar -r default -j 1 -n 4 -y 17 -t loose -R down
+-s ttbar -r default -j 1 -n 4 -y 17 -t loose -a up
+-s ttbar -r default -j 1 -n 4 -y 17 -t loose -a down
+-s ttbar -r default -j 1 -n 4 -y 17 -t loose -b up
+-s ttbar -r default -j 1 -n 4 -y 17 -t loose -b down
+-s ttbar -r default -j 2 -n 4 -y 17 -t loose
+-s ttbar -r default -j 2 -n 4 -y 17 -t loose -J up
+-s ttbar -r default -j 2 -n 4 -y 17 -t loose -J down
+-s ttbar -r default -j 2 -n 4 -y 17 -t loose -R up
+-s ttbar -r default -j 2 -n 4 -y 17 -t loose -R down
+-s ttbar -r default -j 2 -n 4 -y 17 -t loose -a up
+-s ttbar -r default -j 2 -n 4 -y 17 -t loose -a down
+-s ttbar -r default -j 2 -n 4 -y 17 -t loose -b up
+-s ttbar -r default -j 2 -n 4 -y 17 -t loose -b down
+-s ttbar -r default -j 3 -n 4 -y 17 -t loose
+-s ttbar -r default -j 3 -n 4 -y 17 -t loose -J up
+-s ttbar -r default -j 3 -n 4 -y 17 -t loose -J down
+-s ttbar -r default -j 3 -n 4 -y 17 -t loose -R up
+-s ttbar -r default -j 3 -n 4 -y 17 -t loose -R down
+-s ttbar -r default -j 3 -n 4 -y 17 -t loose -a up
+-s ttbar -r default -j 3 -n 4 -y 17 -t loose -a down
+-s ttbar -r default -j 3 -n 4 -y 17 -t loose -b up
+-s ttbar -r default -j 3 -n 4 -y 17 -t loose -b down
+-s ttbar -r default -j 4 -n 4 -y 17 -t loose
+-s ttbar -r default -j 4 -n 4 -y 17 -t loose -J up
+-s ttbar -r default -j 4 -n 4 -y 17 -t loose -J down
+-s ttbar -r default -j 4 -n 4 -y 17 -t loose -R up
+-s ttbar -r default -j 4 -n 4 -y 17 -t loose -R down
+-s ttbar -r default -j 4 -n 4 -y 17 -t loose -a up
+-s ttbar -r default -j 4 -n 4 -y 17 -t loose -a down
+-s ttbar -r default -j 4 -n 4 -y 17 -t loose -b up
+-s ttbar -r default -j 4 -n 4 -y 17 -t loose -b down
+-s singletop_tWB -r default -j 1 -n 1 -y 17 -t medium
+-s singletop_tWB -r default -j 1 -n 1 -y 17 -t medium -J up
+-s singletop_tWB -r default -j 1 -n 1 -y 17 -t medium -J down
+-s singletop_tWB -r default -j 1 -n 1 -y 17 -t medium -R up
+-s singletop_tWB -r default -j 1 -n 1 -y 17 -t medium -R down
+-s singletop_tWB -r default -j 1 -n 1 -y 17 -t medium -a up
+-s singletop_tWB -r default -j 1 -n 1 -y 17 -t medium -a down
+-s singletop_tWB -r default -j 1 -n 1 -y 17 -t medium -b up
+-s singletop_tWB -r default -j 1 -n 1 -y 17 -t medium -b down
+-s singletop_tW -r default -j 1 -n 1 -y 17 -t medium
+-s singletop_tW -r default -j 1 -n 1 -y 17 -t medium -J up
+-s singletop_tW -r default -j 1 -n 1 -y 17 -t medium -J down
+-s singletop_tW -r default -j 1 -n 1 -y 17 -t medium -R up
+-s singletop_tW -r default -j 1 -n 1 -y 17 -t medium -R down
+-s singletop_tW -r default -j 1 -n 1 -y 17 -t medium -a up
+-s singletop_tW -r default -j 1 -n 1 -y 17 -t medium -a down
+-s singletop_tW -r default -j 1 -n 1 -y 17 -t medium -b up
+-s singletop_tW -r default -j 1 -n 1 -y 17 -t medium -b down
+-s ttbar-semilep -r default -j 1 -n 3 -y 17 -t medium
+-s ttbar-semilep -r default -j 1 -n 3 -y 17 -t medium -J up
+-s ttbar-semilep -r default -j 1 -n 3 -y 17 -t medium -J down
+-s ttbar-semilep -r default -j 1 -n 3 -y 17 -t medium -R up
+-s ttbar-semilep -r default -j 1 -n 3 -y 17 -t medium -R down
+-s ttbar-semilep -r default -j 1 -n 3 -y 17 -t medium -a up
+-s ttbar-semilep -r default -j 1 -n 3 -y 17 -t medium -a down
+-s ttbar-semilep -r default -j 1 -n 3 -y 17 -t medium -b up
+-s ttbar-semilep -r default -j 1 -n 3 -y 17 -t medium -b down
+-s ttbar-semilep -r default -j 2 -n 3 -y 17 -t medium
+-s ttbar-semilep -r default -j 2 -n 3 -y 17 -t medium -J up
+-s ttbar-semilep -r default -j 2 -n 3 -y 17 -t medium -J down
+-s ttbar-semilep -r default -j 2 -n 3 -y 17 -t medium -R up
+-s ttbar-semilep -r default -j 2 -n 3 -y 17 -t medium -R down
+-s ttbar-semilep -r default -j 2 -n 3 -y 17 -t medium -a up
+-s ttbar-semilep -r default -j 2 -n 3 -y 17 -t medium -a down
+-s ttbar-semilep -r default -j 2 -n 3 -y 17 -t medium -b up
+-s ttbar-semilep -r default -j 2 -n 3 -y 17 -t medium -b down
+-s ttbar-semilep -r default -j 3 -n 3 -y 17 -t medium
+-s ttbar-semilep -r default -j 3 -n 3 -y 17 -t medium -J up
+-s ttbar-semilep -r default -j 3 -n 3 -y 17 -t medium -J down
+-s ttbar-semilep -r default -j 3 -n 3 -y 17 -t medium -R up
+-s ttbar-semilep -r default -j 3 -n 3 -y 17 -t medium -R down
+-s ttbar-semilep -r default -j 3 -n 3 -y 17 -t medium -a up
+-s ttbar-semilep -r default -j 3 -n 3 -y 17 -t medium -a down
+-s ttbar-semilep -r default -j 3 -n 3 -y 17 -t medium -b up
+-s ttbar-semilep -r default -j 3 -n 3 -y 17 -t medium -b down
+-s ttbar -r default -j 1 -n 4 -y 17 -t medium
+-s ttbar -r default -j 1 -n 4 -y 17 -t medium -J up
+-s ttbar -r default -j 1 -n 4 -y 17 -t medium -J down
+-s ttbar -r default -j 1 -n 4 -y 17 -t medium -R up
+-s ttbar -r default -j 1 -n 4 -y 17 -t medium -R down
+-s ttbar -r default -j 1 -n 4 -y 17 -t medium -a up
+-s ttbar -r default -j 1 -n 4 -y 17 -t medium -a down
+-s ttbar -r default -j 1 -n 4 -y 17 -t medium -b up
+-s ttbar -r default -j 1 -n 4 -y 17 -t medium -b down
+-s ttbar -r default -j 2 -n 4 -y 17 -t medium
+-s ttbar -r default -j 2 -n 4 -y 17 -t medium -J up
+-s ttbar -r default -j 2 -n 4 -y 17 -t medium -J down
+-s ttbar -r default -j 2 -n 4 -y 17 -t medium -R up
+-s ttbar -r default -j 2 -n 4 -y 17 -t medium -R down
+-s ttbar -r default -j 2 -n 4 -y 17 -t medium -a up
+-s ttbar -r default -j 2 -n 4 -y 17 -t medium -a down
+-s ttbar -r default -j 2 -n 4 -y 17 -t medium -b up
+-s ttbar -r default -j 2 -n 4 -y 17 -t medium -b down
+-s ttbar -r default -j 3 -n 4 -y 17 -t medium
+-s ttbar -r default -j 3 -n 4 -y 17 -t medium -J up
+-s ttbar -r default -j 3 -n 4 -y 17 -t medium -J down
+-s ttbar -r default -j 3 -n 4 -y 17 -t medium -R up
+-s ttbar -r default -j 3 -n 4 -y 17 -t medium -R down
+-s ttbar -r default -j 3 -n 4 -y 17 -t medium -a up
+-s ttbar -r default -j 3 -n 4 -y 17 -t medium -a down
+-s ttbar -r default -j 3 -n 4 -y 17 -t medium -b up
+-s ttbar -r default -j 3 -n 4 -y 17 -t medium -b down
+-s ttbar -r default -j 4 -n 4 -y 17 -t medium
+-s ttbar -r default -j 4 -n 4 -y 17 -t medium -J up
+-s ttbar -r default -j 4 -n 4 -y 17 -t medium -J down
+-s ttbar -r default -j 4 -n 4 -y 17 -t medium -R up
+-s ttbar -r default -j 4 -n 4 -y 17 -t medium -R down
+-s ttbar -r default -j 4 -n 4 -y 17 -t medium -a up
+-s ttbar -r default -j 4 -n 4 -y 17 -t medium -a down
+-s ttbar -r default -j 4 -n 4 -y 17 -t medium -b up
+-s ttbar -r default -j 4 -n 4 -y 17 -t medium -b down
+-s singletop_tWB -r sideband -j 1 -n 1 -y 17 -t loose
+-s singletop_tWB -r sideband -j 1 -n 1 -y 17 -t loose -J up
+-s singletop_tWB -r sideband -j 1 -n 1 -y 17 -t loose -J down
+-s singletop_tWB -r sideband -j 1 -n 1 -y 17 -t loose -R up
+-s singletop_tWB -r sideband -j 1 -n 1 -y 17 -t loose -R down
+-s singletop_tWB -r sideband -j 1 -n 1 -y 17 -t loose -a up
+-s singletop_tWB -r sideband -j 1 -n 1 -y 17 -t loose -a down
+-s singletop_tWB -r sideband -j 1 -n 1 -y 17 -t loose -b up
+-s singletop_tWB -r sideband -j 1 -n 1 -y 17 -t loose -b down
+-s singletop_tW -r sideband -j 1 -n 1 -y 17 -t loose
+-s singletop_tW -r sideband -j 1 -n 1 -y 17 -t loose -J up
+-s singletop_tW -r sideband -j 1 -n 1 -y 17 -t loose -J down
+-s singletop_tW -r sideband -j 1 -n 1 -y 17 -t loose -R up
+-s singletop_tW -r sideband -j 1 -n 1 -y 17 -t loose -R down
+-s singletop_tW -r sideband -j 1 -n 1 -y 17 -t loose -a up
+-s singletop_tW -r sideband -j 1 -n 1 -y 17 -t loose -a down
+-s singletop_tW -r sideband -j 1 -n 1 -y 17 -t loose -b up
+-s singletop_tW -r sideband -j 1 -n 1 -y 17 -t loose -b down
+-s ttbar-semilep -r sideband -j 1 -n 3 -y 17 -t loose
+-s ttbar-semilep -r sideband -j 1 -n 3 -y 17 -t loose -J up
+-s ttbar-semilep -r sideband -j 1 -n 3 -y 17 -t loose -J down
+-s ttbar-semilep -r sideband -j 1 -n 3 -y 17 -t loose -R up
+-s ttbar-semilep -r sideband -j 1 -n 3 -y 17 -t loose -R down
+-s ttbar-semilep -r sideband -j 1 -n 3 -y 17 -t loose -a up
+-s ttbar-semilep -r sideband -j 1 -n 3 -y 17 -t loose -a down
+-s ttbar-semilep -r sideband -j 1 -n 3 -y 17 -t loose -b up
+-s ttbar-semilep -r sideband -j 1 -n 3 -y 17 -t loose -b down
+-s ttbar-semilep -r sideband -j 2 -n 3 -y 17 -t loose
+-s ttbar-semilep -r sideband -j 2 -n 3 -y 17 -t loose -J up
+-s ttbar-semilep -r sideband -j 2 -n 3 -y 17 -t loose -J down
+-s ttbar-semilep -r sideband -j 2 -n 3 -y 17 -t loose -R up
+-s ttbar-semilep -r sideband -j 2 -n 3 -y 17 -t loose -R down
+-s ttbar-semilep -r sideband -j 2 -n 3 -y 17 -t loose -a up
+-s ttbar-semilep -r sideband -j 2 -n 3 -y 17 -t loose -a down
+-s ttbar-semilep -r sideband -j 2 -n 3 -y 17 -t loose -b up
+-s ttbar-semilep -r sideband -j 2 -n 3 -y 17 -t loose -b down
+-s ttbar-semilep -r sideband -j 3 -n 3 -y 17 -t loose
+-s ttbar-semilep -r sideband -j 3 -n 3 -y 17 -t loose -J up
+-s ttbar-semilep -r sideband -j 3 -n 3 -y 17 -t loose -J down
+-s ttbar-semilep -r sideband -j 3 -n 3 -y 17 -t loose -R up
+-s ttbar-semilep -r sideband -j 3 -n 3 -y 17 -t loose -R down
+-s ttbar-semilep -r sideband -j 3 -n 3 -y 17 -t loose -a up
+-s ttbar-semilep -r sideband -j 3 -n 3 -y 17 -t loose -a down
+-s ttbar-semilep -r sideband -j 3 -n 3 -y 17 -t loose -b up
+-s ttbar-semilep -r sideband -j 3 -n 3 -y 17 -t loose -b down
+-s ttbar -r sideband -j 1 -n 4 -y 17 -t loose
+-s ttbar -r sideband -j 1 -n 4 -y 17 -t loose -J up
+-s ttbar -r sideband -j 1 -n 4 -y 17 -t loose -J down
+-s ttbar -r sideband -j 1 -n 4 -y 17 -t loose -R up
+-s ttbar -r sideband -j 1 -n 4 -y 17 -t loose -R down
+-s ttbar -r sideband -j 1 -n 4 -y 17 -t loose -a up
+-s ttbar -r sideband -j 1 -n 4 -y 17 -t loose -a down
+-s ttbar -r sideband -j 1 -n 4 -y 17 -t loose -b up
+-s ttbar -r sideband -j 1 -n 4 -y 17 -t loose -b down
+-s ttbar -r sideband -j 2 -n 4 -y 17 -t loose
+-s ttbar -r sideband -j 2 -n 4 -y 17 -t loose -J up
+-s ttbar -r sideband -j 2 -n 4 -y 17 -t loose -J down
+-s ttbar -r sideband -j 2 -n 4 -y 17 -t loose -R up
+-s ttbar -r sideband -j 2 -n 4 -y 17 -t loose -R down
+-s ttbar -r sideband -j 2 -n 4 -y 17 -t loose -a up
+-s ttbar -r sideband -j 2 -n 4 -y 17 -t loose -a down
+-s ttbar -r sideband -j 2 -n 4 -y 17 -t loose -b up
+-s ttbar -r sideband -j 2 -n 4 -y 17 -t loose -b down
+-s ttbar -r sideband -j 3 -n 4 -y 17 -t loose
+-s ttbar -r sideband -j 3 -n 4 -y 17 -t loose -J up
+-s ttbar -r sideband -j 3 -n 4 -y 17 -t loose -J down
+-s ttbar -r sideband -j 3 -n 4 -y 17 -t loose -R up
+-s ttbar -r sideband -j 3 -n 4 -y 17 -t loose -R down
+-s ttbar -r sideband -j 3 -n 4 -y 17 -t loose -a up
+-s ttbar -r sideband -j 3 -n 4 -y 17 -t loose -a down
+-s ttbar -r sideband -j 3 -n 4 -y 17 -t loose -b up
+-s ttbar -r sideband -j 3 -n 4 -y 17 -t loose -b down
+-s ttbar -r sideband -j 4 -n 4 -y 17 -t loose
+-s ttbar -r sideband -j 4 -n 4 -y 17 -t loose -J up
+-s ttbar -r sideband -j 4 -n 4 -y 17 -t loose -J down
+-s ttbar -r sideband -j 4 -n 4 -y 17 -t loose -R up
+-s ttbar -r sideband -j 4 -n 4 -y 17 -t loose -R down
+-s ttbar -r sideband -j 4 -n 4 -y 17 -t loose -a up
+-s ttbar -r sideband -j 4 -n 4 -y 17 -t loose -a down
+-s ttbar -r sideband -j 4 -n 4 -y 17 -t loose -b up
+-s ttbar -r sideband -j 4 -n 4 -y 17 -t loose -b down
+-s singletop_tWB -r sideband -j 1 -n 1 -y 17 -t medium
+-s singletop_tWB -r sideband -j 1 -n 1 -y 17 -t medium -J up
+-s singletop_tWB -r sideband -j 1 -n 1 -y 17 -t medium -J down
+-s singletop_tWB -r sideband -j 1 -n 1 -y 17 -t medium -R up
+-s singletop_tWB -r sideband -j 1 -n 1 -y 17 -t medium -R down
+-s singletop_tWB -r sideband -j 1 -n 1 -y 17 -t medium -a up
+-s singletop_tWB -r sideband -j 1 -n 1 -y 17 -t medium -a down
+-s singletop_tWB -r sideband -j 1 -n 1 -y 17 -t medium -b up
+-s singletop_tWB -r sideband -j 1 -n 1 -y 17 -t medium -b down
+-s singletop_tW -r sideband -j 1 -n 1 -y 17 -t medium
+-s singletop_tW -r sideband -j 1 -n 1 -y 17 -t medium -J up
+-s singletop_tW -r sideband -j 1 -n 1 -y 17 -t medium -J down
+-s singletop_tW -r sideband -j 1 -n 1 -y 17 -t medium -R up
+-s singletop_tW -r sideband -j 1 -n 1 -y 17 -t medium -R down
+-s singletop_tW -r sideband -j 1 -n 1 -y 17 -t medium -a up
+-s singletop_tW -r sideband -j 1 -n 1 -y 17 -t medium -a down
+-s singletop_tW -r sideband -j 1 -n 1 -y 17 -t medium -b up
+-s singletop_tW -r sideband -j 1 -n 1 -y 17 -t medium -b down
+-s ttbar-semilep -r sideband -j 1 -n 3 -y 17 -t medium
+-s ttbar-semilep -r sideband -j 1 -n 3 -y 17 -t medium -J up
+-s ttbar-semilep -r sideband -j 1 -n 3 -y 17 -t medium -J down
+-s ttbar-semilep -r sideband -j 1 -n 3 -y 17 -t medium -R up
+-s ttbar-semilep -r sideband -j 1 -n 3 -y 17 -t medium -R down
+-s ttbar-semilep -r sideband -j 1 -n 3 -y 17 -t medium -a up
+-s ttbar-semilep -r sideband -j 1 -n 3 -y 17 -t medium -a down
+-s ttbar-semilep -r sideband -j 1 -n 3 -y 17 -t medium -b up
+-s ttbar-semilep -r sideband -j 1 -n 3 -y 17 -t medium -b down
+-s ttbar-semilep -r sideband -j 2 -n 3 -y 17 -t medium
+-s ttbar-semilep -r sideband -j 2 -n 3 -y 17 -t medium -J up
+-s ttbar-semilep -r sideband -j 2 -n 3 -y 17 -t medium -J down
+-s ttbar-semilep -r sideband -j 2 -n 3 -y 17 -t medium -R up
+-s ttbar-semilep -r sideband -j 2 -n 3 -y 17 -t medium -R down
+-s ttbar-semilep -r sideband -j 2 -n 3 -y 17 -t medium -a up
+-s ttbar-semilep -r sideband -j 2 -n 3 -y 17 -t medium -a down
+-s ttbar-semilep -r sideband -j 2 -n 3 -y 17 -t medium -b up
+-s ttbar-semilep -r sideband -j 2 -n 3 -y 17 -t medium -b down
+-s ttbar-semilep -r sideband -j 3 -n 3 -y 17 -t medium
+-s ttbar-semilep -r sideband -j 3 -n 3 -y 17 -t medium -J up
+-s ttbar-semilep -r sideband -j 3 -n 3 -y 17 -t medium -J down
+-s ttbar-semilep -r sideband -j 3 -n 3 -y 17 -t medium -R up
+-s ttbar-semilep -r sideband -j 3 -n 3 -y 17 -t medium -R down
+-s ttbar-semilep -r sideband -j 3 -n 3 -y 17 -t medium -a up
+-s ttbar-semilep -r sideband -j 3 -n 3 -y 17 -t medium -a down
+-s ttbar-semilep -r sideband -j 3 -n 3 -y 17 -t medium -b up
+-s ttbar-semilep -r sideband -j 3 -n 3 -y 17 -t medium -b down
+-s ttbar -r sideband -j 1 -n 4 -y 17 -t medium
+-s ttbar -r sideband -j 1 -n 4 -y 17 -t medium -J up
+-s ttbar -r sideband -j 1 -n 4 -y 17 -t medium -J down
+-s ttbar -r sideband -j 1 -n 4 -y 17 -t medium -R up
+-s ttbar -r sideband -j 1 -n 4 -y 17 -t medium -R down
+-s ttbar -r sideband -j 1 -n 4 -y 17 -t medium -a up
+-s ttbar -r sideband -j 1 -n 4 -y 17 -t medium -a down
+-s ttbar -r sideband -j 1 -n 4 -y 17 -t medium -b up
+-s ttbar -r sideband -j 1 -n 4 -y 17 -t medium -b down
+-s ttbar -r sideband -j 2 -n 4 -y 17 -t medium
+-s ttbar -r sideband -j 2 -n 4 -y 17 -t medium -J up
+-s ttbar -r sideband -j 2 -n 4 -y 17 -t medium -J down
+-s ttbar -r sideband -j 2 -n 4 -y 17 -t medium -R up
+-s ttbar -r sideband -j 2 -n 4 -y 17 -t medium -R down
+-s ttbar -r sideband -j 2 -n 4 -y 17 -t medium -a up
+-s ttbar -r sideband -j 2 -n 4 -y 17 -t medium -a down
+-s ttbar -r sideband -j 2 -n 4 -y 17 -t medium -b up
+-s ttbar -r sideband -j 2 -n 4 -y 17 -t medium -b down
+-s ttbar -r sideband -j 3 -n 4 -y 17 -t medium
+-s ttbar -r sideband -j 3 -n 4 -y 17 -t medium -J up
+-s ttbar -r sideband -j 3 -n 4 -y 17 -t medium -J down
+-s ttbar -r sideband -j 3 -n 4 -y 17 -t medium -R up
+-s ttbar -r sideband -j 3 -n 4 -y 17 -t medium -R down
+-s ttbar -r sideband -j 3 -n 4 -y 17 -t medium -a up
+-s ttbar -r sideband -j 3 -n 4 -y 17 -t medium -a down
+-s ttbar -r sideband -j 3 -n 4 -y 17 -t medium -b up
+-s ttbar -r sideband -j 3 -n 4 -y 17 -t medium -b down
+-s ttbar -r sideband -j 4 -n 4 -y 17 -t medium
+-s ttbar -r sideband -j 4 -n 4 -y 17 -t medium -J up
+-s ttbar -r sideband -j 4 -n 4 -y 17 -t medium -J down
+-s ttbar -r sideband -j 4 -n 4 -y 17 -t medium -R up
+-s ttbar -r sideband -j 4 -n 4 -y 17 -t medium -R down
+-s ttbar -r sideband -j 4 -n 4 -y 17 -t medium -a up
+-s ttbar -r sideband -j 4 -n 4 -y 17 -t medium -a down
+-s ttbar -r sideband -j 4 -n 4 -y 17 -t medium -b up
+-s ttbar -r sideband -j 4 -n 4 -y 17 -t medium -b down
+-s singletop_tWB -r ttbar -j 1 -n 1 -y 17 -t loose
+-s singletop_tWB -r ttbar -j 1 -n 1 -y 17 -t loose -J up
+-s singletop_tWB -r ttbar -j 1 -n 1 -y 17 -t loose -J down
+-s singletop_tWB -r ttbar -j 1 -n 1 -y 17 -t loose -R up
+-s singletop_tWB -r ttbar -j 1 -n 1 -y 17 -t loose -R down
+-s singletop_tWB -r ttbar -j 1 -n 1 -y 17 -t loose -a up
+-s singletop_tWB -r ttbar -j 1 -n 1 -y 17 -t loose -a down
+-s singletop_tWB -r ttbar -j 1 -n 1 -y 17 -t loose -b up
+-s singletop_tWB -r ttbar -j 1 -n 1 -y 17 -t loose -b down
+-s singletop_tW -r ttbar -j 1 -n 1 -y 17 -t loose
+-s singletop_tW -r ttbar -j 1 -n 1 -y 17 -t loose -J up
+-s singletop_tW -r ttbar -j 1 -n 1 -y 17 -t loose -J down
+-s singletop_tW -r ttbar -j 1 -n 1 -y 17 -t loose -R up
+-s singletop_tW -r ttbar -j 1 -n 1 -y 17 -t loose -R down
+-s singletop_tW -r ttbar -j 1 -n 1 -y 17 -t loose -a up
+-s singletop_tW -r ttbar -j 1 -n 1 -y 17 -t loose -a down
+-s singletop_tW -r ttbar -j 1 -n 1 -y 17 -t loose -b up
+-s singletop_tW -r ttbar -j 1 -n 1 -y 17 -t loose -b down
+-s ttbar-semilep -r ttbar -j 1 -n 3 -y 17 -t loose
+-s ttbar-semilep -r ttbar -j 1 -n 3 -y 17 -t loose -J up
+-s ttbar-semilep -r ttbar -j 1 -n 3 -y 17 -t loose -J down
+-s ttbar-semilep -r ttbar -j 1 -n 3 -y 17 -t loose -R up
+-s ttbar-semilep -r ttbar -j 1 -n 3 -y 17 -t loose -R down
+-s ttbar-semilep -r ttbar -j 1 -n 3 -y 17 -t loose -a up
+-s ttbar-semilep -r ttbar -j 1 -n 3 -y 17 -t loose -a down
+-s ttbar-semilep -r ttbar -j 1 -n 3 -y 17 -t loose -b up
+-s ttbar-semilep -r ttbar -j 1 -n 3 -y 17 -t loose -b down
+-s ttbar-semilep -r ttbar -j 2 -n 3 -y 17 -t loose
+-s ttbar-semilep -r ttbar -j 2 -n 3 -y 17 -t loose -J up
+-s ttbar-semilep -r ttbar -j 2 -n 3 -y 17 -t loose -J down
+-s ttbar-semilep -r ttbar -j 2 -n 3 -y 17 -t loose -R up
+-s ttbar-semilep -r ttbar -j 2 -n 3 -y 17 -t loose -R down
+-s ttbar-semilep -r ttbar -j 2 -n 3 -y 17 -t loose -a up
+-s ttbar-semilep -r ttbar -j 2 -n 3 -y 17 -t loose -a down
+-s ttbar-semilep -r ttbar -j 2 -n 3 -y 17 -t loose -b up
+-s ttbar-semilep -r ttbar -j 2 -n 3 -y 17 -t loose -b down
+-s ttbar-semilep -r ttbar -j 3 -n 3 -y 17 -t loose
+-s ttbar-semilep -r ttbar -j 3 -n 3 -y 17 -t loose -J up
+-s ttbar-semilep -r ttbar -j 3 -n 3 -y 17 -t loose -J down
+-s ttbar-semilep -r ttbar -j 3 -n 3 -y 17 -t loose -R up
+-s ttbar-semilep -r ttbar -j 3 -n 3 -y 17 -t loose -R down
+-s ttbar-semilep -r ttbar -j 3 -n 3 -y 17 -t loose -a up
+-s ttbar-semilep -r ttbar -j 3 -n 3 -y 17 -t loose -a down
+-s ttbar-semilep -r ttbar -j 3 -n 3 -y 17 -t loose -b up
+-s ttbar-semilep -r ttbar -j 3 -n 3 -y 17 -t loose -b down
+-s ttbar -r ttbar -j 1 -n 4 -y 17 -t loose
+-s ttbar -r ttbar -j 1 -n 4 -y 17 -t loose -J up
+-s ttbar -r ttbar -j 1 -n 4 -y 17 -t loose -J down
+-s ttbar -r ttbar -j 1 -n 4 -y 17 -t loose -R up
+-s ttbar -r ttbar -j 1 -n 4 -y 17 -t loose -R down
+-s ttbar -r ttbar -j 1 -n 4 -y 17 -t loose -a up
+-s ttbar -r ttbar -j 1 -n 4 -y 17 -t loose -a down
+-s ttbar -r ttbar -j 1 -n 4 -y 17 -t loose -b up
+-s ttbar -r ttbar -j 1 -n 4 -y 17 -t loose -b down
+-s ttbar -r ttbar -j 2 -n 4 -y 17 -t loose
+-s ttbar -r ttbar -j 2 -n 4 -y 17 -t loose -J up
+-s ttbar -r ttbar -j 2 -n 4 -y 17 -t loose -J down
+-s ttbar -r ttbar -j 2 -n 4 -y 17 -t loose -R up
+-s ttbar -r ttbar -j 2 -n 4 -y 17 -t loose -R down
+-s ttbar -r ttbar -j 2 -n 4 -y 17 -t loose -a up
+-s ttbar -r ttbar -j 2 -n 4 -y 17 -t loose -a down
+-s ttbar -r ttbar -j 2 -n 4 -y 17 -t loose -b up
+-s ttbar -r ttbar -j 2 -n 4 -y 17 -t loose -b down
+-s ttbar -r ttbar -j 3 -n 4 -y 17 -t loose
+-s ttbar -r ttbar -j 3 -n 4 -y 17 -t loose -J up
+-s ttbar -r ttbar -j 3 -n 4 -y 17 -t loose -J down
+-s ttbar -r ttbar -j 3 -n 4 -y 17 -t loose -R up
+-s ttbar -r ttbar -j 3 -n 4 -y 17 -t loose -R down
+-s ttbar -r ttbar -j 3 -n 4 -y 17 -t loose -a up
+-s ttbar -r ttbar -j 3 -n 4 -y 17 -t loose -a down
+-s ttbar -r ttbar -j 3 -n 4 -y 17 -t loose -b up
+-s ttbar -r ttbar -j 3 -n 4 -y 17 -t loose -b down
+-s ttbar -r ttbar -j 4 -n 4 -y 17 -t loose
+-s ttbar -r ttbar -j 4 -n 4 -y 17 -t loose -J up
+-s ttbar -r ttbar -j 4 -n 4 -y 17 -t loose -J down
+-s ttbar -r ttbar -j 4 -n 4 -y 17 -t loose -R up
+-s ttbar -r ttbar -j 4 -n 4 -y 17 -t loose -R down
+-s ttbar -r ttbar -j 4 -n 4 -y 17 -t loose -a up
+-s ttbar -r ttbar -j 4 -n 4 -y 17 -t loose -a down
+-s ttbar -r ttbar -j 4 -n 4 -y 17 -t loose -b up
+-s ttbar -r ttbar -j 4 -n 4 -y 17 -t loose -b down
+-s singletop_tWB -r ttbar -j 1 -n 1 -y 17 -t medium
+-s singletop_tWB -r ttbar -j 1 -n 1 -y 17 -t medium -J up
+-s singletop_tWB -r ttbar -j 1 -n 1 -y 17 -t medium -J down
+-s singletop_tWB -r ttbar -j 1 -n 1 -y 17 -t medium -R up
+-s singletop_tWB -r ttbar -j 1 -n 1 -y 17 -t medium -R down
+-s singletop_tWB -r ttbar -j 1 -n 1 -y 17 -t medium -a up
+-s singletop_tWB -r ttbar -j 1 -n 1 -y 17 -t medium -a down
+-s singletop_tWB -r ttbar -j 1 -n 1 -y 17 -t medium -b up
+-s singletop_tWB -r ttbar -j 1 -n 1 -y 17 -t medium -b down
+-s singletop_tW -r ttbar -j 1 -n 1 -y 17 -t medium
+-s singletop_tW -r ttbar -j 1 -n 1 -y 17 -t medium -J up
+-s singletop_tW -r ttbar -j 1 -n 1 -y 17 -t medium -J down
+-s singletop_tW -r ttbar -j 1 -n 1 -y 17 -t medium -R up
+-s singletop_tW -r ttbar -j 1 -n 1 -y 17 -t medium -R down
+-s singletop_tW -r ttbar -j 1 -n 1 -y 17 -t medium -a up
+-s singletop_tW -r ttbar -j 1 -n 1 -y 17 -t medium -a down
+-s singletop_tW -r ttbar -j 1 -n 1 -y 17 -t medium -b up
+-s singletop_tW -r ttbar -j 1 -n 1 -y 17 -t medium -b down
+-s ttbar-semilep -r ttbar -j 1 -n 3 -y 17 -t medium
+-s ttbar-semilep -r ttbar -j 1 -n 3 -y 17 -t medium -J up
+-s ttbar-semilep -r ttbar -j 1 -n 3 -y 17 -t medium -J down
+-s ttbar-semilep -r ttbar -j 1 -n 3 -y 17 -t medium -R up
+-s ttbar-semilep -r ttbar -j 1 -n 3 -y 17 -t medium -R down
+-s ttbar-semilep -r ttbar -j 1 -n 3 -y 17 -t medium -a up
+-s ttbar-semilep -r ttbar -j 1 -n 3 -y 17 -t medium -a down
+-s ttbar-semilep -r ttbar -j 1 -n 3 -y 17 -t medium -b up
+-s ttbar-semilep -r ttbar -j 1 -n 3 -y 17 -t medium -b down
+-s ttbar-semilep -r ttbar -j 2 -n 3 -y 17 -t medium
+-s ttbar-semilep -r ttbar -j 2 -n 3 -y 17 -t medium -J up
+-s ttbar-semilep -r ttbar -j 2 -n 3 -y 17 -t medium -J down
+-s ttbar-semilep -r ttbar -j 2 -n 3 -y 17 -t medium -R up
+-s ttbar-semilep -r ttbar -j 2 -n 3 -y 17 -t medium -R down
+-s ttbar-semilep -r ttbar -j 2 -n 3 -y 17 -t medium -a up
+-s ttbar-semilep -r ttbar -j 2 -n 3 -y 17 -t medium -a down
+-s ttbar-semilep -r ttbar -j 2 -n 3 -y 17 -t medium -b up
+-s ttbar-semilep -r ttbar -j 2 -n 3 -y 17 -t medium -b down
+-s ttbar-semilep -r ttbar -j 3 -n 3 -y 17 -t medium
+-s ttbar-semilep -r ttbar -j 3 -n 3 -y 17 -t medium -J up
+-s ttbar-semilep -r ttbar -j 3 -n 3 -y 17 -t medium -J down
+-s ttbar-semilep -r ttbar -j 3 -n 3 -y 17 -t medium -R up
+-s ttbar-semilep -r ttbar -j 3 -n 3 -y 17 -t medium -R down
+-s ttbar-semilep -r ttbar -j 3 -n 3 -y 17 -t medium -a up
+-s ttbar-semilep -r ttbar -j 3 -n 3 -y 17 -t medium -a down
+-s ttbar-semilep -r ttbar -j 3 -n 3 -y 17 -t medium -b up
+-s ttbar-semilep -r ttbar -j 3 -n 3 -y 17 -t medium -b down
+-s ttbar -r ttbar -j 1 -n 4 -y 17 -t medium
+-s ttbar -r ttbar -j 1 -n 4 -y 17 -t medium -J up
+-s ttbar -r ttbar -j 1 -n 4 -y 17 -t medium -J down
+-s ttbar -r ttbar -j 1 -n 4 -y 17 -t medium -R up
+-s ttbar -r ttbar -j 1 -n 4 -y 17 -t medium -R down
+-s ttbar -r ttbar -j 1 -n 4 -y 17 -t medium -a up
+-s ttbar -r ttbar -j 1 -n 4 -y 17 -t medium -a down
+-s ttbar -r ttbar -j 1 -n 4 -y 17 -t medium -b up
+-s ttbar -r ttbar -j 1 -n 4 -y 17 -t medium -b down
+-s ttbar -r ttbar -j 2 -n 4 -y 17 -t medium
+-s ttbar -r ttbar -j 2 -n 4 -y 17 -t medium -J up
+-s ttbar -r ttbar -j 2 -n 4 -y 17 -t medium -J down
+-s ttbar -r ttbar -j 2 -n 4 -y 17 -t medium -R up
+-s ttbar -r ttbar -j 2 -n 4 -y 17 -t medium -R down
+-s ttbar -r ttbar -j 2 -n 4 -y 17 -t medium -a up
+-s ttbar -r ttbar -j 2 -n 4 -y 17 -t medium -a down
+-s ttbar -r ttbar -j 2 -n 4 -y 17 -t medium -b up
+-s ttbar -r ttbar -j 2 -n 4 -y 17 -t medium -b down
+-s ttbar -r ttbar -j 3 -n 4 -y 17 -t medium
+-s ttbar -r ttbar -j 3 -n 4 -y 17 -t medium -J up
+-s ttbar -r ttbar -j 3 -n 4 -y 17 -t medium -J down
+-s ttbar -r ttbar -j 3 -n 4 -y 17 -t medium -R up
+-s ttbar -r ttbar -j 3 -n 4 -y 17 -t medium -R down
+-s ttbar -r ttbar -j 3 -n 4 -y 17 -t medium -a up
+-s ttbar -r ttbar -j 3 -n 4 -y 17 -t medium -a down
+-s ttbar -r ttbar -j 3 -n 4 -y 17 -t medium -b up
+-s ttbar -r ttbar -j 3 -n 4 -y 17 -t medium -b down
+-s ttbar -r ttbar -j 4 -n 4 -y 17 -t medium
+-s ttbar -r ttbar -j 4 -n 4 -y 17 -t medium -J up
+-s ttbar -r ttbar -j 4 -n 4 -y 17 -t medium -J down
+-s ttbar -r ttbar -j 4 -n 4 -y 17 -t medium -R up
+-s ttbar -r ttbar -j 4 -n 4 -y 17 -t medium -R down
+-s ttbar -r ttbar -j 4 -n 4 -y 17 -t medium -a up
+-s ttbar -r ttbar -j 4 -n 4 -y 17 -t medium -a down
+-s ttbar -r ttbar -j 4 -n 4 -y 17 -t medium -b up
+-s ttbar -r ttbar -j 4 -n 4 -y 17 -t medium -b down
+-s ttbar -r default -j 1 -n 3 -y 18 -t loose
+-s ttbar -r default -j 1 -n 3 -y 18 -t loose -J up
+-s ttbar -r default -j 1 -n 3 -y 18 -t loose -J down
+-s ttbar -r default -j 1 -n 3 -y 18 -t loose -R up
+-s ttbar -r default -j 1 -n 3 -y 18 -t loose -R down
+-s ttbar -r default -j 1 -n 3 -y 18 -t loose -a up
+-s ttbar -r default -j 1 -n 3 -y 18 -t loose -a down
+-s ttbar -r default -j 1 -n 3 -y 18 -t loose -b up
+-s ttbar -r default -j 1 -n 3 -y 18 -t loose -b down
+-s ttbar -r default -j 2 -n 3 -y 18 -t loose
+-s ttbar -r default -j 2 -n 3 -y 18 -t loose -J up
+-s ttbar -r default -j 2 -n 3 -y 18 -t loose -J down
+-s ttbar -r default -j 2 -n 3 -y 18 -t loose -R up
+-s ttbar -r default -j 2 -n 3 -y 18 -t loose -R down
+-s ttbar -r default -j 2 -n 3 -y 18 -t loose -a up
+-s ttbar -r default -j 2 -n 3 -y 18 -t loose -a down
+-s ttbar -r default -j 2 -n 3 -y 18 -t loose -b up
+-s ttbar -r default -j 2 -n 3 -y 18 -t loose -b down
+-s ttbar -r default -j 3 -n 3 -y 18 -t loose
+-s ttbar -r default -j 3 -n 3 -y 18 -t loose -J up
+-s ttbar -r default -j 3 -n 3 -y 18 -t loose -J down
+-s ttbar -r default -j 3 -n 3 -y 18 -t loose -R up
+-s ttbar -r default -j 3 -n 3 -y 18 -t loose -R down
+-s ttbar -r default -j 3 -n 3 -y 18 -t loose -a up
+-s ttbar -r default -j 3 -n 3 -y 18 -t loose -a down
+-s ttbar -r default -j 3 -n 3 -y 18 -t loose -b up
+-s ttbar -r default -j 3 -n 3 -y 18 -t loose -b down
+-s singletop_tWB -r default -j 1 -n 1 -y 18 -t loose
+-s singletop_tWB -r default -j 1 -n 1 -y 18 -t loose -J up
+-s singletop_tWB -r default -j 1 -n 1 -y 18 -t loose -J down
+-s singletop_tWB -r default -j 1 -n 1 -y 18 -t loose -R up
+-s singletop_tWB -r default -j 1 -n 1 -y 18 -t loose -R down
+-s singletop_tWB -r default -j 1 -n 1 -y 18 -t loose -a up
+-s singletop_tWB -r default -j 1 -n 1 -y 18 -t loose -a down
+-s singletop_tWB -r default -j 1 -n 1 -y 18 -t loose -b up
+-s singletop_tWB -r default -j 1 -n 1 -y 18 -t loose -b down
+-s singletop_tW -r default -j 1 -n 1 -y 18 -t loose
+-s singletop_tW -r default -j 1 -n 1 -y 18 -t loose -J up
+-s singletop_tW -r default -j 1 -n 1 -y 18 -t loose -J down
+-s singletop_tW -r default -j 1 -n 1 -y 18 -t loose -R up
+-s singletop_tW -r default -j 1 -n 1 -y 18 -t loose -R down
+-s singletop_tW -r default -j 1 -n 1 -y 18 -t loose -a up
+-s singletop_tW -r default -j 1 -n 1 -y 18 -t loose -a down
+-s singletop_tW -r default -j 1 -n 1 -y 18 -t loose -b up
+-s singletop_tW -r default -j 1 -n 1 -y 18 -t loose -b down
+-s ttbar-semilep -r default -j 1 -n 2 -y 18 -t loose
+-s ttbar-semilep -r default -j 1 -n 2 -y 18 -t loose -J up
+-s ttbar-semilep -r default -j 1 -n 2 -y 18 -t loose -J down
+-s ttbar-semilep -r default -j 1 -n 2 -y 18 -t loose -R up
+-s ttbar-semilep -r default -j 1 -n 2 -y 18 -t loose -R down
+-s ttbar-semilep -r default -j 1 -n 2 -y 18 -t loose -a up
+-s ttbar-semilep -r default -j 1 -n 2 -y 18 -t loose -a down
+-s ttbar-semilep -r default -j 1 -n 2 -y 18 -t loose -b up
+-s ttbar-semilep -r default -j 1 -n 2 -y 18 -t loose -b down
+-s ttbar-semilep -r default -j 2 -n 2 -y 18 -t loose
+-s ttbar-semilep -r default -j 2 -n 2 -y 18 -t loose -J up
+-s ttbar-semilep -r default -j 2 -n 2 -y 18 -t loose -J down
+-s ttbar-semilep -r default -j 2 -n 2 -y 18 -t loose -R up
+-s ttbar-semilep -r default -j 2 -n 2 -y 18 -t loose -R down
+-s ttbar-semilep -r default -j 2 -n 2 -y 18 -t loose -a up
+-s ttbar-semilep -r default -j 2 -n 2 -y 18 -t loose -a down
+-s ttbar-semilep -r default -j 2 -n 2 -y 18 -t loose -b up
+-s ttbar-semilep -r default -j 2 -n 2 -y 18 -t loose -b down
+-s ttbar -r default -j 1 -n 3 -y 18 -t medium
+-s ttbar -r default -j 1 -n 3 -y 18 -t medium -J up
+-s ttbar -r default -j 1 -n 3 -y 18 -t medium -J down
+-s ttbar -r default -j 1 -n 3 -y 18 -t medium -R up
+-s ttbar -r default -j 1 -n 3 -y 18 -t medium -R down
+-s ttbar -r default -j 1 -n 3 -y 18 -t medium -a up
+-s ttbar -r default -j 1 -n 3 -y 18 -t medium -a down
+-s ttbar -r default -j 1 -n 3 -y 18 -t medium -b up
+-s ttbar -r default -j 1 -n 3 -y 18 -t medium -b down
+-s ttbar -r default -j 2 -n 3 -y 18 -t medium
+-s ttbar -r default -j 2 -n 3 -y 18 -t medium -J up
+-s ttbar -r default -j 2 -n 3 -y 18 -t medium -J down
+-s ttbar -r default -j 2 -n 3 -y 18 -t medium -R up
+-s ttbar -r default -j 2 -n 3 -y 18 -t medium -R down
+-s ttbar -r default -j 2 -n 3 -y 18 -t medium -a up
+-s ttbar -r default -j 2 -n 3 -y 18 -t medium -a down
+-s ttbar -r default -j 2 -n 3 -y 18 -t medium -b up
+-s ttbar -r default -j 2 -n 3 -y 18 -t medium -b down
+-s ttbar -r default -j 3 -n 3 -y 18 -t medium
+-s ttbar -r default -j 3 -n 3 -y 18 -t medium -J up
+-s ttbar -r default -j 3 -n 3 -y 18 -t medium -J down
+-s ttbar -r default -j 3 -n 3 -y 18 -t medium -R up
+-s ttbar -r default -j 3 -n 3 -y 18 -t medium -R down
+-s ttbar -r default -j 3 -n 3 -y 18 -t medium -a up
+-s ttbar -r default -j 3 -n 3 -y 18 -t medium -a down
+-s ttbar -r default -j 3 -n 3 -y 18 -t medium -b up
+-s ttbar -r default -j 3 -n 3 -y 18 -t medium -b down
+-s singletop_tWB -r default -j 1 -n 1 -y 18 -t medium
+-s singletop_tWB -r default -j 1 -n 1 -y 18 -t medium -J up
+-s singletop_tWB -r default -j 1 -n 1 -y 18 -t medium -J down
+-s singletop_tWB -r default -j 1 -n 1 -y 18 -t medium -R up
+-s singletop_tWB -r default -j 1 -n 1 -y 18 -t medium -R down
+-s singletop_tWB -r default -j 1 -n 1 -y 18 -t medium -a up
+-s singletop_tWB -r default -j 1 -n 1 -y 18 -t medium -a down
+-s singletop_tWB -r default -j 1 -n 1 -y 18 -t medium -b up
+-s singletop_tWB -r default -j 1 -n 1 -y 18 -t medium -b down
+-s singletop_tW -r default -j 1 -n 1 -y 18 -t medium
+-s singletop_tW -r default -j 1 -n 1 -y 18 -t medium -J up
+-s singletop_tW -r default -j 1 -n 1 -y 18 -t medium -J down
+-s singletop_tW -r default -j 1 -n 1 -y 18 -t medium -R up
+-s singletop_tW -r default -j 1 -n 1 -y 18 -t medium -R down
+-s singletop_tW -r default -j 1 -n 1 -y 18 -t medium -a up
+-s singletop_tW -r default -j 1 -n 1 -y 18 -t medium -a down
+-s singletop_tW -r default -j 1 -n 1 -y 18 -t medium -b up
+-s singletop_tW -r default -j 1 -n 1 -y 18 -t medium -b down
+-s ttbar-semilep -r default -j 1 -n 2 -y 18 -t medium
+-s ttbar-semilep -r default -j 1 -n 2 -y 18 -t medium -J up
+-s ttbar-semilep -r default -j 1 -n 2 -y 18 -t medium -J down
+-s ttbar-semilep -r default -j 1 -n 2 -y 18 -t medium -R up
+-s ttbar-semilep -r default -j 1 -n 2 -y 18 -t medium -R down
+-s ttbar-semilep -r default -j 1 -n 2 -y 18 -t medium -a up
+-s ttbar-semilep -r default -j 1 -n 2 -y 18 -t medium -a down
+-s ttbar-semilep -r default -j 1 -n 2 -y 18 -t medium -b up
+-s ttbar-semilep -r default -j 1 -n 2 -y 18 -t medium -b down
+-s ttbar-semilep -r default -j 2 -n 2 -y 18 -t medium
+-s ttbar-semilep -r default -j 2 -n 2 -y 18 -t medium -J up
+-s ttbar-semilep -r default -j 2 -n 2 -y 18 -t medium -J down
+-s ttbar-semilep -r default -j 2 -n 2 -y 18 -t medium -R up
+-s ttbar-semilep -r default -j 2 -n 2 -y 18 -t medium -R down
+-s ttbar-semilep -r default -j 2 -n 2 -y 18 -t medium -a up
+-s ttbar-semilep -r default -j 2 -n 2 -y 18 -t medium -a down
+-s ttbar-semilep -r default -j 2 -n 2 -y 18 -t medium -b up
+-s ttbar-semilep -r default -j 2 -n 2 -y 18 -t medium -b down
+-s ttbar -r sideband -j 1 -n 3 -y 18 -t loose
+-s ttbar -r sideband -j 1 -n 3 -y 18 -t loose -J up
+-s ttbar -r sideband -j 1 -n 3 -y 18 -t loose -J down
+-s ttbar -r sideband -j 1 -n 3 -y 18 -t loose -R up
+-s ttbar -r sideband -j 1 -n 3 -y 18 -t loose -R down
+-s ttbar -r sideband -j 1 -n 3 -y 18 -t loose -a up
+-s ttbar -r sideband -j 1 -n 3 -y 18 -t loose -a down
+-s ttbar -r sideband -j 1 -n 3 -y 18 -t loose -b up
+-s ttbar -r sideband -j 1 -n 3 -y 18 -t loose -b down
+-s ttbar -r sideband -j 2 -n 3 -y 18 -t loose
+-s ttbar -r sideband -j 2 -n 3 -y 18 -t loose -J up
+-s ttbar -r sideband -j 2 -n 3 -y 18 -t loose -J down
+-s ttbar -r sideband -j 2 -n 3 -y 18 -t loose -R up
+-s ttbar -r sideband -j 2 -n 3 -y 18 -t loose -R down
+-s ttbar -r sideband -j 2 -n 3 -y 18 -t loose -a up
+-s ttbar -r sideband -j 2 -n 3 -y 18 -t loose -a down
+-s ttbar -r sideband -j 2 -n 3 -y 18 -t loose -b up
+-s ttbar -r sideband -j 2 -n 3 -y 18 -t loose -b down
+-s ttbar -r sideband -j 3 -n 3 -y 18 -t loose
+-s ttbar -r sideband -j 3 -n 3 -y 18 -t loose -J up
+-s ttbar -r sideband -j 3 -n 3 -y 18 -t loose -J down
+-s ttbar -r sideband -j 3 -n 3 -y 18 -t loose -R up
+-s ttbar -r sideband -j 3 -n 3 -y 18 -t loose -R down
+-s ttbar -r sideband -j 3 -n 3 -y 18 -t loose -a up
+-s ttbar -r sideband -j 3 -n 3 -y 18 -t loose -a down
+-s ttbar -r sideband -j 3 -n 3 -y 18 -t loose -b up
+-s ttbar -r sideband -j 3 -n 3 -y 18 -t loose -b down
+-s singletop_tWB -r sideband -j 1 -n 1 -y 18 -t loose
+-s singletop_tWB -r sideband -j 1 -n 1 -y 18 -t loose -J up
+-s singletop_tWB -r sideband -j 1 -n 1 -y 18 -t loose -J down
+-s singletop_tWB -r sideband -j 1 -n 1 -y 18 -t loose -R up
+-s singletop_tWB -r sideband -j 1 -n 1 -y 18 -t loose -R down
+-s singletop_tWB -r sideband -j 1 -n 1 -y 18 -t loose -a up
+-s singletop_tWB -r sideband -j 1 -n 1 -y 18 -t loose -a down
+-s singletop_tWB -r sideband -j 1 -n 1 -y 18 -t loose -b up
+-s singletop_tWB -r sideband -j 1 -n 1 -y 18 -t loose -b down
+-s singletop_tW -r sideband -j 1 -n 1 -y 18 -t loose
+-s singletop_tW -r sideband -j 1 -n 1 -y 18 -t loose -J up
+-s singletop_tW -r sideband -j 1 -n 1 -y 18 -t loose -J down
+-s singletop_tW -r sideband -j 1 -n 1 -y 18 -t loose -R up
+-s singletop_tW -r sideband -j 1 -n 1 -y 18 -t loose -R down
+-s singletop_tW -r sideband -j 1 -n 1 -y 18 -t loose -a up
+-s singletop_tW -r sideband -j 1 -n 1 -y 18 -t loose -a down
+-s singletop_tW -r sideband -j 1 -n 1 -y 18 -t loose -b up
+-s singletop_tW -r sideband -j 1 -n 1 -y 18 -t loose -b down
+-s ttbar-semilep -r sideband -j 1 -n 2 -y 18 -t loose
+-s ttbar-semilep -r sideband -j 1 -n 2 -y 18 -t loose -J up
+-s ttbar-semilep -r sideband -j 1 -n 2 -y 18 -t loose -J down
+-s ttbar-semilep -r sideband -j 1 -n 2 -y 18 -t loose -R up
+-s ttbar-semilep -r sideband -j 1 -n 2 -y 18 -t loose -R down
+-s ttbar-semilep -r sideband -j 1 -n 2 -y 18 -t loose -a up
+-s ttbar-semilep -r sideband -j 1 -n 2 -y 18 -t loose -a down
+-s ttbar-semilep -r sideband -j 1 -n 2 -y 18 -t loose -b up
+-s ttbar-semilep -r sideband -j 1 -n 2 -y 18 -t loose -b down
+-s ttbar-semilep -r sideband -j 2 -n 2 -y 18 -t loose
+-s ttbar-semilep -r sideband -j 2 -n 2 -y 18 -t loose -J up
+-s ttbar-semilep -r sideband -j 2 -n 2 -y 18 -t loose -J down
+-s ttbar-semilep -r sideband -j 2 -n 2 -y 18 -t loose -R up
+-s ttbar-semilep -r sideband -j 2 -n 2 -y 18 -t loose -R down
+-s ttbar-semilep -r sideband -j 2 -n 2 -y 18 -t loose -a up
+-s ttbar-semilep -r sideband -j 2 -n 2 -y 18 -t loose -a down
+-s ttbar-semilep -r sideband -j 2 -n 2 -y 18 -t loose -b up
+-s ttbar-semilep -r sideband -j 2 -n 2 -y 18 -t loose -b down
+-s ttbar -r sideband -j 1 -n 3 -y 18 -t medium
+-s ttbar -r sideband -j 1 -n 3 -y 18 -t medium -J up
+-s ttbar -r sideband -j 1 -n 3 -y 18 -t medium -J down
+-s ttbar -r sideband -j 1 -n 3 -y 18 -t medium -R up
+-s ttbar -r sideband -j 1 -n 3 -y 18 -t medium -R down
+-s ttbar -r sideband -j 1 -n 3 -y 18 -t medium -a up
+-s ttbar -r sideband -j 1 -n 3 -y 18 -t medium -a down
+-s ttbar -r sideband -j 1 -n 3 -y 18 -t medium -b up
+-s ttbar -r sideband -j 1 -n 3 -y 18 -t medium -b down
+-s ttbar -r sideband -j 2 -n 3 -y 18 -t medium
+-s ttbar -r sideband -j 2 -n 3 -y 18 -t medium -J up
+-s ttbar -r sideband -j 2 -n 3 -y 18 -t medium -J down
+-s ttbar -r sideband -j 2 -n 3 -y 18 -t medium -R up
+-s ttbar -r sideband -j 2 -n 3 -y 18 -t medium -R down
+-s ttbar -r sideband -j 2 -n 3 -y 18 -t medium -a up
+-s ttbar -r sideband -j 2 -n 3 -y 18 -t medium -a down
+-s ttbar -r sideband -j 2 -n 3 -y 18 -t medium -b up
+-s ttbar -r sideband -j 2 -n 3 -y 18 -t medium -b down
+-s ttbar -r sideband -j 3 -n 3 -y 18 -t medium
+-s ttbar -r sideband -j 3 -n 3 -y 18 -t medium -J up
+-s ttbar -r sideband -j 3 -n 3 -y 18 -t medium -J down
+-s ttbar -r sideband -j 3 -n 3 -y 18 -t medium -R up
+-s ttbar -r sideband -j 3 -n 3 -y 18 -t medium -R down
+-s ttbar -r sideband -j 3 -n 3 -y 18 -t medium -a up
+-s ttbar -r sideband -j 3 -n 3 -y 18 -t medium -a down
+-s ttbar -r sideband -j 3 -n 3 -y 18 -t medium -b up
+-s ttbar -r sideband -j 3 -n 3 -y 18 -t medium -b down
+-s singletop_tWB -r sideband -j 1 -n 1 -y 18 -t medium
+-s singletop_tWB -r sideband -j 1 -n 1 -y 18 -t medium -J up
+-s singletop_tWB -r sideband -j 1 -n 1 -y 18 -t medium -J down
+-s singletop_tWB -r sideband -j 1 -n 1 -y 18 -t medium -R up
+-s singletop_tWB -r sideband -j 1 -n 1 -y 18 -t medium -R down
+-s singletop_tWB -r sideband -j 1 -n 1 -y 18 -t medium -a up
+-s singletop_tWB -r sideband -j 1 -n 1 -y 18 -t medium -a down
+-s singletop_tWB -r sideband -j 1 -n 1 -y 18 -t medium -b up
+-s singletop_tWB -r sideband -j 1 -n 1 -y 18 -t medium -b down
+-s singletop_tW -r sideband -j 1 -n 1 -y 18 -t medium
+-s singletop_tW -r sideband -j 1 -n 1 -y 18 -t medium -J up
+-s singletop_tW -r sideband -j 1 -n 1 -y 18 -t medium -J down
+-s singletop_tW -r sideband -j 1 -n 1 -y 18 -t medium -R up
+-s singletop_tW -r sideband -j 1 -n 1 -y 18 -t medium -R down
+-s singletop_tW -r sideband -j 1 -n 1 -y 18 -t medium -a up
+-s singletop_tW -r sideband -j 1 -n 1 -y 18 -t medium -a down
+-s singletop_tW -r sideband -j 1 -n 1 -y 18 -t medium -b up
+-s singletop_tW -r sideband -j 1 -n 1 -y 18 -t medium -b down
+-s ttbar-semilep -r sideband -j 1 -n 2 -y 18 -t medium
+-s ttbar-semilep -r sideband -j 1 -n 2 -y 18 -t medium -J up
+-s ttbar-semilep -r sideband -j 1 -n 2 -y 18 -t medium -J down
+-s ttbar-semilep -r sideband -j 1 -n 2 -y 18 -t medium -R up
+-s ttbar-semilep -r sideband -j 1 -n 2 -y 18 -t medium -R down
+-s ttbar-semilep -r sideband -j 1 -n 2 -y 18 -t medium -a up
+-s ttbar-semilep -r sideband -j 1 -n 2 -y 18 -t medium -a down
+-s ttbar-semilep -r sideband -j 1 -n 2 -y 18 -t medium -b up
+-s ttbar-semilep -r sideband -j 1 -n 2 -y 18 -t medium -b down
+-s ttbar-semilep -r sideband -j 2 -n 2 -y 18 -t medium
+-s ttbar-semilep -r sideband -j 2 -n 2 -y 18 -t medium -J up
+-s ttbar-semilep -r sideband -j 2 -n 2 -y 18 -t medium -J down
+-s ttbar-semilep -r sideband -j 2 -n 2 -y 18 -t medium -R up
+-s ttbar-semilep -r sideband -j 2 -n 2 -y 18 -t medium -R down
+-s ttbar-semilep -r sideband -j 2 -n 2 -y 18 -t medium -a up
+-s ttbar-semilep -r sideband -j 2 -n 2 -y 18 -t medium -a down
+-s ttbar-semilep -r sideband -j 2 -n 2 -y 18 -t medium -b up
+-s ttbar-semilep -r sideband -j 2 -n 2 -y 18 -t medium -b down
+-s ttbar -r ttbar -j 1 -n 30 -y 18 -t loose
+-s ttbar -r ttbar -j 1 -n 30 -y 18 -t loose -J up
+-s ttbar -r ttbar -j 1 -n 30 -y 18 -t loose -J down
+-s ttbar -r ttbar -j 1 -n 30 -y 18 -t loose -R up
+-s ttbar -r ttbar -j 1 -n 30 -y 18 -t loose -R down
+-s ttbar -r ttbar -j 1 -n 30 -y 18 -t loose -a up
+-s ttbar -r ttbar -j 1 -n 30 -y 18 -t loose -a down
+-s ttbar -r ttbar -j 1 -n 30 -y 18 -t loose -b up
+-s ttbar -r ttbar -j 1 -n 30 -y 18 -t loose -b down
+-s ttbar -r ttbar -j 2 -n 30 -y 18 -t loose
+-s ttbar -r ttbar -j 2 -n 30 -y 18 -t loose -J up
+-s ttbar -r ttbar -j 2 -n 30 -y 18 -t loose -J down
+-s ttbar -r ttbar -j 2 -n 30 -y 18 -t loose -R up
+-s ttbar -r ttbar -j 2 -n 30 -y 18 -t loose -R down
+-s ttbar -r ttbar -j 2 -n 30 -y 18 -t loose -a up
+-s ttbar -r ttbar -j 2 -n 30 -y 18 -t loose -a down
+-s ttbar -r ttbar -j 2 -n 30 -y 18 -t loose -b up
+-s ttbar -r ttbar -j 2 -n 30 -y 18 -t loose -b down
+-s ttbar -r ttbar -j 3 -n 30 -y 18 -t loose
+-s ttbar -r ttbar -j 3 -n 30 -y 18 -t loose -J up
+-s ttbar -r ttbar -j 3 -n 30 -y 18 -t loose -J down
+-s ttbar -r ttbar -j 3 -n 30 -y 18 -t loose -R up
+-s ttbar -r ttbar -j 3 -n 30 -y 18 -t loose -R down
+-s ttbar -r ttbar -j 3 -n 30 -y 18 -t loose -a up
+-s ttbar -r ttbar -j 3 -n 30 -y 18 -t loose -a down
+-s ttbar -r ttbar -j 3 -n 30 -y 18 -t loose -b up
+-s ttbar -r ttbar -j 3 -n 30 -y 18 -t loose -b down
+-s ttbar -r ttbar -j 4 -n 30 -y 18 -t loose
+-s ttbar -r ttbar -j 4 -n 30 -y 18 -t loose -J up
+-s ttbar -r ttbar -j 4 -n 30 -y 18 -t loose -J down
+-s ttbar -r ttbar -j 4 -n 30 -y 18 -t loose -R up
+-s ttbar -r ttbar -j 4 -n 30 -y 18 -t loose -R down
+-s ttbar -r ttbar -j 4 -n 30 -y 18 -t loose -a up
+-s ttbar -r ttbar -j 4 -n 30 -y 18 -t loose -a down
+-s ttbar -r ttbar -j 4 -n 30 -y 18 -t loose -b up
+-s ttbar -r ttbar -j 4 -n 30 -y 18 -t loose -b down
+-s ttbar -r ttbar -j 5 -n 30 -y 18 -t loose
+-s ttbar -r ttbar -j 5 -n 30 -y 18 -t loose -J up
+-s ttbar -r ttbar -j 5 -n 30 -y 18 -t loose -J down
+-s ttbar -r ttbar -j 5 -n 30 -y 18 -t loose -R up
+-s ttbar -r ttbar -j 5 -n 30 -y 18 -t loose -R down
+-s ttbar -r ttbar -j 5 -n 30 -y 18 -t loose -a up
+-s ttbar -r ttbar -j 5 -n 30 -y 18 -t loose -a down
+-s ttbar -r ttbar -j 5 -n 30 -y 18 -t loose -b up
+-s ttbar -r ttbar -j 5 -n 30 -y 18 -t loose -b down
+-s ttbar -r ttbar -j 6 -n 30 -y 18 -t loose
+-s ttbar -r ttbar -j 6 -n 30 -y 18 -t loose -J up
+-s ttbar -r ttbar -j 6 -n 30 -y 18 -t loose -J down
+-s ttbar -r ttbar -j 6 -n 30 -y 18 -t loose -R up
+-s ttbar -r ttbar -j 6 -n 30 -y 18 -t loose -R down
+-s ttbar -r ttbar -j 6 -n 30 -y 18 -t loose -a up
+-s ttbar -r ttbar -j 6 -n 30 -y 18 -t loose -a down
+-s ttbar -r ttbar -j 6 -n 30 -y 18 -t loose -b up
+-s ttbar -r ttbar -j 6 -n 30 -y 18 -t loose -b down
+-s ttbar -r ttbar -j 7 -n 30 -y 18 -t loose
+-s ttbar -r ttbar -j 7 -n 30 -y 18 -t loose -J up
+-s ttbar -r ttbar -j 7 -n 30 -y 18 -t loose -J down
+-s ttbar -r ttbar -j 7 -n 30 -y 18 -t loose -R up
+-s ttbar -r ttbar -j 7 -n 30 -y 18 -t loose -R down
+-s ttbar -r ttbar -j 7 -n 30 -y 18 -t loose -a up
+-s ttbar -r ttbar -j 7 -n 30 -y 18 -t loose -a down
+-s ttbar -r ttbar -j 7 -n 30 -y 18 -t loose -b up
+-s ttbar -r ttbar -j 7 -n 30 -y 18 -t loose -b down
+-s ttbar -r ttbar -j 8 -n 30 -y 18 -t loose
+-s ttbar -r ttbar -j 8 -n 30 -y 18 -t loose -J up
+-s ttbar -r ttbar -j 8 -n 30 -y 18 -t loose -J down
+-s ttbar -r ttbar -j 8 -n 30 -y 18 -t loose -R up
+-s ttbar -r ttbar -j 8 -n 30 -y 18 -t loose -R down
+-s ttbar -r ttbar -j 8 -n 30 -y 18 -t loose -a up
+-s ttbar -r ttbar -j 8 -n 30 -y 18 -t loose -a down
+-s ttbar -r ttbar -j 8 -n 30 -y 18 -t loose -b up
+-s ttbar -r ttbar -j 8 -n 30 -y 18 -t loose -b down
+-s ttbar -r ttbar -j 9 -n 30 -y 18 -t loose
+-s ttbar -r ttbar -j 9 -n 30 -y 18 -t loose -J up
+-s ttbar -r ttbar -j 9 -n 30 -y 18 -t loose -J down
+-s ttbar -r ttbar -j 9 -n 30 -y 18 -t loose -R up
+-s ttbar -r ttbar -j 9 -n 30 -y 18 -t loose -R down
+-s ttbar -r ttbar -j 9 -n 30 -y 18 -t loose -a up
+-s ttbar -r ttbar -j 9 -n 30 -y 18 -t loose -a down
+-s ttbar -r ttbar -j 9 -n 30 -y 18 -t loose -b up
+-s ttbar -r ttbar -j 9 -n 30 -y 18 -t loose -b down
+-s ttbar -r ttbar -j 10 -n 30 -y 18 -t loose
+-s ttbar -r ttbar -j 10 -n 30 -y 18 -t loose -J up
+-s ttbar -r ttbar -j 10 -n 30 -y 18 -t loose -J down
+-s ttbar -r ttbar -j 10 -n 30 -y 18 -t loose -R up
+-s ttbar -r ttbar -j 10 -n 30 -y 18 -t loose -R down
+-s ttbar -r ttbar -j 10 -n 30 -y 18 -t loose -a up
+-s ttbar -r ttbar -j 10 -n 30 -y 18 -t loose -a down
+-s ttbar -r ttbar -j 10 -n 30 -y 18 -t loose -b up
+-s ttbar -r ttbar -j 10 -n 30 -y 18 -t loose -b down
+-s ttbar -r ttbar -j 11 -n 30 -y 18 -t loose
+-s ttbar -r ttbar -j 11 -n 30 -y 18 -t loose -J up
+-s ttbar -r ttbar -j 11 -n 30 -y 18 -t loose -J down
+-s ttbar -r ttbar -j 11 -n 30 -y 18 -t loose -R up
+-s ttbar -r ttbar -j 11 -n 30 -y 18 -t loose -R down
+-s ttbar -r ttbar -j 11 -n 30 -y 18 -t loose -a up
+-s ttbar -r ttbar -j 11 -n 30 -y 18 -t loose -a down
+-s ttbar -r ttbar -j 11 -n 30 -y 18 -t loose -b up
+-s ttbar -r ttbar -j 11 -n 30 -y 18 -t loose -b down
+-s ttbar -r ttbar -j 12 -n 30 -y 18 -t loose
+-s ttbar -r ttbar -j 12 -n 30 -y 18 -t loose -J up
+-s ttbar -r ttbar -j 12 -n 30 -y 18 -t loose -J down
+-s ttbar -r ttbar -j 12 -n 30 -y 18 -t loose -R up
+-s ttbar -r ttbar -j 12 -n 30 -y 18 -t loose -R down
+-s ttbar -r ttbar -j 12 -n 30 -y 18 -t loose -a up
+-s ttbar -r ttbar -j 12 -n 30 -y 18 -t loose -a down
+-s ttbar -r ttbar -j 12 -n 30 -y 18 -t loose -b up
+-s ttbar -r ttbar -j 12 -n 30 -y 18 -t loose -b down
+-s ttbar -r ttbar -j 13 -n 30 -y 18 -t loose
+-s ttbar -r ttbar -j 13 -n 30 -y 18 -t loose -J up
+-s ttbar -r ttbar -j 13 -n 30 -y 18 -t loose -J down
+-s ttbar -r ttbar -j 13 -n 30 -y 18 -t loose -R up
+-s ttbar -r ttbar -j 13 -n 30 -y 18 -t loose -R down
+-s ttbar -r ttbar -j 13 -n 30 -y 18 -t loose -a up
+-s ttbar -r ttbar -j 13 -n 30 -y 18 -t loose -a down
+-s ttbar -r ttbar -j 13 -n 30 -y 18 -t loose -b up
+-s ttbar -r ttbar -j 13 -n 30 -y 18 -t loose -b down
+-s ttbar -r ttbar -j 14 -n 30 -y 18 -t loose
+-s ttbar -r ttbar -j 14 -n 30 -y 18 -t loose -J up
+-s ttbar -r ttbar -j 14 -n 30 -y 18 -t loose -J down
+-s ttbar -r ttbar -j 14 -n 30 -y 18 -t loose -R up
+-s ttbar -r ttbar -j 14 -n 30 -y 18 -t loose -R down
+-s ttbar -r ttbar -j 14 -n 30 -y 18 -t loose -a up
+-s ttbar -r ttbar -j 14 -n 30 -y 18 -t loose -a down
+-s ttbar -r ttbar -j 14 -n 30 -y 18 -t loose -b up
+-s ttbar -r ttbar -j 14 -n 30 -y 18 -t loose -b down
+-s ttbar -r ttbar -j 15 -n 30 -y 18 -t loose
+-s ttbar -r ttbar -j 15 -n 30 -y 18 -t loose -J up
+-s ttbar -r ttbar -j 15 -n 30 -y 18 -t loose -J down
+-s ttbar -r ttbar -j 15 -n 30 -y 18 -t loose -R up
+-s ttbar -r ttbar -j 15 -n 30 -y 18 -t loose -R down
+-s ttbar -r ttbar -j 15 -n 30 -y 18 -t loose -a up
+-s ttbar -r ttbar -j 15 -n 30 -y 18 -t loose -a down
+-s ttbar -r ttbar -j 15 -n 30 -y 18 -t loose -b up
+-s ttbar -r ttbar -j 15 -n 30 -y 18 -t loose -b down
+-s ttbar -r ttbar -j 16 -n 30 -y 18 -t loose
+-s ttbar -r ttbar -j 16 -n 30 -y 18 -t loose -J up
+-s ttbar -r ttbar -j 16 -n 30 -y 18 -t loose -J down
+-s ttbar -r ttbar -j 16 -n 30 -y 18 -t loose -R up
+-s ttbar -r ttbar -j 16 -n 30 -y 18 -t loose -R down
+-s ttbar -r ttbar -j 16 -n 30 -y 18 -t loose -a up
+-s ttbar -r ttbar -j 16 -n 30 -y 18 -t loose -a down
+-s ttbar -r ttbar -j 16 -n 30 -y 18 -t loose -b up
+-s ttbar -r ttbar -j 16 -n 30 -y 18 -t loose -b down
+-s ttbar -r ttbar -j 17 -n 30 -y 18 -t loose
+-s ttbar -r ttbar -j 17 -n 30 -y 18 -t loose -J up
+-s ttbar -r ttbar -j 17 -n 30 -y 18 -t loose -J down
+-s ttbar -r ttbar -j 17 -n 30 -y 18 -t loose -R up
+-s ttbar -r ttbar -j 17 -n 30 -y 18 -t loose -R down
+-s ttbar -r ttbar -j 17 -n 30 -y 18 -t loose -a up
+-s ttbar -r ttbar -j 17 -n 30 -y 18 -t loose -a down
+-s ttbar -r ttbar -j 17 -n 30 -y 18 -t loose -b up
+-s ttbar -r ttbar -j 17 -n 30 -y 18 -t loose -b down
+-s ttbar -r ttbar -j 18 -n 30 -y 18 -t loose
+-s ttbar -r ttbar -j 18 -n 30 -y 18 -t loose -J up
+-s ttbar -r ttbar -j 18 -n 30 -y 18 -t loose -J down
+-s ttbar -r ttbar -j 18 -n 30 -y 18 -t loose -R up
+-s ttbar -r ttbar -j 18 -n 30 -y 18 -t loose -R down
+-s ttbar -r ttbar -j 18 -n 30 -y 18 -t loose -a up
+-s ttbar -r ttbar -j 18 -n 30 -y 18 -t loose -a down
+-s ttbar -r ttbar -j 18 -n 30 -y 18 -t loose -b up
+-s ttbar -r ttbar -j 18 -n 30 -y 18 -t loose -b down
+-s ttbar -r ttbar -j 19 -n 30 -y 18 -t loose
+-s ttbar -r ttbar -j 19 -n 30 -y 18 -t loose -J up
+-s ttbar -r ttbar -j 19 -n 30 -y 18 -t loose -J down
+-s ttbar -r ttbar -j 19 -n 30 -y 18 -t loose -R up
+-s ttbar -r ttbar -j 19 -n 30 -y 18 -t loose -R down
+-s ttbar -r ttbar -j 19 -n 30 -y 18 -t loose -a up
+-s ttbar -r ttbar -j 19 -n 30 -y 18 -t loose -a down
+-s ttbar -r ttbar -j 19 -n 30 -y 18 -t loose -b up
+-s ttbar -r ttbar -j 19 -n 30 -y 18 -t loose -b down
+-s ttbar -r ttbar -j 20 -n 30 -y 18 -t loose
+-s ttbar -r ttbar -j 20 -n 30 -y 18 -t loose -J up
+-s ttbar -r ttbar -j 20 -n 30 -y 18 -t loose -J down
+-s ttbar -r ttbar -j 20 -n 30 -y 18 -t loose -R up
+-s ttbar -r ttbar -j 20 -n 30 -y 18 -t loose -R down
+-s ttbar -r ttbar -j 20 -n 30 -y 18 -t loose -a up
+-s ttbar -r ttbar -j 20 -n 30 -y 18 -t loose -a down
+-s ttbar -r ttbar -j 20 -n 30 -y 18 -t loose -b up
+-s ttbar -r ttbar -j 20 -n 30 -y 18 -t loose -b down
+-s ttbar -r ttbar -j 21 -n 30 -y 18 -t loose
+-s ttbar -r ttbar -j 21 -n 30 -y 18 -t loose -J up
+-s ttbar -r ttbar -j 21 -n 30 -y 18 -t loose -J down
+-s ttbar -r ttbar -j 21 -n 30 -y 18 -t loose -R up
+-s ttbar -r ttbar -j 21 -n 30 -y 18 -t loose -R down
+-s ttbar -r ttbar -j 21 -n 30 -y 18 -t loose -a up
+-s ttbar -r ttbar -j 21 -n 30 -y 18 -t loose -a down
+-s ttbar -r ttbar -j 21 -n 30 -y 18 -t loose -b up
+-s ttbar -r ttbar -j 21 -n 30 -y 18 -t loose -b down
+-s ttbar -r ttbar -j 22 -n 30 -y 18 -t loose
+-s ttbar -r ttbar -j 22 -n 30 -y 18 -t loose -J up
+-s ttbar -r ttbar -j 22 -n 30 -y 18 -t loose -J down
+-s ttbar -r ttbar -j 22 -n 30 -y 18 -t loose -R up
+-s ttbar -r ttbar -j 22 -n 30 -y 18 -t loose -R down
+-s ttbar -r ttbar -j 22 -n 30 -y 18 -t loose -a up
+-s ttbar -r ttbar -j 22 -n 30 -y 18 -t loose -a down
+-s ttbar -r ttbar -j 22 -n 30 -y 18 -t loose -b up
+-s ttbar -r ttbar -j 22 -n 30 -y 18 -t loose -b down
+-s ttbar -r ttbar -j 23 -n 30 -y 18 -t loose
+-s ttbar -r ttbar -j 23 -n 30 -y 18 -t loose -J up
+-s ttbar -r ttbar -j 23 -n 30 -y 18 -t loose -J down
+-s ttbar -r ttbar -j 23 -n 30 -y 18 -t loose -R up
+-s ttbar -r ttbar -j 23 -n 30 -y 18 -t loose -R down
+-s ttbar -r ttbar -j 23 -n 30 -y 18 -t loose -a up
+-s ttbar -r ttbar -j 23 -n 30 -y 18 -t loose -a down
+-s ttbar -r ttbar -j 23 -n 30 -y 18 -t loose -b up
+-s ttbar -r ttbar -j 23 -n 30 -y 18 -t loose -b down
+-s ttbar -r ttbar -j 24 -n 30 -y 18 -t loose
+-s ttbar -r ttbar -j 24 -n 30 -y 18 -t loose -J up
+-s ttbar -r ttbar -j 24 -n 30 -y 18 -t loose -J down
+-s ttbar -r ttbar -j 24 -n 30 -y 18 -t loose -R up
+-s ttbar -r ttbar -j 24 -n 30 -y 18 -t loose -R down
+-s ttbar -r ttbar -j 24 -n 30 -y 18 -t loose -a up
+-s ttbar -r ttbar -j 24 -n 30 -y 18 -t loose -a down
+-s ttbar -r ttbar -j 24 -n 30 -y 18 -t loose -b up
+-s ttbar -r ttbar -j 24 -n 30 -y 18 -t loose -b down
+-s ttbar -r ttbar -j 25 -n 30 -y 18 -t loose
+-s ttbar -r ttbar -j 25 -n 30 -y 18 -t loose -J up
+-s ttbar -r ttbar -j 25 -n 30 -y 18 -t loose -J down
+-s ttbar -r ttbar -j 25 -n 30 -y 18 -t loose -R up
+-s ttbar -r ttbar -j 25 -n 30 -y 18 -t loose -R down
+-s ttbar -r ttbar -j 25 -n 30 -y 18 -t loose -a up
+-s ttbar -r ttbar -j 25 -n 30 -y 18 -t loose -a down
+-s ttbar -r ttbar -j 25 -n 30 -y 18 -t loose -b up
+-s ttbar -r ttbar -j 25 -n 30 -y 18 -t loose -b down
+-s ttbar -r ttbar -j 26 -n 30 -y 18 -t loose
+-s ttbar -r ttbar -j 26 -n 30 -y 18 -t loose -J up
+-s ttbar -r ttbar -j 26 -n 30 -y 18 -t loose -J down
+-s ttbar -r ttbar -j 26 -n 30 -y 18 -t loose -R up
+-s ttbar -r ttbar -j 26 -n 30 -y 18 -t loose -R down
+-s ttbar -r ttbar -j 26 -n 30 -y 18 -t loose -a up
+-s ttbar -r ttbar -j 26 -n 30 -y 18 -t loose -a down
+-s ttbar -r ttbar -j 26 -n 30 -y 18 -t loose -b up
+-s ttbar -r ttbar -j 26 -n 30 -y 18 -t loose -b down
+-s ttbar -r ttbar -j 27 -n 30 -y 18 -t loose
+-s ttbar -r ttbar -j 27 -n 30 -y 18 -t loose -J up
+-s ttbar -r ttbar -j 27 -n 30 -y 18 -t loose -J down
+-s ttbar -r ttbar -j 27 -n 30 -y 18 -t loose -R up
+-s ttbar -r ttbar -j 27 -n 30 -y 18 -t loose -R down
+-s ttbar -r ttbar -j 27 -n 30 -y 18 -t loose -a up
+-s ttbar -r ttbar -j 27 -n 30 -y 18 -t loose -a down
+-s ttbar -r ttbar -j 27 -n 30 -y 18 -t loose -b up
+-s ttbar -r ttbar -j 27 -n 30 -y 18 -t loose -b down
+-s ttbar -r ttbar -j 28 -n 30 -y 18 -t loose
+-s ttbar -r ttbar -j 28 -n 30 -y 18 -t loose -J up
+-s ttbar -r ttbar -j 28 -n 30 -y 18 -t loose -J down
+-s ttbar -r ttbar -j 28 -n 30 -y 18 -t loose -R up
+-s ttbar -r ttbar -j 28 -n 30 -y 18 -t loose -R down
+-s ttbar -r ttbar -j 28 -n 30 -y 18 -t loose -a up
+-s ttbar -r ttbar -j 28 -n 30 -y 18 -t loose -a down
+-s ttbar -r ttbar -j 28 -n 30 -y 18 -t loose -b up
+-s ttbar -r ttbar -j 28 -n 30 -y 18 -t loose -b down
+-s ttbar -r ttbar -j 29 -n 30 -y 18 -t loose
+-s ttbar -r ttbar -j 29 -n 30 -y 18 -t loose -J up
+-s ttbar -r ttbar -j 29 -n 30 -y 18 -t loose -J down
+-s ttbar -r ttbar -j 29 -n 30 -y 18 -t loose -R up
+-s ttbar -r ttbar -j 29 -n 30 -y 18 -t loose -R down
+-s ttbar -r ttbar -j 29 -n 30 -y 18 -t loose -a up
+-s ttbar -r ttbar -j 29 -n 30 -y 18 -t loose -a down
+-s ttbar -r ttbar -j 29 -n 30 -y 18 -t loose -b up
+-s ttbar -r ttbar -j 29 -n 30 -y 18 -t loose -b down
+-s ttbar -r ttbar -j 30 -n 30 -y 18 -t loose
+-s ttbar -r ttbar -j 30 -n 30 -y 18 -t loose -J up
+-s ttbar -r ttbar -j 30 -n 30 -y 18 -t loose -J down
+-s ttbar -r ttbar -j 30 -n 30 -y 18 -t loose -R up
+-s ttbar -r ttbar -j 30 -n 30 -y 18 -t loose -R down
+-s ttbar -r ttbar -j 30 -n 30 -y 18 -t loose -a up
+-s ttbar -r ttbar -j 30 -n 30 -y 18 -t loose -a down
+-s ttbar -r ttbar -j 30 -n 30 -y 18 -t loose -b up
+-s ttbar -r ttbar -j 30 -n 30 -y 18 -t loose -b down
+-s singletop_tWB -r ttbar -j 1 -n 1 -y 18 -t loose
+-s singletop_tWB -r ttbar -j 1 -n 1 -y 18 -t loose -J up
+-s singletop_tWB -r ttbar -j 1 -n 1 -y 18 -t loose -J down
+-s singletop_tWB -r ttbar -j 1 -n 1 -y 18 -t loose -R up
+-s singletop_tWB -r ttbar -j 1 -n 1 -y 18 -t loose -R down
+-s singletop_tWB -r ttbar -j 1 -n 1 -y 18 -t loose -a up
+-s singletop_tWB -r ttbar -j 1 -n 1 -y 18 -t loose -a down
+-s singletop_tWB -r ttbar -j 1 -n 1 -y 18 -t loose -b up
+-s singletop_tWB -r ttbar -j 1 -n 1 -y 18 -t loose -b down
+-s singletop_tW -r ttbar -j 1 -n 1 -y 18 -t loose
+-s singletop_tW -r ttbar -j 1 -n 1 -y 18 -t loose -J up
+-s singletop_tW -r ttbar -j 1 -n 1 -y 18 -t loose -J down
+-s singletop_tW -r ttbar -j 1 -n 1 -y 18 -t loose -R up
+-s singletop_tW -r ttbar -j 1 -n 1 -y 18 -t loose -R down
+-s singletop_tW -r ttbar -j 1 -n 1 -y 18 -t loose -a up
+-s singletop_tW -r ttbar -j 1 -n 1 -y 18 -t loose -a down
+-s singletop_tW -r ttbar -j 1 -n 1 -y 18 -t loose -b up
+-s singletop_tW -r ttbar -j 1 -n 1 -y 18 -t loose -b down
+-s ttbar-semilep -r ttbar -j 1 -n 20 -y 18 -t loose
+-s ttbar-semilep -r ttbar -j 1 -n 20 -y 18 -t loose -J up
+-s ttbar-semilep -r ttbar -j 1 -n 20 -y 18 -t loose -J down
+-s ttbar-semilep -r ttbar -j 1 -n 20 -y 18 -t loose -R up
+-s ttbar-semilep -r ttbar -j 1 -n 20 -y 18 -t loose -R down
+-s ttbar-semilep -r ttbar -j 1 -n 20 -y 18 -t loose -a up
+-s ttbar-semilep -r ttbar -j 1 -n 20 -y 18 -t loose -a down
+-s ttbar-semilep -r ttbar -j 1 -n 20 -y 18 -t loose -b up
+-s ttbar-semilep -r ttbar -j 1 -n 20 -y 18 -t loose -b down
+-s ttbar-semilep -r ttbar -j 2 -n 20 -y 18 -t loose
+-s ttbar-semilep -r ttbar -j 2 -n 20 -y 18 -t loose -J up
+-s ttbar-semilep -r ttbar -j 2 -n 20 -y 18 -t loose -J down
+-s ttbar-semilep -r ttbar -j 2 -n 20 -y 18 -t loose -R up
+-s ttbar-semilep -r ttbar -j 2 -n 20 -y 18 -t loose -R down
+-s ttbar-semilep -r ttbar -j 2 -n 20 -y 18 -t loose -a up
+-s ttbar-semilep -r ttbar -j 2 -n 20 -y 18 -t loose -a down
+-s ttbar-semilep -r ttbar -j 2 -n 20 -y 18 -t loose -b up
+-s ttbar-semilep -r ttbar -j 2 -n 20 -y 18 -t loose -b down
+-s ttbar-semilep -r ttbar -j 3 -n 20 -y 18 -t loose
+-s ttbar-semilep -r ttbar -j 3 -n 20 -y 18 -t loose -J up
+-s ttbar-semilep -r ttbar -j 3 -n 20 -y 18 -t loose -J down
+-s ttbar-semilep -r ttbar -j 3 -n 20 -y 18 -t loose -R up
+-s ttbar-semilep -r ttbar -j 3 -n 20 -y 18 -t loose -R down
+-s ttbar-semilep -r ttbar -j 3 -n 20 -y 18 -t loose -a up
+-s ttbar-semilep -r ttbar -j 3 -n 20 -y 18 -t loose -a down
+-s ttbar-semilep -r ttbar -j 3 -n 20 -y 18 -t loose -b up
+-s ttbar-semilep -r ttbar -j 3 -n 20 -y 18 -t loose -b down
+-s ttbar-semilep -r ttbar -j 4 -n 20 -y 18 -t loose
+-s ttbar-semilep -r ttbar -j 4 -n 20 -y 18 -t loose -J up
+-s ttbar-semilep -r ttbar -j 4 -n 20 -y 18 -t loose -J down
+-s ttbar-semilep -r ttbar -j 4 -n 20 -y 18 -t loose -R up
+-s ttbar-semilep -r ttbar -j 4 -n 20 -y 18 -t loose -R down
+-s ttbar-semilep -r ttbar -j 4 -n 20 -y 18 -t loose -a up
+-s ttbar-semilep -r ttbar -j 4 -n 20 -y 18 -t loose -a down
+-s ttbar-semilep -r ttbar -j 4 -n 20 -y 18 -t loose -b up
+-s ttbar-semilep -r ttbar -j 4 -n 20 -y 18 -t loose -b down
+-s ttbar-semilep -r ttbar -j 5 -n 20 -y 18 -t loose
+-s ttbar-semilep -r ttbar -j 5 -n 20 -y 18 -t loose -J up
+-s ttbar-semilep -r ttbar -j 5 -n 20 -y 18 -t loose -J down
+-s ttbar-semilep -r ttbar -j 5 -n 20 -y 18 -t loose -R up
+-s ttbar-semilep -r ttbar -j 5 -n 20 -y 18 -t loose -R down
+-s ttbar-semilep -r ttbar -j 5 -n 20 -y 18 -t loose -a up
+-s ttbar-semilep -r ttbar -j 5 -n 20 -y 18 -t loose -a down
+-s ttbar-semilep -r ttbar -j 5 -n 20 -y 18 -t loose -b up
+-s ttbar-semilep -r ttbar -j 5 -n 20 -y 18 -t loose -b down
+-s ttbar-semilep -r ttbar -j 6 -n 20 -y 18 -t loose
+-s ttbar-semilep -r ttbar -j 6 -n 20 -y 18 -t loose -J up
+-s ttbar-semilep -r ttbar -j 6 -n 20 -y 18 -t loose -J down
+-s ttbar-semilep -r ttbar -j 6 -n 20 -y 18 -t loose -R up
+-s ttbar-semilep -r ttbar -j 6 -n 20 -y 18 -t loose -R down
+-s ttbar-semilep -r ttbar -j 6 -n 20 -y 18 -t loose -a up
+-s ttbar-semilep -r ttbar -j 6 -n 20 -y 18 -t loose -a down
+-s ttbar-semilep -r ttbar -j 6 -n 20 -y 18 -t loose -b up
+-s ttbar-semilep -r ttbar -j 6 -n 20 -y 18 -t loose -b down
+-s ttbar-semilep -r ttbar -j 7 -n 20 -y 18 -t loose
+-s ttbar-semilep -r ttbar -j 7 -n 20 -y 18 -t loose -J up
+-s ttbar-semilep -r ttbar -j 7 -n 20 -y 18 -t loose -J down
+-s ttbar-semilep -r ttbar -j 7 -n 20 -y 18 -t loose -R up
+-s ttbar-semilep -r ttbar -j 7 -n 20 -y 18 -t loose -R down
+-s ttbar-semilep -r ttbar -j 7 -n 20 -y 18 -t loose -a up
+-s ttbar-semilep -r ttbar -j 7 -n 20 -y 18 -t loose -a down
+-s ttbar-semilep -r ttbar -j 7 -n 20 -y 18 -t loose -b up
+-s ttbar-semilep -r ttbar -j 7 -n 20 -y 18 -t loose -b down
+-s ttbar-semilep -r ttbar -j 8 -n 20 -y 18 -t loose
+-s ttbar-semilep -r ttbar -j 8 -n 20 -y 18 -t loose -J up
+-s ttbar-semilep -r ttbar -j 8 -n 20 -y 18 -t loose -J down
+-s ttbar-semilep -r ttbar -j 8 -n 20 -y 18 -t loose -R up
+-s ttbar-semilep -r ttbar -j 8 -n 20 -y 18 -t loose -R down
+-s ttbar-semilep -r ttbar -j 8 -n 20 -y 18 -t loose -a up
+-s ttbar-semilep -r ttbar -j 8 -n 20 -y 18 -t loose -a down
+-s ttbar-semilep -r ttbar -j 8 -n 20 -y 18 -t loose -b up
+-s ttbar-semilep -r ttbar -j 8 -n 20 -y 18 -t loose -b down
+-s ttbar-semilep -r ttbar -j 9 -n 20 -y 18 -t loose
+-s ttbar-semilep -r ttbar -j 9 -n 20 -y 18 -t loose -J up
+-s ttbar-semilep -r ttbar -j 9 -n 20 -y 18 -t loose -J down
+-s ttbar-semilep -r ttbar -j 9 -n 20 -y 18 -t loose -R up
+-s ttbar-semilep -r ttbar -j 9 -n 20 -y 18 -t loose -R down
+-s ttbar-semilep -r ttbar -j 9 -n 20 -y 18 -t loose -a up
+-s ttbar-semilep -r ttbar -j 9 -n 20 -y 18 -t loose -a down
+-s ttbar-semilep -r ttbar -j 9 -n 20 -y 18 -t loose -b up
+-s ttbar-semilep -r ttbar -j 9 -n 20 -y 18 -t loose -b down
+-s ttbar-semilep -r ttbar -j 10 -n 20 -y 18 -t loose
+-s ttbar-semilep -r ttbar -j 10 -n 20 -y 18 -t loose -J up
+-s ttbar-semilep -r ttbar -j 10 -n 20 -y 18 -t loose -J down
+-s ttbar-semilep -r ttbar -j 10 -n 20 -y 18 -t loose -R up
+-s ttbar-semilep -r ttbar -j 10 -n 20 -y 18 -t loose -R down
+-s ttbar-semilep -r ttbar -j 10 -n 20 -y 18 -t loose -a up
+-s ttbar-semilep -r ttbar -j 10 -n 20 -y 18 -t loose -a down
+-s ttbar-semilep -r ttbar -j 10 -n 20 -y 18 -t loose -b up
+-s ttbar-semilep -r ttbar -j 10 -n 20 -y 18 -t loose -b down
+-s ttbar-semilep -r ttbar -j 11 -n 20 -y 18 -t loose
+-s ttbar-semilep -r ttbar -j 11 -n 20 -y 18 -t loose -J up
+-s ttbar-semilep -r ttbar -j 11 -n 20 -y 18 -t loose -J down
+-s ttbar-semilep -r ttbar -j 11 -n 20 -y 18 -t loose -R up
+-s ttbar-semilep -r ttbar -j 11 -n 20 -y 18 -t loose -R down
+-s ttbar-semilep -r ttbar -j 11 -n 20 -y 18 -t loose -a up
+-s ttbar-semilep -r ttbar -j 11 -n 20 -y 18 -t loose -a down
+-s ttbar-semilep -r ttbar -j 11 -n 20 -y 18 -t loose -b up
+-s ttbar-semilep -r ttbar -j 11 -n 20 -y 18 -t loose -b down
+-s ttbar-semilep -r ttbar -j 12 -n 20 -y 18 -t loose
+-s ttbar-semilep -r ttbar -j 12 -n 20 -y 18 -t loose -J up
+-s ttbar-semilep -r ttbar -j 12 -n 20 -y 18 -t loose -J down
+-s ttbar-semilep -r ttbar -j 12 -n 20 -y 18 -t loose -R up
+-s ttbar-semilep -r ttbar -j 12 -n 20 -y 18 -t loose -R down
+-s ttbar-semilep -r ttbar -j 12 -n 20 -y 18 -t loose -a up
+-s ttbar-semilep -r ttbar -j 12 -n 20 -y 18 -t loose -a down
+-s ttbar-semilep -r ttbar -j 12 -n 20 -y 18 -t loose -b up
+-s ttbar-semilep -r ttbar -j 12 -n 20 -y 18 -t loose -b down
+-s ttbar-semilep -r ttbar -j 13 -n 20 -y 18 -t loose
+-s ttbar-semilep -r ttbar -j 13 -n 20 -y 18 -t loose -J up
+-s ttbar-semilep -r ttbar -j 13 -n 20 -y 18 -t loose -J down
+-s ttbar-semilep -r ttbar -j 13 -n 20 -y 18 -t loose -R up
+-s ttbar-semilep -r ttbar -j 13 -n 20 -y 18 -t loose -R down
+-s ttbar-semilep -r ttbar -j 13 -n 20 -y 18 -t loose -a up
+-s ttbar-semilep -r ttbar -j 13 -n 20 -y 18 -t loose -a down
+-s ttbar-semilep -r ttbar -j 13 -n 20 -y 18 -t loose -b up
+-s ttbar-semilep -r ttbar -j 13 -n 20 -y 18 -t loose -b down
+-s ttbar-semilep -r ttbar -j 14 -n 20 -y 18 -t loose
+-s ttbar-semilep -r ttbar -j 14 -n 20 -y 18 -t loose -J up
+-s ttbar-semilep -r ttbar -j 14 -n 20 -y 18 -t loose -J down
+-s ttbar-semilep -r ttbar -j 14 -n 20 -y 18 -t loose -R up
+-s ttbar-semilep -r ttbar -j 14 -n 20 -y 18 -t loose -R down
+-s ttbar-semilep -r ttbar -j 14 -n 20 -y 18 -t loose -a up
+-s ttbar-semilep -r ttbar -j 14 -n 20 -y 18 -t loose -a down
+-s ttbar-semilep -r ttbar -j 14 -n 20 -y 18 -t loose -b up
+-s ttbar-semilep -r ttbar -j 14 -n 20 -y 18 -t loose -b down
+-s ttbar-semilep -r ttbar -j 15 -n 20 -y 18 -t loose
+-s ttbar-semilep -r ttbar -j 15 -n 20 -y 18 -t loose -J up
+-s ttbar-semilep -r ttbar -j 15 -n 20 -y 18 -t loose -J down
+-s ttbar-semilep -r ttbar -j 15 -n 20 -y 18 -t loose -R up
+-s ttbar-semilep -r ttbar -j 15 -n 20 -y 18 -t loose -R down
+-s ttbar-semilep -r ttbar -j 15 -n 20 -y 18 -t loose -a up
+-s ttbar-semilep -r ttbar -j 15 -n 20 -y 18 -t loose -a down
+-s ttbar-semilep -r ttbar -j 15 -n 20 -y 18 -t loose -b up
+-s ttbar-semilep -r ttbar -j 15 -n 20 -y 18 -t loose -b down
+-s ttbar-semilep -r ttbar -j 16 -n 20 -y 18 -t loose
+-s ttbar-semilep -r ttbar -j 16 -n 20 -y 18 -t loose -J up
+-s ttbar-semilep -r ttbar -j 16 -n 20 -y 18 -t loose -J down
+-s ttbar-semilep -r ttbar -j 16 -n 20 -y 18 -t loose -R up
+-s ttbar-semilep -r ttbar -j 16 -n 20 -y 18 -t loose -R down
+-s ttbar-semilep -r ttbar -j 16 -n 20 -y 18 -t loose -a up
+-s ttbar-semilep -r ttbar -j 16 -n 20 -y 18 -t loose -a down
+-s ttbar-semilep -r ttbar -j 16 -n 20 -y 18 -t loose -b up
+-s ttbar-semilep -r ttbar -j 16 -n 20 -y 18 -t loose -b down
+-s ttbar-semilep -r ttbar -j 17 -n 20 -y 18 -t loose
+-s ttbar-semilep -r ttbar -j 17 -n 20 -y 18 -t loose -J up
+-s ttbar-semilep -r ttbar -j 17 -n 20 -y 18 -t loose -J down
+-s ttbar-semilep -r ttbar -j 17 -n 20 -y 18 -t loose -R up
+-s ttbar-semilep -r ttbar -j 17 -n 20 -y 18 -t loose -R down
+-s ttbar-semilep -r ttbar -j 17 -n 20 -y 18 -t loose -a up
+-s ttbar-semilep -r ttbar -j 17 -n 20 -y 18 -t loose -a down
+-s ttbar-semilep -r ttbar -j 17 -n 20 -y 18 -t loose -b up
+-s ttbar-semilep -r ttbar -j 17 -n 20 -y 18 -t loose -b down
+-s ttbar-semilep -r ttbar -j 18 -n 20 -y 18 -t loose
+-s ttbar-semilep -r ttbar -j 18 -n 20 -y 18 -t loose -J up
+-s ttbar-semilep -r ttbar -j 18 -n 20 -y 18 -t loose -J down
+-s ttbar-semilep -r ttbar -j 18 -n 20 -y 18 -t loose -R up
+-s ttbar-semilep -r ttbar -j 18 -n 20 -y 18 -t loose -R down
+-s ttbar-semilep -r ttbar -j 18 -n 20 -y 18 -t loose -a up
+-s ttbar-semilep -r ttbar -j 18 -n 20 -y 18 -t loose -a down
+-s ttbar-semilep -r ttbar -j 18 -n 20 -y 18 -t loose -b up
+-s ttbar-semilep -r ttbar -j 18 -n 20 -y 18 -t loose -b down
+-s ttbar-semilep -r ttbar -j 19 -n 20 -y 18 -t loose
+-s ttbar-semilep -r ttbar -j 19 -n 20 -y 18 -t loose -J up
+-s ttbar-semilep -r ttbar -j 19 -n 20 -y 18 -t loose -J down
+-s ttbar-semilep -r ttbar -j 19 -n 20 -y 18 -t loose -R up
+-s ttbar-semilep -r ttbar -j 19 -n 20 -y 18 -t loose -R down
+-s ttbar-semilep -r ttbar -j 19 -n 20 -y 18 -t loose -a up
+-s ttbar-semilep -r ttbar -j 19 -n 20 -y 18 -t loose -a down
+-s ttbar-semilep -r ttbar -j 19 -n 20 -y 18 -t loose -b up
+-s ttbar-semilep -r ttbar -j 19 -n 20 -y 18 -t loose -b down
+-s ttbar-semilep -r ttbar -j 20 -n 20 -y 18 -t loose
+-s ttbar-semilep -r ttbar -j 20 -n 20 -y 18 -t loose -J up
+-s ttbar-semilep -r ttbar -j 20 -n 20 -y 18 -t loose -J down
+-s ttbar-semilep -r ttbar -j 20 -n 20 -y 18 -t loose -R up
+-s ttbar-semilep -r ttbar -j 20 -n 20 -y 18 -t loose -R down
+-s ttbar-semilep -r ttbar -j 20 -n 20 -y 18 -t loose -a up
+-s ttbar-semilep -r ttbar -j 20 -n 20 -y 18 -t loose -a down
+-s ttbar-semilep -r ttbar -j 20 -n 20 -y 18 -t loose -b up
+-s ttbar-semilep -r ttbar -j 20 -n 20 -y 18 -t loose -b down
+-s ttbar -r ttbar -j 1 -n 30 -y 18 -t medium
+-s ttbar -r ttbar -j 1 -n 30 -y 18 -t medium -J up
+-s ttbar -r ttbar -j 1 -n 30 -y 18 -t medium -J down
+-s ttbar -r ttbar -j 1 -n 30 -y 18 -t medium -R up
+-s ttbar -r ttbar -j 1 -n 30 -y 18 -t medium -R down
+-s ttbar -r ttbar -j 1 -n 30 -y 18 -t medium -a up
+-s ttbar -r ttbar -j 1 -n 30 -y 18 -t medium -a down
+-s ttbar -r ttbar -j 1 -n 30 -y 18 -t medium -b up
+-s ttbar -r ttbar -j 1 -n 30 -y 18 -t medium -b down
+-s ttbar -r ttbar -j 2 -n 30 -y 18 -t medium
+-s ttbar -r ttbar -j 2 -n 30 -y 18 -t medium -J up
+-s ttbar -r ttbar -j 2 -n 30 -y 18 -t medium -J down
+-s ttbar -r ttbar -j 2 -n 30 -y 18 -t medium -R up
+-s ttbar -r ttbar -j 2 -n 30 -y 18 -t medium -R down
+-s ttbar -r ttbar -j 2 -n 30 -y 18 -t medium -a up
+-s ttbar -r ttbar -j 2 -n 30 -y 18 -t medium -a down
+-s ttbar -r ttbar -j 2 -n 30 -y 18 -t medium -b up
+-s ttbar -r ttbar -j 2 -n 30 -y 18 -t medium -b down
+-s ttbar -r ttbar -j 3 -n 30 -y 18 -t medium
+-s ttbar -r ttbar -j 3 -n 30 -y 18 -t medium -J up
+-s ttbar -r ttbar -j 3 -n 30 -y 18 -t medium -J down
+-s ttbar -r ttbar -j 3 -n 30 -y 18 -t medium -R up
+-s ttbar -r ttbar -j 3 -n 30 -y 18 -t medium -R down
+-s ttbar -r ttbar -j 3 -n 30 -y 18 -t medium -a up
+-s ttbar -r ttbar -j 3 -n 30 -y 18 -t medium -a down
+-s ttbar -r ttbar -j 3 -n 30 -y 18 -t medium -b up
+-s ttbar -r ttbar -j 3 -n 30 -y 18 -t medium -b down
+-s ttbar -r ttbar -j 4 -n 30 -y 18 -t medium
+-s ttbar -r ttbar -j 4 -n 30 -y 18 -t medium -J up
+-s ttbar -r ttbar -j 4 -n 30 -y 18 -t medium -J down
+-s ttbar -r ttbar -j 4 -n 30 -y 18 -t medium -R up
+-s ttbar -r ttbar -j 4 -n 30 -y 18 -t medium -R down
+-s ttbar -r ttbar -j 4 -n 30 -y 18 -t medium -a up
+-s ttbar -r ttbar -j 4 -n 30 -y 18 -t medium -a down
+-s ttbar -r ttbar -j 4 -n 30 -y 18 -t medium -b up
+-s ttbar -r ttbar -j 4 -n 30 -y 18 -t medium -b down
+-s ttbar -r ttbar -j 5 -n 30 -y 18 -t medium
+-s ttbar -r ttbar -j 5 -n 30 -y 18 -t medium -J up
+-s ttbar -r ttbar -j 5 -n 30 -y 18 -t medium -J down
+-s ttbar -r ttbar -j 5 -n 30 -y 18 -t medium -R up
+-s ttbar -r ttbar -j 5 -n 30 -y 18 -t medium -R down
+-s ttbar -r ttbar -j 5 -n 30 -y 18 -t medium -a up
+-s ttbar -r ttbar -j 5 -n 30 -y 18 -t medium -a down
+-s ttbar -r ttbar -j 5 -n 30 -y 18 -t medium -b up
+-s ttbar -r ttbar -j 5 -n 30 -y 18 -t medium -b down
+-s ttbar -r ttbar -j 6 -n 30 -y 18 -t medium
+-s ttbar -r ttbar -j 6 -n 30 -y 18 -t medium -J up
+-s ttbar -r ttbar -j 6 -n 30 -y 18 -t medium -J down
+-s ttbar -r ttbar -j 6 -n 30 -y 18 -t medium -R up
+-s ttbar -r ttbar -j 6 -n 30 -y 18 -t medium -R down
+-s ttbar -r ttbar -j 6 -n 30 -y 18 -t medium -a up
+-s ttbar -r ttbar -j 6 -n 30 -y 18 -t medium -a down
+-s ttbar -r ttbar -j 6 -n 30 -y 18 -t medium -b up
+-s ttbar -r ttbar -j 6 -n 30 -y 18 -t medium -b down
+-s ttbar -r ttbar -j 7 -n 30 -y 18 -t medium
+-s ttbar -r ttbar -j 7 -n 30 -y 18 -t medium -J up
+-s ttbar -r ttbar -j 7 -n 30 -y 18 -t medium -J down
+-s ttbar -r ttbar -j 7 -n 30 -y 18 -t medium -R up
+-s ttbar -r ttbar -j 7 -n 30 -y 18 -t medium -R down
+-s ttbar -r ttbar -j 7 -n 30 -y 18 -t medium -a up
+-s ttbar -r ttbar -j 7 -n 30 -y 18 -t medium -a down
+-s ttbar -r ttbar -j 7 -n 30 -y 18 -t medium -b up
+-s ttbar -r ttbar -j 7 -n 30 -y 18 -t medium -b down
+-s ttbar -r ttbar -j 8 -n 30 -y 18 -t medium
+-s ttbar -r ttbar -j 8 -n 30 -y 18 -t medium -J up
+-s ttbar -r ttbar -j 8 -n 30 -y 18 -t medium -J down
+-s ttbar -r ttbar -j 8 -n 30 -y 18 -t medium -R up
+-s ttbar -r ttbar -j 8 -n 30 -y 18 -t medium -R down
+-s ttbar -r ttbar -j 8 -n 30 -y 18 -t medium -a up
+-s ttbar -r ttbar -j 8 -n 30 -y 18 -t medium -a down
+-s ttbar -r ttbar -j 8 -n 30 -y 18 -t medium -b up
+-s ttbar -r ttbar -j 8 -n 30 -y 18 -t medium -b down
+-s ttbar -r ttbar -j 9 -n 30 -y 18 -t medium
+-s ttbar -r ttbar -j 9 -n 30 -y 18 -t medium -J up
+-s ttbar -r ttbar -j 9 -n 30 -y 18 -t medium -J down
+-s ttbar -r ttbar -j 9 -n 30 -y 18 -t medium -R up
+-s ttbar -r ttbar -j 9 -n 30 -y 18 -t medium -R down
+-s ttbar -r ttbar -j 9 -n 30 -y 18 -t medium -a up
+-s ttbar -r ttbar -j 9 -n 30 -y 18 -t medium -a down
+-s ttbar -r ttbar -j 9 -n 30 -y 18 -t medium -b up
+-s ttbar -r ttbar -j 9 -n 30 -y 18 -t medium -b down
+-s ttbar -r ttbar -j 10 -n 30 -y 18 -t medium
+-s ttbar -r ttbar -j 10 -n 30 -y 18 -t medium -J up
+-s ttbar -r ttbar -j 10 -n 30 -y 18 -t medium -J down
+-s ttbar -r ttbar -j 10 -n 30 -y 18 -t medium -R up
+-s ttbar -r ttbar -j 10 -n 30 -y 18 -t medium -R down
+-s ttbar -r ttbar -j 10 -n 30 -y 18 -t medium -a up
+-s ttbar -r ttbar -j 10 -n 30 -y 18 -t medium -a down
+-s ttbar -r ttbar -j 10 -n 30 -y 18 -t medium -b up
+-s ttbar -r ttbar -j 10 -n 30 -y 18 -t medium -b down
+-s ttbar -r ttbar -j 11 -n 30 -y 18 -t medium
+-s ttbar -r ttbar -j 11 -n 30 -y 18 -t medium -J up
+-s ttbar -r ttbar -j 11 -n 30 -y 18 -t medium -J down
+-s ttbar -r ttbar -j 11 -n 30 -y 18 -t medium -R up
+-s ttbar -r ttbar -j 11 -n 30 -y 18 -t medium -R down
+-s ttbar -r ttbar -j 11 -n 30 -y 18 -t medium -a up
+-s ttbar -r ttbar -j 11 -n 30 -y 18 -t medium -a down
+-s ttbar -r ttbar -j 11 -n 30 -y 18 -t medium -b up
+-s ttbar -r ttbar -j 11 -n 30 -y 18 -t medium -b down
+-s ttbar -r ttbar -j 12 -n 30 -y 18 -t medium
+-s ttbar -r ttbar -j 12 -n 30 -y 18 -t medium -J up
+-s ttbar -r ttbar -j 12 -n 30 -y 18 -t medium -J down
+-s ttbar -r ttbar -j 12 -n 30 -y 18 -t medium -R up
+-s ttbar -r ttbar -j 12 -n 30 -y 18 -t medium -R down
+-s ttbar -r ttbar -j 12 -n 30 -y 18 -t medium -a up
+-s ttbar -r ttbar -j 12 -n 30 -y 18 -t medium -a down
+-s ttbar -r ttbar -j 12 -n 30 -y 18 -t medium -b up
+-s ttbar -r ttbar -j 12 -n 30 -y 18 -t medium -b down
+-s ttbar -r ttbar -j 13 -n 30 -y 18 -t medium
+-s ttbar -r ttbar -j 13 -n 30 -y 18 -t medium -J up
+-s ttbar -r ttbar -j 13 -n 30 -y 18 -t medium -J down
+-s ttbar -r ttbar -j 13 -n 30 -y 18 -t medium -R up
+-s ttbar -r ttbar -j 13 -n 30 -y 18 -t medium -R down
+-s ttbar -r ttbar -j 13 -n 30 -y 18 -t medium -a up
+-s ttbar -r ttbar -j 13 -n 30 -y 18 -t medium -a down
+-s ttbar -r ttbar -j 13 -n 30 -y 18 -t medium -b up
+-s ttbar -r ttbar -j 13 -n 30 -y 18 -t medium -b down
+-s ttbar -r ttbar -j 14 -n 30 -y 18 -t medium
+-s ttbar -r ttbar -j 14 -n 30 -y 18 -t medium -J up
+-s ttbar -r ttbar -j 14 -n 30 -y 18 -t medium -J down
+-s ttbar -r ttbar -j 14 -n 30 -y 18 -t medium -R up
+-s ttbar -r ttbar -j 14 -n 30 -y 18 -t medium -R down
+-s ttbar -r ttbar -j 14 -n 30 -y 18 -t medium -a up
+-s ttbar -r ttbar -j 14 -n 30 -y 18 -t medium -a down
+-s ttbar -r ttbar -j 14 -n 30 -y 18 -t medium -b up
+-s ttbar -r ttbar -j 14 -n 30 -y 18 -t medium -b down
+-s ttbar -r ttbar -j 15 -n 30 -y 18 -t medium
+-s ttbar -r ttbar -j 15 -n 30 -y 18 -t medium -J up
+-s ttbar -r ttbar -j 15 -n 30 -y 18 -t medium -J down
+-s ttbar -r ttbar -j 15 -n 30 -y 18 -t medium -R up
+-s ttbar -r ttbar -j 15 -n 30 -y 18 -t medium -R down
+-s ttbar -r ttbar -j 15 -n 30 -y 18 -t medium -a up
+-s ttbar -r ttbar -j 15 -n 30 -y 18 -t medium -a down
+-s ttbar -r ttbar -j 15 -n 30 -y 18 -t medium -b up
+-s ttbar -r ttbar -j 15 -n 30 -y 18 -t medium -b down
+-s ttbar -r ttbar -j 16 -n 30 -y 18 -t medium
+-s ttbar -r ttbar -j 16 -n 30 -y 18 -t medium -J up
+-s ttbar -r ttbar -j 16 -n 30 -y 18 -t medium -J down
+-s ttbar -r ttbar -j 16 -n 30 -y 18 -t medium -R up
+-s ttbar -r ttbar -j 16 -n 30 -y 18 -t medium -R down
+-s ttbar -r ttbar -j 16 -n 30 -y 18 -t medium -a up
+-s ttbar -r ttbar -j 16 -n 30 -y 18 -t medium -a down
+-s ttbar -r ttbar -j 16 -n 30 -y 18 -t medium -b up
+-s ttbar -r ttbar -j 16 -n 30 -y 18 -t medium -b down
+-s ttbar -r ttbar -j 17 -n 30 -y 18 -t medium
+-s ttbar -r ttbar -j 17 -n 30 -y 18 -t medium -J up
+-s ttbar -r ttbar -j 17 -n 30 -y 18 -t medium -J down
+-s ttbar -r ttbar -j 17 -n 30 -y 18 -t medium -R up
+-s ttbar -r ttbar -j 17 -n 30 -y 18 -t medium -R down
+-s ttbar -r ttbar -j 17 -n 30 -y 18 -t medium -a up
+-s ttbar -r ttbar -j 17 -n 30 -y 18 -t medium -a down
+-s ttbar -r ttbar -j 17 -n 30 -y 18 -t medium -b up
+-s ttbar -r ttbar -j 17 -n 30 -y 18 -t medium -b down
+-s ttbar -r ttbar -j 18 -n 30 -y 18 -t medium
+-s ttbar -r ttbar -j 18 -n 30 -y 18 -t medium -J up
+-s ttbar -r ttbar -j 18 -n 30 -y 18 -t medium -J down
+-s ttbar -r ttbar -j 18 -n 30 -y 18 -t medium -R up
+-s ttbar -r ttbar -j 18 -n 30 -y 18 -t medium -R down
+-s ttbar -r ttbar -j 18 -n 30 -y 18 -t medium -a up
+-s ttbar -r ttbar -j 18 -n 30 -y 18 -t medium -a down
+-s ttbar -r ttbar -j 18 -n 30 -y 18 -t medium -b up
+-s ttbar -r ttbar -j 18 -n 30 -y 18 -t medium -b down
+-s ttbar -r ttbar -j 19 -n 30 -y 18 -t medium
+-s ttbar -r ttbar -j 19 -n 30 -y 18 -t medium -J up
+-s ttbar -r ttbar -j 19 -n 30 -y 18 -t medium -J down
+-s ttbar -r ttbar -j 19 -n 30 -y 18 -t medium -R up
+-s ttbar -r ttbar -j 19 -n 30 -y 18 -t medium -R down
+-s ttbar -r ttbar -j 19 -n 30 -y 18 -t medium -a up
+-s ttbar -r ttbar -j 19 -n 30 -y 18 -t medium -a down
+-s ttbar -r ttbar -j 19 -n 30 -y 18 -t medium -b up
+-s ttbar -r ttbar -j 19 -n 30 -y 18 -t medium -b down
+-s ttbar -r ttbar -j 20 -n 30 -y 18 -t medium
+-s ttbar -r ttbar -j 20 -n 30 -y 18 -t medium -J up
+-s ttbar -r ttbar -j 20 -n 30 -y 18 -t medium -J down
+-s ttbar -r ttbar -j 20 -n 30 -y 18 -t medium -R up
+-s ttbar -r ttbar -j 20 -n 30 -y 18 -t medium -R down
+-s ttbar -r ttbar -j 20 -n 30 -y 18 -t medium -a up
+-s ttbar -r ttbar -j 20 -n 30 -y 18 -t medium -a down
+-s ttbar -r ttbar -j 20 -n 30 -y 18 -t medium -b up
+-s ttbar -r ttbar -j 20 -n 30 -y 18 -t medium -b down
+-s ttbar -r ttbar -j 21 -n 30 -y 18 -t medium
+-s ttbar -r ttbar -j 21 -n 30 -y 18 -t medium -J up
+-s ttbar -r ttbar -j 21 -n 30 -y 18 -t medium -J down
+-s ttbar -r ttbar -j 21 -n 30 -y 18 -t medium -R up
+-s ttbar -r ttbar -j 21 -n 30 -y 18 -t medium -R down
+-s ttbar -r ttbar -j 21 -n 30 -y 18 -t medium -a up
+-s ttbar -r ttbar -j 21 -n 30 -y 18 -t medium -a down
+-s ttbar -r ttbar -j 21 -n 30 -y 18 -t medium -b up
+-s ttbar -r ttbar -j 21 -n 30 -y 18 -t medium -b down
+-s ttbar -r ttbar -j 22 -n 30 -y 18 -t medium
+-s ttbar -r ttbar -j 22 -n 30 -y 18 -t medium -J up
+-s ttbar -r ttbar -j 22 -n 30 -y 18 -t medium -J down
+-s ttbar -r ttbar -j 22 -n 30 -y 18 -t medium -R up
+-s ttbar -r ttbar -j 22 -n 30 -y 18 -t medium -R down
+-s ttbar -r ttbar -j 22 -n 30 -y 18 -t medium -a up
+-s ttbar -r ttbar -j 22 -n 30 -y 18 -t medium -a down
+-s ttbar -r ttbar -j 22 -n 30 -y 18 -t medium -b up
+-s ttbar -r ttbar -j 22 -n 30 -y 18 -t medium -b down
+-s ttbar -r ttbar -j 23 -n 30 -y 18 -t medium
+-s ttbar -r ttbar -j 23 -n 30 -y 18 -t medium -J up
+-s ttbar -r ttbar -j 23 -n 30 -y 18 -t medium -J down
+-s ttbar -r ttbar -j 23 -n 30 -y 18 -t medium -R up
+-s ttbar -r ttbar -j 23 -n 30 -y 18 -t medium -R down
+-s ttbar -r ttbar -j 23 -n 30 -y 18 -t medium -a up
+-s ttbar -r ttbar -j 23 -n 30 -y 18 -t medium -a down
+-s ttbar -r ttbar -j 23 -n 30 -y 18 -t medium -b up
+-s ttbar -r ttbar -j 23 -n 30 -y 18 -t medium -b down
+-s ttbar -r ttbar -j 24 -n 30 -y 18 -t medium
+-s ttbar -r ttbar -j 24 -n 30 -y 18 -t medium -J up
+-s ttbar -r ttbar -j 24 -n 30 -y 18 -t medium -J down
+-s ttbar -r ttbar -j 24 -n 30 -y 18 -t medium -R up
+-s ttbar -r ttbar -j 24 -n 30 -y 18 -t medium -R down
+-s ttbar -r ttbar -j 24 -n 30 -y 18 -t medium -a up
+-s ttbar -r ttbar -j 24 -n 30 -y 18 -t medium -a down
+-s ttbar -r ttbar -j 24 -n 30 -y 18 -t medium -b up
+-s ttbar -r ttbar -j 24 -n 30 -y 18 -t medium -b down
+-s ttbar -r ttbar -j 25 -n 30 -y 18 -t medium
+-s ttbar -r ttbar -j 25 -n 30 -y 18 -t medium -J up
+-s ttbar -r ttbar -j 25 -n 30 -y 18 -t medium -J down
+-s ttbar -r ttbar -j 25 -n 30 -y 18 -t medium -R up
+-s ttbar -r ttbar -j 25 -n 30 -y 18 -t medium -R down
+-s ttbar -r ttbar -j 25 -n 30 -y 18 -t medium -a up
+-s ttbar -r ttbar -j 25 -n 30 -y 18 -t medium -a down
+-s ttbar -r ttbar -j 25 -n 30 -y 18 -t medium -b up
+-s ttbar -r ttbar -j 25 -n 30 -y 18 -t medium -b down
+-s ttbar -r ttbar -j 26 -n 30 -y 18 -t medium
+-s ttbar -r ttbar -j 26 -n 30 -y 18 -t medium -J up
+-s ttbar -r ttbar -j 26 -n 30 -y 18 -t medium -J down
+-s ttbar -r ttbar -j 26 -n 30 -y 18 -t medium -R up
+-s ttbar -r ttbar -j 26 -n 30 -y 18 -t medium -R down
+-s ttbar -r ttbar -j 26 -n 30 -y 18 -t medium -a up
+-s ttbar -r ttbar -j 26 -n 30 -y 18 -t medium -a down
+-s ttbar -r ttbar -j 26 -n 30 -y 18 -t medium -b up
+-s ttbar -r ttbar -j 26 -n 30 -y 18 -t medium -b down
+-s ttbar -r ttbar -j 27 -n 30 -y 18 -t medium
+-s ttbar -r ttbar -j 27 -n 30 -y 18 -t medium -J up
+-s ttbar -r ttbar -j 27 -n 30 -y 18 -t medium -J down
+-s ttbar -r ttbar -j 27 -n 30 -y 18 -t medium -R up
+-s ttbar -r ttbar -j 27 -n 30 -y 18 -t medium -R down
+-s ttbar -r ttbar -j 27 -n 30 -y 18 -t medium -a up
+-s ttbar -r ttbar -j 27 -n 30 -y 18 -t medium -a down
+-s ttbar -r ttbar -j 27 -n 30 -y 18 -t medium -b up
+-s ttbar -r ttbar -j 27 -n 30 -y 18 -t medium -b down
+-s ttbar -r ttbar -j 28 -n 30 -y 18 -t medium
+-s ttbar -r ttbar -j 28 -n 30 -y 18 -t medium -J up
+-s ttbar -r ttbar -j 28 -n 30 -y 18 -t medium -J down
+-s ttbar -r ttbar -j 28 -n 30 -y 18 -t medium -R up
+-s ttbar -r ttbar -j 28 -n 30 -y 18 -t medium -R down
+-s ttbar -r ttbar -j 28 -n 30 -y 18 -t medium -a up
+-s ttbar -r ttbar -j 28 -n 30 -y 18 -t medium -a down
+-s ttbar -r ttbar -j 28 -n 30 -y 18 -t medium -b up
+-s ttbar -r ttbar -j 28 -n 30 -y 18 -t medium -b down
+-s ttbar -r ttbar -j 29 -n 30 -y 18 -t medium
+-s ttbar -r ttbar -j 29 -n 30 -y 18 -t medium -J up
+-s ttbar -r ttbar -j 29 -n 30 -y 18 -t medium -J down
+-s ttbar -r ttbar -j 29 -n 30 -y 18 -t medium -R up
+-s ttbar -r ttbar -j 29 -n 30 -y 18 -t medium -R down
+-s ttbar -r ttbar -j 29 -n 30 -y 18 -t medium -a up
+-s ttbar -r ttbar -j 29 -n 30 -y 18 -t medium -a down
+-s ttbar -r ttbar -j 29 -n 30 -y 18 -t medium -b up
+-s ttbar -r ttbar -j 29 -n 30 -y 18 -t medium -b down
+-s ttbar -r ttbar -j 30 -n 30 -y 18 -t medium
+-s ttbar -r ttbar -j 30 -n 30 -y 18 -t medium -J up
+-s ttbar -r ttbar -j 30 -n 30 -y 18 -t medium -J down
+-s ttbar -r ttbar -j 30 -n 30 -y 18 -t medium -R up
+-s ttbar -r ttbar -j 30 -n 30 -y 18 -t medium -R down
+-s ttbar -r ttbar -j 30 -n 30 -y 18 -t medium -a up
+-s ttbar -r ttbar -j 30 -n 30 -y 18 -t medium -a down
+-s ttbar -r ttbar -j 30 -n 30 -y 18 -t medium -b up
+-s ttbar -r ttbar -j 30 -n 30 -y 18 -t medium -b down
+-s singletop_tWB -r ttbar -j 1 -n 1 -y 18 -t medium
+-s singletop_tWB -r ttbar -j 1 -n 1 -y 18 -t medium -J up
+-s singletop_tWB -r ttbar -j 1 -n 1 -y 18 -t medium -J down
+-s singletop_tWB -r ttbar -j 1 -n 1 -y 18 -t medium -R up
+-s singletop_tWB -r ttbar -j 1 -n 1 -y 18 -t medium -R down
+-s singletop_tWB -r ttbar -j 1 -n 1 -y 18 -t medium -a up
+-s singletop_tWB -r ttbar -j 1 -n 1 -y 18 -t medium -a down
+-s singletop_tWB -r ttbar -j 1 -n 1 -y 18 -t medium -b up
+-s singletop_tWB -r ttbar -j 1 -n 1 -y 18 -t medium -b down
+-s singletop_tW -r ttbar -j 1 -n 1 -y 18 -t medium
+-s singletop_tW -r ttbar -j 1 -n 1 -y 18 -t medium -J up
+-s singletop_tW -r ttbar -j 1 -n 1 -y 18 -t medium -J down
+-s singletop_tW -r ttbar -j 1 -n 1 -y 18 -t medium -R up
+-s singletop_tW -r ttbar -j 1 -n 1 -y 18 -t medium -R down
+-s singletop_tW -r ttbar -j 1 -n 1 -y 18 -t medium -a up
+-s singletop_tW -r ttbar -j 1 -n 1 -y 18 -t medium -a down
+-s singletop_tW -r ttbar -j 1 -n 1 -y 18 -t medium -b up
+-s singletop_tW -r ttbar -j 1 -n 1 -y 18 -t medium -b down
+-s ttbar-semilep -r ttbar -j 1 -n 20 -y 18 -t medium
+-s ttbar-semilep -r ttbar -j 1 -n 20 -y 18 -t medium -J up
+-s ttbar-semilep -r ttbar -j 1 -n 20 -y 18 -t medium -J down
+-s ttbar-semilep -r ttbar -j 1 -n 20 -y 18 -t medium -R up
+-s ttbar-semilep -r ttbar -j 1 -n 20 -y 18 -t medium -R down
+-s ttbar-semilep -r ttbar -j 1 -n 20 -y 18 -t medium -a up
+-s ttbar-semilep -r ttbar -j 1 -n 20 -y 18 -t medium -a down
+-s ttbar-semilep -r ttbar -j 1 -n 20 -y 18 -t medium -b up
+-s ttbar-semilep -r ttbar -j 1 -n 20 -y 18 -t medium -b down
+-s ttbar-semilep -r ttbar -j 2 -n 20 -y 18 -t medium
+-s ttbar-semilep -r ttbar -j 2 -n 20 -y 18 -t medium -J up
+-s ttbar-semilep -r ttbar -j 2 -n 20 -y 18 -t medium -J down
+-s ttbar-semilep -r ttbar -j 2 -n 20 -y 18 -t medium -R up
+-s ttbar-semilep -r ttbar -j 2 -n 20 -y 18 -t medium -R down
+-s ttbar-semilep -r ttbar -j 2 -n 20 -y 18 -t medium -a up
+-s ttbar-semilep -r ttbar -j 2 -n 20 -y 18 -t medium -a down
+-s ttbar-semilep -r ttbar -j 2 -n 20 -y 18 -t medium -b up
+-s ttbar-semilep -r ttbar -j 2 -n 20 -y 18 -t medium -b down
+-s ttbar-semilep -r ttbar -j 3 -n 20 -y 18 -t medium
+-s ttbar-semilep -r ttbar -j 3 -n 20 -y 18 -t medium -J up
+-s ttbar-semilep -r ttbar -j 3 -n 20 -y 18 -t medium -J down
+-s ttbar-semilep -r ttbar -j 3 -n 20 -y 18 -t medium -R up
+-s ttbar-semilep -r ttbar -j 3 -n 20 -y 18 -t medium -R down
+-s ttbar-semilep -r ttbar -j 3 -n 20 -y 18 -t medium -a up
+-s ttbar-semilep -r ttbar -j 3 -n 20 -y 18 -t medium -a down
+-s ttbar-semilep -r ttbar -j 3 -n 20 -y 18 -t medium -b up
+-s ttbar-semilep -r ttbar -j 3 -n 20 -y 18 -t medium -b down
+-s ttbar-semilep -r ttbar -j 4 -n 20 -y 18 -t medium
+-s ttbar-semilep -r ttbar -j 4 -n 20 -y 18 -t medium -J up
+-s ttbar-semilep -r ttbar -j 4 -n 20 -y 18 -t medium -J down
+-s ttbar-semilep -r ttbar -j 4 -n 20 -y 18 -t medium -R up
+-s ttbar-semilep -r ttbar -j 4 -n 20 -y 18 -t medium -R down
+-s ttbar-semilep -r ttbar -j 4 -n 20 -y 18 -t medium -a up
+-s ttbar-semilep -r ttbar -j 4 -n 20 -y 18 -t medium -a down
+-s ttbar-semilep -r ttbar -j 4 -n 20 -y 18 -t medium -b up
+-s ttbar-semilep -r ttbar -j 4 -n 20 -y 18 -t medium -b down
+-s ttbar-semilep -r ttbar -j 5 -n 20 -y 18 -t medium
+-s ttbar-semilep -r ttbar -j 5 -n 20 -y 18 -t medium -J up
+-s ttbar-semilep -r ttbar -j 5 -n 20 -y 18 -t medium -J down
+-s ttbar-semilep -r ttbar -j 5 -n 20 -y 18 -t medium -R up
+-s ttbar-semilep -r ttbar -j 5 -n 20 -y 18 -t medium -R down
+-s ttbar-semilep -r ttbar -j 5 -n 20 -y 18 -t medium -a up
+-s ttbar-semilep -r ttbar -j 5 -n 20 -y 18 -t medium -a down
+-s ttbar-semilep -r ttbar -j 5 -n 20 -y 18 -t medium -b up
+-s ttbar-semilep -r ttbar -j 5 -n 20 -y 18 -t medium -b down
+-s ttbar-semilep -r ttbar -j 6 -n 20 -y 18 -t medium
+-s ttbar-semilep -r ttbar -j 6 -n 20 -y 18 -t medium -J up
+-s ttbar-semilep -r ttbar -j 6 -n 20 -y 18 -t medium -J down
+-s ttbar-semilep -r ttbar -j 6 -n 20 -y 18 -t medium -R up
+-s ttbar-semilep -r ttbar -j 6 -n 20 -y 18 -t medium -R down
+-s ttbar-semilep -r ttbar -j 6 -n 20 -y 18 -t medium -a up
+-s ttbar-semilep -r ttbar -j 6 -n 20 -y 18 -t medium -a down
+-s ttbar-semilep -r ttbar -j 6 -n 20 -y 18 -t medium -b up
+-s ttbar-semilep -r ttbar -j 6 -n 20 -y 18 -t medium -b down
+-s ttbar-semilep -r ttbar -j 7 -n 20 -y 18 -t medium
+-s ttbar-semilep -r ttbar -j 7 -n 20 -y 18 -t medium -J up
+-s ttbar-semilep -r ttbar -j 7 -n 20 -y 18 -t medium -J down
+-s ttbar-semilep -r ttbar -j 7 -n 20 -y 18 -t medium -R up
+-s ttbar-semilep -r ttbar -j 7 -n 20 -y 18 -t medium -R down
+-s ttbar-semilep -r ttbar -j 7 -n 20 -y 18 -t medium -a up
+-s ttbar-semilep -r ttbar -j 7 -n 20 -y 18 -t medium -a down
+-s ttbar-semilep -r ttbar -j 7 -n 20 -y 18 -t medium -b up
+-s ttbar-semilep -r ttbar -j 7 -n 20 -y 18 -t medium -b down
+-s ttbar-semilep -r ttbar -j 8 -n 20 -y 18 -t medium
+-s ttbar-semilep -r ttbar -j 8 -n 20 -y 18 -t medium -J up
+-s ttbar-semilep -r ttbar -j 8 -n 20 -y 18 -t medium -J down
+-s ttbar-semilep -r ttbar -j 8 -n 20 -y 18 -t medium -R up
+-s ttbar-semilep -r ttbar -j 8 -n 20 -y 18 -t medium -R down
+-s ttbar-semilep -r ttbar -j 8 -n 20 -y 18 -t medium -a up
+-s ttbar-semilep -r ttbar -j 8 -n 20 -y 18 -t medium -a down
+-s ttbar-semilep -r ttbar -j 8 -n 20 -y 18 -t medium -b up
+-s ttbar-semilep -r ttbar -j 8 -n 20 -y 18 -t medium -b down
+-s ttbar-semilep -r ttbar -j 9 -n 20 -y 18 -t medium
+-s ttbar-semilep -r ttbar -j 9 -n 20 -y 18 -t medium -J up
+-s ttbar-semilep -r ttbar -j 9 -n 20 -y 18 -t medium -J down
+-s ttbar-semilep -r ttbar -j 9 -n 20 -y 18 -t medium -R up
+-s ttbar-semilep -r ttbar -j 9 -n 20 -y 18 -t medium -R down
+-s ttbar-semilep -r ttbar -j 9 -n 20 -y 18 -t medium -a up
+-s ttbar-semilep -r ttbar -j 9 -n 20 -y 18 -t medium -a down
+-s ttbar-semilep -r ttbar -j 9 -n 20 -y 18 -t medium -b up
+-s ttbar-semilep -r ttbar -j 9 -n 20 -y 18 -t medium -b down
+-s ttbar-semilep -r ttbar -j 10 -n 20 -y 18 -t medium
+-s ttbar-semilep -r ttbar -j 10 -n 20 -y 18 -t medium -J up
+-s ttbar-semilep -r ttbar -j 10 -n 20 -y 18 -t medium -J down
+-s ttbar-semilep -r ttbar -j 10 -n 20 -y 18 -t medium -R up
+-s ttbar-semilep -r ttbar -j 10 -n 20 -y 18 -t medium -R down
+-s ttbar-semilep -r ttbar -j 10 -n 20 -y 18 -t medium -a up
+-s ttbar-semilep -r ttbar -j 10 -n 20 -y 18 -t medium -a down
+-s ttbar-semilep -r ttbar -j 10 -n 20 -y 18 -t medium -b up
+-s ttbar-semilep -r ttbar -j 10 -n 20 -y 18 -t medium -b down
+-s ttbar-semilep -r ttbar -j 11 -n 20 -y 18 -t medium
+-s ttbar-semilep -r ttbar -j 11 -n 20 -y 18 -t medium -J up
+-s ttbar-semilep -r ttbar -j 11 -n 20 -y 18 -t medium -J down
+-s ttbar-semilep -r ttbar -j 11 -n 20 -y 18 -t medium -R up
+-s ttbar-semilep -r ttbar -j 11 -n 20 -y 18 -t medium -R down
+-s ttbar-semilep -r ttbar -j 11 -n 20 -y 18 -t medium -a up
+-s ttbar-semilep -r ttbar -j 11 -n 20 -y 18 -t medium -a down
+-s ttbar-semilep -r ttbar -j 11 -n 20 -y 18 -t medium -b up
+-s ttbar-semilep -r ttbar -j 11 -n 20 -y 18 -t medium -b down
+-s ttbar-semilep -r ttbar -j 12 -n 20 -y 18 -t medium
+-s ttbar-semilep -r ttbar -j 12 -n 20 -y 18 -t medium -J up
+-s ttbar-semilep -r ttbar -j 12 -n 20 -y 18 -t medium -J down
+-s ttbar-semilep -r ttbar -j 12 -n 20 -y 18 -t medium -R up
+-s ttbar-semilep -r ttbar -j 12 -n 20 -y 18 -t medium -R down
+-s ttbar-semilep -r ttbar -j 12 -n 20 -y 18 -t medium -a up
+-s ttbar-semilep -r ttbar -j 12 -n 20 -y 18 -t medium -a down
+-s ttbar-semilep -r ttbar -j 12 -n 20 -y 18 -t medium -b up
+-s ttbar-semilep -r ttbar -j 12 -n 20 -y 18 -t medium -b down
+-s ttbar-semilep -r ttbar -j 13 -n 20 -y 18 -t medium
+-s ttbar-semilep -r ttbar -j 13 -n 20 -y 18 -t medium -J up
+-s ttbar-semilep -r ttbar -j 13 -n 20 -y 18 -t medium -J down
+-s ttbar-semilep -r ttbar -j 13 -n 20 -y 18 -t medium -R up
+-s ttbar-semilep -r ttbar -j 13 -n 20 -y 18 -t medium -R down
+-s ttbar-semilep -r ttbar -j 13 -n 20 -y 18 -t medium -a up
+-s ttbar-semilep -r ttbar -j 13 -n 20 -y 18 -t medium -a down
+-s ttbar-semilep -r ttbar -j 13 -n 20 -y 18 -t medium -b up
+-s ttbar-semilep -r ttbar -j 13 -n 20 -y 18 -t medium -b down
+-s ttbar-semilep -r ttbar -j 14 -n 20 -y 18 -t medium
+-s ttbar-semilep -r ttbar -j 14 -n 20 -y 18 -t medium -J up
+-s ttbar-semilep -r ttbar -j 14 -n 20 -y 18 -t medium -J down
+-s ttbar-semilep -r ttbar -j 14 -n 20 -y 18 -t medium -R up
+-s ttbar-semilep -r ttbar -j 14 -n 20 -y 18 -t medium -R down
+-s ttbar-semilep -r ttbar -j 14 -n 20 -y 18 -t medium -a up
+-s ttbar-semilep -r ttbar -j 14 -n 20 -y 18 -t medium -a down
+-s ttbar-semilep -r ttbar -j 14 -n 20 -y 18 -t medium -b up
+-s ttbar-semilep -r ttbar -j 14 -n 20 -y 18 -t medium -b down
+-s ttbar-semilep -r ttbar -j 15 -n 20 -y 18 -t medium
+-s ttbar-semilep -r ttbar -j 15 -n 20 -y 18 -t medium -J up
+-s ttbar-semilep -r ttbar -j 15 -n 20 -y 18 -t medium -J down
+-s ttbar-semilep -r ttbar -j 15 -n 20 -y 18 -t medium -R up
+-s ttbar-semilep -r ttbar -j 15 -n 20 -y 18 -t medium -R down
+-s ttbar-semilep -r ttbar -j 15 -n 20 -y 18 -t medium -a up
+-s ttbar-semilep -r ttbar -j 15 -n 20 -y 18 -t medium -a down
+-s ttbar-semilep -r ttbar -j 15 -n 20 -y 18 -t medium -b up
+-s ttbar-semilep -r ttbar -j 15 -n 20 -y 18 -t medium -b down
+-s ttbar-semilep -r ttbar -j 16 -n 20 -y 18 -t medium
+-s ttbar-semilep -r ttbar -j 16 -n 20 -y 18 -t medium -J up
+-s ttbar-semilep -r ttbar -j 16 -n 20 -y 18 -t medium -J down
+-s ttbar-semilep -r ttbar -j 16 -n 20 -y 18 -t medium -R up
+-s ttbar-semilep -r ttbar -j 16 -n 20 -y 18 -t medium -R down
+-s ttbar-semilep -r ttbar -j 16 -n 20 -y 18 -t medium -a up
+-s ttbar-semilep -r ttbar -j 16 -n 20 -y 18 -t medium -a down
+-s ttbar-semilep -r ttbar -j 16 -n 20 -y 18 -t medium -b up
+-s ttbar-semilep -r ttbar -j 16 -n 20 -y 18 -t medium -b down
+-s ttbar-semilep -r ttbar -j 17 -n 20 -y 18 -t medium
+-s ttbar-semilep -r ttbar -j 17 -n 20 -y 18 -t medium -J up
+-s ttbar-semilep -r ttbar -j 17 -n 20 -y 18 -t medium -J down
+-s ttbar-semilep -r ttbar -j 17 -n 20 -y 18 -t medium -R up
+-s ttbar-semilep -r ttbar -j 17 -n 20 -y 18 -t medium -R down
+-s ttbar-semilep -r ttbar -j 17 -n 20 -y 18 -t medium -a up
+-s ttbar-semilep -r ttbar -j 17 -n 20 -y 18 -t medium -a down
+-s ttbar-semilep -r ttbar -j 17 -n 20 -y 18 -t medium -b up
+-s ttbar-semilep -r ttbar -j 17 -n 20 -y 18 -t medium -b down
+-s ttbar-semilep -r ttbar -j 18 -n 20 -y 18 -t medium
+-s ttbar-semilep -r ttbar -j 18 -n 20 -y 18 -t medium -J up
+-s ttbar-semilep -r ttbar -j 18 -n 20 -y 18 -t medium -J down
+-s ttbar-semilep -r ttbar -j 18 -n 20 -y 18 -t medium -R up
+-s ttbar-semilep -r ttbar -j 18 -n 20 -y 18 -t medium -R down
+-s ttbar-semilep -r ttbar -j 18 -n 20 -y 18 -t medium -a up
+-s ttbar-semilep -r ttbar -j 18 -n 20 -y 18 -t medium -a down
+-s ttbar-semilep -r ttbar -j 18 -n 20 -y 18 -t medium -b up
+-s ttbar-semilep -r ttbar -j 18 -n 20 -y 18 -t medium -b down
+-s ttbar-semilep -r ttbar -j 19 -n 20 -y 18 -t medium
+-s ttbar-semilep -r ttbar -j 19 -n 20 -y 18 -t medium -J up
+-s ttbar-semilep -r ttbar -j 19 -n 20 -y 18 -t medium -J down
+-s ttbar-semilep -r ttbar -j 19 -n 20 -y 18 -t medium -R up
+-s ttbar-semilep -r ttbar -j 19 -n 20 -y 18 -t medium -R down
+-s ttbar-semilep -r ttbar -j 19 -n 20 -y 18 -t medium -a up
+-s ttbar-semilep -r ttbar -j 19 -n 20 -y 18 -t medium -a down
+-s ttbar-semilep -r ttbar -j 19 -n 20 -y 18 -t medium -b up
+-s ttbar-semilep -r ttbar -j 19 -n 20 -y 18 -t medium -b down
+-s ttbar-semilep -r ttbar -j 20 -n 20 -y 18 -t medium
+-s ttbar-semilep -r ttbar -j 20 -n 20 -y 18 -t medium -J up
+-s ttbar-semilep -r ttbar -j 20 -n 20 -y 18 -t medium -J down
+-s ttbar-semilep -r ttbar -j 20 -n 20 -y 18 -t medium -R up
+-s ttbar-semilep -r ttbar -j 20 -n 20 -y 18 -t medium -R down
+-s ttbar-semilep -r ttbar -j 20 -n 20 -y 18 -t medium -a up
+-s ttbar-semilep -r ttbar -j 20 -n 20 -y 18 -t medium -a down
+-s ttbar-semilep -r ttbar -j 20 -n 20 -y 18 -t medium -b up
+-s ttbar-semilep -r ttbar -j 20 -n 20 -y 18 -t medium -b down

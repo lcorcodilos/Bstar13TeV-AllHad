@@ -1,0 +1,270 @@
+-s BprimeLH1200 -r default -j 1 -n 1 -y 16 -t medium
+-s BprimeLH1200 -r default -j 1 -n 1 -y 16 -t medium -J up
+-s BprimeLH1200 -r default -j 1 -n 1 -y 16 -t medium -J down
+-s BprimeLH1200 -r default -j 1 -n 1 -y 16 -t medium -R up
+-s BprimeLH1200 -r default -j 1 -n 1 -y 16 -t medium -R down
+-s BprimeLH1200 -r default -j 1 -n 1 -y 16 -t medium -a up
+-s BprimeLH1200 -r default -j 1 -n 1 -y 16 -t medium -a down
+-s BprimeLH1200 -r default -j 1 -n 1 -y 16 -t medium -b up
+-s BprimeLH1200 -r default -j 1 -n 1 -y 16 -t medium -b down
+-s BprimeBLH1800 -r default -j 1 -n 1 -y 16 -t medium
+-s BprimeBLH1800 -r default -j 1 -n 1 -y 16 -t medium -J up
+-s BprimeBLH1800 -r default -j 1 -n 1 -y 16 -t medium -J down
+-s BprimeBLH1800 -r default -j 1 -n 1 -y 16 -t medium -R up
+-s BprimeBLH1800 -r default -j 1 -n 1 -y 16 -t medium -R down
+-s BprimeBLH1800 -r default -j 1 -n 1 -y 16 -t medium -a up
+-s BprimeBLH1800 -r default -j 1 -n 1 -y 16 -t medium -a down
+-s BprimeBLH1800 -r default -j 1 -n 1 -y 16 -t medium -b up
+-s BprimeBLH1800 -r default -j 1 -n 1 -y 16 -t medium -b down
+-s BprimeLH1400 -r default -j 1 -n 1 -y 16 -t medium
+-s BprimeLH1400 -r default -j 1 -n 1 -y 16 -t medium -J up
+-s BprimeLH1400 -r default -j 1 -n 1 -y 16 -t medium -J down
+-s BprimeLH1400 -r default -j 1 -n 1 -y 16 -t medium -R up
+-s BprimeLH1400 -r default -j 1 -n 1 -y 16 -t medium -R down
+-s BprimeLH1400 -r default -j 1 -n 1 -y 16 -t medium -a up
+-s BprimeLH1400 -r default -j 1 -n 1 -y 16 -t medium -a down
+-s BprimeLH1400 -r default -j 1 -n 1 -y 16 -t medium -b up
+-s BprimeLH1400 -r default -j 1 -n 1 -y 16 -t medium -b down
+-s BprimeLH1700 -r default -j 1 -n 1 -y 16 -t medium
+-s BprimeLH1700 -r default -j 1 -n 1 -y 16 -t medium -J up
+-s BprimeLH1700 -r default -j 1 -n 1 -y 16 -t medium -J down
+-s BprimeLH1700 -r default -j 1 -n 1 -y 16 -t medium -R up
+-s BprimeLH1700 -r default -j 1 -n 1 -y 16 -t medium -R down
+-s BprimeLH1700 -r default -j 1 -n 1 -y 16 -t medium -a up
+-s BprimeLH1700 -r default -j 1 -n 1 -y 16 -t medium -a down
+-s BprimeLH1700 -r default -j 1 -n 1 -y 16 -t medium -b up
+-s BprimeLH1700 -r default -j 1 -n 1 -y 16 -t medium -b down
+-s BprimeLH1300 -r default -j 1 -n 1 -y 16 -t medium
+-s BprimeLH1300 -r default -j 1 -n 1 -y 16 -t medium -J up
+-s BprimeLH1300 -r default -j 1 -n 1 -y 16 -t medium -J down
+-s BprimeLH1300 -r default -j 1 -n 1 -y 16 -t medium -R up
+-s BprimeLH1300 -r default -j 1 -n 1 -y 16 -t medium -R down
+-s BprimeLH1300 -r default -j 1 -n 1 -y 16 -t medium -a up
+-s BprimeLH1300 -r default -j 1 -n 1 -y 16 -t medium -a down
+-s BprimeLH1300 -r default -j 1 -n 1 -y 16 -t medium -b up
+-s BprimeLH1300 -r default -j 1 -n 1 -y 16 -t medium -b down
+-s BprimeLH1800 -r default -j 1 -n 1 -y 16 -t medium
+-s BprimeLH1800 -r default -j 1 -n 1 -y 16 -t medium -J up
+-s BprimeLH1800 -r default -j 1 -n 1 -y 16 -t medium -J down
+-s BprimeLH1800 -r default -j 1 -n 1 -y 16 -t medium -R up
+-s BprimeLH1800 -r default -j 1 -n 1 -y 16 -t medium -R down
+-s BprimeLH1800 -r default -j 1 -n 1 -y 16 -t medium -a up
+-s BprimeLH1800 -r default -j 1 -n 1 -y 16 -t medium -a down
+-s BprimeLH1800 -r default -j 1 -n 1 -y 16 -t medium -b up
+-s BprimeLH1800 -r default -j 1 -n 1 -y 16 -t medium -b down
+-s BprimeBLH1400 -r default -j 1 -n 1 -y 16 -t medium
+-s BprimeBLH1400 -r default -j 1 -n 1 -y 16 -t medium -J up
+-s BprimeBLH1400 -r default -j 1 -n 1 -y 16 -t medium -J down
+-s BprimeBLH1400 -r default -j 1 -n 1 -y 16 -t medium -R up
+-s BprimeBLH1400 -r default -j 1 -n 1 -y 16 -t medium -R down
+-s BprimeBLH1400 -r default -j 1 -n 1 -y 16 -t medium -a up
+-s BprimeBLH1400 -r default -j 1 -n 1 -y 16 -t medium -a down
+-s BprimeBLH1400 -r default -j 1 -n 1 -y 16 -t medium -b up
+-s BprimeBLH1400 -r default -j 1 -n 1 -y 16 -t medium -b down
+-s BprimeLH1600 -r default -j 1 -n 1 -y 16 -t medium
+-s BprimeLH1600 -r default -j 1 -n 1 -y 16 -t medium -J up
+-s BprimeLH1600 -r default -j 1 -n 1 -y 16 -t medium -J down
+-s BprimeLH1600 -r default -j 1 -n 1 -y 16 -t medium -R up
+-s BprimeLH1600 -r default -j 1 -n 1 -y 16 -t medium -R down
+-s BprimeLH1600 -r default -j 1 -n 1 -y 16 -t medium -a up
+-s BprimeLH1600 -r default -j 1 -n 1 -y 16 -t medium -a down
+-s BprimeLH1600 -r default -j 1 -n 1 -y 16 -t medium -b up
+-s BprimeLH1600 -r default -j 1 -n 1 -y 16 -t medium -b down
+-s BprimeLH1500 -r default -j 1 -n 1 -y 16 -t medium
+-s BprimeLH1500 -r default -j 1 -n 1 -y 16 -t medium -J up
+-s BprimeLH1500 -r default -j 1 -n 1 -y 16 -t medium -J down
+-s BprimeLH1500 -r default -j 1 -n 1 -y 16 -t medium -R up
+-s BprimeLH1500 -r default -j 1 -n 1 -y 16 -t medium -R down
+-s BprimeLH1500 -r default -j 1 -n 1 -y 16 -t medium -a up
+-s BprimeLH1500 -r default -j 1 -n 1 -y 16 -t medium -a down
+-s BprimeLH1500 -r default -j 1 -n 1 -y 16 -t medium -b up
+-s BprimeLH1500 -r default -j 1 -n 1 -y 16 -t medium -b down
+-s BprimeBLH1700 -r default -j 1 -n 1 -y 16 -t medium
+-s BprimeBLH1700 -r default -j 1 -n 1 -y 16 -t medium -J up
+-s BprimeBLH1700 -r default -j 1 -n 1 -y 16 -t medium -J down
+-s BprimeBLH1700 -r default -j 1 -n 1 -y 16 -t medium -R up
+-s BprimeBLH1700 -r default -j 1 -n 1 -y 16 -t medium -R down
+-s BprimeBLH1700 -r default -j 1 -n 1 -y 16 -t medium -a up
+-s BprimeBLH1700 -r default -j 1 -n 1 -y 16 -t medium -a down
+-s BprimeBLH1700 -r default -j 1 -n 1 -y 16 -t medium -b up
+-s BprimeBLH1700 -r default -j 1 -n 1 -y 16 -t medium -b down
+-s BprimeLH1200 -r sideband -j 1 -n 1 -y 16 -t medium
+-s BprimeLH1200 -r sideband -j 1 -n 1 -y 16 -t medium -J up
+-s BprimeLH1200 -r sideband -j 1 -n 1 -y 16 -t medium -J down
+-s BprimeLH1200 -r sideband -j 1 -n 1 -y 16 -t medium -R up
+-s BprimeLH1200 -r sideband -j 1 -n 1 -y 16 -t medium -R down
+-s BprimeLH1200 -r sideband -j 1 -n 1 -y 16 -t medium -a up
+-s BprimeLH1200 -r sideband -j 1 -n 1 -y 16 -t medium -a down
+-s BprimeLH1200 -r sideband -j 1 -n 1 -y 16 -t medium -b up
+-s BprimeLH1200 -r sideband -j 1 -n 1 -y 16 -t medium -b down
+-s BprimeBLH1800 -r sideband -j 1 -n 1 -y 16 -t medium
+-s BprimeBLH1800 -r sideband -j 1 -n 1 -y 16 -t medium -J up
+-s BprimeBLH1800 -r sideband -j 1 -n 1 -y 16 -t medium -J down
+-s BprimeBLH1800 -r sideband -j 1 -n 1 -y 16 -t medium -R up
+-s BprimeBLH1800 -r sideband -j 1 -n 1 -y 16 -t medium -R down
+-s BprimeBLH1800 -r sideband -j 1 -n 1 -y 16 -t medium -a up
+-s BprimeBLH1800 -r sideband -j 1 -n 1 -y 16 -t medium -a down
+-s BprimeBLH1800 -r sideband -j 1 -n 1 -y 16 -t medium -b up
+-s BprimeBLH1800 -r sideband -j 1 -n 1 -y 16 -t medium -b down
+-s BprimeLH1400 -r sideband -j 1 -n 1 -y 16 -t medium
+-s BprimeLH1400 -r sideband -j 1 -n 1 -y 16 -t medium -J up
+-s BprimeLH1400 -r sideband -j 1 -n 1 -y 16 -t medium -J down
+-s BprimeLH1400 -r sideband -j 1 -n 1 -y 16 -t medium -R up
+-s BprimeLH1400 -r sideband -j 1 -n 1 -y 16 -t medium -R down
+-s BprimeLH1400 -r sideband -j 1 -n 1 -y 16 -t medium -a up
+-s BprimeLH1400 -r sideband -j 1 -n 1 -y 16 -t medium -a down
+-s BprimeLH1400 -r sideband -j 1 -n 1 -y 16 -t medium -b up
+-s BprimeLH1400 -r sideband -j 1 -n 1 -y 16 -t medium -b down
+-s BprimeLH1700 -r sideband -j 1 -n 1 -y 16 -t medium
+-s BprimeLH1700 -r sideband -j 1 -n 1 -y 16 -t medium -J up
+-s BprimeLH1700 -r sideband -j 1 -n 1 -y 16 -t medium -J down
+-s BprimeLH1700 -r sideband -j 1 -n 1 -y 16 -t medium -R up
+-s BprimeLH1700 -r sideband -j 1 -n 1 -y 16 -t medium -R down
+-s BprimeLH1700 -r sideband -j 1 -n 1 -y 16 -t medium -a up
+-s BprimeLH1700 -r sideband -j 1 -n 1 -y 16 -t medium -a down
+-s BprimeLH1700 -r sideband -j 1 -n 1 -y 16 -t medium -b up
+-s BprimeLH1700 -r sideband -j 1 -n 1 -y 16 -t medium -b down
+-s BprimeLH1300 -r sideband -j 1 -n 1 -y 16 -t medium
+-s BprimeLH1300 -r sideband -j 1 -n 1 -y 16 -t medium -J up
+-s BprimeLH1300 -r sideband -j 1 -n 1 -y 16 -t medium -J down
+-s BprimeLH1300 -r sideband -j 1 -n 1 -y 16 -t medium -R up
+-s BprimeLH1300 -r sideband -j 1 -n 1 -y 16 -t medium -R down
+-s BprimeLH1300 -r sideband -j 1 -n 1 -y 16 -t medium -a up
+-s BprimeLH1300 -r sideband -j 1 -n 1 -y 16 -t medium -a down
+-s BprimeLH1300 -r sideband -j 1 -n 1 -y 16 -t medium -b up
+-s BprimeLH1300 -r sideband -j 1 -n 1 -y 16 -t medium -b down
+-s BprimeLH1800 -r sideband -j 1 -n 1 -y 16 -t medium
+-s BprimeLH1800 -r sideband -j 1 -n 1 -y 16 -t medium -J up
+-s BprimeLH1800 -r sideband -j 1 -n 1 -y 16 -t medium -J down
+-s BprimeLH1800 -r sideband -j 1 -n 1 -y 16 -t medium -R up
+-s BprimeLH1800 -r sideband -j 1 -n 1 -y 16 -t medium -R down
+-s BprimeLH1800 -r sideband -j 1 -n 1 -y 16 -t medium -a up
+-s BprimeLH1800 -r sideband -j 1 -n 1 -y 16 -t medium -a down
+-s BprimeLH1800 -r sideband -j 1 -n 1 -y 16 -t medium -b up
+-s BprimeLH1800 -r sideband -j 1 -n 1 -y 16 -t medium -b down
+-s BprimeBLH1400 -r sideband -j 1 -n 1 -y 16 -t medium
+-s BprimeBLH1400 -r sideband -j 1 -n 1 -y 16 -t medium -J up
+-s BprimeBLH1400 -r sideband -j 1 -n 1 -y 16 -t medium -J down
+-s BprimeBLH1400 -r sideband -j 1 -n 1 -y 16 -t medium -R up
+-s BprimeBLH1400 -r sideband -j 1 -n 1 -y 16 -t medium -R down
+-s BprimeBLH1400 -r sideband -j 1 -n 1 -y 16 -t medium -a up
+-s BprimeBLH1400 -r sideband -j 1 -n 1 -y 16 -t medium -a down
+-s BprimeBLH1400 -r sideband -j 1 -n 1 -y 16 -t medium -b up
+-s BprimeBLH1400 -r sideband -j 1 -n 1 -y 16 -t medium -b down
+-s BprimeLH1600 -r sideband -j 1 -n 1 -y 16 -t medium
+-s BprimeLH1600 -r sideband -j 1 -n 1 -y 16 -t medium -J up
+-s BprimeLH1600 -r sideband -j 1 -n 1 -y 16 -t medium -J down
+-s BprimeLH1600 -r sideband -j 1 -n 1 -y 16 -t medium -R up
+-s BprimeLH1600 -r sideband -j 1 -n 1 -y 16 -t medium -R down
+-s BprimeLH1600 -r sideband -j 1 -n 1 -y 16 -t medium -a up
+-s BprimeLH1600 -r sideband -j 1 -n 1 -y 16 -t medium -a down
+-s BprimeLH1600 -r sideband -j 1 -n 1 -y 16 -t medium -b up
+-s BprimeLH1600 -r sideband -j 1 -n 1 -y 16 -t medium -b down
+-s BprimeLH1500 -r sideband -j 1 -n 1 -y 16 -t medium
+-s BprimeLH1500 -r sideband -j 1 -n 1 -y 16 -t medium -J up
+-s BprimeLH1500 -r sideband -j 1 -n 1 -y 16 -t medium -J down
+-s BprimeLH1500 -r sideband -j 1 -n 1 -y 16 -t medium -R up
+-s BprimeLH1500 -r sideband -j 1 -n 1 -y 16 -t medium -R down
+-s BprimeLH1500 -r sideband -j 1 -n 1 -y 16 -t medium -a up
+-s BprimeLH1500 -r sideband -j 1 -n 1 -y 16 -t medium -a down
+-s BprimeLH1500 -r sideband -j 1 -n 1 -y 16 -t medium -b up
+-s BprimeLH1500 -r sideband -j 1 -n 1 -y 16 -t medium -b down
+-s BprimeBLH1700 -r sideband -j 1 -n 1 -y 16 -t medium
+-s BprimeBLH1700 -r sideband -j 1 -n 1 -y 16 -t medium -J up
+-s BprimeBLH1700 -r sideband -j 1 -n 1 -y 16 -t medium -J down
+-s BprimeBLH1700 -r sideband -j 1 -n 1 -y 16 -t medium -R up
+-s BprimeBLH1700 -r sideband -j 1 -n 1 -y 16 -t medium -R down
+-s BprimeBLH1700 -r sideband -j 1 -n 1 -y 16 -t medium -a up
+-s BprimeBLH1700 -r sideband -j 1 -n 1 -y 16 -t medium -a down
+-s BprimeBLH1700 -r sideband -j 1 -n 1 -y 16 -t medium -b up
+-s BprimeBLH1700 -r sideband -j 1 -n 1 -y 16 -t medium -b down
+-s BprimeLH1200 -r ttbar -j 1 -n 1 -y 16 -t medium
+-s BprimeLH1200 -r ttbar -j 1 -n 1 -y 16 -t medium -J up
+-s BprimeLH1200 -r ttbar -j 1 -n 1 -y 16 -t medium -J down
+-s BprimeLH1200 -r ttbar -j 1 -n 1 -y 16 -t medium -R up
+-s BprimeLH1200 -r ttbar -j 1 -n 1 -y 16 -t medium -R down
+-s BprimeLH1200 -r ttbar -j 1 -n 1 -y 16 -t medium -a up
+-s BprimeLH1200 -r ttbar -j 1 -n 1 -y 16 -t medium -a down
+-s BprimeLH1200 -r ttbar -j 1 -n 1 -y 16 -t medium -b up
+-s BprimeLH1200 -r ttbar -j 1 -n 1 -y 16 -t medium -b down
+-s BprimeBLH1800 -r ttbar -j 1 -n 1 -y 16 -t medium
+-s BprimeBLH1800 -r ttbar -j 1 -n 1 -y 16 -t medium -J up
+-s BprimeBLH1800 -r ttbar -j 1 -n 1 -y 16 -t medium -J down
+-s BprimeBLH1800 -r ttbar -j 1 -n 1 -y 16 -t medium -R up
+-s BprimeBLH1800 -r ttbar -j 1 -n 1 -y 16 -t medium -R down
+-s BprimeBLH1800 -r ttbar -j 1 -n 1 -y 16 -t medium -a up
+-s BprimeBLH1800 -r ttbar -j 1 -n 1 -y 16 -t medium -a down
+-s BprimeBLH1800 -r ttbar -j 1 -n 1 -y 16 -t medium -b up
+-s BprimeBLH1800 -r ttbar -j 1 -n 1 -y 16 -t medium -b down
+-s BprimeLH1400 -r ttbar -j 1 -n 1 -y 16 -t medium
+-s BprimeLH1400 -r ttbar -j 1 -n 1 -y 16 -t medium -J up
+-s BprimeLH1400 -r ttbar -j 1 -n 1 -y 16 -t medium -J down
+-s BprimeLH1400 -r ttbar -j 1 -n 1 -y 16 -t medium -R up
+-s BprimeLH1400 -r ttbar -j 1 -n 1 -y 16 -t medium -R down
+-s BprimeLH1400 -r ttbar -j 1 -n 1 -y 16 -t medium -a up
+-s BprimeLH1400 -r ttbar -j 1 -n 1 -y 16 -t medium -a down
+-s BprimeLH1400 -r ttbar -j 1 -n 1 -y 16 -t medium -b up
+-s BprimeLH1400 -r ttbar -j 1 -n 1 -y 16 -t medium -b down
+-s BprimeLH1700 -r ttbar -j 1 -n 1 -y 16 -t medium
+-s BprimeLH1700 -r ttbar -j 1 -n 1 -y 16 -t medium -J up
+-s BprimeLH1700 -r ttbar -j 1 -n 1 -y 16 -t medium -J down
+-s BprimeLH1700 -r ttbar -j 1 -n 1 -y 16 -t medium -R up
+-s BprimeLH1700 -r ttbar -j 1 -n 1 -y 16 -t medium -R down
+-s BprimeLH1700 -r ttbar -j 1 -n 1 -y 16 -t medium -a up
+-s BprimeLH1700 -r ttbar -j 1 -n 1 -y 16 -t medium -a down
+-s BprimeLH1700 -r ttbar -j 1 -n 1 -y 16 -t medium -b up
+-s BprimeLH1700 -r ttbar -j 1 -n 1 -y 16 -t medium -b down
+-s BprimeLH1300 -r ttbar -j 1 -n 1 -y 16 -t medium
+-s BprimeLH1300 -r ttbar -j 1 -n 1 -y 16 -t medium -J up
+-s BprimeLH1300 -r ttbar -j 1 -n 1 -y 16 -t medium -J down
+-s BprimeLH1300 -r ttbar -j 1 -n 1 -y 16 -t medium -R up
+-s BprimeLH1300 -r ttbar -j 1 -n 1 -y 16 -t medium -R down
+-s BprimeLH1300 -r ttbar -j 1 -n 1 -y 16 -t medium -a up
+-s BprimeLH1300 -r ttbar -j 1 -n 1 -y 16 -t medium -a down
+-s BprimeLH1300 -r ttbar -j 1 -n 1 -y 16 -t medium -b up
+-s BprimeLH1300 -r ttbar -j 1 -n 1 -y 16 -t medium -b down
+-s BprimeLH1800 -r ttbar -j 1 -n 1 -y 16 -t medium
+-s BprimeLH1800 -r ttbar -j 1 -n 1 -y 16 -t medium -J up
+-s BprimeLH1800 -r ttbar -j 1 -n 1 -y 16 -t medium -J down
+-s BprimeLH1800 -r ttbar -j 1 -n 1 -y 16 -t medium -R up
+-s BprimeLH1800 -r ttbar -j 1 -n 1 -y 16 -t medium -R down
+-s BprimeLH1800 -r ttbar -j 1 -n 1 -y 16 -t medium -a up
+-s BprimeLH1800 -r ttbar -j 1 -n 1 -y 16 -t medium -a down
+-s BprimeLH1800 -r ttbar -j 1 -n 1 -y 16 -t medium -b up
+-s BprimeLH1800 -r ttbar -j 1 -n 1 -y 16 -t medium -b down
+-s BprimeBLH1400 -r ttbar -j 1 -n 1 -y 16 -t medium
+-s BprimeBLH1400 -r ttbar -j 1 -n 1 -y 16 -t medium -J up
+-s BprimeBLH1400 -r ttbar -j 1 -n 1 -y 16 -t medium -J down
+-s BprimeBLH1400 -r ttbar -j 1 -n 1 -y 16 -t medium -R up
+-s BprimeBLH1400 -r ttbar -j 1 -n 1 -y 16 -t medium -R down
+-s BprimeBLH1400 -r ttbar -j 1 -n 1 -y 16 -t medium -a up
+-s BprimeBLH1400 -r ttbar -j 1 -n 1 -y 16 -t medium -a down
+-s BprimeBLH1400 -r ttbar -j 1 -n 1 -y 16 -t medium -b up
+-s BprimeBLH1400 -r ttbar -j 1 -n 1 -y 16 -t medium -b down
+-s BprimeLH1600 -r ttbar -j 1 -n 1 -y 16 -t medium
+-s BprimeLH1600 -r ttbar -j 1 -n 1 -y 16 -t medium -J up
+-s BprimeLH1600 -r ttbar -j 1 -n 1 -y 16 -t medium -J down
+-s BprimeLH1600 -r ttbar -j 1 -n 1 -y 16 -t medium -R up
+-s BprimeLH1600 -r ttbar -j 1 -n 1 -y 16 -t medium -R down
+-s BprimeLH1600 -r ttbar -j 1 -n 1 -y 16 -t medium -a up
+-s BprimeLH1600 -r ttbar -j 1 -n 1 -y 16 -t medium -a down
+-s BprimeLH1600 -r ttbar -j 1 -n 1 -y 16 -t medium -b up
+-s BprimeLH1600 -r ttbar -j 1 -n 1 -y 16 -t medium -b down
+-s BprimeLH1500 -r ttbar -j 1 -n 1 -y 16 -t medium
+-s BprimeLH1500 -r ttbar -j 1 -n 1 -y 16 -t medium -J up
+-s BprimeLH1500 -r ttbar -j 1 -n 1 -y 16 -t medium -J down
+-s BprimeLH1500 -r ttbar -j 1 -n 1 -y 16 -t medium -R up
+-s BprimeLH1500 -r ttbar -j 1 -n 1 -y 16 -t medium -R down
+-s BprimeLH1500 -r ttbar -j 1 -n 1 -y 16 -t medium -a up
+-s BprimeLH1500 -r ttbar -j 1 -n 1 -y 16 -t medium -a down
+-s BprimeLH1500 -r ttbar -j 1 -n 1 -y 16 -t medium -b up
+-s BprimeLH1500 -r ttbar -j 1 -n 1 -y 16 -t medium -b down
+-s BprimeBLH1700 -r ttbar -j 1 -n 1 -y 16 -t medium
+-s BprimeBLH1700 -r ttbar -j 1 -n 1 -y 16 -t medium -J up
+-s BprimeBLH1700 -r ttbar -j 1 -n 1 -y 16 -t medium -J down
+-s BprimeBLH1700 -r ttbar -j 1 -n 1 -y 16 -t medium -R up
+-s BprimeBLH1700 -r ttbar -j 1 -n 1 -y 16 -t medium -R down
+-s BprimeBLH1700 -r ttbar -j 1 -n 1 -y 16 -t medium -a up
+-s BprimeBLH1700 -r ttbar -j 1 -n 1 -y 16 -t medium -a down
+-s BprimeBLH1700 -r ttbar -j 1 -n 1 -y 16 -t medium -b up
+-s BprimeBLH1700 -r ttbar -j 1 -n 1 -y 16 -t medium -b down

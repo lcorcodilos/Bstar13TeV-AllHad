@@ -1,0 +1,945 @@
+-s TprimeLH1600 -r default -j 1 -n 3 -y 16 -t medium
+-s TprimeLH1600 -r default -j 1 -n 3 -y 16 -t medium -J up
+-s TprimeLH1600 -r default -j 1 -n 3 -y 16 -t medium -J down
+-s TprimeLH1600 -r default -j 1 -n 3 -y 16 -t medium -R up
+-s TprimeLH1600 -r default -j 1 -n 3 -y 16 -t medium -R down
+-s TprimeLH1600 -r default -j 1 -n 3 -y 16 -t medium -a up
+-s TprimeLH1600 -r default -j 1 -n 3 -y 16 -t medium -a down
+-s TprimeLH1600 -r default -j 1 -n 3 -y 16 -t medium -b up
+-s TprimeLH1600 -r default -j 1 -n 3 -y 16 -t medium -b down
+-s BprimeRH1400 -r default -j 1 -n 3 -y 16 -t medium
+-s BprimeRH1400 -r default -j 1 -n 3 -y 16 -t medium -J up
+-s BprimeRH1400 -r default -j 1 -n 3 -y 16 -t medium -J down
+-s BprimeRH1400 -r default -j 1 -n 3 -y 16 -t medium -R up
+-s BprimeRH1400 -r default -j 1 -n 3 -y 16 -t medium -R down
+-s BprimeRH1400 -r default -j 1 -n 3 -y 16 -t medium -a up
+-s BprimeRH1400 -r default -j 1 -n 3 -y 16 -t medium -a down
+-s BprimeRH1400 -r default -j 1 -n 3 -y 16 -t medium -b up
+-s BprimeRH1400 -r default -j 1 -n 3 -y 16 -t medium -b down
+-s BprimeLH1700 -r default -j 1 -n 3 -y 16 -t medium
+-s BprimeLH1700 -r default -j 1 -n 3 -y 16 -t medium -J up
+-s BprimeLH1700 -r default -j 1 -n 3 -y 16 -t medium -J down
+-s BprimeLH1700 -r default -j 1 -n 3 -y 16 -t medium -R up
+-s BprimeLH1700 -r default -j 1 -n 3 -y 16 -t medium -R down
+-s BprimeLH1700 -r default -j 1 -n 3 -y 16 -t medium -a up
+-s BprimeLH1700 -r default -j 1 -n 3 -y 16 -t medium -a down
+-s BprimeLH1700 -r default -j 1 -n 3 -y 16 -t medium -b up
+-s BprimeLH1700 -r default -j 1 -n 3 -y 16 -t medium -b down
+-s BprimeRH1500 -r default -j 1 -n 3 -y 16 -t medium
+-s BprimeRH1500 -r default -j 1 -n 3 -y 16 -t medium -J up
+-s BprimeRH1500 -r default -j 1 -n 3 -y 16 -t medium -J down
+-s BprimeRH1500 -r default -j 1 -n 3 -y 16 -t medium -R up
+-s BprimeRH1500 -r default -j 1 -n 3 -y 16 -t medium -R down
+-s BprimeRH1500 -r default -j 1 -n 3 -y 16 -t medium -a up
+-s BprimeRH1500 -r default -j 1 -n 3 -y 16 -t medium -a down
+-s BprimeRH1500 -r default -j 1 -n 3 -y 16 -t medium -b up
+-s BprimeRH1500 -r default -j 1 -n 3 -y 16 -t medium -b down
+-s BprimeLH1200 -r default -j 1 -n 3 -y 16 -t medium
+-s BprimeLH1200 -r default -j 1 -n 3 -y 16 -t medium -J up
+-s BprimeLH1200 -r default -j 1 -n 3 -y 16 -t medium -J down
+-s BprimeLH1200 -r default -j 1 -n 3 -y 16 -t medium -R up
+-s BprimeLH1200 -r default -j 1 -n 3 -y 16 -t medium -R down
+-s BprimeLH1200 -r default -j 1 -n 3 -y 16 -t medium -a up
+-s BprimeLH1200 -r default -j 1 -n 3 -y 16 -t medium -a down
+-s BprimeLH1200 -r default -j 1 -n 3 -y 16 -t medium -b up
+-s BprimeLH1200 -r default -j 1 -n 3 -y 16 -t medium -b down
+-s TprimeRH1400 -r default -j 1 -n 3 -y 16 -t medium
+-s TprimeRH1400 -r default -j 1 -n 3 -y 16 -t medium -J up
+-s TprimeRH1400 -r default -j 1 -n 3 -y 16 -t medium -J down
+-s TprimeRH1400 -r default -j 1 -n 3 -y 16 -t medium -R up
+-s TprimeRH1400 -r default -j 1 -n 3 -y 16 -t medium -R down
+-s TprimeRH1400 -r default -j 1 -n 3 -y 16 -t medium -a up
+-s TprimeRH1400 -r default -j 1 -n 3 -y 16 -t medium -a down
+-s TprimeRH1400 -r default -j 1 -n 3 -y 16 -t medium -b up
+-s TprimeRH1400 -r default -j 1 -n 3 -y 16 -t medium -b down
+-s TprimeLH1200 -r default -j 1 -n 3 -y 16 -t medium
+-s TprimeLH1200 -r default -j 1 -n 3 -y 16 -t medium -J up
+-s TprimeLH1200 -r default -j 1 -n 3 -y 16 -t medium -J down
+-s TprimeLH1200 -r default -j 1 -n 3 -y 16 -t medium -R up
+-s TprimeLH1200 -r default -j 1 -n 3 -y 16 -t medium -R down
+-s TprimeLH1200 -r default -j 1 -n 3 -y 16 -t medium -a up
+-s TprimeLH1200 -r default -j 1 -n 3 -y 16 -t medium -a down
+-s TprimeLH1200 -r default -j 1 -n 3 -y 16 -t medium -b up
+-s TprimeLH1200 -r default -j 1 -n 3 -y 16 -t medium -b down
+-s TprimeLH1800 -r default -j 1 -n 3 -y 16 -t medium
+-s TprimeLH1800 -r default -j 1 -n 3 -y 16 -t medium -J up
+-s TprimeLH1800 -r default -j 1 -n 3 -y 16 -t medium -J down
+-s TprimeLH1800 -r default -j 1 -n 3 -y 16 -t medium -R up
+-s TprimeLH1800 -r default -j 1 -n 3 -y 16 -t medium -R down
+-s TprimeLH1800 -r default -j 1 -n 3 -y 16 -t medium -a up
+-s TprimeLH1800 -r default -j 1 -n 3 -y 16 -t medium -a down
+-s TprimeLH1800 -r default -j 1 -n 3 -y 16 -t medium -b up
+-s TprimeLH1800 -r default -j 1 -n 3 -y 16 -t medium -b down
+-s BprimeLH1800 -r default -j 1 -n 3 -y 16 -t medium
+-s BprimeLH1800 -r default -j 1 -n 3 -y 16 -t medium -J up
+-s BprimeLH1800 -r default -j 1 -n 3 -y 16 -t medium -J down
+-s BprimeLH1800 -r default -j 1 -n 3 -y 16 -t medium -R up
+-s BprimeLH1800 -r default -j 1 -n 3 -y 16 -t medium -R down
+-s BprimeLH1800 -r default -j 1 -n 3 -y 16 -t medium -a up
+-s BprimeLH1800 -r default -j 1 -n 3 -y 16 -t medium -a down
+-s BprimeLH1800 -r default -j 1 -n 3 -y 16 -t medium -b up
+-s BprimeLH1800 -r default -j 1 -n 3 -y 16 -t medium -b down
+-s BprimeRH1700 -r default -j 1 -n 3 -y 16 -t medium
+-s BprimeRH1700 -r default -j 1 -n 3 -y 16 -t medium -J up
+-s BprimeRH1700 -r default -j 1 -n 3 -y 16 -t medium -J down
+-s BprimeRH1700 -r default -j 1 -n 3 -y 16 -t medium -R up
+-s BprimeRH1700 -r default -j 1 -n 3 -y 16 -t medium -R down
+-s BprimeRH1700 -r default -j 1 -n 3 -y 16 -t medium -a up
+-s BprimeRH1700 -r default -j 1 -n 3 -y 16 -t medium -a down
+-s BprimeRH1700 -r default -j 1 -n 3 -y 16 -t medium -b up
+-s BprimeRH1700 -r default -j 1 -n 3 -y 16 -t medium -b down
+-s BprimeRH1800 -r default -j 1 -n 3 -y 16 -t medium
+-s BprimeRH1800 -r default -j 1 -n 3 -y 16 -t medium -J up
+-s BprimeRH1800 -r default -j 1 -n 3 -y 16 -t medium -J down
+-s BprimeRH1800 -r default -j 1 -n 3 -y 16 -t medium -R up
+-s BprimeRH1800 -r default -j 1 -n 3 -y 16 -t medium -R down
+-s BprimeRH1800 -r default -j 1 -n 3 -y 16 -t medium -a up
+-s BprimeRH1800 -r default -j 1 -n 3 -y 16 -t medium -a down
+-s BprimeRH1800 -r default -j 1 -n 3 -y 16 -t medium -b up
+-s BprimeRH1800 -r default -j 1 -n 3 -y 16 -t medium -b down
+-s TprimeRH1200 -r default -j 1 -n 3 -y 16 -t medium
+-s TprimeRH1200 -r default -j 1 -n 3 -y 16 -t medium -J up
+-s TprimeRH1200 -r default -j 1 -n 3 -y 16 -t medium -J down
+-s TprimeRH1200 -r default -j 1 -n 3 -y 16 -t medium -R up
+-s TprimeRH1200 -r default -j 1 -n 3 -y 16 -t medium -R down
+-s TprimeRH1200 -r default -j 1 -n 3 -y 16 -t medium -a up
+-s TprimeRH1200 -r default -j 1 -n 3 -y 16 -t medium -a down
+-s TprimeRH1200 -r default -j 1 -n 3 -y 16 -t medium -b up
+-s TprimeRH1200 -r default -j 1 -n 3 -y 16 -t medium -b down
+-s TprimeLH1300 -r default -j 1 -n 3 -y 16 -t medium
+-s TprimeLH1300 -r default -j 1 -n 3 -y 16 -t medium -J up
+-s TprimeLH1300 -r default -j 1 -n 3 -y 16 -t medium -J down
+-s TprimeLH1300 -r default -j 1 -n 3 -y 16 -t medium -R up
+-s TprimeLH1300 -r default -j 1 -n 3 -y 16 -t medium -R down
+-s TprimeLH1300 -r default -j 1 -n 3 -y 16 -t medium -a up
+-s TprimeLH1300 -r default -j 1 -n 3 -y 16 -t medium -a down
+-s TprimeLH1300 -r default -j 1 -n 3 -y 16 -t medium -b up
+-s TprimeLH1300 -r default -j 1 -n 3 -y 16 -t medium -b down
+-s BprimeRH1600 -r default -j 1 -n 3 -y 16 -t medium
+-s BprimeRH1600 -r default -j 1 -n 3 -y 16 -t medium -J up
+-s BprimeRH1600 -r default -j 1 -n 3 -y 16 -t medium -J down
+-s BprimeRH1600 -r default -j 1 -n 3 -y 16 -t medium -R up
+-s BprimeRH1600 -r default -j 1 -n 3 -y 16 -t medium -R down
+-s BprimeRH1600 -r default -j 1 -n 3 -y 16 -t medium -a up
+-s BprimeRH1600 -r default -j 1 -n 3 -y 16 -t medium -a down
+-s BprimeRH1600 -r default -j 1 -n 3 -y 16 -t medium -b up
+-s BprimeRH1600 -r default -j 1 -n 3 -y 16 -t medium -b down
+-s BprimeLH1600 -r default -j 1 -n 3 -y 16 -t medium
+-s BprimeLH1600 -r default -j 1 -n 3 -y 16 -t medium -J up
+-s BprimeLH1600 -r default -j 1 -n 3 -y 16 -t medium -J down
+-s BprimeLH1600 -r default -j 1 -n 3 -y 16 -t medium -R up
+-s BprimeLH1600 -r default -j 1 -n 3 -y 16 -t medium -R down
+-s BprimeLH1600 -r default -j 1 -n 3 -y 16 -t medium -a up
+-s BprimeLH1600 -r default -j 1 -n 3 -y 16 -t medium -a down
+-s BprimeLH1600 -r default -j 1 -n 3 -y 16 -t medium -b up
+-s BprimeLH1600 -r default -j 1 -n 3 -y 16 -t medium -b down
+-s TprimeRH1300 -r default -j 1 -n 3 -y 16 -t medium
+-s TprimeRH1300 -r default -j 1 -n 3 -y 16 -t medium -J up
+-s TprimeRH1300 -r default -j 1 -n 3 -y 16 -t medium -J down
+-s TprimeRH1300 -r default -j 1 -n 3 -y 16 -t medium -R up
+-s TprimeRH1300 -r default -j 1 -n 3 -y 16 -t medium -R down
+-s TprimeRH1300 -r default -j 1 -n 3 -y 16 -t medium -a up
+-s TprimeRH1300 -r default -j 1 -n 3 -y 16 -t medium -a down
+-s TprimeRH1300 -r default -j 1 -n 3 -y 16 -t medium -b up
+-s TprimeRH1300 -r default -j 1 -n 3 -y 16 -t medium -b down
+-s BprimeLH1500 -r default -j 1 -n 3 -y 16 -t medium
+-s BprimeLH1500 -r default -j 1 -n 3 -y 16 -t medium -J up
+-s BprimeLH1500 -r default -j 1 -n 3 -y 16 -t medium -J down
+-s BprimeLH1500 -r default -j 1 -n 3 -y 16 -t medium -R up
+-s BprimeLH1500 -r default -j 1 -n 3 -y 16 -t medium -R down
+-s BprimeLH1500 -r default -j 1 -n 3 -y 16 -t medium -a up
+-s BprimeLH1500 -r default -j 1 -n 3 -y 16 -t medium -a down
+-s BprimeLH1500 -r default -j 1 -n 3 -y 16 -t medium -b up
+-s BprimeLH1500 -r default -j 1 -n 3 -y 16 -t medium -b down
+-s BprimeRH1200 -r default -j 1 -n 3 -y 16 -t medium
+-s BprimeRH1200 -r default -j 1 -n 3 -y 16 -t medium -J up
+-s BprimeRH1200 -r default -j 1 -n 3 -y 16 -t medium -J down
+-s BprimeRH1200 -r default -j 1 -n 3 -y 16 -t medium -R up
+-s BprimeRH1200 -r default -j 1 -n 3 -y 16 -t medium -R down
+-s BprimeRH1200 -r default -j 1 -n 3 -y 16 -t medium -a up
+-s BprimeRH1200 -r default -j 1 -n 3 -y 16 -t medium -a down
+-s BprimeRH1200 -r default -j 1 -n 3 -y 16 -t medium -b up
+-s BprimeRH1200 -r default -j 1 -n 3 -y 16 -t medium -b down
+-s BprimeLH1400 -r default -j 1 -n 3 -y 16 -t medium
+-s BprimeLH1400 -r default -j 1 -n 3 -y 16 -t medium -J up
+-s BprimeLH1400 -r default -j 1 -n 3 -y 16 -t medium -J down
+-s BprimeLH1400 -r default -j 1 -n 3 -y 16 -t medium -R up
+-s BprimeLH1400 -r default -j 1 -n 3 -y 16 -t medium -R down
+-s BprimeLH1400 -r default -j 1 -n 3 -y 16 -t medium -a up
+-s BprimeLH1400 -r default -j 1 -n 3 -y 16 -t medium -a down
+-s BprimeLH1400 -r default -j 1 -n 3 -y 16 -t medium -b up
+-s BprimeLH1400 -r default -j 1 -n 3 -y 16 -t medium -b down
+-s TprimeRH1700 -r default -j 1 -n 3 -y 16 -t medium
+-s TprimeRH1700 -r default -j 1 -n 3 -y 16 -t medium -J up
+-s TprimeRH1700 -r default -j 1 -n 3 -y 16 -t medium -J down
+-s TprimeRH1700 -r default -j 1 -n 3 -y 16 -t medium -R up
+-s TprimeRH1700 -r default -j 1 -n 3 -y 16 -t medium -R down
+-s TprimeRH1700 -r default -j 1 -n 3 -y 16 -t medium -a up
+-s TprimeRH1700 -r default -j 1 -n 3 -y 16 -t medium -a down
+-s TprimeRH1700 -r default -j 1 -n 3 -y 16 -t medium -b up
+-s TprimeRH1700 -r default -j 1 -n 3 -y 16 -t medium -b down
+-s TprimeLH1500 -r default -j 1 -n 3 -y 16 -t medium
+-s TprimeLH1500 -r default -j 1 -n 3 -y 16 -t medium -J up
+-s TprimeLH1500 -r default -j 1 -n 3 -y 16 -t medium -J down
+-s TprimeLH1500 -r default -j 1 -n 3 -y 16 -t medium -R up
+-s TprimeLH1500 -r default -j 1 -n 3 -y 16 -t medium -R down
+-s TprimeLH1500 -r default -j 1 -n 3 -y 16 -t medium -a up
+-s TprimeLH1500 -r default -j 1 -n 3 -y 16 -t medium -a down
+-s TprimeLH1500 -r default -j 1 -n 3 -y 16 -t medium -b up
+-s TprimeLH1500 -r default -j 1 -n 3 -y 16 -t medium -b down
+-s TprimeRH1500 -r default -j 1 -n 3 -y 16 -t medium
+-s TprimeRH1500 -r default -j 1 -n 3 -y 16 -t medium -J up
+-s TprimeRH1500 -r default -j 1 -n 3 -y 16 -t medium -J down
+-s TprimeRH1500 -r default -j 1 -n 3 -y 16 -t medium -R up
+-s TprimeRH1500 -r default -j 1 -n 3 -y 16 -t medium -R down
+-s TprimeRH1500 -r default -j 1 -n 3 -y 16 -t medium -a up
+-s TprimeRH1500 -r default -j 1 -n 3 -y 16 -t medium -a down
+-s TprimeRH1500 -r default -j 1 -n 3 -y 16 -t medium -b up
+-s TprimeRH1500 -r default -j 1 -n 3 -y 16 -t medium -b down
+-s TprimeLH1400 -r default -j 1 -n 3 -y 16 -t medium
+-s TprimeLH1400 -r default -j 1 -n 3 -y 16 -t medium -J up
+-s TprimeLH1400 -r default -j 1 -n 3 -y 16 -t medium -J down
+-s TprimeLH1400 -r default -j 1 -n 3 -y 16 -t medium -R up
+-s TprimeLH1400 -r default -j 1 -n 3 -y 16 -t medium -R down
+-s TprimeLH1400 -r default -j 1 -n 3 -y 16 -t medium -a up
+-s TprimeLH1400 -r default -j 1 -n 3 -y 16 -t medium -a down
+-s TprimeLH1400 -r default -j 1 -n 3 -y 16 -t medium -b up
+-s TprimeLH1400 -r default -j 1 -n 3 -y 16 -t medium -b down
+-s BprimeRH1300 -r default -j 1 -n 3 -y 16 -t medium
+-s BprimeRH1300 -r default -j 1 -n 3 -y 16 -t medium -J up
+-s BprimeRH1300 -r default -j 1 -n 3 -y 16 -t medium -J down
+-s BprimeRH1300 -r default -j 1 -n 3 -y 16 -t medium -R up
+-s BprimeRH1300 -r default -j 1 -n 3 -y 16 -t medium -R down
+-s BprimeRH1300 -r default -j 1 -n 3 -y 16 -t medium -a up
+-s BprimeRH1300 -r default -j 1 -n 3 -y 16 -t medium -a down
+-s BprimeRH1300 -r default -j 1 -n 3 -y 16 -t medium -b up
+-s BprimeRH1300 -r default -j 1 -n 3 -y 16 -t medium -b down
+-s TprimeRH1600 -r default -j 1 -n 3 -y 16 -t medium
+-s TprimeRH1600 -r default -j 1 -n 3 -y 16 -t medium -J up
+-s TprimeRH1600 -r default -j 1 -n 3 -y 16 -t medium -J down
+-s TprimeRH1600 -r default -j 1 -n 3 -y 16 -t medium -R up
+-s TprimeRH1600 -r default -j 1 -n 3 -y 16 -t medium -R down
+-s TprimeRH1600 -r default -j 1 -n 3 -y 16 -t medium -a up
+-s TprimeRH1600 -r default -j 1 -n 3 -y 16 -t medium -a down
+-s TprimeRH1600 -r default -j 1 -n 3 -y 16 -t medium -b up
+-s TprimeRH1600 -r default -j 1 -n 3 -y 16 -t medium -b down
+-s BprimeLH1300 -r default -j 1 -n 3 -y 16 -t medium
+-s BprimeLH1300 -r default -j 1 -n 3 -y 16 -t medium -J up
+-s BprimeLH1300 -r default -j 1 -n 3 -y 16 -t medium -J down
+-s BprimeLH1300 -r default -j 1 -n 3 -y 16 -t medium -R up
+-s BprimeLH1300 -r default -j 1 -n 3 -y 16 -t medium -R down
+-s BprimeLH1300 -r default -j 1 -n 3 -y 16 -t medium -a up
+-s BprimeLH1300 -r default -j 1 -n 3 -y 16 -t medium -a down
+-s BprimeLH1300 -r default -j 1 -n 3 -y 16 -t medium -b up
+-s BprimeLH1300 -r default -j 1 -n 3 -y 16 -t medium -b down
+-s TprimeRH1800 -r default -j 1 -n 3 -y 16 -t medium
+-s TprimeRH1800 -r default -j 1 -n 3 -y 16 -t medium -J up
+-s TprimeRH1800 -r default -j 1 -n 3 -y 16 -t medium -J down
+-s TprimeRH1800 -r default -j 1 -n 3 -y 16 -t medium -R up
+-s TprimeRH1800 -r default -j 1 -n 3 -y 16 -t medium -R down
+-s TprimeRH1800 -r default -j 1 -n 3 -y 16 -t medium -a up
+-s TprimeRH1800 -r default -j 1 -n 3 -y 16 -t medium -a down
+-s TprimeRH1800 -r default -j 1 -n 3 -y 16 -t medium -b up
+-s TprimeRH1800 -r default -j 1 -n 3 -y 16 -t medium -b down
+-s TprimeLH1700 -r default -j 1 -n 3 -y 16 -t medium
+-s TprimeLH1700 -r default -j 1 -n 3 -y 16 -t medium -J up
+-s TprimeLH1700 -r default -j 1 -n 3 -y 16 -t medium -J down
+-s TprimeLH1700 -r default -j 1 -n 3 -y 16 -t medium -R up
+-s TprimeLH1700 -r default -j 1 -n 3 -y 16 -t medium -R down
+-s TprimeLH1700 -r default -j 1 -n 3 -y 16 -t medium -a up
+-s TprimeLH1700 -r default -j 1 -n 3 -y 16 -t medium -a down
+-s TprimeLH1700 -r default -j 1 -n 3 -y 16 -t medium -b up
+-s TprimeLH1700 -r default -j 1 -n 3 -y 16 -t medium -b down
+-s TprimeLH1800 -r default -j 1 -n 3 -y 18 -t medium
+-s TprimeLH1800 -r default -j 1 -n 3 -y 18 -t medium -J up
+-s TprimeLH1800 -r default -j 1 -n 3 -y 18 -t medium -J down
+-s TprimeLH1800 -r default -j 1 -n 3 -y 18 -t medium -R up
+-s TprimeLH1800 -r default -j 1 -n 3 -y 18 -t medium -R down
+-s TprimeLH1800 -r default -j 1 -n 3 -y 18 -t medium -a up
+-s TprimeLH1800 -r default -j 1 -n 3 -y 18 -t medium -a down
+-s TprimeLH1800 -r default -j 1 -n 3 -y 18 -t medium -b up
+-s TprimeLH1800 -r default -j 1 -n 3 -y 18 -t medium -b down
+-s TprimeLH1500 -r default -j 1 -n 3 -y 18 -t medium
+-s TprimeLH1500 -r default -j 1 -n 3 -y 18 -t medium -J up
+-s TprimeLH1500 -r default -j 1 -n 3 -y 18 -t medium -J down
+-s TprimeLH1500 -r default -j 1 -n 3 -y 18 -t medium -R up
+-s TprimeLH1500 -r default -j 1 -n 3 -y 18 -t medium -R down
+-s TprimeLH1500 -r default -j 1 -n 3 -y 18 -t medium -a up
+-s TprimeLH1500 -r default -j 1 -n 3 -y 18 -t medium -a down
+-s TprimeLH1500 -r default -j 1 -n 3 -y 18 -t medium -b up
+-s TprimeLH1500 -r default -j 1 -n 3 -y 18 -t medium -b down
+-s TprimeLH1600 -r default -j 1 -n 3 -y 18 -t medium
+-s TprimeLH1600 -r default -j 1 -n 3 -y 18 -t medium -J up
+-s TprimeLH1600 -r default -j 1 -n 3 -y 18 -t medium -J down
+-s TprimeLH1600 -r default -j 1 -n 3 -y 18 -t medium -R up
+-s TprimeLH1600 -r default -j 1 -n 3 -y 18 -t medium -R down
+-s TprimeLH1600 -r default -j 1 -n 3 -y 18 -t medium -a up
+-s TprimeLH1600 -r default -j 1 -n 3 -y 18 -t medium -a down
+-s TprimeLH1600 -r default -j 1 -n 3 -y 18 -t medium -b up
+-s TprimeLH1600 -r default -j 1 -n 3 -y 18 -t medium -b down
+-s TprimeLH1300 -r default -j 1 -n 3 -y 18 -t medium
+-s TprimeLH1300 -r default -j 1 -n 3 -y 18 -t medium -J up
+-s TprimeLH1300 -r default -j 1 -n 3 -y 18 -t medium -J down
+-s TprimeLH1300 -r default -j 1 -n 3 -y 18 -t medium -R up
+-s TprimeLH1300 -r default -j 1 -n 3 -y 18 -t medium -R down
+-s TprimeLH1300 -r default -j 1 -n 3 -y 18 -t medium -a up
+-s TprimeLH1300 -r default -j 1 -n 3 -y 18 -t medium -a down
+-s TprimeLH1300 -r default -j 1 -n 3 -y 18 -t medium -b up
+-s TprimeLH1300 -r default -j 1 -n 3 -y 18 -t medium -b down
+-s TprimeLH1200 -r default -j 1 -n 3 -y 18 -t medium
+-s TprimeLH1200 -r default -j 1 -n 3 -y 18 -t medium -J up
+-s TprimeLH1200 -r default -j 1 -n 3 -y 18 -t medium -J down
+-s TprimeLH1200 -r default -j 1 -n 3 -y 18 -t medium -R up
+-s TprimeLH1200 -r default -j 1 -n 3 -y 18 -t medium -R down
+-s TprimeLH1200 -r default -j 1 -n 3 -y 18 -t medium -a up
+-s TprimeLH1200 -r default -j 1 -n 3 -y 18 -t medium -a down
+-s TprimeLH1200 -r default -j 1 -n 3 -y 18 -t medium -b up
+-s TprimeLH1200 -r default -j 1 -n 3 -y 18 -t medium -b down
+-s TprimeLH1400 -r default -j 1 -n 3 -y 18 -t medium
+-s TprimeLH1400 -r default -j 1 -n 3 -y 18 -t medium -J up
+-s TprimeLH1400 -r default -j 1 -n 3 -y 18 -t medium -J down
+-s TprimeLH1400 -r default -j 1 -n 3 -y 18 -t medium -R up
+-s TprimeLH1400 -r default -j 1 -n 3 -y 18 -t medium -R down
+-s TprimeLH1400 -r default -j 1 -n 3 -y 18 -t medium -a up
+-s TprimeLH1400 -r default -j 1 -n 3 -y 18 -t medium -a down
+-s TprimeLH1400 -r default -j 1 -n 3 -y 18 -t medium -b up
+-s TprimeLH1400 -r default -j 1 -n 3 -y 18 -t medium -b down
+-s TprimeLH1700 -r default -j 1 -n 3 -y 18 -t medium
+-s TprimeLH1700 -r default -j 1 -n 3 -y 18 -t medium -J up
+-s TprimeLH1700 -r default -j 1 -n 3 -y 18 -t medium -J down
+-s TprimeLH1700 -r default -j 1 -n 3 -y 18 -t medium -R up
+-s TprimeLH1700 -r default -j 1 -n 3 -y 18 -t medium -R down
+-s TprimeLH1700 -r default -j 1 -n 3 -y 18 -t medium -a up
+-s TprimeLH1700 -r default -j 1 -n 3 -y 18 -t medium -a down
+-s TprimeLH1700 -r default -j 1 -n 3 -y 18 -t medium -b up
+-s TprimeLH1700 -r default -j 1 -n 3 -y 18 -t medium -b down
+-s TprimeLH1600 -r default -j 2 -n 3 -y 16 -t medium
+-s TprimeLH1600 -r default -j 2 -n 3 -y 16 -t medium -J up
+-s TprimeLH1600 -r default -j 2 -n 3 -y 16 -t medium -J down
+-s TprimeLH1600 -r default -j 2 -n 3 -y 16 -t medium -R up
+-s TprimeLH1600 -r default -j 2 -n 3 -y 16 -t medium -R down
+-s TprimeLH1600 -r default -j 2 -n 3 -y 16 -t medium -a up
+-s TprimeLH1600 -r default -j 2 -n 3 -y 16 -t medium -a down
+-s TprimeLH1600 -r default -j 2 -n 3 -y 16 -t medium -b up
+-s TprimeLH1600 -r default -j 2 -n 3 -y 16 -t medium -b down
+-s BprimeRH1400 -r default -j 2 -n 3 -y 16 -t medium
+-s BprimeRH1400 -r default -j 2 -n 3 -y 16 -t medium -J up
+-s BprimeRH1400 -r default -j 2 -n 3 -y 16 -t medium -J down
+-s BprimeRH1400 -r default -j 2 -n 3 -y 16 -t medium -R up
+-s BprimeRH1400 -r default -j 2 -n 3 -y 16 -t medium -R down
+-s BprimeRH1400 -r default -j 2 -n 3 -y 16 -t medium -a up
+-s BprimeRH1400 -r default -j 2 -n 3 -y 16 -t medium -a down
+-s BprimeRH1400 -r default -j 2 -n 3 -y 16 -t medium -b up
+-s BprimeRH1400 -r default -j 2 -n 3 -y 16 -t medium -b down
+-s BprimeLH1700 -r default -j 2 -n 3 -y 16 -t medium
+-s BprimeLH1700 -r default -j 2 -n 3 -y 16 -t medium -J up
+-s BprimeLH1700 -r default -j 2 -n 3 -y 16 -t medium -J down
+-s BprimeLH1700 -r default -j 2 -n 3 -y 16 -t medium -R up
+-s BprimeLH1700 -r default -j 2 -n 3 -y 16 -t medium -R down
+-s BprimeLH1700 -r default -j 2 -n 3 -y 16 -t medium -a up
+-s BprimeLH1700 -r default -j 2 -n 3 -y 16 -t medium -a down
+-s BprimeLH1700 -r default -j 2 -n 3 -y 16 -t medium -b up
+-s BprimeLH1700 -r default -j 2 -n 3 -y 16 -t medium -b down
+-s BprimeRH1500 -r default -j 2 -n 3 -y 16 -t medium
+-s BprimeRH1500 -r default -j 2 -n 3 -y 16 -t medium -J up
+-s BprimeRH1500 -r default -j 2 -n 3 -y 16 -t medium -J down
+-s BprimeRH1500 -r default -j 2 -n 3 -y 16 -t medium -R up
+-s BprimeRH1500 -r default -j 2 -n 3 -y 16 -t medium -R down
+-s BprimeRH1500 -r default -j 2 -n 3 -y 16 -t medium -a up
+-s BprimeRH1500 -r default -j 2 -n 3 -y 16 -t medium -a down
+-s BprimeRH1500 -r default -j 2 -n 3 -y 16 -t medium -b up
+-s BprimeRH1500 -r default -j 2 -n 3 -y 16 -t medium -b down
+-s BprimeLH1200 -r default -j 2 -n 3 -y 16 -t medium
+-s BprimeLH1200 -r default -j 2 -n 3 -y 16 -t medium -J up
+-s BprimeLH1200 -r default -j 2 -n 3 -y 16 -t medium -J down
+-s BprimeLH1200 -r default -j 2 -n 3 -y 16 -t medium -R up
+-s BprimeLH1200 -r default -j 2 -n 3 -y 16 -t medium -R down
+-s BprimeLH1200 -r default -j 2 -n 3 -y 16 -t medium -a up
+-s BprimeLH1200 -r default -j 2 -n 3 -y 16 -t medium -a down
+-s BprimeLH1200 -r default -j 2 -n 3 -y 16 -t medium -b up
+-s BprimeLH1200 -r default -j 2 -n 3 -y 16 -t medium -b down
+-s TprimeRH1400 -r default -j 2 -n 3 -y 16 -t medium
+-s TprimeRH1400 -r default -j 2 -n 3 -y 16 -t medium -J up
+-s TprimeRH1400 -r default -j 2 -n 3 -y 16 -t medium -J down
+-s TprimeRH1400 -r default -j 2 -n 3 -y 16 -t medium -R up
+-s TprimeRH1400 -r default -j 2 -n 3 -y 16 -t medium -R down
+-s TprimeRH1400 -r default -j 2 -n 3 -y 16 -t medium -a up
+-s TprimeRH1400 -r default -j 2 -n 3 -y 16 -t medium -a down
+-s TprimeRH1400 -r default -j 2 -n 3 -y 16 -t medium -b up
+-s TprimeRH1400 -r default -j 2 -n 3 -y 16 -t medium -b down
+-s TprimeLH1200 -r default -j 2 -n 3 -y 16 -t medium
+-s TprimeLH1200 -r default -j 2 -n 3 -y 16 -t medium -J up
+-s TprimeLH1200 -r default -j 2 -n 3 -y 16 -t medium -J down
+-s TprimeLH1200 -r default -j 2 -n 3 -y 16 -t medium -R up
+-s TprimeLH1200 -r default -j 2 -n 3 -y 16 -t medium -R down
+-s TprimeLH1200 -r default -j 2 -n 3 -y 16 -t medium -a up
+-s TprimeLH1200 -r default -j 2 -n 3 -y 16 -t medium -a down
+-s TprimeLH1200 -r default -j 2 -n 3 -y 16 -t medium -b up
+-s TprimeLH1200 -r default -j 2 -n 3 -y 16 -t medium -b down
+-s TprimeLH1800 -r default -j 2 -n 3 -y 16 -t medium
+-s TprimeLH1800 -r default -j 2 -n 3 -y 16 -t medium -J up
+-s TprimeLH1800 -r default -j 2 -n 3 -y 16 -t medium -J down
+-s TprimeLH1800 -r default -j 2 -n 3 -y 16 -t medium -R up
+-s TprimeLH1800 -r default -j 2 -n 3 -y 16 -t medium -R down
+-s TprimeLH1800 -r default -j 2 -n 3 -y 16 -t medium -a up
+-s TprimeLH1800 -r default -j 2 -n 3 -y 16 -t medium -a down
+-s TprimeLH1800 -r default -j 2 -n 3 -y 16 -t medium -b up
+-s TprimeLH1800 -r default -j 2 -n 3 -y 16 -t medium -b down
+-s BprimeLH1800 -r default -j 2 -n 3 -y 16 -t medium
+-s BprimeLH1800 -r default -j 2 -n 3 -y 16 -t medium -J up
+-s BprimeLH1800 -r default -j 2 -n 3 -y 16 -t medium -J down
+-s BprimeLH1800 -r default -j 2 -n 3 -y 16 -t medium -R up
+-s BprimeLH1800 -r default -j 2 -n 3 -y 16 -t medium -R down
+-s BprimeLH1800 -r default -j 2 -n 3 -y 16 -t medium -a up
+-s BprimeLH1800 -r default -j 2 -n 3 -y 16 -t medium -a down
+-s BprimeLH1800 -r default -j 2 -n 3 -y 16 -t medium -b up
+-s BprimeLH1800 -r default -j 2 -n 3 -y 16 -t medium -b down
+-s BprimeRH1700 -r default -j 2 -n 3 -y 16 -t medium
+-s BprimeRH1700 -r default -j 2 -n 3 -y 16 -t medium -J up
+-s BprimeRH1700 -r default -j 2 -n 3 -y 16 -t medium -J down
+-s BprimeRH1700 -r default -j 2 -n 3 -y 16 -t medium -R up
+-s BprimeRH1700 -r default -j 2 -n 3 -y 16 -t medium -R down
+-s BprimeRH1700 -r default -j 2 -n 3 -y 16 -t medium -a up
+-s BprimeRH1700 -r default -j 2 -n 3 -y 16 -t medium -a down
+-s BprimeRH1700 -r default -j 2 -n 3 -y 16 -t medium -b up
+-s BprimeRH1700 -r default -j 2 -n 3 -y 16 -t medium -b down
+-s BprimeRH1800 -r default -j 2 -n 3 -y 16 -t medium
+-s BprimeRH1800 -r default -j 2 -n 3 -y 16 -t medium -J up
+-s BprimeRH1800 -r default -j 2 -n 3 -y 16 -t medium -J down
+-s BprimeRH1800 -r default -j 2 -n 3 -y 16 -t medium -R up
+-s BprimeRH1800 -r default -j 2 -n 3 -y 16 -t medium -R down
+-s BprimeRH1800 -r default -j 2 -n 3 -y 16 -t medium -a up
+-s BprimeRH1800 -r default -j 2 -n 3 -y 16 -t medium -a down
+-s BprimeRH1800 -r default -j 2 -n 3 -y 16 -t medium -b up
+-s BprimeRH1800 -r default -j 2 -n 3 -y 16 -t medium -b down
+-s TprimeRH1200 -r default -j 2 -n 3 -y 16 -t medium
+-s TprimeRH1200 -r default -j 2 -n 3 -y 16 -t medium -J up
+-s TprimeRH1200 -r default -j 2 -n 3 -y 16 -t medium -J down
+-s TprimeRH1200 -r default -j 2 -n 3 -y 16 -t medium -R up
+-s TprimeRH1200 -r default -j 2 -n 3 -y 16 -t medium -R down
+-s TprimeRH1200 -r default -j 2 -n 3 -y 16 -t medium -a up
+-s TprimeRH1200 -r default -j 2 -n 3 -y 16 -t medium -a down
+-s TprimeRH1200 -r default -j 2 -n 3 -y 16 -t medium -b up
+-s TprimeRH1200 -r default -j 2 -n 3 -y 16 -t medium -b down
+-s TprimeLH1300 -r default -j 2 -n 3 -y 16 -t medium
+-s TprimeLH1300 -r default -j 2 -n 3 -y 16 -t medium -J up
+-s TprimeLH1300 -r default -j 2 -n 3 -y 16 -t medium -J down
+-s TprimeLH1300 -r default -j 2 -n 3 -y 16 -t medium -R up
+-s TprimeLH1300 -r default -j 2 -n 3 -y 16 -t medium -R down
+-s TprimeLH1300 -r default -j 2 -n 3 -y 16 -t medium -a up
+-s TprimeLH1300 -r default -j 2 -n 3 -y 16 -t medium -a down
+-s TprimeLH1300 -r default -j 2 -n 3 -y 16 -t medium -b up
+-s TprimeLH1300 -r default -j 2 -n 3 -y 16 -t medium -b down
+-s BprimeRH1600 -r default -j 2 -n 3 -y 16 -t medium
+-s BprimeRH1600 -r default -j 2 -n 3 -y 16 -t medium -J up
+-s BprimeRH1600 -r default -j 2 -n 3 -y 16 -t medium -J down
+-s BprimeRH1600 -r default -j 2 -n 3 -y 16 -t medium -R up
+-s BprimeRH1600 -r default -j 2 -n 3 -y 16 -t medium -R down
+-s BprimeRH1600 -r default -j 2 -n 3 -y 16 -t medium -a up
+-s BprimeRH1600 -r default -j 2 -n 3 -y 16 -t medium -a down
+-s BprimeRH1600 -r default -j 2 -n 3 -y 16 -t medium -b up
+-s BprimeRH1600 -r default -j 2 -n 3 -y 16 -t medium -b down
+-s BprimeLH1600 -r default -j 2 -n 3 -y 16 -t medium
+-s BprimeLH1600 -r default -j 2 -n 3 -y 16 -t medium -J up
+-s BprimeLH1600 -r default -j 2 -n 3 -y 16 -t medium -J down
+-s BprimeLH1600 -r default -j 2 -n 3 -y 16 -t medium -R up
+-s BprimeLH1600 -r default -j 2 -n 3 -y 16 -t medium -R down
+-s BprimeLH1600 -r default -j 2 -n 3 -y 16 -t medium -a up
+-s BprimeLH1600 -r default -j 2 -n 3 -y 16 -t medium -a down
+-s BprimeLH1600 -r default -j 2 -n 3 -y 16 -t medium -b up
+-s BprimeLH1600 -r default -j 2 -n 3 -y 16 -t medium -b down
+-s TprimeRH1300 -r default -j 2 -n 3 -y 16 -t medium
+-s TprimeRH1300 -r default -j 2 -n 3 -y 16 -t medium -J up
+-s TprimeRH1300 -r default -j 2 -n 3 -y 16 -t medium -J down
+-s TprimeRH1300 -r default -j 2 -n 3 -y 16 -t medium -R up
+-s TprimeRH1300 -r default -j 2 -n 3 -y 16 -t medium -R down
+-s TprimeRH1300 -r default -j 2 -n 3 -y 16 -t medium -a up
+-s TprimeRH1300 -r default -j 2 -n 3 -y 16 -t medium -a down
+-s TprimeRH1300 -r default -j 2 -n 3 -y 16 -t medium -b up
+-s TprimeRH1300 -r default -j 2 -n 3 -y 16 -t medium -b down
+-s BprimeLH1500 -r default -j 2 -n 3 -y 16 -t medium
+-s BprimeLH1500 -r default -j 2 -n 3 -y 16 -t medium -J up
+-s BprimeLH1500 -r default -j 2 -n 3 -y 16 -t medium -J down
+-s BprimeLH1500 -r default -j 2 -n 3 -y 16 -t medium -R up
+-s BprimeLH1500 -r default -j 2 -n 3 -y 16 -t medium -R down
+-s BprimeLH1500 -r default -j 2 -n 3 -y 16 -t medium -a up
+-s BprimeLH1500 -r default -j 2 -n 3 -y 16 -t medium -a down
+-s BprimeLH1500 -r default -j 2 -n 3 -y 16 -t medium -b up
+-s BprimeLH1500 -r default -j 2 -n 3 -y 16 -t medium -b down
+-s BprimeRH1200 -r default -j 2 -n 3 -y 16 -t medium
+-s BprimeRH1200 -r default -j 2 -n 3 -y 16 -t medium -J up
+-s BprimeRH1200 -r default -j 2 -n 3 -y 16 -t medium -J down
+-s BprimeRH1200 -r default -j 2 -n 3 -y 16 -t medium -R up
+-s BprimeRH1200 -r default -j 2 -n 3 -y 16 -t medium -R down
+-s BprimeRH1200 -r default -j 2 -n 3 -y 16 -t medium -a up
+-s BprimeRH1200 -r default -j 2 -n 3 -y 16 -t medium -a down
+-s BprimeRH1200 -r default -j 2 -n 3 -y 16 -t medium -b up
+-s BprimeRH1200 -r default -j 2 -n 3 -y 16 -t medium -b down
+-s BprimeLH1400 -r default -j 2 -n 3 -y 16 -t medium
+-s BprimeLH1400 -r default -j 2 -n 3 -y 16 -t medium -J up
+-s BprimeLH1400 -r default -j 2 -n 3 -y 16 -t medium -J down
+-s BprimeLH1400 -r default -j 2 -n 3 -y 16 -t medium -R up
+-s BprimeLH1400 -r default -j 2 -n 3 -y 16 -t medium -R down
+-s BprimeLH1400 -r default -j 2 -n 3 -y 16 -t medium -a up
+-s BprimeLH1400 -r default -j 2 -n 3 -y 16 -t medium -a down
+-s BprimeLH1400 -r default -j 2 -n 3 -y 16 -t medium -b up
+-s BprimeLH1400 -r default -j 2 -n 3 -y 16 -t medium -b down
+-s TprimeRH1700 -r default -j 2 -n 3 -y 16 -t medium
+-s TprimeRH1700 -r default -j 2 -n 3 -y 16 -t medium -J up
+-s TprimeRH1700 -r default -j 2 -n 3 -y 16 -t medium -J down
+-s TprimeRH1700 -r default -j 2 -n 3 -y 16 -t medium -R up
+-s TprimeRH1700 -r default -j 2 -n 3 -y 16 -t medium -R down
+-s TprimeRH1700 -r default -j 2 -n 3 -y 16 -t medium -a up
+-s TprimeRH1700 -r default -j 2 -n 3 -y 16 -t medium -a down
+-s TprimeRH1700 -r default -j 2 -n 3 -y 16 -t medium -b up
+-s TprimeRH1700 -r default -j 2 -n 3 -y 16 -t medium -b down
+-s TprimeLH1500 -r default -j 2 -n 3 -y 16 -t medium
+-s TprimeLH1500 -r default -j 2 -n 3 -y 16 -t medium -J up
+-s TprimeLH1500 -r default -j 2 -n 3 -y 16 -t medium -J down
+-s TprimeLH1500 -r default -j 2 -n 3 -y 16 -t medium -R up
+-s TprimeLH1500 -r default -j 2 -n 3 -y 16 -t medium -R down
+-s TprimeLH1500 -r default -j 2 -n 3 -y 16 -t medium -a up
+-s TprimeLH1500 -r default -j 2 -n 3 -y 16 -t medium -a down
+-s TprimeLH1500 -r default -j 2 -n 3 -y 16 -t medium -b up
+-s TprimeLH1500 -r default -j 2 -n 3 -y 16 -t medium -b down
+-s TprimeRH1500 -r default -j 2 -n 3 -y 16 -t medium
+-s TprimeRH1500 -r default -j 2 -n 3 -y 16 -t medium -J up
+-s TprimeRH1500 -r default -j 2 -n 3 -y 16 -t medium -J down
+-s TprimeRH1500 -r default -j 2 -n 3 -y 16 -t medium -R up
+-s TprimeRH1500 -r default -j 2 -n 3 -y 16 -t medium -R down
+-s TprimeRH1500 -r default -j 2 -n 3 -y 16 -t medium -a up
+-s TprimeRH1500 -r default -j 2 -n 3 -y 16 -t medium -a down
+-s TprimeRH1500 -r default -j 2 -n 3 -y 16 -t medium -b up
+-s TprimeRH1500 -r default -j 2 -n 3 -y 16 -t medium -b down
+-s TprimeLH1400 -r default -j 2 -n 3 -y 16 -t medium
+-s TprimeLH1400 -r default -j 2 -n 3 -y 16 -t medium -J up
+-s TprimeLH1400 -r default -j 2 -n 3 -y 16 -t medium -J down
+-s TprimeLH1400 -r default -j 2 -n 3 -y 16 -t medium -R up
+-s TprimeLH1400 -r default -j 2 -n 3 -y 16 -t medium -R down
+-s TprimeLH1400 -r default -j 2 -n 3 -y 16 -t medium -a up
+-s TprimeLH1400 -r default -j 2 -n 3 -y 16 -t medium -a down
+-s TprimeLH1400 -r default -j 2 -n 3 -y 16 -t medium -b up
+-s TprimeLH1400 -r default -j 2 -n 3 -y 16 -t medium -b down
+-s BprimeRH1300 -r default -j 2 -n 3 -y 16 -t medium
+-s BprimeRH1300 -r default -j 2 -n 3 -y 16 -t medium -J up
+-s BprimeRH1300 -r default -j 2 -n 3 -y 16 -t medium -J down
+-s BprimeRH1300 -r default -j 2 -n 3 -y 16 -t medium -R up
+-s BprimeRH1300 -r default -j 2 -n 3 -y 16 -t medium -R down
+-s BprimeRH1300 -r default -j 2 -n 3 -y 16 -t medium -a up
+-s BprimeRH1300 -r default -j 2 -n 3 -y 16 -t medium -a down
+-s BprimeRH1300 -r default -j 2 -n 3 -y 16 -t medium -b up
+-s BprimeRH1300 -r default -j 2 -n 3 -y 16 -t medium -b down
+-s TprimeRH1600 -r default -j 2 -n 3 -y 16 -t medium
+-s TprimeRH1600 -r default -j 2 -n 3 -y 16 -t medium -J up
+-s TprimeRH1600 -r default -j 2 -n 3 -y 16 -t medium -J down
+-s TprimeRH1600 -r default -j 2 -n 3 -y 16 -t medium -R up
+-s TprimeRH1600 -r default -j 2 -n 3 -y 16 -t medium -R down
+-s TprimeRH1600 -r default -j 2 -n 3 -y 16 -t medium -a up
+-s TprimeRH1600 -r default -j 2 -n 3 -y 16 -t medium -a down
+-s TprimeRH1600 -r default -j 2 -n 3 -y 16 -t medium -b up
+-s TprimeRH1600 -r default -j 2 -n 3 -y 16 -t medium -b down
+-s BprimeLH1300 -r default -j 2 -n 3 -y 16 -t medium
+-s BprimeLH1300 -r default -j 2 -n 3 -y 16 -t medium -J up
+-s BprimeLH1300 -r default -j 2 -n 3 -y 16 -t medium -J down
+-s BprimeLH1300 -r default -j 2 -n 3 -y 16 -t medium -R up
+-s BprimeLH1300 -r default -j 2 -n 3 -y 16 -t medium -R down
+-s BprimeLH1300 -r default -j 2 -n 3 -y 16 -t medium -a up
+-s BprimeLH1300 -r default -j 2 -n 3 -y 16 -t medium -a down
+-s BprimeLH1300 -r default -j 2 -n 3 -y 16 -t medium -b up
+-s BprimeLH1300 -r default -j 2 -n 3 -y 16 -t medium -b down
+-s TprimeRH1800 -r default -j 2 -n 3 -y 16 -t medium
+-s TprimeRH1800 -r default -j 2 -n 3 -y 16 -t medium -J up
+-s TprimeRH1800 -r default -j 2 -n 3 -y 16 -t medium -J down
+-s TprimeRH1800 -r default -j 2 -n 3 -y 16 -t medium -R up
+-s TprimeRH1800 -r default -j 2 -n 3 -y 16 -t medium -R down
+-s TprimeRH1800 -r default -j 2 -n 3 -y 16 -t medium -a up
+-s TprimeRH1800 -r default -j 2 -n 3 -y 16 -t medium -a down
+-s TprimeRH1800 -r default -j 2 -n 3 -y 16 -t medium -b up
+-s TprimeRH1800 -r default -j 2 -n 3 -y 16 -t medium -b down
+-s TprimeLH1700 -r default -j 2 -n 3 -y 16 -t medium
+-s TprimeLH1700 -r default -j 2 -n 3 -y 16 -t medium -J up
+-s TprimeLH1700 -r default -j 2 -n 3 -y 16 -t medium -J down
+-s TprimeLH1700 -r default -j 2 -n 3 -y 16 -t medium -R up
+-s TprimeLH1700 -r default -j 2 -n 3 -y 16 -t medium -R down
+-s TprimeLH1700 -r default -j 2 -n 3 -y 16 -t medium -a up
+-s TprimeLH1700 -r default -j 2 -n 3 -y 16 -t medium -a down
+-s TprimeLH1700 -r default -j 2 -n 3 -y 16 -t medium -b up
+-s TprimeLH1700 -r default -j 2 -n 3 -y 16 -t medium -b down
+-s TprimeLH1800 -r default -j 2 -n 3 -y 18 -t medium
+-s TprimeLH1800 -r default -j 2 -n 3 -y 18 -t medium -J up
+-s TprimeLH1800 -r default -j 2 -n 3 -y 18 -t medium -J down
+-s TprimeLH1800 -r default -j 2 -n 3 -y 18 -t medium -R up
+-s TprimeLH1800 -r default -j 2 -n 3 -y 18 -t medium -R down
+-s TprimeLH1800 -r default -j 2 -n 3 -y 18 -t medium -a up
+-s TprimeLH1800 -r default -j 2 -n 3 -y 18 -t medium -a down
+-s TprimeLH1800 -r default -j 2 -n 3 -y 18 -t medium -b up
+-s TprimeLH1800 -r default -j 2 -n 3 -y 18 -t medium -b down
+-s TprimeLH1500 -r default -j 2 -n 3 -y 18 -t medium
+-s TprimeLH1500 -r default -j 2 -n 3 -y 18 -t medium -J up
+-s TprimeLH1500 -r default -j 2 -n 3 -y 18 -t medium -J down
+-s TprimeLH1500 -r default -j 2 -n 3 -y 18 -t medium -R up
+-s TprimeLH1500 -r default -j 2 -n 3 -y 18 -t medium -R down
+-s TprimeLH1500 -r default -j 2 -n 3 -y 18 -t medium -a up
+-s TprimeLH1500 -r default -j 2 -n 3 -y 18 -t medium -a down
+-s TprimeLH1500 -r default -j 2 -n 3 -y 18 -t medium -b up
+-s TprimeLH1500 -r default -j 2 -n 3 -y 18 -t medium -b down
+-s TprimeLH1600 -r default -j 2 -n 3 -y 18 -t medium
+-s TprimeLH1600 -r default -j 2 -n 3 -y 18 -t medium -J up
+-s TprimeLH1600 -r default -j 2 -n 3 -y 18 -t medium -J down
+-s TprimeLH1600 -r default -j 2 -n 3 -y 18 -t medium -R up
+-s TprimeLH1600 -r default -j 2 -n 3 -y 18 -t medium -R down
+-s TprimeLH1600 -r default -j 2 -n 3 -y 18 -t medium -a up
+-s TprimeLH1600 -r default -j 2 -n 3 -y 18 -t medium -a down
+-s TprimeLH1600 -r default -j 2 -n 3 -y 18 -t medium -b up
+-s TprimeLH1600 -r default -j 2 -n 3 -y 18 -t medium -b down
+-s TprimeLH1300 -r default -j 2 -n 3 -y 18 -t medium
+-s TprimeLH1300 -r default -j 2 -n 3 -y 18 -t medium -J up
+-s TprimeLH1300 -r default -j 2 -n 3 -y 18 -t medium -J down
+-s TprimeLH1300 -r default -j 2 -n 3 -y 18 -t medium -R up
+-s TprimeLH1300 -r default -j 2 -n 3 -y 18 -t medium -R down
+-s TprimeLH1300 -r default -j 2 -n 3 -y 18 -t medium -a up
+-s TprimeLH1300 -r default -j 2 -n 3 -y 18 -t medium -a down
+-s TprimeLH1300 -r default -j 2 -n 3 -y 18 -t medium -b up
+-s TprimeLH1300 -r default -j 2 -n 3 -y 18 -t medium -b down
+-s TprimeLH1200 -r default -j 2 -n 3 -y 18 -t medium
+-s TprimeLH1200 -r default -j 2 -n 3 -y 18 -t medium -J up
+-s TprimeLH1200 -r default -j 2 -n 3 -y 18 -t medium -J down
+-s TprimeLH1200 -r default -j 2 -n 3 -y 18 -t medium -R up
+-s TprimeLH1200 -r default -j 2 -n 3 -y 18 -t medium -R down
+-s TprimeLH1200 -r default -j 2 -n 3 -y 18 -t medium -a up
+-s TprimeLH1200 -r default -j 2 -n 3 -y 18 -t medium -a down
+-s TprimeLH1200 -r default -j 2 -n 3 -y 18 -t medium -b up
+-s TprimeLH1200 -r default -j 2 -n 3 -y 18 -t medium -b down
+-s TprimeLH1400 -r default -j 2 -n 3 -y 18 -t medium
+-s TprimeLH1400 -r default -j 2 -n 3 -y 18 -t medium -J up
+-s TprimeLH1400 -r default -j 2 -n 3 -y 18 -t medium -J down
+-s TprimeLH1400 -r default -j 2 -n 3 -y 18 -t medium -R up
+-s TprimeLH1400 -r default -j 2 -n 3 -y 18 -t medium -R down
+-s TprimeLH1400 -r default -j 2 -n 3 -y 18 -t medium -a up
+-s TprimeLH1400 -r default -j 2 -n 3 -y 18 -t medium -a down
+-s TprimeLH1400 -r default -j 2 -n 3 -y 18 -t medium -b up
+-s TprimeLH1400 -r default -j 2 -n 3 -y 18 -t medium -b down
+-s TprimeLH1700 -r default -j 2 -n 3 -y 18 -t medium
+-s TprimeLH1700 -r default -j 2 -n 3 -y 18 -t medium -J up
+-s TprimeLH1700 -r default -j 2 -n 3 -y 18 -t medium -J down
+-s TprimeLH1700 -r default -j 2 -n 3 -y 18 -t medium -R up
+-s TprimeLH1700 -r default -j 2 -n 3 -y 18 -t medium -R down
+-s TprimeLH1700 -r default -j 2 -n 3 -y 18 -t medium -a up
+-s TprimeLH1700 -r default -j 2 -n 3 -y 18 -t medium -a down
+-s TprimeLH1700 -r default -j 2 -n 3 -y 18 -t medium -b up
+-s TprimeLH1700 -r default -j 2 -n 3 -y 18 -t medium -b down
+-s TprimeLH1600 -r default -j 3 -n 3 -y 16 -t medium
+-s TprimeLH1600 -r default -j 3 -n 3 -y 16 -t medium -J up
+-s TprimeLH1600 -r default -j 3 -n 3 -y 16 -t medium -J down
+-s TprimeLH1600 -r default -j 3 -n 3 -y 16 -t medium -R up
+-s TprimeLH1600 -r default -j 3 -n 3 -y 16 -t medium -R down
+-s TprimeLH1600 -r default -j 3 -n 3 -y 16 -t medium -a up
+-s TprimeLH1600 -r default -j 3 -n 3 -y 16 -t medium -a down
+-s TprimeLH1600 -r default -j 3 -n 3 -y 16 -t medium -b up
+-s TprimeLH1600 -r default -j 3 -n 3 -y 16 -t medium -b down
+-s BprimeRH1400 -r default -j 3 -n 3 -y 16 -t medium
+-s BprimeRH1400 -r default -j 3 -n 3 -y 16 -t medium -J up
+-s BprimeRH1400 -r default -j 3 -n 3 -y 16 -t medium -J down
+-s BprimeRH1400 -r default -j 3 -n 3 -y 16 -t medium -R up
+-s BprimeRH1400 -r default -j 3 -n 3 -y 16 -t medium -R down
+-s BprimeRH1400 -r default -j 3 -n 3 -y 16 -t medium -a up
+-s BprimeRH1400 -r default -j 3 -n 3 -y 16 -t medium -a down
+-s BprimeRH1400 -r default -j 3 -n 3 -y 16 -t medium -b up
+-s BprimeRH1400 -r default -j 3 -n 3 -y 16 -t medium -b down
+-s BprimeLH1700 -r default -j 3 -n 3 -y 16 -t medium
+-s BprimeLH1700 -r default -j 3 -n 3 -y 16 -t medium -J up
+-s BprimeLH1700 -r default -j 3 -n 3 -y 16 -t medium -J down
+-s BprimeLH1700 -r default -j 3 -n 3 -y 16 -t medium -R up
+-s BprimeLH1700 -r default -j 3 -n 3 -y 16 -t medium -R down
+-s BprimeLH1700 -r default -j 3 -n 3 -y 16 -t medium -a up
+-s BprimeLH1700 -r default -j 3 -n 3 -y 16 -t medium -a down
+-s BprimeLH1700 -r default -j 3 -n 3 -y 16 -t medium -b up
+-s BprimeLH1700 -r default -j 3 -n 3 -y 16 -t medium -b down
+-s BprimeRH1500 -r default -j 3 -n 3 -y 16 -t medium
+-s BprimeRH1500 -r default -j 3 -n 3 -y 16 -t medium -J up
+-s BprimeRH1500 -r default -j 3 -n 3 -y 16 -t medium -J down
+-s BprimeRH1500 -r default -j 3 -n 3 -y 16 -t medium -R up
+-s BprimeRH1500 -r default -j 3 -n 3 -y 16 -t medium -R down
+-s BprimeRH1500 -r default -j 3 -n 3 -y 16 -t medium -a up
+-s BprimeRH1500 -r default -j 3 -n 3 -y 16 -t medium -a down
+-s BprimeRH1500 -r default -j 3 -n 3 -y 16 -t medium -b up
+-s BprimeRH1500 -r default -j 3 -n 3 -y 16 -t medium -b down
+-s BprimeLH1200 -r default -j 3 -n 3 -y 16 -t medium
+-s BprimeLH1200 -r default -j 3 -n 3 -y 16 -t medium -J up
+-s BprimeLH1200 -r default -j 3 -n 3 -y 16 -t medium -J down
+-s BprimeLH1200 -r default -j 3 -n 3 -y 16 -t medium -R up
+-s BprimeLH1200 -r default -j 3 -n 3 -y 16 -t medium -R down
+-s BprimeLH1200 -r default -j 3 -n 3 -y 16 -t medium -a up
+-s BprimeLH1200 -r default -j 3 -n 3 -y 16 -t medium -a down
+-s BprimeLH1200 -r default -j 3 -n 3 -y 16 -t medium -b up
+-s BprimeLH1200 -r default -j 3 -n 3 -y 16 -t medium -b down
+-s TprimeRH1400 -r default -j 3 -n 3 -y 16 -t medium
+-s TprimeRH1400 -r default -j 3 -n 3 -y 16 -t medium -J up
+-s TprimeRH1400 -r default -j 3 -n 3 -y 16 -t medium -J down
+-s TprimeRH1400 -r default -j 3 -n 3 -y 16 -t medium -R up
+-s TprimeRH1400 -r default -j 3 -n 3 -y 16 -t medium -R down
+-s TprimeRH1400 -r default -j 3 -n 3 -y 16 -t medium -a up
+-s TprimeRH1400 -r default -j 3 -n 3 -y 16 -t medium -a down
+-s TprimeRH1400 -r default -j 3 -n 3 -y 16 -t medium -b up
+-s TprimeRH1400 -r default -j 3 -n 3 -y 16 -t medium -b down
+-s TprimeLH1200 -r default -j 3 -n 3 -y 16 -t medium
+-s TprimeLH1200 -r default -j 3 -n 3 -y 16 -t medium -J up
+-s TprimeLH1200 -r default -j 3 -n 3 -y 16 -t medium -J down
+-s TprimeLH1200 -r default -j 3 -n 3 -y 16 -t medium -R up
+-s TprimeLH1200 -r default -j 3 -n 3 -y 16 -t medium -R down
+-s TprimeLH1200 -r default -j 3 -n 3 -y 16 -t medium -a up
+-s TprimeLH1200 -r default -j 3 -n 3 -y 16 -t medium -a down
+-s TprimeLH1200 -r default -j 3 -n 3 -y 16 -t medium -b up
+-s TprimeLH1200 -r default -j 3 -n 3 -y 16 -t medium -b down
+-s TprimeLH1800 -r default -j 3 -n 3 -y 16 -t medium
+-s TprimeLH1800 -r default -j 3 -n 3 -y 16 -t medium -J up
+-s TprimeLH1800 -r default -j 3 -n 3 -y 16 -t medium -J down
+-s TprimeLH1800 -r default -j 3 -n 3 -y 16 -t medium -R up
+-s TprimeLH1800 -r default -j 3 -n 3 -y 16 -t medium -R down
+-s TprimeLH1800 -r default -j 3 -n 3 -y 16 -t medium -a up
+-s TprimeLH1800 -r default -j 3 -n 3 -y 16 -t medium -a down
+-s TprimeLH1800 -r default -j 3 -n 3 -y 16 -t medium -b up
+-s TprimeLH1800 -r default -j 3 -n 3 -y 16 -t medium -b down
+-s BprimeLH1800 -r default -j 3 -n 3 -y 16 -t medium
+-s BprimeLH1800 -r default -j 3 -n 3 -y 16 -t medium -J up
+-s BprimeLH1800 -r default -j 3 -n 3 -y 16 -t medium -J down
+-s BprimeLH1800 -r default -j 3 -n 3 -y 16 -t medium -R up
+-s BprimeLH1800 -r default -j 3 -n 3 -y 16 -t medium -R down
+-s BprimeLH1800 -r default -j 3 -n 3 -y 16 -t medium -a up
+-s BprimeLH1800 -r default -j 3 -n 3 -y 16 -t medium -a down
+-s BprimeLH1800 -r default -j 3 -n 3 -y 16 -t medium -b up
+-s BprimeLH1800 -r default -j 3 -n 3 -y 16 -t medium -b down
+-s BprimeRH1700 -r default -j 3 -n 3 -y 16 -t medium
+-s BprimeRH1700 -r default -j 3 -n 3 -y 16 -t medium -J up
+-s BprimeRH1700 -r default -j 3 -n 3 -y 16 -t medium -J down
+-s BprimeRH1700 -r default -j 3 -n 3 -y 16 -t medium -R up
+-s BprimeRH1700 -r default -j 3 -n 3 -y 16 -t medium -R down
+-s BprimeRH1700 -r default -j 3 -n 3 -y 16 -t medium -a up
+-s BprimeRH1700 -r default -j 3 -n 3 -y 16 -t medium -a down
+-s BprimeRH1700 -r default -j 3 -n 3 -y 16 -t medium -b up
+-s BprimeRH1700 -r default -j 3 -n 3 -y 16 -t medium -b down
+-s BprimeRH1800 -r default -j 3 -n 3 -y 16 -t medium
+-s BprimeRH1800 -r default -j 3 -n 3 -y 16 -t medium -J up
+-s BprimeRH1800 -r default -j 3 -n 3 -y 16 -t medium -J down
+-s BprimeRH1800 -r default -j 3 -n 3 -y 16 -t medium -R up
+-s BprimeRH1800 -r default -j 3 -n 3 -y 16 -t medium -R down
+-s BprimeRH1800 -r default -j 3 -n 3 -y 16 -t medium -a up
+-s BprimeRH1800 -r default -j 3 -n 3 -y 16 -t medium -a down
+-s BprimeRH1800 -r default -j 3 -n 3 -y 16 -t medium -b up
+-s BprimeRH1800 -r default -j 3 -n 3 -y 16 -t medium -b down
+-s TprimeRH1200 -r default -j 3 -n 3 -y 16 -t medium
+-s TprimeRH1200 -r default -j 3 -n 3 -y 16 -t medium -J up
+-s TprimeRH1200 -r default -j 3 -n 3 -y 16 -t medium -J down
+-s TprimeRH1200 -r default -j 3 -n 3 -y 16 -t medium -R up
+-s TprimeRH1200 -r default -j 3 -n 3 -y 16 -t medium -R down
+-s TprimeRH1200 -r default -j 3 -n 3 -y 16 -t medium -a up
+-s TprimeRH1200 -r default -j 3 -n 3 -y 16 -t medium -a down
+-s TprimeRH1200 -r default -j 3 -n 3 -y 16 -t medium -b up
+-s TprimeRH1200 -r default -j 3 -n 3 -y 16 -t medium -b down
+-s TprimeLH1300 -r default -j 3 -n 3 -y 16 -t medium
+-s TprimeLH1300 -r default -j 3 -n 3 -y 16 -t medium -J up
+-s TprimeLH1300 -r default -j 3 -n 3 -y 16 -t medium -J down
+-s TprimeLH1300 -r default -j 3 -n 3 -y 16 -t medium -R up
+-s TprimeLH1300 -r default -j 3 -n 3 -y 16 -t medium -R down
+-s TprimeLH1300 -r default -j 3 -n 3 -y 16 -t medium -a up
+-s TprimeLH1300 -r default -j 3 -n 3 -y 16 -t medium -a down
+-s TprimeLH1300 -r default -j 3 -n 3 -y 16 -t medium -b up
+-s TprimeLH1300 -r default -j 3 -n 3 -y 16 -t medium -b down
+-s BprimeRH1600 -r default -j 3 -n 3 -y 16 -t medium
+-s BprimeRH1600 -r default -j 3 -n 3 -y 16 -t medium -J up
+-s BprimeRH1600 -r default -j 3 -n 3 -y 16 -t medium -J down
+-s BprimeRH1600 -r default -j 3 -n 3 -y 16 -t medium -R up
+-s BprimeRH1600 -r default -j 3 -n 3 -y 16 -t medium -R down
+-s BprimeRH1600 -r default -j 3 -n 3 -y 16 -t medium -a up
+-s BprimeRH1600 -r default -j 3 -n 3 -y 16 -t medium -a down
+-s BprimeRH1600 -r default -j 3 -n 3 -y 16 -t medium -b up
+-s BprimeRH1600 -r default -j 3 -n 3 -y 16 -t medium -b down
+-s BprimeLH1600 -r default -j 3 -n 3 -y 16 -t medium
+-s BprimeLH1600 -r default -j 3 -n 3 -y 16 -t medium -J up
+-s BprimeLH1600 -r default -j 3 -n 3 -y 16 -t medium -J down
+-s BprimeLH1600 -r default -j 3 -n 3 -y 16 -t medium -R up
+-s BprimeLH1600 -r default -j 3 -n 3 -y 16 -t medium -R down
+-s BprimeLH1600 -r default -j 3 -n 3 -y 16 -t medium -a up
+-s BprimeLH1600 -r default -j 3 -n 3 -y 16 -t medium -a down
+-s BprimeLH1600 -r default -j 3 -n 3 -y 16 -t medium -b up
+-s BprimeLH1600 -r default -j 3 -n 3 -y 16 -t medium -b down
+-s TprimeRH1300 -r default -j 3 -n 3 -y 16 -t medium
+-s TprimeRH1300 -r default -j 3 -n 3 -y 16 -t medium -J up
+-s TprimeRH1300 -r default -j 3 -n 3 -y 16 -t medium -J down
+-s TprimeRH1300 -r default -j 3 -n 3 -y 16 -t medium -R up
+-s TprimeRH1300 -r default -j 3 -n 3 -y 16 -t medium -R down
+-s TprimeRH1300 -r default -j 3 -n 3 -y 16 -t medium -a up
+-s TprimeRH1300 -r default -j 3 -n 3 -y 16 -t medium -a down
+-s TprimeRH1300 -r default -j 3 -n 3 -y 16 -t medium -b up
+-s TprimeRH1300 -r default -j 3 -n 3 -y 16 -t medium -b down
+-s BprimeLH1500 -r default -j 3 -n 3 -y 16 -t medium
+-s BprimeLH1500 -r default -j 3 -n 3 -y 16 -t medium -J up
+-s BprimeLH1500 -r default -j 3 -n 3 -y 16 -t medium -J down
+-s BprimeLH1500 -r default -j 3 -n 3 -y 16 -t medium -R up
+-s BprimeLH1500 -r default -j 3 -n 3 -y 16 -t medium -R down
+-s BprimeLH1500 -r default -j 3 -n 3 -y 16 -t medium -a up
+-s BprimeLH1500 -r default -j 3 -n 3 -y 16 -t medium -a down
+-s BprimeLH1500 -r default -j 3 -n 3 -y 16 -t medium -b up
+-s BprimeLH1500 -r default -j 3 -n 3 -y 16 -t medium -b down
+-s BprimeRH1200 -r default -j 3 -n 3 -y 16 -t medium
+-s BprimeRH1200 -r default -j 3 -n 3 -y 16 -t medium -J up
+-s BprimeRH1200 -r default -j 3 -n 3 -y 16 -t medium -J down
+-s BprimeRH1200 -r default -j 3 -n 3 -y 16 -t medium -R up
+-s BprimeRH1200 -r default -j 3 -n 3 -y 16 -t medium -R down
+-s BprimeRH1200 -r default -j 3 -n 3 -y 16 -t medium -a up
+-s BprimeRH1200 -r default -j 3 -n 3 -y 16 -t medium -a down
+-s BprimeRH1200 -r default -j 3 -n 3 -y 16 -t medium -b up
+-s BprimeRH1200 -r default -j 3 -n 3 -y 16 -t medium -b down
+-s BprimeLH1400 -r default -j 3 -n 3 -y 16 -t medium
+-s BprimeLH1400 -r default -j 3 -n 3 -y 16 -t medium -J up
+-s BprimeLH1400 -r default -j 3 -n 3 -y 16 -t medium -J down
+-s BprimeLH1400 -r default -j 3 -n 3 -y 16 -t medium -R up
+-s BprimeLH1400 -r default -j 3 -n 3 -y 16 -t medium -R down
+-s BprimeLH1400 -r default -j 3 -n 3 -y 16 -t medium -a up
+-s BprimeLH1400 -r default -j 3 -n 3 -y 16 -t medium -a down
+-s BprimeLH1400 -r default -j 3 -n 3 -y 16 -t medium -b up
+-s BprimeLH1400 -r default -j 3 -n 3 -y 16 -t medium -b down
+-s TprimeRH1700 -r default -j 3 -n 3 -y 16 -t medium
+-s TprimeRH1700 -r default -j 3 -n 3 -y 16 -t medium -J up
+-s TprimeRH1700 -r default -j 3 -n 3 -y 16 -t medium -J down
+-s TprimeRH1700 -r default -j 3 -n 3 -y 16 -t medium -R up
+-s TprimeRH1700 -r default -j 3 -n 3 -y 16 -t medium -R down
+-s TprimeRH1700 -r default -j 3 -n 3 -y 16 -t medium -a up
+-s TprimeRH1700 -r default -j 3 -n 3 -y 16 -t medium -a down
+-s TprimeRH1700 -r default -j 3 -n 3 -y 16 -t medium -b up
+-s TprimeRH1700 -r default -j 3 -n 3 -y 16 -t medium -b down
+-s TprimeLH1500 -r default -j 3 -n 3 -y 16 -t medium
+-s TprimeLH1500 -r default -j 3 -n 3 -y 16 -t medium -J up
+-s TprimeLH1500 -r default -j 3 -n 3 -y 16 -t medium -J down
+-s TprimeLH1500 -r default -j 3 -n 3 -y 16 -t medium -R up
+-s TprimeLH1500 -r default -j 3 -n 3 -y 16 -t medium -R down
+-s TprimeLH1500 -r default -j 3 -n 3 -y 16 -t medium -a up
+-s TprimeLH1500 -r default -j 3 -n 3 -y 16 -t medium -a down
+-s TprimeLH1500 -r default -j 3 -n 3 -y 16 -t medium -b up
+-s TprimeLH1500 -r default -j 3 -n 3 -y 16 -t medium -b down
+-s TprimeRH1500 -r default -j 3 -n 3 -y 16 -t medium
+-s TprimeRH1500 -r default -j 3 -n 3 -y 16 -t medium -J up
+-s TprimeRH1500 -r default -j 3 -n 3 -y 16 -t medium -J down
+-s TprimeRH1500 -r default -j 3 -n 3 -y 16 -t medium -R up
+-s TprimeRH1500 -r default -j 3 -n 3 -y 16 -t medium -R down
+-s TprimeRH1500 -r default -j 3 -n 3 -y 16 -t medium -a up
+-s TprimeRH1500 -r default -j 3 -n 3 -y 16 -t medium -a down
+-s TprimeRH1500 -r default -j 3 -n 3 -y 16 -t medium -b up
+-s TprimeRH1500 -r default -j 3 -n 3 -y 16 -t medium -b down
+-s TprimeLH1400 -r default -j 3 -n 3 -y 16 -t medium
+-s TprimeLH1400 -r default -j 3 -n 3 -y 16 -t medium -J up
+-s TprimeLH1400 -r default -j 3 -n 3 -y 16 -t medium -J down
+-s TprimeLH1400 -r default -j 3 -n 3 -y 16 -t medium -R up
+-s TprimeLH1400 -r default -j 3 -n 3 -y 16 -t medium -R down
+-s TprimeLH1400 -r default -j 3 -n 3 -y 16 -t medium -a up
+-s TprimeLH1400 -r default -j 3 -n 3 -y 16 -t medium -a down
+-s TprimeLH1400 -r default -j 3 -n 3 -y 16 -t medium -b up
+-s TprimeLH1400 -r default -j 3 -n 3 -y 16 -t medium -b down
+-s BprimeRH1300 -r default -j 3 -n 3 -y 16 -t medium
+-s BprimeRH1300 -r default -j 3 -n 3 -y 16 -t medium -J up
+-s BprimeRH1300 -r default -j 3 -n 3 -y 16 -t medium -J down
+-s BprimeRH1300 -r default -j 3 -n 3 -y 16 -t medium -R up
+-s BprimeRH1300 -r default -j 3 -n 3 -y 16 -t medium -R down
+-s BprimeRH1300 -r default -j 3 -n 3 -y 16 -t medium -a up
+-s BprimeRH1300 -r default -j 3 -n 3 -y 16 -t medium -a down
+-s BprimeRH1300 -r default -j 3 -n 3 -y 16 -t medium -b up
+-s BprimeRH1300 -r default -j 3 -n 3 -y 16 -t medium -b down
+-s TprimeRH1600 -r default -j 3 -n 3 -y 16 -t medium
+-s TprimeRH1600 -r default -j 3 -n 3 -y 16 -t medium -J up
+-s TprimeRH1600 -r default -j 3 -n 3 -y 16 -t medium -J down
+-s TprimeRH1600 -r default -j 3 -n 3 -y 16 -t medium -R up
+-s TprimeRH1600 -r default -j 3 -n 3 -y 16 -t medium -R down
+-s TprimeRH1600 -r default -j 3 -n 3 -y 16 -t medium -a up
+-s TprimeRH1600 -r default -j 3 -n 3 -y 16 -t medium -a down
+-s TprimeRH1600 -r default -j 3 -n 3 -y 16 -t medium -b up
+-s TprimeRH1600 -r default -j 3 -n 3 -y 16 -t medium -b down
+-s BprimeLH1300 -r default -j 3 -n 3 -y 16 -t medium
+-s BprimeLH1300 -r default -j 3 -n 3 -y 16 -t medium -J up
+-s BprimeLH1300 -r default -j 3 -n 3 -y 16 -t medium -J down
+-s BprimeLH1300 -r default -j 3 -n 3 -y 16 -t medium -R up
+-s BprimeLH1300 -r default -j 3 -n 3 -y 16 -t medium -R down
+-s BprimeLH1300 -r default -j 3 -n 3 -y 16 -t medium -a up
+-s BprimeLH1300 -r default -j 3 -n 3 -y 16 -t medium -a down
+-s BprimeLH1300 -r default -j 3 -n 3 -y 16 -t medium -b up
+-s BprimeLH1300 -r default -j 3 -n 3 -y 16 -t medium -b down
+-s TprimeRH1800 -r default -j 3 -n 3 -y 16 -t medium
+-s TprimeRH1800 -r default -j 3 -n 3 -y 16 -t medium -J up
+-s TprimeRH1800 -r default -j 3 -n 3 -y 16 -t medium -J down
+-s TprimeRH1800 -r default -j 3 -n 3 -y 16 -t medium -R up
+-s TprimeRH1800 -r default -j 3 -n 3 -y 16 -t medium -R down
+-s TprimeRH1800 -r default -j 3 -n 3 -y 16 -t medium -a up
+-s TprimeRH1800 -r default -j 3 -n 3 -y 16 -t medium -a down
+-s TprimeRH1800 -r default -j 3 -n 3 -y 16 -t medium -b up
+-s TprimeRH1800 -r default -j 3 -n 3 -y 16 -t medium -b down
+-s TprimeLH1700 -r default -j 3 -n 3 -y 16 -t medium
+-s TprimeLH1700 -r default -j 3 -n 3 -y 16 -t medium -J up
+-s TprimeLH1700 -r default -j 3 -n 3 -y 16 -t medium -J down
+-s TprimeLH1700 -r default -j 3 -n 3 -y 16 -t medium -R up
+-s TprimeLH1700 -r default -j 3 -n 3 -y 16 -t medium -R down
+-s TprimeLH1700 -r default -j 3 -n 3 -y 16 -t medium -a up
+-s TprimeLH1700 -r default -j 3 -n 3 -y 16 -t medium -a down
+-s TprimeLH1700 -r default -j 3 -n 3 -y 16 -t medium -b up
+-s TprimeLH1700 -r default -j 3 -n 3 -y 16 -t medium -b down
+-s TprimeLH1800 -r default -j 3 -n 3 -y 18 -t medium
+-s TprimeLH1800 -r default -j 3 -n 3 -y 18 -t medium -J up
+-s TprimeLH1800 -r default -j 3 -n 3 -y 18 -t medium -J down
+-s TprimeLH1800 -r default -j 3 -n 3 -y 18 -t medium -R up
+-s TprimeLH1800 -r default -j 3 -n 3 -y 18 -t medium -R down
+-s TprimeLH1800 -r default -j 3 -n 3 -y 18 -t medium -a up
+-s TprimeLH1800 -r default -j 3 -n 3 -y 18 -t medium -a down
+-s TprimeLH1800 -r default -j 3 -n 3 -y 18 -t medium -b up
+-s TprimeLH1800 -r default -j 3 -n 3 -y 18 -t medium -b down
+-s TprimeLH1500 -r default -j 3 -n 3 -y 18 -t medium
+-s TprimeLH1500 -r default -j 3 -n 3 -y 18 -t medium -J up
+-s TprimeLH1500 -r default -j 3 -n 3 -y 18 -t medium -J down
+-s TprimeLH1500 -r default -j 3 -n 3 -y 18 -t medium -R up
+-s TprimeLH1500 -r default -j 3 -n 3 -y 18 -t medium -R down
+-s TprimeLH1500 -r default -j 3 -n 3 -y 18 -t medium -a up
+-s TprimeLH1500 -r default -j 3 -n 3 -y 18 -t medium -a down
+-s TprimeLH1500 -r default -j 3 -n 3 -y 18 -t medium -b up
+-s TprimeLH1500 -r default -j 3 -n 3 -y 18 -t medium -b down
+-s TprimeLH1600 -r default -j 3 -n 3 -y 18 -t medium
+-s TprimeLH1600 -r default -j 3 -n 3 -y 18 -t medium -J up
+-s TprimeLH1600 -r default -j 3 -n 3 -y 18 -t medium -J down
+-s TprimeLH1600 -r default -j 3 -n 3 -y 18 -t medium -R up
+-s TprimeLH1600 -r default -j 3 -n 3 -y 18 -t medium -R down
+-s TprimeLH1600 -r default -j 3 -n 3 -y 18 -t medium -a up
+-s TprimeLH1600 -r default -j 3 -n 3 -y 18 -t medium -a down
+-s TprimeLH1600 -r default -j 3 -n 3 -y 18 -t medium -b up
+-s TprimeLH1600 -r default -j 3 -n 3 -y 18 -t medium -b down
+-s TprimeLH1300 -r default -j 3 -n 3 -y 18 -t medium
+-s TprimeLH1300 -r default -j 3 -n 3 -y 18 -t medium -J up
+-s TprimeLH1300 -r default -j 3 -n 3 -y 18 -t medium -J down
+-s TprimeLH1300 -r default -j 3 -n 3 -y 18 -t medium -R up
+-s TprimeLH1300 -r default -j 3 -n 3 -y 18 -t medium -R down
+-s TprimeLH1300 -r default -j 3 -n 3 -y 18 -t medium -a up
+-s TprimeLH1300 -r default -j 3 -n 3 -y 18 -t medium -a down
+-s TprimeLH1300 -r default -j 3 -n 3 -y 18 -t medium -b up
+-s TprimeLH1300 -r default -j 3 -n 3 -y 18 -t medium -b down
+-s TprimeLH1200 -r default -j 3 -n 3 -y 18 -t medium
+-s TprimeLH1200 -r default -j 3 -n 3 -y 18 -t medium -J up
+-s TprimeLH1200 -r default -j 3 -n 3 -y 18 -t medium -J down
+-s TprimeLH1200 -r default -j 3 -n 3 -y 18 -t medium -R up
+-s TprimeLH1200 -r default -j 3 -n 3 -y 18 -t medium -R down
+-s TprimeLH1200 -r default -j 3 -n 3 -y 18 -t medium -a up
+-s TprimeLH1200 -r default -j 3 -n 3 -y 18 -t medium -a down
+-s TprimeLH1200 -r default -j 3 -n 3 -y 18 -t medium -b up
+-s TprimeLH1200 -r default -j 3 -n 3 -y 18 -t medium -b down
+-s TprimeLH1400 -r default -j 3 -n 3 -y 18 -t medium
+-s TprimeLH1400 -r default -j 3 -n 3 -y 18 -t medium -J up
+-s TprimeLH1400 -r default -j 3 -n 3 -y 18 -t medium -J down
+-s TprimeLH1400 -r default -j 3 -n 3 -y 18 -t medium -R up
+-s TprimeLH1400 -r default -j 3 -n 3 -y 18 -t medium -R down
+-s TprimeLH1400 -r default -j 3 -n 3 -y 18 -t medium -a up
+-s TprimeLH1400 -r default -j 3 -n 3 -y 18 -t medium -a down
+-s TprimeLH1400 -r default -j 3 -n 3 -y 18 -t medium -b up
+-s TprimeLH1400 -r default -j 3 -n 3 -y 18 -t medium -b down
+-s TprimeLH1700 -r default -j 3 -n 3 -y 18 -t medium
+-s TprimeLH1700 -r default -j 3 -n 3 -y 18 -t medium -J up
+-s TprimeLH1700 -r default -j 3 -n 3 -y 18 -t medium -J down
+-s TprimeLH1700 -r default -j 3 -n 3 -y 18 -t medium -R up
+-s TprimeLH1700 -r default -j 3 -n 3 -y 18 -t medium -R down
+-s TprimeLH1700 -r default -j 3 -n 3 -y 18 -t medium -a up
+-s TprimeLH1700 -r default -j 3 -n 3 -y 18 -t medium -a down
+-s TprimeLH1700 -r default -j 3 -n 3 -y 18 -t medium -b up
+-s TprimeLH1700 -r default -j 3 -n 3 -y 18 -t medium -b down

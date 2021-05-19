@@ -1,0 +1,324 @@
+-s signalLH3000 -r default -j 1 -n 1 -y 18 -t medium
+-s signalLH3000 -r default -j 1 -n 1 -y 18 -t medium -J up
+-s signalLH3000 -r default -j 1 -n 1 -y 18 -t medium -J down
+-s signalLH3000 -r default -j 1 -n 1 -y 18 -t medium -R up
+-s signalLH3000 -r default -j 1 -n 1 -y 18 -t medium -R down
+-s signalLH3000 -r default -j 1 -n 1 -y 18 -t medium -a up
+-s signalLH3000 -r default -j 1 -n 1 -y 18 -t medium -a down
+-s signalLH3000 -r default -j 1 -n 1 -y 18 -t medium -b up
+-s signalLH3000 -r default -j 1 -n 1 -y 18 -t medium -b down
+-s signalRH3000 -r default -j 1 -n 1 -y 18 -t medium
+-s signalRH3000 -r default -j 1 -n 1 -y 18 -t medium -J up
+-s signalRH3000 -r default -j 1 -n 1 -y 18 -t medium -J down
+-s signalRH3000 -r default -j 1 -n 1 -y 18 -t medium -R up
+-s signalRH3000 -r default -j 1 -n 1 -y 18 -t medium -R down
+-s signalRH3000 -r default -j 1 -n 1 -y 18 -t medium -a up
+-s signalRH3000 -r default -j 1 -n 1 -y 18 -t medium -a down
+-s signalRH3000 -r default -j 1 -n 1 -y 18 -t medium -b up
+-s signalRH3000 -r default -j 1 -n 1 -y 18 -t medium -b down
+-s signalLH2800 -r default -j 1 -n 1 -y 18 -t medium
+-s signalLH2800 -r default -j 1 -n 1 -y 18 -t medium -J up
+-s signalLH2800 -r default -j 1 -n 1 -y 18 -t medium -J down
+-s signalLH2800 -r default -j 1 -n 1 -y 18 -t medium -R up
+-s signalLH2800 -r default -j 1 -n 1 -y 18 -t medium -R down
+-s signalLH2800 -r default -j 1 -n 1 -y 18 -t medium -a up
+-s signalLH2800 -r default -j 1 -n 1 -y 18 -t medium -a down
+-s signalLH2800 -r default -j 1 -n 1 -y 18 -t medium -b up
+-s signalLH2800 -r default -j 1 -n 1 -y 18 -t medium -b down
+-s signalRH2800 -r default -j 1 -n 1 -y 18 -t medium
+-s signalRH2800 -r default -j 1 -n 1 -y 18 -t medium -J up
+-s signalRH2800 -r default -j 1 -n 1 -y 18 -t medium -J down
+-s signalRH2800 -r default -j 1 -n 1 -y 18 -t medium -R up
+-s signalRH2800 -r default -j 1 -n 1 -y 18 -t medium -R down
+-s signalRH2800 -r default -j 1 -n 1 -y 18 -t medium -a up
+-s signalRH2800 -r default -j 1 -n 1 -y 18 -t medium -a down
+-s signalRH2800 -r default -j 1 -n 1 -y 18 -t medium -b up
+-s signalRH2800 -r default -j 1 -n 1 -y 18 -t medium -b down
+-s signalLH3000 -r default -j 1 -n 1 -y 18 -t loose
+-s signalLH3000 -r default -j 1 -n 1 -y 18 -t loose -J up
+-s signalLH3000 -r default -j 1 -n 1 -y 18 -t loose -J down
+-s signalLH3000 -r default -j 1 -n 1 -y 18 -t loose -R up
+-s signalLH3000 -r default -j 1 -n 1 -y 18 -t loose -R down
+-s signalLH3000 -r default -j 1 -n 1 -y 18 -t loose -a up
+-s signalLH3000 -r default -j 1 -n 1 -y 18 -t loose -a down
+-s signalLH3000 -r default -j 1 -n 1 -y 18 -t loose -b up
+-s signalLH3000 -r default -j 1 -n 1 -y 18 -t loose -b down
+-s signalRH3000 -r default -j 1 -n 1 -y 18 -t loose
+-s signalRH3000 -r default -j 1 -n 1 -y 18 -t loose -J up
+-s signalRH3000 -r default -j 1 -n 1 -y 18 -t loose -J down
+-s signalRH3000 -r default -j 1 -n 1 -y 18 -t loose -R up
+-s signalRH3000 -r default -j 1 -n 1 -y 18 -t loose -R down
+-s signalRH3000 -r default -j 1 -n 1 -y 18 -t loose -a up
+-s signalRH3000 -r default -j 1 -n 1 -y 18 -t loose -a down
+-s signalRH3000 -r default -j 1 -n 1 -y 18 -t loose -b up
+-s signalRH3000 -r default -j 1 -n 1 -y 18 -t loose -b down
+-s signalLH2800 -r default -j 1 -n 1 -y 18 -t loose
+-s signalLH2800 -r default -j 1 -n 1 -y 18 -t loose -J up
+-s signalLH2800 -r default -j 1 -n 1 -y 18 -t loose -J down
+-s signalLH2800 -r default -j 1 -n 1 -y 18 -t loose -R up
+-s signalLH2800 -r default -j 1 -n 1 -y 18 -t loose -R down
+-s signalLH2800 -r default -j 1 -n 1 -y 18 -t loose -a up
+-s signalLH2800 -r default -j 1 -n 1 -y 18 -t loose -a down
+-s signalLH2800 -r default -j 1 -n 1 -y 18 -t loose -b up
+-s signalLH2800 -r default -j 1 -n 1 -y 18 -t loose -b down
+-s signalRH2800 -r default -j 1 -n 1 -y 18 -t loose
+-s signalRH2800 -r default -j 1 -n 1 -y 18 -t loose -J up
+-s signalRH2800 -r default -j 1 -n 1 -y 18 -t loose -J down
+-s signalRH2800 -r default -j 1 -n 1 -y 18 -t loose -R up
+-s signalRH2800 -r default -j 1 -n 1 -y 18 -t loose -R down
+-s signalRH2800 -r default -j 1 -n 1 -y 18 -t loose -a up
+-s signalRH2800 -r default -j 1 -n 1 -y 18 -t loose -a down
+-s signalRH2800 -r default -j 1 -n 1 -y 18 -t loose -b up
+-s signalRH2800 -r default -j 1 -n 1 -y 18 -t loose -b down
+-s signalLH3000 -r default -j 1 -n 1 -y 18 -t tight
+-s signalLH3000 -r default -j 1 -n 1 -y 18 -t tight -J up
+-s signalLH3000 -r default -j 1 -n 1 -y 18 -t tight -J down
+-s signalLH3000 -r default -j 1 -n 1 -y 18 -t tight -R up
+-s signalLH3000 -r default -j 1 -n 1 -y 18 -t tight -R down
+-s signalLH3000 -r default -j 1 -n 1 -y 18 -t tight -a up
+-s signalLH3000 -r default -j 1 -n 1 -y 18 -t tight -a down
+-s signalLH3000 -r default -j 1 -n 1 -y 18 -t tight -b up
+-s signalLH3000 -r default -j 1 -n 1 -y 18 -t tight -b down
+-s signalRH3000 -r default -j 1 -n 1 -y 18 -t tight
+-s signalRH3000 -r default -j 1 -n 1 -y 18 -t tight -J up
+-s signalRH3000 -r default -j 1 -n 1 -y 18 -t tight -J down
+-s signalRH3000 -r default -j 1 -n 1 -y 18 -t tight -R up
+-s signalRH3000 -r default -j 1 -n 1 -y 18 -t tight -R down
+-s signalRH3000 -r default -j 1 -n 1 -y 18 -t tight -a up
+-s signalRH3000 -r default -j 1 -n 1 -y 18 -t tight -a down
+-s signalRH3000 -r default -j 1 -n 1 -y 18 -t tight -b up
+-s signalRH3000 -r default -j 1 -n 1 -y 18 -t tight -b down
+-s signalLH2800 -r default -j 1 -n 1 -y 18 -t tight
+-s signalLH2800 -r default -j 1 -n 1 -y 18 -t tight -J up
+-s signalLH2800 -r default -j 1 -n 1 -y 18 -t tight -J down
+-s signalLH2800 -r default -j 1 -n 1 -y 18 -t tight -R up
+-s signalLH2800 -r default -j 1 -n 1 -y 18 -t tight -R down
+-s signalLH2800 -r default -j 1 -n 1 -y 18 -t tight -a up
+-s signalLH2800 -r default -j 1 -n 1 -y 18 -t tight -a down
+-s signalLH2800 -r default -j 1 -n 1 -y 18 -t tight -b up
+-s signalLH2800 -r default -j 1 -n 1 -y 18 -t tight -b down
+-s signalRH2800 -r default -j 1 -n 1 -y 18 -t tight
+-s signalRH2800 -r default -j 1 -n 1 -y 18 -t tight -J up
+-s signalRH2800 -r default -j 1 -n 1 -y 18 -t tight -J down
+-s signalRH2800 -r default -j 1 -n 1 -y 18 -t tight -R up
+-s signalRH2800 -r default -j 1 -n 1 -y 18 -t tight -R down
+-s signalRH2800 -r default -j 1 -n 1 -y 18 -t tight -a up
+-s signalRH2800 -r default -j 1 -n 1 -y 18 -t tight -a down
+-s signalRH2800 -r default -j 1 -n 1 -y 18 -t tight -b up
+-s signalRH2800 -r default -j 1 -n 1 -y 18 -t tight -b down
+-s signalLH3000 -r sideband -j 1 -n 1 -y 18 -t medium
+-s signalLH3000 -r sideband -j 1 -n 1 -y 18 -t medium -J up
+-s signalLH3000 -r sideband -j 1 -n 1 -y 18 -t medium -J down
+-s signalLH3000 -r sideband -j 1 -n 1 -y 18 -t medium -R up
+-s signalLH3000 -r sideband -j 1 -n 1 -y 18 -t medium -R down
+-s signalLH3000 -r sideband -j 1 -n 1 -y 18 -t medium -a up
+-s signalLH3000 -r sideband -j 1 -n 1 -y 18 -t medium -a down
+-s signalLH3000 -r sideband -j 1 -n 1 -y 18 -t medium -b up
+-s signalLH3000 -r sideband -j 1 -n 1 -y 18 -t medium -b down
+-s signalRH3000 -r sideband -j 1 -n 1 -y 18 -t medium
+-s signalRH3000 -r sideband -j 1 -n 1 -y 18 -t medium -J up
+-s signalRH3000 -r sideband -j 1 -n 1 -y 18 -t medium -J down
+-s signalRH3000 -r sideband -j 1 -n 1 -y 18 -t medium -R up
+-s signalRH3000 -r sideband -j 1 -n 1 -y 18 -t medium -R down
+-s signalRH3000 -r sideband -j 1 -n 1 -y 18 -t medium -a up
+-s signalRH3000 -r sideband -j 1 -n 1 -y 18 -t medium -a down
+-s signalRH3000 -r sideband -j 1 -n 1 -y 18 -t medium -b up
+-s signalRH3000 -r sideband -j 1 -n 1 -y 18 -t medium -b down
+-s signalLH2800 -r sideband -j 1 -n 1 -y 18 -t medium
+-s signalLH2800 -r sideband -j 1 -n 1 -y 18 -t medium -J up
+-s signalLH2800 -r sideband -j 1 -n 1 -y 18 -t medium -J down
+-s signalLH2800 -r sideband -j 1 -n 1 -y 18 -t medium -R up
+-s signalLH2800 -r sideband -j 1 -n 1 -y 18 -t medium -R down
+-s signalLH2800 -r sideband -j 1 -n 1 -y 18 -t medium -a up
+-s signalLH2800 -r sideband -j 1 -n 1 -y 18 -t medium -a down
+-s signalLH2800 -r sideband -j 1 -n 1 -y 18 -t medium -b up
+-s signalLH2800 -r sideband -j 1 -n 1 -y 18 -t medium -b down
+-s signalRH2800 -r sideband -j 1 -n 1 -y 18 -t medium
+-s signalRH2800 -r sideband -j 1 -n 1 -y 18 -t medium -J up
+-s signalRH2800 -r sideband -j 1 -n 1 -y 18 -t medium -J down
+-s signalRH2800 -r sideband -j 1 -n 1 -y 18 -t medium -R up
+-s signalRH2800 -r sideband -j 1 -n 1 -y 18 -t medium -R down
+-s signalRH2800 -r sideband -j 1 -n 1 -y 18 -t medium -a up
+-s signalRH2800 -r sideband -j 1 -n 1 -y 18 -t medium -a down
+-s signalRH2800 -r sideband -j 1 -n 1 -y 18 -t medium -b up
+-s signalRH2800 -r sideband -j 1 -n 1 -y 18 -t medium -b down
+-s signalLH3000 -r sideband -j 1 -n 1 -y 18 -t loose
+-s signalLH3000 -r sideband -j 1 -n 1 -y 18 -t loose -J up
+-s signalLH3000 -r sideband -j 1 -n 1 -y 18 -t loose -J down
+-s signalLH3000 -r sideband -j 1 -n 1 -y 18 -t loose -R up
+-s signalLH3000 -r sideband -j 1 -n 1 -y 18 -t loose -R down
+-s signalLH3000 -r sideband -j 1 -n 1 -y 18 -t loose -a up
+-s signalLH3000 -r sideband -j 1 -n 1 -y 18 -t loose -a down
+-s signalLH3000 -r sideband -j 1 -n 1 -y 18 -t loose -b up
+-s signalLH3000 -r sideband -j 1 -n 1 -y 18 -t loose -b down
+-s signalRH3000 -r sideband -j 1 -n 1 -y 18 -t loose
+-s signalRH3000 -r sideband -j 1 -n 1 -y 18 -t loose -J up
+-s signalRH3000 -r sideband -j 1 -n 1 -y 18 -t loose -J down
+-s signalRH3000 -r sideband -j 1 -n 1 -y 18 -t loose -R up
+-s signalRH3000 -r sideband -j 1 -n 1 -y 18 -t loose -R down
+-s signalRH3000 -r sideband -j 1 -n 1 -y 18 -t loose -a up
+-s signalRH3000 -r sideband -j 1 -n 1 -y 18 -t loose -a down
+-s signalRH3000 -r sideband -j 1 -n 1 -y 18 -t loose -b up
+-s signalRH3000 -r sideband -j 1 -n 1 -y 18 -t loose -b down
+-s signalLH2800 -r sideband -j 1 -n 1 -y 18 -t loose
+-s signalLH2800 -r sideband -j 1 -n 1 -y 18 -t loose -J up
+-s signalLH2800 -r sideband -j 1 -n 1 -y 18 -t loose -J down
+-s signalLH2800 -r sideband -j 1 -n 1 -y 18 -t loose -R up
+-s signalLH2800 -r sideband -j 1 -n 1 -y 18 -t loose -R down
+-s signalLH2800 -r sideband -j 1 -n 1 -y 18 -t loose -a up
+-s signalLH2800 -r sideband -j 1 -n 1 -y 18 -t loose -a down
+-s signalLH2800 -r sideband -j 1 -n 1 -y 18 -t loose -b up
+-s signalLH2800 -r sideband -j 1 -n 1 -y 18 -t loose -b down
+-s signalRH2800 -r sideband -j 1 -n 1 -y 18 -t loose
+-s signalRH2800 -r sideband -j 1 -n 1 -y 18 -t loose -J up
+-s signalRH2800 -r sideband -j 1 -n 1 -y 18 -t loose -J down
+-s signalRH2800 -r sideband -j 1 -n 1 -y 18 -t loose -R up
+-s signalRH2800 -r sideband -j 1 -n 1 -y 18 -t loose -R down
+-s signalRH2800 -r sideband -j 1 -n 1 -y 18 -t loose -a up
+-s signalRH2800 -r sideband -j 1 -n 1 -y 18 -t loose -a down
+-s signalRH2800 -r sideband -j 1 -n 1 -y 18 -t loose -b up
+-s signalRH2800 -r sideband -j 1 -n 1 -y 18 -t loose -b down
+-s signalLH3000 -r sideband -j 1 -n 1 -y 18 -t tight
+-s signalLH3000 -r sideband -j 1 -n 1 -y 18 -t tight -J up
+-s signalLH3000 -r sideband -j 1 -n 1 -y 18 -t tight -J down
+-s signalLH3000 -r sideband -j 1 -n 1 -y 18 -t tight -R up
+-s signalLH3000 -r sideband -j 1 -n 1 -y 18 -t tight -R down
+-s signalLH3000 -r sideband -j 1 -n 1 -y 18 -t tight -a up
+-s signalLH3000 -r sideband -j 1 -n 1 -y 18 -t tight -a down
+-s signalLH3000 -r sideband -j 1 -n 1 -y 18 -t tight -b up
+-s signalLH3000 -r sideband -j 1 -n 1 -y 18 -t tight -b down
+-s signalRH3000 -r sideband -j 1 -n 1 -y 18 -t tight
+-s signalRH3000 -r sideband -j 1 -n 1 -y 18 -t tight -J up
+-s signalRH3000 -r sideband -j 1 -n 1 -y 18 -t tight -J down
+-s signalRH3000 -r sideband -j 1 -n 1 -y 18 -t tight -R up
+-s signalRH3000 -r sideband -j 1 -n 1 -y 18 -t tight -R down
+-s signalRH3000 -r sideband -j 1 -n 1 -y 18 -t tight -a up
+-s signalRH3000 -r sideband -j 1 -n 1 -y 18 -t tight -a down
+-s signalRH3000 -r sideband -j 1 -n 1 -y 18 -t tight -b up
+-s signalRH3000 -r sideband -j 1 -n 1 -y 18 -t tight -b down
+-s signalLH2800 -r sideband -j 1 -n 1 -y 18 -t tight
+-s signalLH2800 -r sideband -j 1 -n 1 -y 18 -t tight -J up
+-s signalLH2800 -r sideband -j 1 -n 1 -y 18 -t tight -J down
+-s signalLH2800 -r sideband -j 1 -n 1 -y 18 -t tight -R up
+-s signalLH2800 -r sideband -j 1 -n 1 -y 18 -t tight -R down
+-s signalLH2800 -r sideband -j 1 -n 1 -y 18 -t tight -a up
+-s signalLH2800 -r sideband -j 1 -n 1 -y 18 -t tight -a down
+-s signalLH2800 -r sideband -j 1 -n 1 -y 18 -t tight -b up
+-s signalLH2800 -r sideband -j 1 -n 1 -y 18 -t tight -b down
+-s signalRH2800 -r sideband -j 1 -n 1 -y 18 -t tight
+-s signalRH2800 -r sideband -j 1 -n 1 -y 18 -t tight -J up
+-s signalRH2800 -r sideband -j 1 -n 1 -y 18 -t tight -J down
+-s signalRH2800 -r sideband -j 1 -n 1 -y 18 -t tight -R up
+-s signalRH2800 -r sideband -j 1 -n 1 -y 18 -t tight -R down
+-s signalRH2800 -r sideband -j 1 -n 1 -y 18 -t tight -a up
+-s signalRH2800 -r sideband -j 1 -n 1 -y 18 -t tight -a down
+-s signalRH2800 -r sideband -j 1 -n 1 -y 18 -t tight -b up
+-s signalRH2800 -r sideband -j 1 -n 1 -y 18 -t tight -b down
+-s signalLH3000 -r ttbar -j 1 -n 1 -y 18 -t medium
+-s signalLH3000 -r ttbar -j 1 -n 1 -y 18 -t medium -J up
+-s signalLH3000 -r ttbar -j 1 -n 1 -y 18 -t medium -J down
+-s signalLH3000 -r ttbar -j 1 -n 1 -y 18 -t medium -R up
+-s signalLH3000 -r ttbar -j 1 -n 1 -y 18 -t medium -R down
+-s signalLH3000 -r ttbar -j 1 -n 1 -y 18 -t medium -a up
+-s signalLH3000 -r ttbar -j 1 -n 1 -y 18 -t medium -a down
+-s signalLH3000 -r ttbar -j 1 -n 1 -y 18 -t medium -b up
+-s signalLH3000 -r ttbar -j 1 -n 1 -y 18 -t medium -b down
+-s signalRH3000 -r ttbar -j 1 -n 1 -y 18 -t medium
+-s signalRH3000 -r ttbar -j 1 -n 1 -y 18 -t medium -J up
+-s signalRH3000 -r ttbar -j 1 -n 1 -y 18 -t medium -J down
+-s signalRH3000 -r ttbar -j 1 -n 1 -y 18 -t medium -R up
+-s signalRH3000 -r ttbar -j 1 -n 1 -y 18 -t medium -R down
+-s signalRH3000 -r ttbar -j 1 -n 1 -y 18 -t medium -a up
+-s signalRH3000 -r ttbar -j 1 -n 1 -y 18 -t medium -a down
+-s signalRH3000 -r ttbar -j 1 -n 1 -y 18 -t medium -b up
+-s signalRH3000 -r ttbar -j 1 -n 1 -y 18 -t medium -b down
+-s signalLH2800 -r ttbar -j 1 -n 1 -y 18 -t medium
+-s signalLH2800 -r ttbar -j 1 -n 1 -y 18 -t medium -J up
+-s signalLH2800 -r ttbar -j 1 -n 1 -y 18 -t medium -J down
+-s signalLH2800 -r ttbar -j 1 -n 1 -y 18 -t medium -R up
+-s signalLH2800 -r ttbar -j 1 -n 1 -y 18 -t medium -R down
+-s signalLH2800 -r ttbar -j 1 -n 1 -y 18 -t medium -a up
+-s signalLH2800 -r ttbar -j 1 -n 1 -y 18 -t medium -a down
+-s signalLH2800 -r ttbar -j 1 -n 1 -y 18 -t medium -b up
+-s signalLH2800 -r ttbar -j 1 -n 1 -y 18 -t medium -b down
+-s signalRH2800 -r ttbar -j 1 -n 1 -y 18 -t medium
+-s signalRH2800 -r ttbar -j 1 -n 1 -y 18 -t medium -J up
+-s signalRH2800 -r ttbar -j 1 -n 1 -y 18 -t medium -J down
+-s signalRH2800 -r ttbar -j 1 -n 1 -y 18 -t medium -R up
+-s signalRH2800 -r ttbar -j 1 -n 1 -y 18 -t medium -R down
+-s signalRH2800 -r ttbar -j 1 -n 1 -y 18 -t medium -a up
+-s signalRH2800 -r ttbar -j 1 -n 1 -y 18 -t medium -a down
+-s signalRH2800 -r ttbar -j 1 -n 1 -y 18 -t medium -b up
+-s signalRH2800 -r ttbar -j 1 -n 1 -y 18 -t medium -b down
+-s signalLH3000 -r ttbar -j 1 -n 1 -y 18 -t loose
+-s signalLH3000 -r ttbar -j 1 -n 1 -y 18 -t loose -J up
+-s signalLH3000 -r ttbar -j 1 -n 1 -y 18 -t loose -J down
+-s signalLH3000 -r ttbar -j 1 -n 1 -y 18 -t loose -R up
+-s signalLH3000 -r ttbar -j 1 -n 1 -y 18 -t loose -R down
+-s signalLH3000 -r ttbar -j 1 -n 1 -y 18 -t loose -a up
+-s signalLH3000 -r ttbar -j 1 -n 1 -y 18 -t loose -a down
+-s signalLH3000 -r ttbar -j 1 -n 1 -y 18 -t loose -b up
+-s signalLH3000 -r ttbar -j 1 -n 1 -y 18 -t loose -b down
+-s signalRH3000 -r ttbar -j 1 -n 1 -y 18 -t loose
+-s signalRH3000 -r ttbar -j 1 -n 1 -y 18 -t loose -J up
+-s signalRH3000 -r ttbar -j 1 -n 1 -y 18 -t loose -J down
+-s signalRH3000 -r ttbar -j 1 -n 1 -y 18 -t loose -R up
+-s signalRH3000 -r ttbar -j 1 -n 1 -y 18 -t loose -R down
+-s signalRH3000 -r ttbar -j 1 -n 1 -y 18 -t loose -a up
+-s signalRH3000 -r ttbar -j 1 -n 1 -y 18 -t loose -a down
+-s signalRH3000 -r ttbar -j 1 -n 1 -y 18 -t loose -b up
+-s signalRH3000 -r ttbar -j 1 -n 1 -y 18 -t loose -b down
+-s signalLH2800 -r ttbar -j 1 -n 1 -y 18 -t loose
+-s signalLH2800 -r ttbar -j 1 -n 1 -y 18 -t loose -J up
+-s signalLH2800 -r ttbar -j 1 -n 1 -y 18 -t loose -J down
+-s signalLH2800 -r ttbar -j 1 -n 1 -y 18 -t loose -R up
+-s signalLH2800 -r ttbar -j 1 -n 1 -y 18 -t loose -R down
+-s signalLH2800 -r ttbar -j 1 -n 1 -y 18 -t loose -a up
+-s signalLH2800 -r ttbar -j 1 -n 1 -y 18 -t loose -a down
+-s signalLH2800 -r ttbar -j 1 -n 1 -y 18 -t loose -b up
+-s signalLH2800 -r ttbar -j 1 -n 1 -y 18 -t loose -b down
+-s signalRH2800 -r ttbar -j 1 -n 1 -y 18 -t loose
+-s signalRH2800 -r ttbar -j 1 -n 1 -y 18 -t loose -J up
+-s signalRH2800 -r ttbar -j 1 -n 1 -y 18 -t loose -J down
+-s signalRH2800 -r ttbar -j 1 -n 1 -y 18 -t loose -R up
+-s signalRH2800 -r ttbar -j 1 -n 1 -y 18 -t loose -R down
+-s signalRH2800 -r ttbar -j 1 -n 1 -y 18 -t loose -a up
+-s signalRH2800 -r ttbar -j 1 -n 1 -y 18 -t loose -a down
+-s signalRH2800 -r ttbar -j 1 -n 1 -y 18 -t loose -b up
+-s signalRH2800 -r ttbar -j 1 -n 1 -y 18 -t loose -b down
+-s signalLH3000 -r ttbar -j 1 -n 1 -y 18 -t tight
+-s signalLH3000 -r ttbar -j 1 -n 1 -y 18 -t tight -J up
+-s signalLH3000 -r ttbar -j 1 -n 1 -y 18 -t tight -J down
+-s signalLH3000 -r ttbar -j 1 -n 1 -y 18 -t tight -R up
+-s signalLH3000 -r ttbar -j 1 -n 1 -y 18 -t tight -R down
+-s signalLH3000 -r ttbar -j 1 -n 1 -y 18 -t tight -a up
+-s signalLH3000 -r ttbar -j 1 -n 1 -y 18 -t tight -a down
+-s signalLH3000 -r ttbar -j 1 -n 1 -y 18 -t tight -b up
+-s signalLH3000 -r ttbar -j 1 -n 1 -y 18 -t tight -b down
+-s signalRH3000 -r ttbar -j 1 -n 1 -y 18 -t tight
+-s signalRH3000 -r ttbar -j 1 -n 1 -y 18 -t tight -J up
+-s signalRH3000 -r ttbar -j 1 -n 1 -y 18 -t tight -J down
+-s signalRH3000 -r ttbar -j 1 -n 1 -y 18 -t tight -R up
+-s signalRH3000 -r ttbar -j 1 -n 1 -y 18 -t tight -R down
+-s signalRH3000 -r ttbar -j 1 -n 1 -y 18 -t tight -a up
+-s signalRH3000 -r ttbar -j 1 -n 1 -y 18 -t tight -a down
+-s signalRH3000 -r ttbar -j 1 -n 1 -y 18 -t tight -b up
+-s signalRH3000 -r ttbar -j 1 -n 1 -y 18 -t tight -b down
+-s signalLH2800 -r ttbar -j 1 -n 1 -y 18 -t tight
+-s signalLH2800 -r ttbar -j 1 -n 1 -y 18 -t tight -J up
+-s signalLH2800 -r ttbar -j 1 -n 1 -y 18 -t tight -J down
+-s signalLH2800 -r ttbar -j 1 -n 1 -y 18 -t tight -R up
+-s signalLH2800 -r ttbar -j 1 -n 1 -y 18 -t tight -R down
+-s signalLH2800 -r ttbar -j 1 -n 1 -y 18 -t tight -a up
+-s signalLH2800 -r ttbar -j 1 -n 1 -y 18 -t tight -a down
+-s signalLH2800 -r ttbar -j 1 -n 1 -y 18 -t tight -b up
+-s signalLH2800 -r ttbar -j 1 -n 1 -y 18 -t tight -b down
+-s signalRH2800 -r ttbar -j 1 -n 1 -y 18 -t tight
+-s signalRH2800 -r ttbar -j 1 -n 1 -y 18 -t tight -J up
+-s signalRH2800 -r ttbar -j 1 -n 1 -y 18 -t tight -J down
+-s signalRH2800 -r ttbar -j 1 -n 1 -y 18 -t tight -R up
+-s signalRH2800 -r ttbar -j 1 -n 1 -y 18 -t tight -R down
+-s signalRH2800 -r ttbar -j 1 -n 1 -y 18 -t tight -a up
+-s signalRH2800 -r ttbar -j 1 -n 1 -y 18 -t tight -a down
+-s signalRH2800 -r ttbar -j 1 -n 1 -y 18 -t tight -b up
+-s signalRH2800 -r ttbar -j 1 -n 1 -y 18 -t tight -b down
